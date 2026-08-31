@@ -1,0 +1,904 @@
+import React, { useState, useEffect } from 'react'
+import { 
+  ArrowLeft, 
+  ArrowRight, 
+  CheckCircle2, 
+  Cpu, 
+  Layers, 
+  BarChart3, 
+  ShieldCheck, 
+  Compass, 
+  Send,
+  Sparkles,
+  ChevronRight
+} from 'lucide-react'
+
+export default function Solutions({ setActiveTab }) {
+  const [selectedDomain, setSelectedDomain] = useState(null)
+
+  const cards = [
+    {
+      id: 'daas',
+      title: "Operations DaaS",
+      subtitle: "TerrAqua UAV",
+      desc: "Drone as a Service. We provide professional aerial data acquisition, deploying advanced UAVs for high-resolution mapping and environmental surveillance.",
+      img: "https://images.unsplash.com/photo-1527068593452-f67fce51a77d?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 'dpaas',
+      title: "Analytics DPaaS",
+      subtitle: "TerrAqua UAV",
+      desc: "Data Processing as a Service. Transform raw aerial footage into actionable insights using our advanced multispectral and LiDAR processing pipelines.",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 'saas',
+      title: "Intelligence SaaS",
+      subtitle: "TerrAqua UAV",
+      desc: "Software as a Service. Access our cloud platform for real-time fleet management, geospatial archiving, and AI-driven precision agriculture reports.",
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
+    }
+  ]
+
+  const domainApplications = [
+    {
+      id: 'natural-resources',
+      title: "Natural Resource Management",
+      subtitle: "Ecological Auditing & Resource Preservation",
+      desc: "Comprehensive aerial remote sensing and high-resolution mapping to monitor forests, water bodies, mineral reserves, and ecological habitats.",
+      img: "https://static.wixstatic.com/media/9a5348_e81facd97b7f43bea6b80a3251322a7b~mv2.jpg",
+      heroBadge: "ECOLOGICAL & MINING INTELLIGENCE",
+      overview: "TerrAqua UAV delivers military-grade aerial surveys and multispectral remote sensing to track, quantify, and preserve vital natural assets. From vast forest reserves and water catchment basins to commercial mining quarries, our UAV fleet provides millimeter-level spatial fidelity and volumetric accuracy.",
+      keyCapabilities: [
+        {
+          title: "Forest Canopy & Biomass Estimation",
+          desc: "Multi-layered LiDAR scanning through dense foliage to map ground terrain, quantify tree density, canopy height models (CHM), and estimate above-ground biomass."
+        },
+        {
+          title: "Water Body Dynamics & Depth Mapping",
+          desc: "Bathymetric and multispectral spectral index analysis for reservoir siltation monitoring, algal bloom detection, and water volume estimation."
+        },
+        {
+          title: "Mining & Quarry Volumetric Audits",
+          desc: "Autonomous 3D cut-and-fill volumetric calculation for open-cast mines, aggregate stockpiles, and excavation boundary tracking with sub-centimeter error margins."
+        },
+        {
+          title: "Ecological Habitat & Wildlife Protection",
+          desc: "Thermal night-vision patrols and AI species recognition to curb illegal poaching, monitor wildlife migration corridors, and track habitat encroachment."
+        }
+      ],
+      payloads: ["Airborne LiDAR Scanners (Velodyne / Livox)", "45MP Full-Frame Photogrammetry RGB", "6-Band Multispectral Sensors", "Radiometric Thermal Vision"],
+      deliverables: ["High-Density 3D Point Clouds (.LAS / .LAZ)", "Digital Surface & Elevation Models (DSM / DEM)", "Volumetric Stockpile Variance Reports (CSV/PDF)", "Classified Land Use / Land Cover (LULC) Rasters"],
+      stats: [
+        { label: "Survey Speed vs Ground Crew", value: "10x Faster" },
+        { label: "Volumetric Measurement Accuracy", value: "99.2%" },
+        { label: "Max Single-Day Area Coverage", value: "2,500+ Ha" }
+      ]
+    },
+    {
+      id: 'disaster-risk',
+      title: "Disaster Risk Reduction",
+      subtitle: "Emergency Response & Crisis Mitigation",
+      desc: "Rapid response UAV deployment for real-time flood monitoring, landslide vulnerability analysis, emergency route mapping, and disaster recovery.",
+      img: "https://static.wixstatic.com/media/9a5348_9e04fb1b4d1442fab6b3fe0eb0150f41~mv2.png",
+      heroBadge: "RAPID EMERGENCY DEPLOYMENT",
+      overview: "When natural disasters strike, ground access is compromised. TerrAqua UAV's emergency rapid-deployment unit provides first responders, disaster management authorities, and civil administrations with real-time situational intelligence, flood inundation modeling, and post-disaster damage assessments.",
+      keyCapabilities: [
+        {
+          title: "Real-Time Flood Inundation & Velocity Modeling",
+          desc: "Continuous aerial monitoring during active flood events to trace flood boundaries, calculate water flow velocities, and predict breach risks in embankments."
+        },
+        {
+          title: "Landslide Vulnerability & Slope Stability",
+          desc: "High-precision digital elevation modeling and slope-aspect computation in hilly terrains to identify active displacement zones and early warning landslide triggers."
+        },
+        {
+          title: "Post-Disaster Structural Damage Assessment",
+          desc: "Rapid orthomosaic generation to audit collapsed infrastructure, compromised bridges, destroyed road links, and power line severances for disaster relief funding."
+        },
+        {
+          title: "Thermal Search & Rescue Guidance",
+          desc: "Deploying high-altitude radiometric thermal UAVs to pinpoint trapped survivors through smoke, debris, or night conditions, relaying GPS coordinates directly to rescue squads."
+        }
+      ],
+      payloads: ["Dual Thermal FLIR Boson 640 + RGB 4K", "Long-Range Hybrid VTOL (2.5 Hr Endurance)", "High-Lumen Night Illumination Spotlight", "Emergency Drop-Payload Delivery Module"],
+      deliverables: ["Live Encrypted Video Feed to Command Center", "Rapid Turnaround Orthophoto Maps (< 2 hrs)", "Emergency Evacuation Route Accessibility Maps", "Disaster Compensation & Structural Damage Audits"],
+      stats: [
+        { label: "Deployment Readiness Time", value: "< 15 Mins" },
+        { label: "Live Telemetry & Video Range", value: "15+ km" },
+        { label: "Survivor Detection Reliability", value: "99.8%" }
+      ]
+    },
+    {
+      id: 'agriculture',
+      title: "Agriculture & Precision Farming",
+      subtitle: "Multispectral Health Analytics & Smart Crop Scouting",
+      desc: "Precision crop health analytics, multispectral plant vigor metrics (NDVI/NDRE), automated variable rate spraying, and yield forecast reporting.",
+      img: "https://static.wixstatic.com/media/9a5348_4ec3d406bf184a5c95c7c95938e0d3d3~mv2.png",
+      heroBadge: "AGRITECH & PRECISION FARMING",
+      overview: "Empowering modern agriculture with aerial artificial intelligence and multispectral agronomy. Our UAV solutions detect plant stress 10 to 14 days before visible to the naked human eye, enabling surgical fertilizer application, automated crop spraying, and verified yield insurance assessments.",
+      keyCapabilities: [
+        {
+          title: "NDVI / NDRE Chlorophyll & Vigor Analytics",
+          desc: "Compute multi-band spectral reflectance indexes to gauge chlorophyll absorption, nitrogen deficiency, and micro-nutrient requirements across micro-zones."
+        },
+        {
+          title: "Autonomous Variable Rate Drone Spraying",
+          desc: "Convert spectral disease prescription maps into autonomous UAV flight paths, spraying crop protection chemicals only on infested pockets with zero soil compaction."
+        },
+        {
+          title: "Weed & Pest Hotspot Detection",
+          desc: "AI edge vision models to classify invasive weed clusters and localized fungal outbreaks before they spread across acreage."
+        },
+        {
+          title: "Yield Forecasting & Insurance Claim Verification",
+          desc: "High-accuracy crop stand count, plant height metrics, and crop lodge assessments to settle crop insurance claims transparently with indisputable GIS proof."
+        }
+      ],
+      payloads: ["MicaSense RedEdge-P Multispectral", "30-Liter Autonomous Agri-Spray Payload", "Centimeter-Level RTK GNSS Positioning", "Thermal Soil Moisture Scanner"],
+      deliverables: ["Calibrated NDVI, NDRE, GNDVI Index Maps", "Variable Rate Prescription Shapefiles (.SHP)", "Automated Stand Count & Canopy Cover Reports", "Crop Damage Assessment Dossier"],
+      stats: [
+        { label: "Chemical & Fertilizer Savings", value: "Up to 35%" },
+        { label: "Yield Increase Optimization", value: "+18-25%" },
+        { label: "Field Spraying Speed", value: "25 Acres/Hr" }
+      ]
+    },
+    {
+      id: 'environmental-conservation',
+      title: "Environmental Conservation",
+      subtitle: "Carbon Sequestration & Ecosystem Protection",
+      desc: "Ecological auditing, carbon stock quantification, wildlife tracking, and environmental compliance monitoring using multi-sensor UAV payloads.",
+      img: "https://static.wixstatic.com/media/9a5348_0149884df72441a89574b1c908490b12~mv2.jpg",
+      heroBadge: "ESG & CLIMATE RESTORATION",
+      overview: "Actionable environmental intelligence for governments, global conservation organizations, and green ESG enterprises. TerrAqua UAV creates immutable geospatial baselines to track afforestation progress, measure carbon sequestration, and enforce ecological compliance.",
+      keyCapabilities: [
+        {
+          title: "Carbon Stock & Above-Ground Biomass Audits",
+          desc: "Combine LiDAR and multispectral indices to measure tree trunk girth, crown diameter, and calculate verifiable carbon credit certification metrics."
+        },
+        {
+          title: "Wetland, Mangrove & Coastal Restoration",
+          desc: "Track shoreline erosion dynamics, mangrove plantation survival rates, and wetland hydrologic connectivity over multi-temporal flight missions."
+        },
+        {
+          title: "Illegal Deforestation & Encroachment Patrols",
+          desc: "Continuous autonomous perimeter surveillance across national parks, generating instant alerts when illegal logging or land grabbing occurs."
+        },
+        {
+          title: "EIA (Environmental Impact Assessment) Baseline",
+          desc: "Pre-construction and post-project ecological impact assessments for green energy developments, mining reclamation, and industrial corridors."
+        }
+      ],
+      payloads: ["Dual-Frequency Airborne LiDAR", "High-Resolution 60MP Photogrammetry", "Hyperspectral Vegetation Sensors", "Autonomous Solar-Powered Charging Docks"],
+      deliverables: ["Verifiable Carbon Credit Sequestration Datasets", "Temporal Deforestation & Growth Heatmaps", "High-Precision 3D Terrain & Watershed Models", "Official EIA Environmental Compliance Reports"],
+      stats: [
+        { label: "Carbon Model Accuracy", value: "96.4%" },
+        { label: "Canopy Penetration Rate", value: "85%+" },
+        { label: "Conservation ROI Boost", value: "4x Efficiency" }
+      ]
+    },
+    {
+      id: 'infrastructure-urban',
+      title: "Infrastructure & Urban Planning",
+      subtitle: "Sub-Centimeter 3D Digital Twins & Surveying",
+      desc: "Sub-centimeter accurate 3D point clouds, digital twin generation, and automated elevation monitoring for smart city development and civil engineering.",
+      img: "https://static.wixstatic.com/media/9a5348_fba34b46951c4d09a53fcf0cc73e2930~mv2.jpg",
+      heroBadge: "SMART CITIES & CIVIL ENGINEERING",
+      overview: "Revolutionizing modern civil infrastructure, highways, railways, and municipal urban design with millimetric 3D aerial modeling. We convert complex physical topography into interactive BIM/CAD compatible digital twins with survey-grade absolute accuracy.",
+      keyCapabilities: [
+        {
+          title: "Highways, Bridges & Railway Corridor Surveys",
+          desc: "Linear asset corridor mapping covering hundreds of kilometers, producing precise topographic profiles, earthwork calculations, and clash detection."
+        },
+        {
+          title: "Smart City Digital Twins & 3D Reality Mesh",
+          desc: "Photorealistic 3D city models for municipal property tax assessment, urban flood simulation, zoning compliance, and utility asset management."
+        },
+        {
+          title: "Structural Health & Concrete Crack Inspection",
+          desc: "Ultra-close high-resolution drone inspections of tall towers, bridges, wind turbines, and dams without requiring risky rope-access human teams."
+        },
+        {
+          title: "As-Built Construction Progress Tracking",
+          desc: "Weekly or bi-weekly drone flyovers compared against original CAD/BIM schematics to flag schedule deviations and subcontractor billing variances."
+        }
+      ],
+      payloads: ["Phase One 100MP Metric Camera", "RIEGL Survey-Grade UAV LiDAR", "PPK/RTK Dual-Frequency GPS Modules", "30x Optical Zoom Visual Payloads"],
+      deliverables: ["Georeferenced 3D Reality Mesh (.OBJ / .FBX / .3MX)", "CAD Contour Drawings & Spot Elevation Maps (.DWG / .DXF)", "Digital Terrain Models (DTM) & Cross-Sections", "AI Concrete Defect & Crack Classification Reports"],
+      stats: [
+        { label: "Survey Turnaround vs Total Station", value: "80% Faster" },
+        { label: "Absolute Spatial Accuracy", value: "< 1.5 cm" },
+        { label: "Linear Corridor Mapping Range", value: "50 km/Day" }
+      ]
+    },
+    {
+      id: 'climate-intelligence',
+      title: "Climate Intelligence & Thermal GIS",
+      subtitle: "Microclimate Modeling & Emission Tracking",
+      desc: "Advanced climate data modeling, thermal emission tracking, and microclimate analytics powered by AI and aerial GIS integration.",
+      img: "https://static.wixstatic.com/media/9a5348_dd9b73c686c149088a7b74bab43fa218~mv2.jpg",
+      heroBadge: "CLIMATE ACTION & GEO-ANALYTICS",
+      overview: "Understanding microclimate volatility requires hyper-localized spatial observations. TerrAqua UAV leverages airborne thermal radiometry, atmospheric sniffer payloads, and predictive GIS models to quantify urban heat islands, industrial emissions, and climate risks.",
+      keyCapabilities: [
+        {
+          title: "Urban Heat Island (UHI) Thermal Mapping",
+          desc: "Calibrated aerial surface temperature mapping across urban settlements to detect overheating concrete canyons and design targeted green-roof cooling policies."
+        },
+        {
+          title: "Industrial Greenhouse Gas & Methane Tracking",
+          desc: "Mounting optical gas imaging (OGI) sensors on UAVs to pinpoint fugitive methane leaks, pipeline emissions, and landfill bio-gas releases."
+        },
+        {
+          title: "Coastal Storm Surge & Sea-Level Modeling",
+          desc: "Simulating extreme weather inundation scenarios based on centimeter-precision coastal elevation models and tidal wave hydrodynamics."
+        },
+        {
+          title: "Renewable Energy Solar & Wind Farm Optimization",
+          desc: "Thermal anomaly inspection across gigawatt solar farms to identify defective photovoltaic cells and bypass diode failures in minutes."
+        }
+      ],
+      payloads: ["Radiometric Thermal FLIR Duo Pro R", "Optical Gas Imaging (OGI) Sensor Payload", "Air Quality PM2.5 / PM10 / VOC Sniffers", "High-Resolution Multispectral Sensors"],
+      deliverables: ["Calibrated Surface Temperature GeoTIFFs", "Fugitive Gas Plume Concentration Heatmaps", "Solar Farm Thermal Defect Audit Reports (IEC Compliant)", "Microclimate Vulnerability Index Rasters"],
+      stats: [
+        { label: "Thermal Sensitivity Precision", value: "< 0.03°C" },
+        { label: "Solar Inspection Speed", value: "100 MW / Day" },
+        { label: "Gas Leak Detection Accuracy", value: "99.1%" }
+      ]
+    }
+  ]
+
+  const handleOpenDomain = (item) => {
+    setSelectedDomain(item)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleBack = () => {
+    setSelectedDomain(null)
+    window.scrollTo({ top: 400, behavior: 'smooth' })
+  }
+
+  // If a domain application is selected, render the dedicated Full-Page View
+  if (selectedDomain) {
+    return (
+      <div style={{ backgroundColor: '#050F24', minHeight: '100vh', color: '#FFFFFF' }}>
+        {/* TOP NAVIGATION BAR */}
+        <div style={{
+          position: 'sticky',
+          top: '72px',
+          zIndex: 90,
+          background: 'rgba(10, 29, 61, 0.95)',
+          backdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(0, 181, 226, 0.2)',
+          padding: '14px 24px'
+        }}>
+          <div style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}>
+            <button
+              onClick={handleBack}
+              style={{
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: '#FFFFFF',
+                padding: '8px 18px',
+                borderRadius: '8px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                cursor: 'pointer',
+                fontWeight: '600',
+                fontSize: '0.9rem',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#FF7A29'
+                e.currentTarget.style.borderColor = '#FF7A29'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              <ArrowLeft size={18} /> Back to Solutions
+            </button>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#8BADC1' }}>
+              <span>Solutions</span>
+              <ChevronRight size={14} />
+              <span style={{ color: '#00B5E2', fontWeight: 600 }}>{selectedDomain.title}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* HERO SECTION */}
+        <section style={{
+          position: 'relative',
+          padding: '70px 24px 80px',
+          overflow: 'hidden',
+          background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
+          borderBottom: '1px solid rgba(0, 181, 226, 0.15)'
+        }}>
+          <div style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '48px',
+            alignItems: 'center'
+          }}>
+            <div>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 16px',
+                borderRadius: '20px',
+                background: 'rgba(255, 122, 41, 0.15)',
+                border: '1px solid rgba(255, 122, 41, 0.4)',
+                color: '#FF7A29',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                marginBottom: '20px',
+                letterSpacing: '0.05em'
+              }}>
+                <Sparkles size={14} /> {selectedDomain.heroBadge}
+              </div>
+
+              <h1 style={{
+                fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                lineHeight: 1.15,
+                marginBottom: '16px'
+              }}>
+                {selectedDomain.title}
+              </h1>
+
+              <p style={{
+                fontSize: '1.2rem',
+                color: '#00B5E2',
+                fontWeight: 600,
+                marginBottom: '20px'
+              }}>
+                {selectedDomain.subtitle}
+              </p>
+
+              <p style={{
+                fontSize: '1.05rem',
+                color: '#CBD5E1',
+                lineHeight: 1.7,
+                marginBottom: '32px'
+              }}>
+                {selectedDomain.overview}
+              </p>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                <button
+                  onClick={() => {
+                    if (setActiveTab) setActiveTab('contact')
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }}
+                  className="btn-primary"
+                  style={{
+                    padding: '14px 28px',
+                    fontSize: '1rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                  }}
+                >
+                  Inquire for Project <Send size={18} />
+                </button>
+                <button
+                  onClick={handleBack}
+                  className="btn-slate"
+                  style={{
+                    padding: '14px 24px',
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  Explore Other Domains
+                </button>
+              </div>
+            </div>
+
+            {/* HERO IMAGE CONTAINER */}
+            <div style={{
+              position: 'relative',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6)',
+              border: '1px solid rgba(0, 181, 226, 0.3)',
+              height: '380px'
+            }}>
+              <img
+                src={selectedDomain.img}
+                alt={selectedDomain.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(180deg, transparent 40%, rgba(5, 15, 36, 0.85) 100%)'
+              }} />
+            </div>
+          </div>
+        </section>
+
+        {/* KEY METRICS STATS BAR */}
+        <section style={{
+          backgroundColor: '#07152E',
+          borderBottom: '1px solid rgba(234, 239, 245, 0.1)',
+          padding: '36px 24px'
+        }}>
+          <div style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '24px'
+          }}>
+            {selectedDomain.stats.map((stat, i) => (
+              <div
+                key={i}
+                style={{
+                  background: 'rgba(18, 50, 77, 0.4)',
+                  border: '1px solid rgba(0, 181, 226, 0.15)',
+                  borderRadius: '16px',
+                  padding: '20px 24px',
+                  textAlign: 'center'
+                }}
+              >
+                <div style={{
+                  fontSize: '2rem',
+                  fontWeight: 800,
+                  color: '#FF7A29',
+                  marginBottom: '6px'
+                }}>
+                  {stat.value}
+                </div>
+                <div style={{ fontSize: '0.9rem', color: '#94A3B8', fontWeight: 500 }}>
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CORE CAPABILITIES SECTION */}
+        <section style={{ padding: '80px 24px', backgroundColor: '#050F24' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+              <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '14px' }}>
+                Key <span style={{ color: '#00B5E2' }}>Technical Capabilities</span>
+              </h2>
+              <p style={{ color: '#8BADC1', maxWidth: '700px', margin: '0 auto', fontSize: '1.05rem' }}>
+                End-to-end remote sensing capabilities customized specifically for {selectedDomain.title.toLowerCase()} missions.
+              </p>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '28px'
+            }}>
+              {selectedDomain.keyCapabilities.map((cap, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    background: 'rgba(18, 50, 77, 0.45)',
+                    border: '1px solid rgba(0, 181, 226, 0.2)',
+                    borderRadius: '20px',
+                    padding: '32px 28px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#FF7A29'
+                    e.currentTarget.style.transform = 'translateY(-4px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.2)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <div style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 122, 41, 0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FF7A29',
+                    marginBottom: '20px'
+                  }}>
+                    <Layers size={24} />
+                  </div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '12px' }}>
+                    {cap.title}
+                  </h3>
+                  <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: '1.65' }}>
+                    {cap.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PAYLOADS & DELIVERABLES DUAL GRID */}
+        <section style={{ padding: '70px 24px 90px', backgroundColor: '#07152E', borderTop: '1px solid rgba(234, 239, 245, 0.08)' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '36px'
+            }}>
+              {/* SENSORS & PAYLOADS */}
+              <div style={{
+                background: 'rgba(10, 29, 61, 0.6)',
+                border: '1px solid rgba(0, 181, 226, 0.25)',
+                borderRadius: '24px',
+                padding: '36px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                  <div style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '12px',
+                    background: 'rgba(0, 181, 226, 0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#00B5E2'
+                  }}>
+                    <Cpu size={24} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF' }}>Sensor Payloads</h3>
+                    <span style={{ fontSize: '0.85rem', color: '#8BADC1' }}>Hardware & Sensor Integration</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  {selectedDomain.payloads.map((payload, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <CheckCircle2 size={18} color="#00B5E2" style={{ flexShrink: 0 }} />
+                      <span style={{ color: '#E2E8F0', fontSize: '0.98rem' }}>{payload}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SAMPLE DELIVERABLES */}
+              <div style={{
+                background: 'rgba(10, 29, 61, 0.6)',
+                border: '1px solid rgba(255, 122, 41, 0.25)',
+                borderRadius: '24px',
+                padding: '36px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                  <div style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 122, 41, 0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FF7A29'
+                  }}>
+                    <BarChart3 size={24} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF' }}>Standard Deliverables</h3>
+                    <span style={{ fontSize: '0.85rem', color: '#8BADC1' }}>Industry-standard export formats</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  {selectedDomain.deliverables.map((deliv, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <ShieldCheck size={18} color="#FF7A29" style={{ flexShrink: 0 }} />
+                      <span style={{ color: '#E2E8F0', fontSize: '0.98rem' }}>{deliv}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* BOTTOM CALL TO ACTION */}
+            <div style={{
+              marginTop: '56px',
+              background: 'linear-gradient(135deg, rgba(255, 122, 41, 0.15) 0%, rgba(0, 181, 226, 0.15) 100%)',
+              border: '1px solid rgba(255, 122, 41, 0.3)',
+              borderRadius: '24px',
+              padding: '44px 36px',
+              textAlign: 'center'
+            }}>
+              <h3 style={{ fontSize: '1.9rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '14px' }}>
+                Need a Custom UAV Deployment for <span style={{ color: '#FF7A29' }}>{selectedDomain.title}</span>?
+              </h3>
+              <p style={{ color: '#CBD5E1', maxWidth: '680px', margin: '0 auto 28px', fontSize: '1.05rem', lineHeight: '1.6' }}>
+                Our team of certified drone pilots, GIS analysts, and remote sensing engineers is ready to execute your requirements anywhere across the country.
+              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                <button
+                  onClick={() => {
+                    if (setActiveTab) setActiveTab('contact')
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }}
+                  className="btn-primary"
+                  style={{
+                    padding: '14px 36px',
+                    fontSize: '1rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                  }}
+                >
+                  Contact Our GIS Experts <ArrowRight size={18} />
+                </button>
+                <button
+                  onClick={handleBack}
+                  className="btn-slate"
+                  style={{ padding: '14px 28px' }}
+                >
+                  Browse Other Solutions
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    )
+  }
+
+  // DEFAULT VIEW: Grid of Solutions + Domain Applications
+  return (
+    <div>
+      {/* SECTION 1: BLACK HEADER */}
+      <section className="section-black" style={{ padding: '80px 24px 60px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <h1 style={{ fontSize: '2.8rem', color: '#FFF', marginBottom: '16px' }}>
+            <span style={{ color: '#FF7A29' }}>End to end</span> Expertise
+          </h1>
+          <p style={{ color: '#CBD5E1', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem' }}>
+            Delivering enterprise-grade aerial remote sensing solutions backed by academic rigor and cutting-edge sensor technology.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 2: ADVANCED SOLUTIONS GRID */}
+      <section className="section-slate" style={{ padding: '20px 24px 80px', borderBottom: '1px solid rgba(255, 106, 0, 0.3)' }}>
+        <style>{`
+          .advanced-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
+            background: #FFFFFF;
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(10, 29, 61, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+          }
+          
+          .advanced-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 181, 226, 0.15);
+            border-color: #00B5E2;
+          }
+
+          .advanced-card .card-img-wrapper {
+            height: 260px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+          }
+
+          .advanced-card .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .advanced-card:hover .card-img {
+            transform: scale(1.12);
+          }
+
+          .advanced-card .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 160px;
+            background: linear-gradient(to bottom, transparent, #FFFFFF);
+            pointer-events: none;
+          }
+        `}</style>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '32px'
+          }}>
+            {cards.map((card, idx) => (
+              <div key={idx} className="advanced-card">
+                <div className="card-img-wrapper">
+                  <img 
+                    src={card.img} 
+                    alt={card.title} 
+                    className="card-img"
+                  />
+                  <div className="img-overlay" />
+                </div>
+                <div style={{ padding: '0 32px 36px 32px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2 }}>
+                  <h3 style={{ fontSize: '1.7rem', color: '#0F172A', marginBottom: '16px', fontWeight: '700', marginTop: '16px' }}>{card.title}</h3>
+                  <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '36px', flex: 1 }}>
+                    {card.desc}
+                  </p>
+
+                  <button
+                    onClick={() => {
+                      if (setActiveTab) setActiveTab('contact')
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }}
+                    className="btn-slate"
+                    style={{
+                      padding: '14px 24px',
+                      fontSize: '0.95rem',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '10px',
+                      cursor: 'pointer',
+                      marginTop: 'auto'
+                    }}
+                  >
+                    Contact Now <ArrowRight size={18} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: DOMAIN APPLICATIONS (STAGGERED 2-COLUMN LAYOUT) */}
+      <section className="section-light" style={{ padding: '80px 0 0 0', backgroundColor: '#FAFAFA' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px 50px 24px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '2.4rem', color: '#0F172A', marginBottom: '16px', fontWeight: '700' }}>
+            Key Application <span style={{ color: '#FF7A29' }}>Domains</span>
+          </h2>
+          <p style={{ color: '#475569', maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
+            Delivering tailor-made aerial remote sensing, multispectral mapping, and geospatial intelligence across diverse industries.
+          </p>
+        </div>
+
+        <style>{`
+          .checker-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .checker-row {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            min-height: 340px;
+          }
+          .checker-col-img {
+            flex: 1 1 50%;
+            min-width: 320px;
+            height: 340px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+          }
+          .checker-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .checker-row:hover .checker-img {
+            transform: scale(1.05);
+          }
+          .checker-col-text {
+            flex: 1 1 50%;
+            min-width: 320px;
+            padding: 48px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #F8FAFC;
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            box-sizing: border-box;
+          }
+          .checker-row.reverse {
+            flex-direction: row-reverse;
+          }
+          @media (max-width: 768px) {
+            .checker-row, .checker-row.reverse {
+              flex-direction: column;
+            }
+            .checker-col-text {
+              padding: 32px 24px;
+            }
+          }
+          .know-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #FF7A29;
+            font-weight: 700;
+            font-size: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: gap 0.2s ease, color 0.2s ease;
+          }
+          .know-more-btn:hover {
+            color: #00B5E2;
+            gap: 12px;
+          }
+        `}</style>
+
+        <div className="checker-container">
+          {domainApplications.map((item, idx) => {
+            const isReverse = idx % 2 === 1;
+            return (
+              <div key={idx} className={`checker-row ${isReverse ? 'reverse' : ''}`}>
+                <div className="checker-col-img" onClick={() => handleOpenDomain(item)}>
+                  <img src={item.img} alt={item.title} className="checker-img" />
+                </div>
+                <div className="checker-col-text">
+                  <h3 
+                    onClick={() => handleOpenDomain(item)}
+                    style={{ 
+                      fontSize: '1.75rem', 
+                      fontWeight: '700', 
+                      color: '#0F172A', 
+                      marginBottom: '14px', 
+                      letterSpacing: '-0.02em',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#FF7A29'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#0F172A'}
+                  >
+                    {item.title}
+                  </h3>
+                  <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '24px' }}>
+                    {item.desc}
+                  </p>
+                  <div>
+                    <button
+                      onClick={() => handleOpenDomain(item)}
+                      className="know-more-btn"
+                    >
+                      Know more <ArrowRight size={18} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  )
+}
