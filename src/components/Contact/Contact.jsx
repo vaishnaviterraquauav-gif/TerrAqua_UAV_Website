@@ -368,23 +368,23 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right Side: Form Card */}
+            {/* Right Side: Form Card (LIGHT THEME) */}
             <div
               style={{
-                backgroundColor: '#000000',
-                border: '1.5px solid rgba(255, 255, 255, 0.85)',
-                borderRadius: '16px',
-                padding: '40px 36px',
-                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)'
+                backgroundColor: '#FFFFFF',
+                border: '1px solid rgba(27, 54, 73, 0.12)',
+                borderRadius: '24px',
+                padding: '44px 38px',
+                boxShadow: '0 20px 45px -10px rgba(27, 54, 73, 0.1)'
               }}
             >
               <h3
                 style={{
-                  fontSize: '1.45rem',
+                  fontSize: '1.5rem',
                   fontWeight: 700,
-                  color: '#FFFFFF',
+                  color: 'var(--text-heading-dark)',
                   textAlign: 'center',
-                  marginBottom: '32px',
+                  marginBottom: '28px',
                   letterSpacing: '-0.02em'
                 }}
               >
@@ -393,9 +393,9 @@ export default function Contact() {
 
               {formSubmitted ? (
                 <div style={{ textAlign: 'center', padding: '30px 10px' }}>
-                  <CheckCircle2 color="var(--color-aqua, #00B5E2)" size={54} style={{ marginBottom: '16px' }} />
-                  <h4 style={{ fontSize: '1.3rem', color: '#FFF', marginBottom: '8px' }}>Thank You!</h4>
-                  <p style={{ color: '#CBD5E1', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
+                  <CheckCircle2 color="var(--color-orange)" size={54} style={{ marginBottom: '16px' }} />
+                  <h4 style={{ fontSize: '1.3rem', color: 'var(--text-heading-dark)', marginBottom: '8px' }}>Thank You!</h4>
+                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
                     Your inquiry has been received. Our team will contact you shortly.
                   </p>
                   <button
@@ -404,13 +404,14 @@ export default function Contact() {
                       setFormData({ firstName: '', lastName: '', email: '', phone: '', service: '', details: '' })
                     }}
                     style={{
-                      background: '#FFFFFF',
-                      color: '#000000',
+                      background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                      color: '#FFFFFF',
                       border: 'none',
-                      borderRadius: '4px',
-                      padding: '8px 24px',
-                      fontWeight: 700,
-                      cursor: 'pointer'
+                      borderRadius: '30px',
+                      padding: '10px 28px',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      boxShadow: '0 6px 16px rgba(255, 106, 0, 0.35)'
                     }}
                   >
                     Send Another Inquiry
@@ -420,7 +421,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {/* First Name */}
                   <div>
-                    <label style={{ display: 'block', color: '#CBD5E1', fontSize: '0.75rem', marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       First name
                     </label>
                     <input
@@ -430,12 +431,12 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                       style={{
                         width: '100%',
-                        padding: '11px 18px',
+                        padding: '12px 18px',
                         borderRadius: '24px',
-                        background: 'transparent',
-                        border: '1px solid rgba(255, 255, 255, 0.35)',
-                        color: '#FFFFFF',
-                        fontSize: '0.85rem',
+                        background: '#F8FAFC',
+                        border: '1px solid rgba(27, 54, 73, 0.16)',
+                        color: '#0A1D3D',
+                        fontSize: '0.9rem',
                         outline: 'none',
                         boxSizing: 'border-box'
                       }}
@@ -444,7 +445,7 @@ export default function Contact() {
 
                   {/* Last Name */}
                   <div>
-                    <label style={{ display: 'block', color: '#CBD5E1', fontSize: '0.75rem', marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       Last name
                     </label>
                     <input
@@ -454,12 +455,12 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                       style={{
                         width: '100%',
-                        padding: '11px 18px',
+                        padding: '12px 18px',
                         borderRadius: '24px',
-                        background: 'transparent',
-                        border: '1px solid rgba(255, 255, 255, 0.35)',
-                        color: '#FFFFFF',
-                        fontSize: '0.85rem',
+                        background: '#F8FAFC',
+                        border: '1px solid rgba(27, 54, 73, 0.16)',
+                        color: '#0A1D3D',
+                        fontSize: '0.9rem',
                         outline: 'none',
                         boxSizing: 'border-box'
                       }}
@@ -468,7 +469,7 @@ export default function Contact() {
 
                   {/* Email * */}
                   <div>
-                    <label style={{ display: 'block', color: '#CBD5E1', fontSize: '0.75rem', marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       Email *
                     </label>
                     <input
@@ -479,12 +480,12 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       style={{
                         width: '100%',
-                        padding: '11px 18px',
+                        padding: '12px 18px',
                         borderRadius: '24px',
-                        background: 'transparent',
-                        border: '1px solid rgba(255, 255, 255, 0.35)',
-                        color: '#FFFFFF',
-                        fontSize: '0.85rem',
+                        background: '#F8FAFC',
+                        border: '1px solid rgba(27, 54, 73, 0.16)',
+                        color: '#0A1D3D',
+                        fontSize: '0.9rem',
                         outline: 'none',
                         boxSizing: 'border-box'
                       }}
@@ -493,20 +494,20 @@ export default function Contact() {
 
                   {/* Phone * */}
                   <div>
-                    <label style={{ display: 'block', color: '#CBD5E1', fontSize: '0.75rem', marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       Phone *
                     </label>
                     <div
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        border: '1px solid rgba(255, 255, 255, 0.35)',
+                        border: '1px solid rgba(27, 54, 73, 0.16)',
                         borderRadius: '24px',
                         padding: '0 14px',
-                        background: 'transparent'
+                        background: '#F8FAFC'
                       }}
                     >
-                      <span style={{ color: '#94A3B8', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px', paddingRight: '8px', borderRight: '1px solid rgba(255, 255, 255, 0.2)' }}>
+                      <span style={{ color: '#64748B', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px', paddingRight: '8px', borderRight: '1px solid rgba(27, 54, 73, 0.12)' }}>
                         🌐 <ChevronDown size={12} />
                       </span>
                       <input
@@ -517,11 +518,11 @@ export default function Contact() {
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         style={{
                           width: '100%',
-                          padding: '11px 10px',
+                          padding: '12px 10px',
                           background: 'transparent',
                           border: 'none',
-                          color: '#FFFFFF',
-                          fontSize: '0.85rem',
+                          color: '#0A1D3D',
+                          fontSize: '0.9rem',
                           outline: 'none',
                           boxSizing: 'border-box'
                         }}
@@ -531,7 +532,7 @@ export default function Contact() {
 
                   {/* Select a Service */}
                   <div>
-                    <label style={{ display: 'block', color: '#CBD5E1', fontSize: '0.75rem', marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       Select a Service
                     </label>
                     <div style={{ position: 'relative' }}>
@@ -540,12 +541,12 @@ export default function Contact() {
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         style={{
                           width: '100%',
-                          padding: '11px 18px',
+                          padding: '12px 18px',
                           borderRadius: '24px',
-                          background: '#000000',
-                          border: '1px solid rgba(255, 255, 255, 0.35)',
-                          color: formData.service ? '#FFFFFF' : '#94A3B8',
-                          fontSize: '0.85rem',
+                          background: '#F8FAFC',
+                          border: '1px solid rgba(27, 54, 73, 0.16)',
+                          color: formData.service ? '#0A1D3D' : '#94A3B8',
+                          fontSize: '0.9rem',
                           outline: 'none',
                           appearance: 'none',
                           boxSizing: 'border-box',
@@ -553,16 +554,16 @@ export default function Contact() {
                         }}
                       >
                         <option value="" disabled>Select a Service</option>
-                        <option value="Precision Agriculture" style={{ color: '#FFF', background: '#111827' }}>Precision Agriculture</option>
-                        <option value="Water & Environmental Conservation" style={{ color: '#FFF', background: '#111827' }}>Water & Environmental Conservation</option>
-                        <option value="Disaster Risk Reduction & Flood Mapping" style={{ color: '#FFF', background: '#111827' }}>Disaster Risk Reduction & Flood Mapping</option>
-                        <option value="Urban & Infrastructure Topography" style={{ color: '#FFF', background: '#111827' }}>Urban & Infrastructure Topography</option>
-                        <option value="Mining & Volumetric Survey" style={{ color: '#FFF', background: '#111827' }}>Mining & Volumetric Survey</option>
-                        <option value="MapZest WebGIS Enterprise" style={{ color: '#FFF', background: '#111827' }}>MapZest WebGIS Enterprise</option>
+                        <option value="Precision Agriculture">Precision Agriculture</option>
+                        <option value="Water & Environmental Conservation">Water & Environmental Conservation</option>
+                        <option value="Disaster Risk Reduction & Flood Mapping">Disaster Risk Reduction & Flood Mapping</option>
+                        <option value="Urban & Infrastructure Topography">Urban & Infrastructure Topography</option>
+                        <option value="Mining & Volumetric Survey">Mining & Volumetric Survey</option>
+                        <option value="MapZest WebGIS Enterprise">MapZest WebGIS Enterprise</option>
                       </select>
                       <ChevronDown
-                        size={15}
-                        color="#94A3B8"
+                        size={16}
+                        color="#64748B"
                         style={{ position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
                       />
                     </div>
@@ -570,21 +571,22 @@ export default function Contact() {
 
                   {/* Give us more details */}
                   <div>
-                    <label style={{ display: 'block', color: '#CBD5E1', fontSize: '0.75rem', marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       Give us more details
                     </label>
                     <textarea
                       rows={4}
+                      placeholder="Give us more details"
                       value={formData.details}
                       onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                       style={{
                         width: '100%',
                         padding: '12px 18px',
                         borderRadius: '16px',
-                        background: 'transparent',
-                        border: '1px solid rgba(255, 255, 255, 0.35)',
-                        color: '#FFFFFF',
-                        fontSize: '0.85rem',
+                        background: '#F8FAFC',
+                        border: '1px solid rgba(27, 54, 73, 0.16)',
+                        color: '#0A1D3D',
+                        fontSize: '0.9rem',
                         outline: 'none',
                         boxSizing: 'border-box',
                         resize: 'vertical'
@@ -597,18 +599,25 @@ export default function Contact() {
                     <button
                       type="submit"
                       style={{
-                        backgroundColor: '#FFFFFF',
-                        color: '#000000',
+                        background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                        color: '#FFFFFF',
                         border: 'none',
-                        borderRadius: '4px',
-                        padding: '10px 48px',
-                        fontSize: '0.92rem',
+                        borderRadius: '30px',
+                        padding: '12px 48px',
+                        fontSize: '0.95rem',
                         fontWeight: 700,
                         cursor: 'pointer',
-                        transition: 'transform 0.2s ease, opacity 0.2s ease'
+                        boxShadow: '0 8px 20px -4px rgba(255, 106, 0, 0.4)',
+                        transition: 'all 0.25s ease'
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
-                      onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-2px)'
+                        e.currentTarget.style.boxShadow = '0 12px 26px -4px rgba(255, 106, 0, 0.5)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)'
+                        e.currentTarget.style.boxShadow = '0 8px 20px -4px rgba(255, 106, 0, 0.4)'
+                      }}
                     >
                       Submit
                     </button>

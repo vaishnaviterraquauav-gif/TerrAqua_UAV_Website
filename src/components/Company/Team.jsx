@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { Sparkles, Globe, Mail } from 'lucide-react'
 
 export default function Team() {
   const [hoveredCard, setHoveredCard] = useState(null)
@@ -9,7 +10,7 @@ export default function Team() {
       role: "Founder & Mentor",
       img: "https://static.wixstatic.com/media/9a5348_5aadc3f8b430475a86fc9565d4c96190~mv2.png",
       desc: "As the Founder & Mentor, Prof. Sinha provides the guiding vision for TerrAqua. With extensive experience in Earth Sciences from IIT Kanpur, RS and GIS applications in Agriculture, Wetland conservation, flood risk reduction, natural resource management, environmental monitoring.",
-      socials: { website: "https://home.iitk.ac.in/~rsinha/", linkedin: "#", email: "mailto:rsinha@iitk.ac.in" }
+      socials: { website: "https://home.iitk.ac.in/~rsinha/", email: "mailto:rsinha@iitk.ac.in" }
     },
     {
       name: "Dr. Shobhit Singh",
@@ -80,132 +81,192 @@ export default function Team() {
   ]
 
   return (
-    <section style={{
-      padding: 'clamp(3rem, 8vw, 6rem) 1rem',
-      backgroundColor: '#000000',
-      backgroundImage: 'radial-gradient(#7e7e7e4d 1px, transparent 1px)',
-      backgroundSize: '20px 20px',
-      color: '#ffffff'
-    }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{
-          fontSize: 'clamp(2rem, 4vw, 3rem)',
-          fontWeight: 700,
-          textAlign: 'center',
-          margin: '0 0 4rem 0',
-          color: '#ffffff'
-        }}>
-          Our Team
-        </h2>
+    <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A' }}>
+      {/* HERO / HEADER SECTION (DEEP NAVY BLUE) */}
+      <section style={{
+        padding: '90px 24px 80px',
+        textAlign: 'center',
+        background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
+        borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
+      }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <h1 style={{
+            fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+            color: '#FFFFFF',
+            fontWeight: 400,
+            marginBottom: '24px',
+            lineHeight: 1.2,
+            letterSpacing: '-0.04em'
+          }}>
+            Meet Our <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Leadership & Team</span>
+          </h1>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '4.5rem 2rem'
-        }}>
-          {teamMembers.map((member, idx) => {
-            const isHovered = hoveredCard === idx
-            const isOtherHovered = hoveredCard !== null && hoveredCard !== idx
-
-            return (
-              <div
-                key={idx}
-                onMouseEnter={() => setHoveredCard(idx)}
-                onMouseLeave={() => setHoveredCard(null)}
-                style={{
-                  backgroundColor: '#000000',
-                  borderRadius: '16px',
-                  border: '1px solid #7e7e7e4d',
-                  textAlign: 'center',
-                  padding: '1.5rem',
-                  paddingTop: '90px',
-                  marginTop: '75px',
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  transform: isHovered ? 'translateY(-10px) scale(1.03)' : (isOtherHovered ? 'scale(0.96)' : 'none'),
-                  opacity: isOtherHovered ? 0.7 : 1,
-                  boxShadow: isHovered ? '0 20px 40px rgba(0, 35, 95, 0.4)' : 'none'
-                }}
-              >
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    border: '6px solid #000000',
-                    boxShadow: '0 5px 20px rgba(0, 0, 0, 0.5)',
-                    position: 'absolute',
-                    top: '-75px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    zIndex: 2
-                  }}
-                />
-
-                <h3 style={{
-                  fontSize: '1.35rem',
-                  fontWeight: 700,
-                  color: '#ffffff',
-                  margin: '0 0 0.25rem 0'
-                }}>
-                  {member.name}
-                </h3>
-
-                <p style={{
-                  fontSize: '0.9rem',
-                  color: '#CBD5E1',
-                  marginBottom: '1rem',
-                  fontWeight: 500
-                }}>
-                  {member.role}
-                </p>
-
-                <p style={{
-                  fontSize: '0.9rem',
-                  lineHeight: 1.6,
-                  color: '#94A3B8',
-                  margin: '1rem 0 0 0'
-                }}>
-                  {member.desc}
-                </p>
-
-                {member.socials && (
-                  <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto', paddingTop: '1rem' }}>
-                    {member.socials.website && (
-                      <a href={member.socials.website} target="_blank" rel="noopener noreferrer" aria-label="Website" style={socialLinkStyle}>
-                        <svg viewBox="0 0 16 16" width="18" height="18" fill="#FFFFFF"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.247 9.247 0 0 1 .64-1.539 7.021 7.021 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.99 6.99 0 0 1-.597-.933A9.248 9.248 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.248 9.248 0 0 1-.64 1.539 6.99 6.99 0 0 1-.597.933zM8.5 12h2.855c.173-.324.33-.682.468-1.068.552-1.035 1.218-1.65 1.887-1.855V12H8.5zm3.68-1h2.49a6.958 6.958 0 0 0-.656-2.5h-2.49a13.65 13.65 0 0 1 .312 2.5zm2.802-3.5a6.959 6.959 0 0 0 .656-2.5H12.18c-.174.782-.282 1.623-.312 2.5h2.49zM11.27 4a9.248 9.248 0 0 1 .64 1.539 7.021 7.021 0 0 1 .597.933A7.025 7.025 0 0 0 13.745 4h-1.852zM10.855 4H8.5V1.077c.67.204 1.335.82 1.887 1.855.173.324.33.682.468 1.068z" /></svg>
-                      </a>
-                    )}
-                    {member.socials.email && (
-                      <a href={member.socials.email} aria-label="Email" style={socialLinkStyle}>
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" /></svg>
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
-            )
-          })}
+          <p style={{
+            color: '#CBD5E1',
+            fontSize: '1.15rem',
+            lineHeight: '1.7',
+            maxWidth: '840px',
+            margin: '0 auto'
+          }}>
+            Pioneering researchers, geospatial engineers, and domain experts dedicated to advancing drone intelligence, environmental auditing, and spatial analytics.
+          </p>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
 
-const socialLinkStyle = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '36px',
-  height: '36px',
-  borderRadius: '50%',
-  backgroundColor: '#00235F',
-  border: '1px solid #7e7e7e4d',
-  transition: 'transform 0.2s ease'
+      {/* TEAM CARDS SECTION (OFF-WHITE BACKGROUND WITH WHITE CARDS) */}
+      <section style={{
+        padding: '80px 24px 100px',
+        background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)'
+      }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '4.5rem 2rem'
+          }}>
+            {teamMembers.map((member, idx) => {
+              const isHovered = hoveredCard === idx
+
+              return (
+                <div
+                  key={idx}
+                  onMouseEnter={() => setHoveredCard(idx)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: '20px',
+                    border: '1px solid rgba(27, 54, 73, 0.1)',
+                    textAlign: 'center',
+                    padding: '1.75rem',
+                    paddingTop: '90px',
+                    marginTop: '75px',
+                    position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transform: isHovered ? 'translateY(-8px)' : 'none',
+                    boxShadow: isHovered ? '0 20px 40px -10px rgba(27, 54, 73, 0.15)' : '0 15px 35px -10px rgba(27, 54, 73, 0.08)'
+                  }}
+                >
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    style={{
+                      width: '145px',
+                      height: '145px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      border: '5px solid #FFFFFF',
+                      boxShadow: '0 8px 24px rgba(10, 29, 61, 0.15)',
+                      position: 'absolute',
+                      top: '-75px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      zIndex: 2,
+                      backgroundColor: '#F1F5F9'
+                    }}
+                  />
+
+                  <h3 style={{
+                    fontSize: '1.3rem',
+                    fontWeight: 700,
+                    color: 'var(--text-heading-dark)',
+                    margin: '0 0 0.35rem 0'
+                  }}>
+                    {member.name}
+                  </h3>
+
+                  <p style={{
+                    fontSize: '0.88rem',
+                    color: 'var(--color-orange)',
+                    marginBottom: '1rem',
+                    fontWeight: 600
+                  }}>
+                    {member.role}
+                  </p>
+
+                  <p style={{
+                    fontSize: '0.9rem',
+                    lineHeight: 1.65,
+                    color: 'var(--text-muted-gray)',
+                    margin: '0.5rem 0 0 0'
+                  }}>
+                    {member.desc}
+                  </p>
+
+                  {member.socials && (
+                    <div style={{ display: 'flex', gap: '10px', marginTop: 'auto', paddingTop: '1.25rem' }}>
+                      {member.socials.website && (
+                        <a 
+                          href={member.socials.website} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          aria-label="Website" 
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '50%',
+                            backgroundColor: '#F8FAFC',
+                            border: '1px solid rgba(27, 54, 73, 0.15)',
+                            color: 'var(--text-heading-dark)',
+                            transition: 'all 0.2s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = 'var(--color-orange)'
+                            e.currentTarget.style.borderColor = 'var(--color-orange)'
+                            e.currentTarget.style.color = '#FFFFFF'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#F8FAFC'
+                            e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.15)'
+                            e.currentTarget.style.color = 'var(--text-heading-dark)'
+                          }}
+                        >
+                          <Globe size={18} />
+                        </a>
+                      )}
+                      {member.socials.email && (
+                        <a 
+                          href={member.socials.email} 
+                          aria-label="Email" 
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '50%',
+                            backgroundColor: '#F8FAFC',
+                            border: '1px solid rgba(27, 54, 73, 0.15)',
+                            color: 'var(--text-heading-dark)',
+                            transition: 'all 0.2s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = 'var(--color-orange)'
+                            e.currentTarget.style.borderColor = 'var(--color-orange)'
+                            e.currentTarget.style.color = '#FFFFFF'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#F8FAFC'
+                            e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.15)'
+                            e.currentTarget.style.color = 'var(--text-heading-dark)'
+                          }}
+                        >
+                          <Mail size={18} />
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }

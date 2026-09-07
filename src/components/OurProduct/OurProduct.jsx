@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChevronRight, ExternalLink } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function OurProduct({ setActiveTab }) {
   const products = [
@@ -9,7 +9,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Empowering field teams with mobile WebGIS analytics. Capture real-time spatial data, perform high-accuracy surveys, and render multi-layered vector overlays directly on Android & mobile browsers with offline capabilities.',
       link: 'https://play.google.com/store/apps/details?id=com.terraqua.gis&pcampaignid=web_share',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800'
+      img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 'mapzest-basic',
@@ -17,7 +17,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Cloud-native WebGIS visualization engine designed for rendering high-resolution orthomosaics, multispectral rasters, and digital elevation models (DEM) directly in your browser with zero latency.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 'geo-catalog',
@@ -25,7 +25,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Enterprise geospatial data repository & catalog management system to store, search, organize, and stream massive GIS datasets with encrypted role-based access control.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800'
+      img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 'krishizest',
@@ -33,7 +33,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Specialized agricultural remote sensing & precision analytics platform providing crop health monitoring, multispectral NDVI maps, stress detection, and predictive yield analytics.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800'
+      img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 'fram-engine',
@@ -41,7 +41,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Feature Recognition and Analysis Module powered by deep learning AI pipelines to count tree crowns, trace building footprints, detect solar panel defects, and quantify crop health.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800'
+      img: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=1200'
     },
     {
       id: 'nrmm-monitoring',
@@ -49,42 +49,33 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Natural Resource Management & Monitoring platform for continuous volumetric tracking of mine sites, water body dynamics, forest cover change detection, and environmental compliance.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800'
+      img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1200'
     }
   ]
 
   return (
-    <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A' }}>
+    <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#0F172A' }}>
       {/* HERO / HEADER SECTION */}
-      <section style={{ padding: '80px 24px 60px', textAlign: 'center', backgroundColor: '#050F24' }}>
+      <section style={{ 
+        padding: '90px 24px 80px', 
+        textAlign: 'center', 
+        background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
+        borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
+      }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <div style={{
-            display: 'inline-block',
-            padding: '6px 20px',
-            borderRadius: '20px',
-            background: 'rgba(255, 106, 0, 0.15)',
-            border: '1px solid rgba(255, 106, 0, 0.4)',
-            color: '#FF6A00',
-            fontSize: '0.85rem',
-            fontWeight: 700,
-            marginBottom: '20px',
-            letterSpacing: '0.05em'
-          }}>
-            GEOSPATIAL SOLUTIONS SUITE
-          </div>
-
           <h1 style={{
             fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
             color: '#FFFFFF',
-            fontWeight: 700,
+            fontWeight: 400,
             marginBottom: '24px',
-            lineHeight: 1.2
+            lineHeight: 1.2,
+            letterSpacing: '-0.04em'
           }}>
-            Innovative <span style={{ color: '#FF6A00' }}>Geospatial Solutions</span>
+            Innovative <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Geospatial Solutions</span>
           </h1>
 
           <p style={{
-            color: '#94A3B8',
+            color: '#CBD5E1',
             fontSize: '1.15rem',
             lineHeight: '1.7',
             maxWidth: '840px',
@@ -95,129 +86,127 @@ export default function OurProduct({ setActiveTab }) {
         </div>
       </section>
 
-      {/* PRODUCT CARDS SECTION - MATCHING REFERENCE DESIGN */}
-      <section style={{ padding: '80px 24px 100px' }}>
+      {/* SEAMLESS ALTERNATING SPLIT CARDS SECTION */}
+      <section style={{ 
+        padding: '0',
+        background: '#FFFFFF',
+        width: '100%',
+        overflow: 'hidden'
+      }}>
         <style>{`
-          .solution-row {
+          .product-split-row {
             display: flex;
-            align-items: center;
-            gap: 36px;
-            max-width: 1240px;
-            margin: 0 auto 56px auto;
-            min-height: 340px;
+            flex-direction: row;
+            min-height: 420px;
+            width: 100%;
           }
 
-          .solution-row.reverse {
+          .product-split-row.reverse {
             flex-direction: row-reverse;
           }
 
-          .solution-img-box {
+          .product-split-img-box {
             flex: 1 1 50%;
-            height: 360px;
-            border-radius: 20px;
+            width: 50%;
+            min-height: 400px;
             overflow: hidden;
-            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+            background-color: #0F172A;
             position: relative;
-            background-color: #E2E8F0;
           }
 
-          .solution-img {
+          .product-split-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           }
 
-          .solution-row:hover .solution-img {
-            transform: scale(1.04);
+          .product-split-row:hover .product-split-img {
+            transform: scale(1.03);
           }
 
-          .solution-card-box {
+          .product-split-content-box {
             flex: 1 1 50%;
-            background: #F1F5F9;
-            border-radius: 20px;
-            padding: 48px 52px;
+            width: 50%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            min-height: 360px;
+            justifyContent: center;
+            padding: clamp(36px, 5vw, 80px) clamp(28px, 4.5vw, 70px);
+            background: #FFFFFF;
+            box-sizing: border-box;
           }
 
-          .solution-title-link {
+          .product-split-title {
+            font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+            font-weight: 700;
+            color: #0A1D3D;
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+            margin: 0 0 16px 0;
+            font-family: var(--font-universal);
+          }
+
+          .product-split-desc {
+            color: #546478;
+            font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+            line-height: 1.7;
+            margin: 0 0 28px 0;
+            max-width: 560px;
+            font-weight: 400;
+          }
+
+          .product-split-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1E293B;
-            text-decoration: none;
-            margin-bottom: 20px;
-            transition: color 0.2s ease;
-          }
-
-          .solution-title-link:hover {
-            color: #FF6A00;
-          }
-
-          .solution-title-chevron {
-            color: #FF6A00;
-            transition: transform 0.2s ease;
-          }
-
-          .solution-title-link:hover .solution-title-chevron {
-            transform: translateX(4px);
-          }
-
-          .solution-desc {
-            color: #475569;
+            color: var(--color-orange, #FF6A00);
             font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 32px;
-          }
-
-          .solution-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 34px;
-            background: linear-gradient(135deg, #FF6A00 0%, #FF8500 100%);
-            color: #FFFFFF;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 30px;
+            font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 6px 18px rgba(255, 106, 0, 0.35);
-            transition: all 0.3s ease;
-            align-self: flex-start;
+            transition: gap 0.2s ease, transform 0.2s ease;
+            width: fit-content;
           }
 
-          .solution-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 26px rgba(255, 106, 0, 0.5);
-            background: linear-gradient(135deg, #FF7A1A 0%, #FFA01A 100%);
+          .product-split-link:hover {
+            gap: 12px;
           }
 
-          @media (max-width: 960px) {
-            .solution-row, .solution-row.reverse {
-              flex-direction: column;
-              gap: 24px;
-              margin-bottom: 48px;
-            }
-            .solution-img-box, .solution-card-box {
-              width: 100%;
-              flex: 1 1 100%;
-            }
-            .solution-img-box {
-              height: 280px;
-            }
-            .solution-card-box {
-              padding: 32px 28px;
+          /* MOBILE RESPONSIVE STACK (CLEAN, READABLE, NO MESSY OVERFLOW) */
+          @media (max-width: 768px) {
+            .product-split-row,
+            .product-split-row.reverse {
+              flex-direction: column !important;
               min-height: auto;
+              border-bottom: 1px solid #E2E8F0;
             }
-            .solution-title-link {
-              font-size: 1.6rem;
+
+            .product-split-img-box {
+              width: 100% !important;
+              flex: none;
+              height: 220px;
+              min-height: 220px;
+            }
+
+            .product-split-content-box {
+              width: 100% !important;
+              flex: none;
+              padding: 24px 20px 32px 20px !important;
+            }
+
+            .product-split-title {
+              font-size: 1.5rem !important;
+              margin-bottom: 10px !important;
+            }
+
+            .product-split-desc {
+              font-size: 0.94rem !important;
+              line-height: 1.6 !important;
+              margin-bottom: 20px !important;
+            }
+
+            .product-split-link {
+              font-size: 0.98rem !important;
             }
           }
         `}</style>
@@ -226,25 +215,22 @@ export default function OurProduct({ setActiveTab }) {
           {products.map((item, idx) => {
             const isReverse = idx % 2 === 1
             return (
-              <div key={item.id} className={`solution-row ${isReverse ? 'reverse' : ''}`}>
+              <div
+                key={item.id}
+                className={`product-split-row ${isReverse ? 'reverse' : ''}`}
+              >
                 {/* IMAGE BOX */}
-                <div className="solution-img-box">
-                  <img src={item.img} alt={item.name} className="solution-img" />
+                <div className="product-split-img-box">
+                  <img src={item.img} alt={item.name} className="product-split-img" />
                 </div>
 
-                {/* CONTENT CARD BOX MATCHING REFERENCE DESIGN */}
-                <div className="solution-card-box">
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="solution-title-link"
-                  >
-                    <span>{item.name}</span>
-                    <ChevronRight className="solution-title-chevron" size={32} strokeWidth={2.8} />
-                  </a>
+                {/* CONTENT BOX */}
+                <div className="product-split-content-box">
+                  <h2 className="product-split-title">
+                    {item.name}
+                  </h2>
 
-                  <p className="solution-desc">
+                  <p className="product-split-desc">
                     {item.desc}
                   </p>
 
@@ -252,9 +238,10 @@ export default function OurProduct({ setActiveTab }) {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="solution-btn"
+                    className="product-split-link"
                   >
-                    {item.buttonText}
+                    <span>{item.buttonText}</span>
+                    <ArrowRight size={18} />
                   </a>
                 </div>
               </div>

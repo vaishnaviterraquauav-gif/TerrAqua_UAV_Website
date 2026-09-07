@@ -1,0 +1,730 @@
+import React, { useState } from 'react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  Send,
+  Sparkles
+} from 'lucide-react'
+
+const services = [
+  {
+    id: "flood",
+    title: "Flood Management",
+    subtitle: "Mapping, predicting & managing floods with geospatial intelligence",
+    description:
+      "Floods are becoming more frequent and unpredictable. We use drone surveys, satellite radar, elevation models, and AI hydrology analytics to help authorities anticipate floods and protect vulnerable communities.",
+    image:
+      "https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&q=80&w=900",
+    accent: "#0284C7",
+    accentLight: "#E0F2FE",
+    points: [
+      "Flood extent & inundation depth mapping",
+      "Predictive hydrology & flow direction modeling",
+      "Breach, blockage & drainage failure identification",
+      "Critical infrastructure vulnerability mapping",
+    ],
+    tags: [
+      "Faster Warnings",
+      "Reduced Loss",
+      "Smart Evacuation",
+      "Inundation Modeling",
+    ],
+  },
+  {
+    id: "landslide",
+    title: "Landslide Monitoring",
+    subtitle: "Predicting slope failures with high-accuracy terrain intelligence",
+    description:
+      "Landslides often strike without warning, but early signs appear long before failure. We use drone-based terrain mapping and AI slope stability models to detect risk early and prevent disasters.",
+    image:
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=900",
+    accent: "#D97706",
+    accentLight: "#FEF3C7",
+    points: [
+      "3D terrain & slope stability modeling",
+      "Satellite InSAR deformation tracking",
+      "Rainfall–soil moisture interaction analysis",
+      "Runout prediction for high-risk mountain slopes",
+    ],
+    tags: [
+      "Early Warnings",
+      "Safer Planning",
+      "Mitigation Basis",
+      "Slope Stability",
+    ],
+  },
+  {
+    id: "fire",
+    title: "Forest Fire Monitoring",
+    subtitle: "Stopping forest fires before they spread with AI-powered detection",
+    description:
+      "Forest fires can destroy biodiversity within hours. We use thermal drones, satellite alerts, and AI-based spread modelling to detect fires early and monitor their impact with scientific accuracy.",
+    image:
+      "https://images.unsplash.com/photo-1600298882283-40b4dcb8b211?auto=format&fit=crop&q=80&w=900",
+    accent: "#EA580C",
+    accentLight: "#FFEDD5",
+    points: [
+      "Real-time thermal hotspot & ignition detection",
+      "Fuel load & dry biomass canopy mapping",
+      "Predictive wind-driven fire spread models",
+      "Post-fire burn severity & impact assessment",
+    ],
+    tags: [
+      "Fast Containment",
+      "Carbon Protection",
+      "Evidence-Based Recovery",
+      "Thermal Vision",
+    ],
+  },
+  {
+    id: "post-disaster",
+    title: "Post-Disaster Analysis",
+    subtitle: "Delivering rapid, reliable damage intelligence when it matters most",
+    description:
+      "After a disaster, decisions must be fast. We provide high-precision drone surveys and AI-driven damage assessment to show exactly what happened, enabling quick informed relief operations.",
+    image:
+      "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&q=80&w=900",
+    accent: "#7C3AED",
+    accentLight: "#EDE9FE",
+    points: [
+      "Rapid affected region aerial visibility",
+      "Accurate pre-and-post event comparative overlays",
+      "High-risk corridor & lifeline prioritization",
+      "Defensible GIS evidence for relief funding & insurance",
+    ],
+    tags: [
+      "Rapid Relief",
+      "Transparent Reporting",
+      "Faster Rehabilitation",
+      "Damage Auditing",
+    ],
+  },
+]
+
+const capabilities = [
+  "Satellite & UAV Streams",
+  "AI-ML Risk Models",
+  "Predictive Inundation",
+  "Thermal Search & Rescue",
+]
+
+function ServiceCard({ service }) {
+  return (
+    <div
+      id={`service-${service.id}`}
+      style={{
+        backgroundColor: '#FFFFFF',
+        borderColor: '#E2DDD6',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        border: '1px solid #E2DDD6',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-4px)'
+        e.currentTarget.style.boxShadow = '0 16px 36px rgba(0,0,0,0.1)'
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)'
+        e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)'
+      }}
+    >
+      {/* Image */}
+      <div style={{ position: 'relative', overflow: 'hidden', height: '240px', flexShrink: 0 }}>
+        <img
+          src={service.image}
+          alt={service.title}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transition: 'transform 0.7s ease'
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.35) 100%)'
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <h2
+          style={{
+            fontSize: '1.45rem',
+            fontWeight: 400,
+            marginBottom: '6px',
+            lineHeight: 1.25,
+            letterSpacing: '-0.04em',
+            color: '#1C1C1A'
+          }}
+        >
+          {service.title}
+        </h2>
+        <p style={{ fontSize: '0.92rem', marginBottom: '14px', color: service.accent, fontWeight: 400, minHeight: '22px' }}>
+          {service.subtitle}
+        </p>
+        <p
+          style={{
+            fontSize: '0.94rem',
+            lineHeight: 1.65,
+            marginBottom: '20px',
+            color: '#5A5550',
+            fontWeight: 400,
+            minHeight: '75px'
+          }}
+        >
+          {service.description}
+        </p>
+
+        {/* WHY GEOSPATIAL INTELLIGENCE */}
+        <div
+          style={{
+            borderRadius: '14px',
+            padding: '18px 20px',
+            marginBottom: '20px',
+            backgroundColor: '#FAF8F5',
+            border: '1px solid #EDE8E1',
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column'
+          }}
+        >
+          <p
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              marginBottom: '12px',
+              color: service.accent
+            }}
+          >
+            Why Geospatial Intelligence Matters
+          </p>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {service.points.map((point, i) => (
+              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <span
+                  style={{
+                    width: '7px',
+                    height: '7px',
+                    borderRadius: '50%',
+                    marginTop: '6px',
+                    flexShrink: 0,
+                    backgroundColor: service.accent
+                  }}
+                />
+                <span style={{ fontSize: '0.86rem', lineHeight: 1.55, color: '#5A5550', fontWeight: 400 }}>
+                  {point}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Tags */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
+          {service.tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                fontSize: '0.78rem',
+                padding: '5px 12px',
+                borderRadius: '9999px',
+                border: `1px solid ${service.accent}40`,
+                color: service.accent,
+                backgroundColor: service.accentLight,
+                fontWeight: 400,
+                letterSpacing: '0.01em'
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function DisasterRiskDetail({ handleBack, setActiveTab }) {
+  const [activeTabThumb, setActiveTabThumb] = useState(null)
+
+  const scrollToService = (id) => {
+    setActiveTabThumb(id)
+    const element = document.getElementById(`service-${id}`)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
+  return (
+    <div
+      style={{
+        backgroundColor: '#F8FAFC',
+        color: '#1C1C1A',
+        minHeight: '100vh',
+        width: '100%'
+      }}
+    >
+      {/* 1. TOP HERO BANNER */}
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          minHeight: '260px',
+          height: 'clamp(240px, 32vw, 320px)',
+          backgroundImage: `url('https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&q=80&w=1600')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          borderBottom: '1px solid rgba(0, 181, 226, 0.25)'
+        }}
+      >
+        {/* Dark overlay for contrast */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.68) 100%)'
+          }}
+        />
+
+        {/* Back button on left */}
+        <button
+          onClick={handleBack}
+          style={{
+            position: 'absolute',
+            top: '20px',
+            left: '24px',
+            background: 'rgba(10, 29, 61, 0.75)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
+            color: '#FFFFFF',
+            padding: '8px 16px',
+            borderRadius: '10px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            cursor: 'pointer',
+            fontWeight: 500,
+            fontSize: '0.88rem',
+            zIndex: 10,
+            backdropFilter: 'blur(10px)',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'var(--color-orange)'
+            e.currentTarget.style.borderColor = 'var(--color-orange)'
+            e.currentTarget.style.transform = 'translateY(-2px)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(10, 29, 61, 0.75)'
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)'
+            e.currentTarget.style.transform = 'translateY(0)'
+          }}
+        >
+          <ArrowLeft size={16} /> Back to Solutions
+        </button>
+
+        {/* Center Title Content */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 5,
+            textAlign: 'center',
+            padding: '0 20px',
+            maxWidth: '1000px'
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 'clamp(1.7rem, 4vw, 2.8rem)',
+              fontWeight: 400,
+              textTransform: 'uppercase',
+              letterSpacing: '-0.04em',
+              lineHeight: 1.25,
+              margin: 0,
+              textShadow: '0 2px 12px rgba(0,0,0,0.7)'
+            }}
+          >
+            <span style={{ color: '#FFFFFF', display: 'block', marginBottom: '4px', fontWeight: 400 }}>
+              DISASTER RISK REDUCTION &
+            </span>
+            <span style={{ color: '#00FFC8', display: 'block', fontWeight: 400 }}>
+              EMERGENCY MITIGATION
+            </span>
+          </h1>
+        </div>
+      </div>
+
+      {/* 2. HERO SECTION */}
+      <section
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '56px 24px 44px'
+        }}
+      >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: '48px',
+            alignItems: 'center'
+          }}
+        >
+          {/* Left: Text Content */}
+          <div>
+            <h2
+              style={{
+                fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
+                fontWeight: 400,
+                lineHeight: 1.15,
+                letterSpacing: '-0.04em',
+                marginBottom: '20px',
+                color: '#1C1C1A'
+              }}
+            >
+              Disaster Risk{' '}
+              <em
+                style={{
+                  fontStyle: 'normal',
+                  color: '#FF6A00',
+                  fontWeight: 400
+                }}
+              >
+                Reduction
+              </em>{' '}
+              & Crisis Response
+            </h2>
+
+            <p
+              style={{
+                fontSize: '1.05rem',
+                lineHeight: 1.7,
+                marginBottom: '28px',
+                color: '#6B6560',
+                maxWidth: '540px',
+                fontWeight: 400
+              }}
+            >
+              When natural disasters strike, ground access is compromised. TerrAqua UAV's
+              emergency rapid-deployment unit provides first responders with real-time
+              situational intelligence, flood inundation modeling, and post-disaster damage assessments.
+            </p>
+
+            {/* Capabilities pills */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
+              {capabilities.map((cap) => (
+                <span
+                  key={cap}
+                  style={{
+                    fontSize: '0.82rem',
+                    padding: '7px 16px',
+                    borderRadius: '9999px',
+                    border: '1px solid #D1D5DB',
+                    color: '#374151',
+                    backgroundColor: '#FFFFFF',
+                    fontWeight: 400,
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+                  }}
+                >
+                  {cap}
+                </span>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('services-grid-section')
+                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                }}
+                style={{
+                  fontSize: '0.94rem',
+                  padding: '13px 28px',
+                  borderRadius: '12px',
+                  fontWeight: 500,
+                  background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                }}
+              >
+                Explore Services <ArrowRight size={16} />
+              </button>
+
+              <a
+                href="https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20inquire%20about%20a%20project%20for%20Disaster%20Risk%20Reduction%20and%20Emergency%20Mitigation."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: '0.94rem',
+                  padding: '12px 24px',
+                  borderRadius: '12px',
+                  fontWeight: 500,
+                  border: '1.5px solid var(--color-orange)',
+                  color: 'var(--color-orange)',
+                  backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-orange)'
+                  e.currentTarget.style.color = '#FFFFFF'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FFFFFF'
+                  e.currentTarget.style.color = 'var(--color-orange)'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                }}
+              >
+                Inquire for Project <Send size={15} />
+              </a>
+            </div>
+          </div>
+
+          {/* Right: 2x2 thumbnail grid */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '14px'
+            }}
+          >
+            {services.map((svc) => (
+              <div
+                key={svc.id}
+                onClick={() => scrollToService(svc.id)}
+                style={{
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  aspectRatio: '4/3',
+                  boxShadow: '0 8px 20px rgba(0,0,0,0.12)',
+                  border: activeTabThumb === svc.id ? `2px solid var(--color-orange)` : '1px solid rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.02)'
+                  e.currentTarget.style.boxShadow = '0 14px 28px rgba(0,0,0,0.18)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)'
+                  e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)'
+                }}
+              >
+                <img
+                  src={svc.image}
+                  alt={svc.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)'
+                  }}
+                />
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 14px' }}>
+                  <p
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: '0.88rem',
+                      fontWeight: 400,
+                      letterSpacing: '-0.02em',
+                      lineHeight: 1.25
+                    }}
+                  >
+                    {svc.title}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SECTION DIVIDER */}
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ flex: 1, height: '1px', backgroundColor: '#E2DDD6' }} />
+          <p
+            style={{
+              fontSize: '0.78rem',
+              fontWeight: 500,
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              color: '#9B9590'
+            }}
+          >
+            Our Specialized Services
+          </p>
+          <div style={{ flex: 1, height: '1px', backgroundColor: '#E2DDD6' }} />
+        </div>
+      </div>
+
+      {/* 4. SERVICE CARDS GRID - 2x2 BALANCED LAYOUT */}
+      <section
+        id="services-grid-section"
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '48px 24px 64px'
+        }}
+      >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 540px), 1fr))',
+            gap: '32px',
+            alignItems: 'stretch'
+          }}
+        >
+          {services.map((svc) => (
+            <ServiceCard key={svc.id} service={svc} />
+          ))}
+        </div>
+
+        {/* BOTTOM CALL TO ACTION */}
+        <div
+          style={{
+            marginTop: '48px',
+            backgroundColor: '#FFFFFF',
+            border: '1px solid #E2DDD6',
+            borderRadius: '24px',
+            padding: '40px 32px',
+            textAlign: 'center',
+            boxShadow: '0 16px 40px rgba(0,0,0,0.06)'
+          }}
+        >
+          <h3
+            style={{
+              fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+              fontWeight: 400,
+              letterSpacing: '-0.04em',
+              color: '#1C1C1A',
+              marginBottom: '12px'
+            }}
+          >
+            Need a Custom UAV Deployment for{' '}
+            <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Disaster Risk Reduction</span>?
+          </h3>
+
+          <p
+            style={{
+              color: '#6B6560',
+              maxWidth: '680px',
+              margin: '0 auto 28px',
+              fontSize: '1rem',
+              lineHeight: 1.65,
+              fontWeight: 400
+            }}
+          >
+            Our emergency response unit of certified drone pilots, GIS analysts, and disaster
+            mitigation engineers is ready to deploy on short notice anywhere across the country.
+          </p>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '14px',
+              flexWrap: 'wrap'
+            }}
+          >
+            <a
+              href="https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20connect%20with%20your%20GIS%20Experts%20for%20Disaster%20Risk%20Reduction."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: '13px 32px',
+                fontSize: '0.95rem',
+                fontWeight: 500,
+                color: '#FFFFFF',
+                background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                border: 'none',
+                borderRadius: '12px',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
+            >
+              Contact Our GIS Experts <ArrowRight size={16} />
+            </a>
+
+            <button
+              onClick={handleBack}
+              style={{
+                padding: '13px 26px',
+                fontSize: '0.92rem',
+                fontWeight: 500,
+                color: '#4A4540',
+                backgroundColor: '#F8FAFC',
+                border: '1px solid #CBD5E1',
+                borderRadius: '12px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF'
+                e.currentTarget.style.borderColor = 'var(--color-orange)'
+                e.currentTarget.style.color = 'var(--color-orange)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#F8FAFC'
+                e.currentTarget.style.borderColor = '#CBD5E1'
+                e.currentTarget.style.color = '#4A4540'
+              }}
+            >
+              Browse Other Solutions
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

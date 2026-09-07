@@ -12,9 +12,29 @@ import {
   Sparkles,
   ChevronRight
 } from 'lucide-react'
+import NaturalResourcesDetail from './NaturalResourcesDetail'
+import DisasterRiskDetail from './DisasterRiskDetail'
+import AgricultureDetail from './AgricultureDetail'
+import EnvironmentalConservationDetail from './EnvironmentalConservationDetail'
+import InfrastructureUrbanDetail from './InfrastructureUrbanDetail'
+import ClimateIntelligenceDetail from './ClimateIntelligenceDetail'
 
-export default function Solutions({ setActiveTab }) {
+export default function Solutions({ setActiveTab, selectedDomainId, setSelectedDomainId }) {
   const [selectedDomain, setSelectedDomain] = useState(null)
+
+  useEffect(() => {
+    if (selectedDomainId) {
+      const found = domainApplications.find(d => d.id === selectedDomainId)
+      if (found) {
+        setSelectedDomain(found)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        setSelectedDomain(null)
+      }
+    } else {
+      setSelectedDomain(null)
+    }
+  }, [selectedDomainId])
 
   const cards = [
     {
@@ -111,7 +131,7 @@ export default function Solutions({ setActiveTab }) {
     },
     {
       id: 'agriculture',
-      title: "Agriculture & Precision Farming",
+      title: "Agriculture",
       subtitle: "Multispectral Health Analytics & Smart Crop Scouting",
       desc: "Precision crop health analytics, multispectral plant vigor metrics (NDVI/NDRE), automated variable rate spraying, and yield forecast reporting.",
       img: "https://static.wixstatic.com/media/9a5348_4ec3d406bf184a5c95c7c95938e0d3d3~mv2.png",
@@ -213,7 +233,7 @@ export default function Solutions({ setActiveTab }) {
     },
     {
       id: 'climate-intelligence',
-      title: "Climate Intelligence & Thermal GIS",
+      title: "Climate Intelligence",
       subtitle: "Microclimate Modeling & Emission Tracking",
       desc: "Advanced climate data modeling, thermal emission tracking, and microclimate analytics powered by AI and aerial GIS integration.",
       img: "https://static.wixstatic.com/media/9a5348_dd9b73c686c149088a7b74bab43fa218~mv2.jpg",
@@ -249,27 +269,52 @@ export default function Solutions({ setActiveTab }) {
 
   const handleOpenDomain = (item) => {
     setSelectedDomain(item)
+    if (setSelectedDomainId) {
+      setSelectedDomainId(item.id)
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleBack = () => {
     setSelectedDomain(null)
+    if (setSelectedDomainId) {
+      setSelectedDomainId(null)
+    }
     window.scrollTo({ top: 400, behavior: 'smooth' })
   }
 
   // If a domain application is selected, render the dedicated Full-Page View
   if (selectedDomain) {
+    if (selectedDomain.id === 'natural-resources') {
+      return <NaturalResourcesDetail handleBack={handleBack} setActiveTab={setActiveTab} />
+    }
+    if (selectedDomain.id === 'disaster-risk') {
+      return <DisasterRiskDetail handleBack={handleBack} setActiveTab={setActiveTab} />
+    }
+    if (selectedDomain.id === 'agriculture') {
+      return <AgricultureDetail handleBack={handleBack} setActiveTab={setActiveTab} />
+    }
+    if (selectedDomain.id === 'environmental-conservation') {
+      return <EnvironmentalConservationDetail handleBack={handleBack} setActiveTab={setActiveTab} />
+    }
+    if (selectedDomain.id === 'infrastructure-urban') {
+      return <InfrastructureUrbanDetail handleBack={handleBack} setActiveTab={setActiveTab} />
+    }
+    if (selectedDomain.id === 'climate-intelligence') {
+      return <ClimateIntelligenceDetail handleBack={handleBack} setActiveTab={setActiveTab} />
+    }
+
     return (
-      <div style={{ backgroundColor: '#050F24', minHeight: '100vh', color: '#FFFFFF' }}>
+      <div style={{ backgroundColor: '#F8FAFC', color: '#0F172A' }}>
         {/* TOP NAVIGATION BAR */}
         <div style={{
           position: 'sticky',
           top: '72px',
           zIndex: 90,
-          background: 'rgba(10, 29, 61, 0.95)',
+          background: 'rgba(10, 29, 61, 0.96)',
           backdropFilter: 'blur(16px)',
           borderBottom: '1px solid rgba(0, 181, 226, 0.2)',
-          padding: '14px 24px'
+          padding: '12px 24px'
         }}>
           <div style={{
             maxWidth: '1280px',
@@ -295,8 +340,8 @@ export default function Solutions({ setActiveTab }) {
                 transition: 'all 0.2s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#FF7A29'
-                e.currentTarget.style.borderColor = '#FF7A29'
+                e.currentTarget.style.background = 'var(--color-orange)'
+                e.currentTarget.style.borderColor = 'var(--color-orange)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
@@ -314,20 +359,20 @@ export default function Solutions({ setActiveTab }) {
           </div>
         </div>
 
-        {/* HERO SECTION */}
+        {/* HERO SECTION (NAVY BLUE) */}
         <section style={{
           position: 'relative',
-          padding: '70px 24px 80px',
+          padding: '52px 24px 56px',
           overflow: 'hidden',
           background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
-          borderBottom: '1px solid rgba(0, 181, 226, 0.15)'
+          borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
         }}>
           <div style={{
             maxWidth: '1280px',
             margin: '0 auto',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '48px',
+            gap: '40px',
             alignItems: 'center'
           }}>
             <div>
@@ -342,63 +387,93 @@ export default function Solutions({ setActiveTab }) {
                 color: '#FF7A29',
                 fontSize: '0.82rem',
                 fontWeight: 700,
-                marginBottom: '20px',
+                marginBottom: '16px',
                 letterSpacing: '0.05em'
               }}>
                 <Sparkles size={14} /> {selectedDomain.heroBadge}
               </div>
 
               <h1 style={{
-                fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
-                fontWeight: 800,
+                fontSize: 'clamp(2rem, 3.5vw, 3.2rem)',
+                fontWeight: 400,
+                letterSpacing: '-0.04em',
                 color: '#FFFFFF',
                 lineHeight: 1.15,
-                marginBottom: '16px'
+                marginBottom: '14px'
               }}>
                 {selectedDomain.title}
               </h1>
 
               <p style={{
-                fontSize: '1.2rem',
+                fontSize: '1.15rem',
                 color: '#00B5E2',
                 fontWeight: 600,
-                marginBottom: '20px'
+                marginBottom: '16px'
               }}>
                 {selectedDomain.subtitle}
               </p>
 
               <p style={{
-                fontSize: '1.05rem',
+                fontSize: '1rem',
                 color: '#CBD5E1',
-                lineHeight: 1.7,
-                marginBottom: '32px'
+                lineHeight: 1.65,
+                marginBottom: '28px'
               }}>
                 {selectedDomain.overview}
               </p>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
                 <button
                   onClick={() => {
                     if (setActiveTab) setActiveTab('contact')
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
-                  className="btn-primary"
                   style={{
-                    padding: '14px 28px',
-                    fontSize: '1rem',
+                    padding: '12px 26px',
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: '#FFFFFF',
+                    background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                    border: 'none',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '10px'
+                    gap: '10px',
+                    boxShadow: '0 10px 25px -5px rgba(255, 106, 0, 0.4)',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                    e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(255, 106, 0, 0.5)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(255, 106, 0, 0.4)'
                   }}
                 >
-                  Inquire for Project <Send size={18} />
+                  Inquire for Project <Send size={16} />
                 </button>
                 <button
                   onClick={handleBack}
-                  className="btn-slate"
                   style={{
-                    padding: '14px 24px',
-                    fontSize: '0.95rem'
+                    padding: '12px 22px',
+                    fontSize: '0.92rem',
+                    fontWeight: 600,
+                    color: '#FFFFFF',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)'
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
                   }}
                 >
                   Explore Other Domains
@@ -409,11 +484,11 @@ export default function Solutions({ setActiveTab }) {
             {/* HERO IMAGE CONTAINER */}
             <div style={{
               position: 'relative',
-              borderRadius: '24px',
+              borderRadius: '20px',
               overflow: 'hidden',
               boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6)',
               border: '1px solid rgba(0, 181, 226, 0.3)',
-              height: '380px'
+              height: '340px'
             }}>
               <img
                 src={selectedDomain.img}
@@ -435,37 +510,49 @@ export default function Solutions({ setActiveTab }) {
 
         {/* KEY METRICS STATS BAR */}
         <section style={{
-          backgroundColor: '#07152E',
-          borderBottom: '1px solid rgba(234, 239, 245, 0.1)',
-          padding: '36px 24px'
+          background: 'linear-gradient(180deg, #EEF2F6 0%, #F8FAFC 100%)',
+          borderBottom: '1px solid rgba(27, 54, 73, 0.08)',
+          padding: '28px 24px'
         }}>
           <div style={{
             maxWidth: '1280px',
             margin: '0 auto',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '24px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '20px'
           }}>
             {selectedDomain.stats.map((stat, i) => (
               <div
                 key={i}
                 style={{
-                  background: 'rgba(18, 50, 77, 0.4)',
-                  border: '1px solid rgba(0, 181, 226, 0.15)',
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(27, 54, 73, 0.1)',
                   borderRadius: '16px',
                   padding: '20px 24px',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  boxShadow: '0 10px 25px -8px rgba(27, 54, 73, 0.06)',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)'
+                  e.currentTarget.style.borderColor = 'rgba(255, 106, 0, 0.4)'
+                  e.currentTarget.style.boxShadow = '0 15px 30px -8px rgba(27, 54, 73, 0.12)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.1)'
+                  e.currentTarget.style.boxShadow = '0 10px 25px -8px rgba(27, 54, 73, 0.06)'
                 }}
               >
                 <div style={{
                   fontSize: '2rem',
                   fontWeight: 800,
-                  color: '#FF7A29',
-                  marginBottom: '6px'
+                  color: 'var(--color-orange)',
+                  marginBottom: '4px'
                 }}>
                   {stat.value}
                 </div>
-                <div style={{ fontSize: '0.9rem', color: '#94A3B8', fontWeight: 500 }}>
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-muted-gray)', fontWeight: 500 }}>
                   {stat.label}
                 </div>
               </div>
@@ -474,60 +561,63 @@ export default function Solutions({ setActiveTab }) {
         </section>
 
         {/* CORE CAPABILITIES SECTION */}
-        <section style={{ padding: '80px 24px', backgroundColor: '#050F24' }}>
+        <section style={{ padding: '56px 24px', background: 'linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%)' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '14px' }}>
-                Key <span style={{ color: '#00B5E2' }}>Technical Capabilities</span>
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+              <h2 style={{ fontSize: '2.2rem', fontWeight: 700, color: 'var(--text-heading-dark)', marginBottom: '10px' }}>
+                Key <span style={{ color: 'var(--color-orange)' }}>Technical Capabilities</span>
               </h2>
-              <p style={{ color: '#8BADC1', maxWidth: '700px', margin: '0 auto', fontSize: '1.05rem' }}>
+              <p style={{ color: 'var(--text-muted-gray)', maxWidth: '700px', margin: '0 auto', fontSize: '1rem' }}>
                 End-to-end remote sensing capabilities customized specifically for {selectedDomain.title.toLowerCase()} missions.
               </p>
             </div>
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '28px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px'
             }}>
               {selectedDomain.keyCapabilities.map((cap, idx) => (
                 <div
                   key={idx}
                   style={{
-                    background: 'rgba(18, 50, 77, 0.45)',
-                    border: '1px solid rgba(0, 181, 226, 0.2)',
-                    borderRadius: '20px',
-                    padding: '32px 28px',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(27, 54, 73, 0.1)',
+                    borderRadius: '18px',
+                    padding: '26px 24px',
                     display: 'flex',
                     flexDirection: 'column',
+                    boxShadow: '0 12px 30px -10px rgba(27, 54, 73, 0.07)',
                     transition: 'all 0.3s ease'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#FF7A29'
+                    e.currentTarget.style.borderColor = 'rgba(255, 106, 0, 0.4)'
                     e.currentTarget.style.transform = 'translateY(-4px)'
+                    e.currentTarget.style.boxShadow = '0 16px 35px -10px rgba(27, 54, 73, 0.12)'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.2)'
+                    e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.1)'
                     e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 12px 30px -10px rgba(27, 54, 73, 0.07)'
                   }}
                 >
                   <div style={{
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 122, 41, 0.15)',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
+                    background: 'rgba(255, 106, 0, 0.12)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#FF7A29',
-                    marginBottom: '20px'
+                    color: 'var(--color-orange)',
+                    marginBottom: '16px'
                   }}>
-                    <Layers size={24} />
+                    <Layers size={22} />
                   </div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '12px' }}>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-heading-dark)', marginBottom: '10px' }}>
                     {cap.title}
                   </h3>
-                  <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: '1.65' }}>
+                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '0.94rem', lineHeight: '1.6' }}>
                     {cap.desc}
                   </p>
                 </div>
@@ -537,44 +627,45 @@ export default function Solutions({ setActiveTab }) {
         </section>
 
         {/* PAYLOADS & DELIVERABLES DUAL GRID */}
-        <section style={{ padding: '70px 24px 90px', backgroundColor: '#07152E', borderTop: '1px solid rgba(234, 239, 245, 0.08)' }}>
+        <section style={{ padding: '56px 24px 60px', background: 'linear-gradient(180deg, #EEF2F6 0%, #F8FAFC 100%)', borderTop: '1px solid rgba(27, 54, 73, 0.08)' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '36px'
+              gap: '28px'
             }}>
               {/* SENSORS & PAYLOADS */}
               <div style={{
-                background: 'rgba(10, 29, 61, 0.6)',
-                border: '1px solid rgba(0, 181, 226, 0.25)',
-                borderRadius: '24px',
-                padding: '36px'
+                background: '#FFFFFF',
+                border: '1px solid rgba(27, 54, 73, 0.1)',
+                borderRadius: '20px',
+                padding: '30px',
+                boxShadow: '0 15px 35px -10px rgba(27, 54, 73, 0.07)'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                   <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '12px',
-                    background: 'rgba(0, 181, 226, 0.15)',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '10px',
+                    background: 'rgba(0, 181, 226, 0.12)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#00B5E2'
+                    color: 'var(--color-aqua)'
                   }}>
-                    <Cpu size={24} />
+                    <Cpu size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF' }}>Sensor Payloads</h3>
-                    <span style={{ fontSize: '0.85rem', color: '#8BADC1' }}>Hardware & Sensor Integration</span>
+                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-heading-dark)' }}>Sensor Payloads</h3>
+                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted-gray)' }}>Hardware & Sensor Integration</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {selectedDomain.payloads.map((payload, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <CheckCircle2 size={18} color="#00B5E2" style={{ flexShrink: 0 }} />
-                      <span style={{ color: '#E2E8F0', fontSize: '0.98rem' }}>{payload}</span>
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <CheckCircle2 size={16} color="var(--color-aqua)" style={{ flexShrink: 0 }} />
+                      <span style={{ color: 'var(--text-heading-dark)', fontSize: '0.94rem', fontWeight: 500 }}>{payload}</span>
                     </div>
                   ))}
                 </div>
@@ -582,35 +673,36 @@ export default function Solutions({ setActiveTab }) {
 
               {/* SAMPLE DELIVERABLES */}
               <div style={{
-                background: 'rgba(10, 29, 61, 0.6)',
-                border: '1px solid rgba(255, 122, 41, 0.25)',
-                borderRadius: '24px',
-                padding: '36px'
+                background: '#FFFFFF',
+                border: '1px solid rgba(27, 54, 73, 0.1)',
+                borderRadius: '20px',
+                padding: '30px',
+                boxShadow: '0 15px 35px -10px rgba(27, 54, 73, 0.07)'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                   <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 122, 41, 0.15)',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '10px',
+                    background: 'rgba(255, 106, 0, 0.12)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#FF7A29'
+                    color: 'var(--color-orange)'
                   }}>
-                    <BarChart3 size={24} />
+                    <BarChart3 size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF' }}>Standard Deliverables</h3>
-                    <span style={{ fontSize: '0.85rem', color: '#8BADC1' }}>Industry-standard export formats</span>
+                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-heading-dark)' }}>Standard Deliverables</h3>
+                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted-gray)' }}>Industry-standard export formats</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {selectedDomain.deliverables.map((deliv, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <ShieldCheck size={18} color="#FF7A29" style={{ flexShrink: 0 }} />
-                      <span style={{ color: '#E2E8F0', fontSize: '0.98rem' }}>{deliv}</span>
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <ShieldCheck size={16} color="var(--color-orange)" style={{ flexShrink: 0 }} />
+                      <span style={{ color: 'var(--text-heading-dark)', fontSize: '0.94rem', fontWeight: 500 }}>{deliv}</span>
                     </div>
                   ))}
                 </div>
@@ -619,40 +711,74 @@ export default function Solutions({ setActiveTab }) {
 
             {/* BOTTOM CALL TO ACTION */}
             <div style={{
-              marginTop: '56px',
-              background: 'linear-gradient(135deg, rgba(255, 122, 41, 0.15) 0%, rgba(0, 181, 226, 0.15) 100%)',
-              border: '1px solid rgba(255, 122, 41, 0.3)',
-              borderRadius: '24px',
-              padding: '44px 36px',
-              textAlign: 'center'
+              marginTop: '40px',
+              background: '#FFFFFF',
+              border: '1px solid rgba(27, 54, 73, 0.1)',
+              borderRadius: '20px',
+              padding: '36px 28px',
+              textAlign: 'center',
+              boxShadow: '0 20px 40px -12px rgba(27, 54, 73, 0.08)'
             }}>
-              <h3 style={{ fontSize: '1.9rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '14px' }}>
-                Need a Custom UAV Deployment for <span style={{ color: '#FF7A29' }}>{selectedDomain.title}</span>?
+              <h3 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--text-heading-dark)', marginBottom: '12px' }}>
+                Need a Custom UAV Deployment for <span style={{ color: 'var(--color-orange)' }}>{selectedDomain.title}</span>?
               </h3>
-              <p style={{ color: '#CBD5E1', maxWidth: '680px', margin: '0 auto 28px', fontSize: '1.05rem', lineHeight: '1.6' }}>
+              <p style={{ color: 'var(--text-muted-gray)', maxWidth: '680px', margin: '0 auto 24px', fontSize: '1rem', lineHeight: '1.6' }}>
                 Our team of certified drone pilots, GIS analysts, and remote sensing engineers is ready to execute your requirements anywhere across the country.
               </p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
                 <button
                   onClick={() => {
                     if (setActiveTab) setActiveTab('contact')
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
-                  className="btn-primary"
                   style={{
-                    padding: '14px 36px',
-                    fontSize: '1rem',
+                    padding: '12px 32px',
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: '#FFFFFF',
+                    background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                    border: 'none',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '10px'
+                    gap: '10px',
+                    boxShadow: '0 10px 25px -5px rgba(255, 106, 0, 0.4)',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                    e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(255, 106, 0, 0.5)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(255, 106, 0, 0.4)'
                   }}
                 >
-                  Contact Our GIS Experts <ArrowRight size={18} />
+                  Contact Our GIS Experts <ArrowRight size={16} />
                 </button>
                 <button
                   onClick={handleBack}
-                  className="btn-slate"
-                  style={{ padding: '14px 28px' }}
+                  style={{
+                    padding: '12px 24px',
+                    fontSize: '0.92rem',
+                    fontWeight: 600,
+                    color: 'var(--text-heading-dark)',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(27, 54, 73, 0.15)',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.04)',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#F1F5F9'
+                    e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.3)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#FFFFFF'
+                    e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.15)'
+                  }}
                 >
                   Browse Other Solutions
                 </button>
@@ -667,20 +793,36 @@ export default function Solutions({ setActiveTab }) {
   // DEFAULT VIEW: Grid of Solutions + Domain Applications
   return (
     <div>
-      {/* SECTION 1: BLACK HEADER */}
-      <section className="section-black" style={{ padding: '80px 24px 60px', textAlign: 'center' }}>
+      {/* SECTION 1: NAVY BLUE HEADER */}
+      <section style={{
+        padding: '90px 24px 80px',
+        textAlign: 'center',
+        background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
+        borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
+      }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '2.8rem', color: '#FFF', marginBottom: '16px' }}>
-            <span style={{ color: '#FF7A29' }}>End to end</span> Expertise
+          <h1 style={{
+            fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+            color: '#FFFFFF',
+            fontWeight: 400,
+            marginBottom: '24px',
+            lineHeight: 1.2,
+            letterSpacing: '-0.04em'
+          }}>
+            End-to-End <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Expertise</span>
           </h1>
-          <p style={{ color: '#CBD5E1', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem' }}>
+          <p style={{ color: '#CBD5E1', maxWidth: '720px', margin: '0 auto', fontSize: '1.15rem', lineHeight: '1.7' }}>
             Delivering enterprise-grade aerial remote sensing solutions backed by academic rigor and cutting-edge sensor technology.
           </p>
         </div>
       </section>
 
-      {/* SECTION 2: ADVANCED SOLUTIONS GRID */}
-      <section className="section-slate" style={{ padding: '20px 24px 80px', borderBottom: '1px solid rgba(255, 106, 0, 0.3)' }}>
+      {/* SECTION 2: ADVANCED SOLUTIONS GRID (OFF-WHITE) */}
+      <section style={{ 
+        padding: '60px 24px 80px', 
+        background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)',
+        borderBottom: '1px solid rgba(27, 54, 73, 0.08)' 
+      }}>
         <style>{`
           .advanced-card {
             display: flex;
@@ -688,17 +830,17 @@ export default function Solutions({ setActiveTab }) {
             overflow: hidden;
             padding: 0;
             background: #FFFFFF;
-            backdrop-filter: blur(10px);
             border-radius: 24px;
-            border: 1px solid rgba(10, 29, 61, 0.08);
+            border: 1px solid rgba(27, 54, 73, 0.1);
+            box-shadow: 0 15px 35px -10px rgba(27, 54, 73, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
           }
           
           .advanced-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 181, 226, 0.15);
-            border-color: #00B5E2;
+            box-shadow: 0 20px 40px -10px rgba(27, 54, 73, 0.15);
+            border-color: rgba(255, 106, 0, 0.4);
           }
 
           .advanced-card .card-img-wrapper {
@@ -716,7 +858,7 @@ export default function Solutions({ setActiveTab }) {
           }
 
           .advanced-card:hover .card-img {
-            transform: scale(1.12);
+            transform: scale(1.08);
           }
 
           .advanced-card .img-overlay {
@@ -724,7 +866,7 @@ export default function Solutions({ setActiveTab }) {
             bottom: 0;
             left: 0;
             right: 0;
-            height: 160px;
+            height: 140px;
             background: linear-gradient(to bottom, transparent, #FFFFFF);
             pointer-events: none;
           }
@@ -746,8 +888,8 @@ export default function Solutions({ setActiveTab }) {
                   <div className="img-overlay" />
                 </div>
                 <div style={{ padding: '0 32px 36px 32px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2 }}>
-                  <h3 style={{ fontSize: '1.7rem', color: '#0F172A', marginBottom: '16px', fontWeight: '700', marginTop: '16px' }}>{card.title}</h3>
-                  <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '36px', flex: 1 }}>
+                  <h3 style={{ fontSize: '1.7rem', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: '700', marginTop: '16px' }}>{card.title}</h3>
+                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '36px', flex: 1 }}>
                     {card.desc}
                   </p>
 
@@ -756,16 +898,30 @@ export default function Solutions({ setActiveTab }) {
                       if (setActiveTab) setActiveTab('contact')
                       window.scrollTo({ top: 0, behavior: 'smooth' })
                     }}
-                    className="btn-slate"
                     style={{
                       padding: '14px 24px',
                       fontSize: '0.95rem',
+                      fontWeight: 600,
+                      color: '#FFFFFF',
+                      background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                      border: 'none',
+                      borderRadius: '10px',
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '10px',
                       cursor: 'pointer',
-                      marginTop: 'auto'
+                      marginTop: 'auto',
+                      boxShadow: '0 8px 20px -4px rgba(255, 106, 0, 0.4)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)'
+                      e.currentTarget.style.boxShadow = '0 12px 26px -4px rgba(255, 106, 0, 0.5)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)'
+                      e.currentTarget.style.boxShadow = '0 8px 20px -4px rgba(255, 106, 0, 0.4)'
                     }}
                   >
                     Contact Now <ArrowRight size={18} />
@@ -777,13 +933,16 @@ export default function Solutions({ setActiveTab }) {
         </div>
       </section>
 
-      {/* SECTION 3: DOMAIN APPLICATIONS (STAGGERED 2-COLUMN LAYOUT) */}
-      <section className="section-light" style={{ padding: '80px 0 0 0', backgroundColor: '#FAFAFA' }}>
+      {/* SECTION 3: DOMAIN APPLICATIONS (OFF-WHITE CHECKER LAYOUT) */}
+      <section style={{ 
+        padding: '80px 0 0 0', 
+        background: 'linear-gradient(180deg, #EFF4F8 0%, #F8FAFC 100%)' 
+      }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px 50px 24px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.4rem', color: '#0F172A', marginBottom: '16px', fontWeight: '700' }}>
-            Key Application <span style={{ color: '#FF7A29' }}>Domains</span>
+          <h2 style={{ fontSize: '2.4rem', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: '700' }}>
+            Key Application <span style={{ color: 'var(--color-orange)' }}>Domains</span>
           </h2>
-          <p style={{ color: '#475569', maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
+          <p style={{ color: 'var(--text-muted-gray)', maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
             Delivering tailor-made aerial remote sensing, multispectral mapping, and geospatial intelligence across diverse industries.
           </p>
         </div>
@@ -824,8 +983,8 @@ export default function Solutions({ setActiveTab }) {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: #F8FAFC;
-            border: 1px solid rgba(226, 232, 240, 0.6);
+            background: #FFFFFF;
+            border: 1px solid rgba(27, 54, 73, 0.08);
             box-sizing: border-box;
           }
           .checker-row.reverse {
@@ -843,7 +1002,7 @@ export default function Solutions({ setActiveTab }) {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #FF7A29;
+            color: var(--color-orange);
             font-weight: 700;
             font-size: 1rem;
             background: none;

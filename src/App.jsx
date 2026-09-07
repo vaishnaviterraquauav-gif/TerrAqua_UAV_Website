@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Home from './components/Home/Home'
+import Data from './components/Data/Data'
 import Team from './components/Company/Team'
 import Solutions from './components/Solutions/Solutions'
 import OurProduct from './components/OurProduct/OurProduct'
@@ -11,6 +12,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
+  const [selectedDomainId, setSelectedDomainId] = useState(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,10 +48,16 @@ export default function App() {
     switch (activeTab) {
       case 'home':
         return <Home setActiveTab={setActiveTab} />
+      case 'data':
+        return <Data setActiveTab={setActiveTab} />
       case 'team':
         return <Team />
       case 'solutions':
-        return <Solutions setActiveTab={setActiveTab} />
+        return <Solutions 
+          setActiveTab={setActiveTab} 
+          selectedDomainId={selectedDomainId} 
+          setSelectedDomainId={setSelectedDomainId} 
+        />
       case 'product':
         return <OurProduct setActiveTab={setActiveTab} />
       case 'dronagiri':
@@ -65,11 +73,15 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#000000' }}>
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Navbar 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab} 
+        setSelectedDomainId={setSelectedDomainId} 
+      />
       <main style={{ flex: 1 }}>
         {renderContent()}
       </main>
-      <Footer setActiveTab={setActiveTab} />
+      <Footer setActiveTab={setActiveTab} setSelectedDomainId={setSelectedDomainId} />
     </div>
   )
 }
