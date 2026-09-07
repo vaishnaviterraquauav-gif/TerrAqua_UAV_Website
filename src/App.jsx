@@ -9,6 +9,7 @@ import OperationDronagiri from './components/OperationDronagiri/OperationDronagi
 import Infozest from './components/Infozest/Infozest'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer'
+import HighlightsModal from './components/Highlights/HighlightsModal'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
@@ -82,6 +83,7 @@ export default function App() {
         {renderContent()}
       </main>
       <Footer setActiveTab={setActiveTab} setSelectedDomainId={setSelectedDomainId} />
+      <HighlightsModal setActiveTab={setActiveTab} />
     </div>
   )
 }
