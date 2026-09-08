@@ -1,8 +1,67 @@
-import React, { useState } from 'react'
-import { CheckCircle2, ChevronDown } from 'lucide-react'
+import React, { useState, useRef, useEffect } from 'react'
+import { CheckCircle2, ChevronDown, Search } from 'lucide-react'
+
+const COUNTRY_CODES = [
+  { code: 'IN', name: 'India', dialCode: '+91', flag: '🇮🇳', placeholder: '98765 43210' },
+  { code: 'US', name: 'United States', dialCode: '+1', flag: '🇺🇸', placeholder: '(555) 000-0000' },
+  { code: 'GB', name: 'United Kingdom', dialCode: '+44', flag: '🇬🇧', placeholder: '7911 123456' },
+  { code: 'AE', name: 'United Arab Emirates', dialCode: '+971', flag: '🇦🇪', placeholder: '50 123 4567' },
+  { code: 'CA', name: 'Canada', dialCode: '+1', flag: '🇨🇦', placeholder: '(555) 000-0000' },
+  { code: 'AU', name: 'Australia', dialCode: '+61', flag: '🇦🇺', placeholder: '412 345 678' },
+  { code: 'DE', name: 'Germany', dialCode: '+49', flag: '🇩🇪', placeholder: '151 23456789' },
+  { code: 'FR', name: 'France', dialCode: '+33', flag: '🇫🇷', placeholder: '6 12 34 56 78' },
+  { code: 'SG', name: 'Singapore', dialCode: '+65', flag: '🇸🇬', placeholder: '8123 4567' },
+  { code: 'SA', name: 'Saudi Arabia', dialCode: '+966', flag: '🇸🇦', placeholder: '50 123 4567' },
+  { code: 'JP', name: 'Japan', dialCode: '+81', flag: '🇯🇵', placeholder: '90 1234 5678' },
+  { code: 'CN', name: 'China', dialCode: '+86', flag: '🇨🇳', placeholder: '138 0013 8000' },
+  { code: 'BR', name: 'Brazil', dialCode: '+55', flag: '🇧🇷', placeholder: '11 91234-5678' },
+  { code: 'ZA', name: 'South Africa', dialCode: '+27', flag: '🇿🇦', placeholder: '71 123 4567' },
+  { code: 'RU', name: 'Russia', dialCode: '+7', flag: '🇷🇺', placeholder: '912 345-67-89' },
+  { code: 'IT', name: 'Italy', dialCode: '+39', flag: '🇮🇹', placeholder: '312 3456789' },
+  { code: 'ES', name: 'Spain', dialCode: '+34', flag: '🇪🇸', placeholder: '612 345 678' },
+  { code: 'NL', name: 'Netherlands', dialCode: '+31', flag: '🇳🇱', placeholder: '6 12345678' },
+  { code: 'CH', name: 'Switzerland', dialCode: '+41', flag: '🇨🇭', placeholder: '78 123 45 67' },
+  { code: 'SE', name: 'Sweden', dialCode: '+46', flag: '🇸🇪', placeholder: '70 123 45 67' },
+  { code: 'NZ', name: 'New Zealand', dialCode: '+64', flag: '🇳🇿', placeholder: '21 123 4567' },
+  { code: 'MX', name: 'Mexico', dialCode: '+52', flag: '🇲🇽', placeholder: '55 1234 5678' },
+  { code: 'ID', name: 'Indonesia', dialCode: '+62', flag: '🇮🇩', placeholder: '812-3456-7890' },
+  { code: 'MY', name: 'Malaysia', dialCode: '+60', flag: '🇲🇾', placeholder: '12-345 6789' },
+  { code: 'BD', name: 'Bangladesh', dialCode: '+880', flag: '🇧🇩', placeholder: '1712-345678' },
+  { code: 'PK', name: 'Pakistan', dialCode: '+92', flag: '🇵🇰', placeholder: '300 1234567' },
+  { code: 'LK', name: 'Sri Lanka', dialCode: '+94', flag: '🇱🇰', placeholder: '71 234 5678' },
+  { code: 'NP', name: 'Nepal', dialCode: '+977', flag: '🇳🇵', placeholder: '984-1234567' },
+  { code: 'PH', name: 'Philippines', dialCode: '+63', flag: '🇵🇭', placeholder: '917 123 4567' },
+  { code: 'TH', name: 'Thailand', dialCode: '+66', flag: '🇹🇭', placeholder: '81 234 5678' },
+  { code: 'VN', name: 'Vietnam', dialCode: '+84', flag: '🇻🇳', placeholder: '91 234 5678' },
+  { code: 'EG', name: 'Egypt', dialCode: '+20', flag: '🇪🇬', placeholder: '100 123 4567' },
+  { code: 'NG', name: 'Nigeria', dialCode: '+234', flag: '🇳🇬', placeholder: '802 123 4567' },
+  { code: 'KE', name: 'Kenya', dialCode: '+254', flag: '🇰🇪', placeholder: '712 345678' },
+  { code: 'QA', name: 'Qatar', dialCode: '+974', flag: '🇶🇦', placeholder: '3312 3456' },
+  { code: 'OM', name: 'Oman', dialCode: '+968', flag: '🇴🇲', placeholder: '9123 4567' },
+  { code: 'KW', name: 'Kuwait', dialCode: '+965', flag: '🇰🇼', placeholder: '9123 4567' },
+  { code: 'BH', name: 'Bahrain', dialCode: '+973', flag: '🇧🇭', placeholder: '3912 3456' },
+  { code: 'TR', name: 'Turkey', dialCode: '+90', flag: '🇹🇷', placeholder: '532 123 4567' },
+  { code: 'KR', name: 'South Korea', dialCode: '+82', flag: '🇰🇷', placeholder: '10-1234-5678' },
+  { code: 'IL', name: 'Israel', dialCode: '+972', flag: '🇮🇱', placeholder: '50-123-4567' },
+  { code: 'NO', name: 'Norway', dialCode: '+47', flag: '🇳🇴', placeholder: '412 34 567' },
+  { code: 'DK', name: 'Denmark', dialCode: '+45', flag: '🇩🇰', placeholder: '23 45 67 89' },
+  { code: 'IE', name: 'Ireland', dialCode: '+353', flag: '🇮🇪', placeholder: '85 123 4567' },
+  { code: 'BE', name: 'Belgium', dialCode: '+32', flag: '🇧🇪', placeholder: '470 12 34 56' },
+  { code: 'AT', name: 'Austria', dialCode: '+43', flag: '🇦🇹', placeholder: '650 1234567' },
+  { code: 'PT', name: 'Portugal', dialCode: '+351', flag: '🇵🇹', placeholder: '912 345 678' },
+  { code: 'PL', name: 'Poland', dialCode: '+48', flag: '🇵🇱', placeholder: '512 345 678' },
+  { code: 'AR', name: 'Argentina', dialCode: '+54', flag: '🇦🇷', placeholder: '9 11 2345-6789' },
+  { code: 'CO', name: 'Colombia', dialCode: '+57', flag: '🇨🇴', placeholder: '300 1234567' },
+  { code: 'CL', name: 'Chile', dialCode: '+56', flag: '🇨🇱', placeholder: '9 1234 5678' }
+]
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [selectedCountry, setSelectedCountry] = useState(COUNTRY_CODES[0])
+  const [isCountryOpen, setIsCountryOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const countryDropdownRef = useRef(null)
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -11,6 +70,22 @@ export default function Contact() {
     service: '',
     details: ''
   })
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target)) {
+        setIsCountryOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const filteredCountries = COUNTRY_CODES.filter(c =>
+    c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.dialCode.includes(searchQuery) ||
+    c.code.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -493,7 +568,7 @@ export default function Contact() {
                   </div>
 
                   {/* Phone * */}
-                  <div>
+                  <div style={{ position: 'relative' }} ref={countryDropdownRef}>
                     <label style={{ display: 'block', color: 'var(--text-heading-dark)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '6px' }}>
                       Phone *
                     </label>
@@ -501,19 +576,53 @@ export default function Contact() {
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        border: '1px solid rgba(27, 54, 73, 0.16)',
+                        border: isCountryOpen ? '1px solid #00B5E2' : '1px solid rgba(27, 54, 73, 0.16)',
                         borderRadius: '24px',
-                        padding: '0 14px',
-                        background: '#F8FAFC'
+                        padding: '0 8px 0 10px',
+                        background: '#F8FAFC',
+                        transition: 'all 0.2s ease',
+                        boxShadow: isCountryOpen ? '0 0 0 3px rgba(0, 181, 226, 0.15)' : 'none'
                       }}
                     >
-                      <span style={{ color: '#64748B', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px', paddingRight: '8px', borderRight: '1px solid rgba(27, 54, 73, 0.12)' }}>
-                        🌐 <ChevronDown size={12} />
-                      </span>
+                      {/* Country Flag & Dial Code Trigger Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsCountryOpen(!isCountryOpen)}
+                        aria-label="Select Country Code"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '8px 10px 8px 4px',
+                          border: 'none',
+                          background: 'transparent',
+                          cursor: 'pointer',
+                          borderRight: '1px solid rgba(27, 54, 73, 0.15)',
+                          color: '#0A1D3D',
+                          fontSize: '0.88rem',
+                          fontWeight: 600,
+                          userSelect: 'none',
+                          outline: 'none',
+                          flexShrink: 0
+                        }}
+                      >
+                        <span style={{ fontSize: '1.2rem', lineHeight: 1 }}>{selectedCountry.flag}</span>
+                        <span style={{ fontSize: '0.85rem', color: '#1E293B', fontWeight: 600 }}>{selectedCountry.dialCode}</span>
+                        <ChevronDown
+                          size={13}
+                          style={{
+                            color: '#64748B',
+                            transform: isCountryOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                            transition: 'transform 0.2s ease'
+                          }}
+                        />
+                      </button>
+
+                      {/* Phone Number Input */}
                       <input
                         type="tel"
                         required
-                        placeholder="Enter your phone number"
+                        placeholder={selectedCountry.placeholder || "Enter phone number"}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         style={{
@@ -528,6 +637,114 @@ export default function Contact() {
                         }}
                       />
                     </div>
+
+                    {/* Country Search & Selection Dropdown Menu */}
+                    {isCountryOpen && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          top: 'calc(100% + 6px)',
+                          left: 0,
+                          width: '100%',
+                          maxHeight: '260px',
+                          background: '#FFFFFF',
+                          borderRadius: '16px',
+                          boxShadow: '0 14px 36px rgba(0, 0, 0, 0.16), 0 3px 8px rgba(0,0,0,0.06)',
+                          border: '1px solid rgba(27, 54, 73, 0.14)',
+                          zIndex: 100,
+                          overflow: 'hidden',
+                          display: 'flex',
+                          flexDirection: 'column'
+                        }}
+                      >
+                        {/* Search Input Box */}
+                        <div
+                          style={{
+                            padding: '10px 14px',
+                            borderBottom: '1px solid #E2E8F0',
+                            background: '#F8FAFC',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px'
+                          }}
+                        >
+                          <Search size={14} style={{ color: '#64748B', flexShrink: 0 }} />
+                          <input
+                            type="text"
+                            placeholder="Search country or dial code..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            autoFocus
+                            style={{
+                              border: 'none',
+                              outline: 'none',
+                              background: 'transparent',
+                              fontSize: '0.85rem',
+                              width: '100%',
+                              color: '#0F172A'
+                            }}
+                          />
+                        </div>
+
+                        {/* Country List Items */}
+                        <div style={{ overflowY: 'auto', flex: 1, padding: '4px 0' }}>
+                          {filteredCountries.length > 0 ? (
+                            filteredCountries.map((c) => {
+                              const isSelected = selectedCountry.code === c.code
+                              return (
+                                <div
+                                  key={c.code}
+                                  onClick={() => {
+                                    setSelectedCountry(c)
+                                    setIsCountryOpen(false)
+                                    setSearchQuery('')
+                                  }}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    padding: '8px 14px',
+                                    cursor: 'pointer',
+                                    fontSize: '0.85rem',
+                                    color: isSelected ? '#006699' : '#1E293B',
+                                    background: isSelected ? '#EFF6FF' : 'transparent',
+                                    transition: 'background 0.15s ease'
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    if (!isSelected) e.currentTarget.style.background = '#F8FAFC'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    if (!isSelected) e.currentTarget.style.background = 'transparent'
+                                  }}
+                                >
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0 }}>
+                                    <span style={{ fontSize: '1.15rem' }}>{c.flag}</span>
+                                    <span style={{ fontWeight: isSelected ? 600 : 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                      {c.name}
+                                    </span>
+                                  </div>
+                                  <span
+                                    style={{
+                                      color: isSelected ? '#006699' : '#64748B',
+                                      fontWeight: 600,
+                                      fontSize: '0.8rem',
+                                      marginLeft: '10px',
+                                      flexShrink: 0
+                                    }}
+                                  >
+                                    {c.dialCode}
+                                  </span>
+                                </div>
+                              )
+                            })
+                          ) : (
+                            <div style={{ padding: '16px', textAlign: 'center', color: '#94A3B8', fontSize: '0.85rem' }}>
+                              No country found
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Select a Service */}
