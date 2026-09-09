@@ -94,11 +94,17 @@ export default function OurProduct({ setActiveTab }) {
         overflow: 'hidden'
       }}>
         <style>{`
+          .product-split-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+
           .product-split-row {
             display: flex;
-            flex-direction: row;
-            min-height: 420px;
+            flex-wrap: wrap;
             width: 100%;
+            min-height: 340px;
           }
 
           .product-split-row.reverse {
@@ -107,11 +113,11 @@ export default function OurProduct({ setActiveTab }) {
 
           .product-split-img-box {
             flex: 1 1 50%;
-            width: 50%;
-            min-height: 400px;
+            min-width: 320px;
+            height: 340px;
+            position: relative;
             overflow: hidden;
             background-color: #0F172A;
-            position: relative;
           }
 
           .product-split-img {
@@ -119,40 +125,40 @@ export default function OurProduct({ setActiveTab }) {
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           }
 
           .product-split-row:hover .product-split-img {
-            transform: scale(1.03);
+            transform: scale(1.05);
           }
 
           .product-split-content-box {
             flex: 1 1 50%;
-            width: 50%;
+            min-width: 320px;
+            padding: 48px 60px;
             display: flex;
             flex-direction: column;
-            justifyContent: center;
-            padding: clamp(36px, 5vw, 80px) clamp(28px, 4.5vw, 70px);
+            justify-content: center;
             background: #FFFFFF;
+            border: 1px solid rgba(27, 54, 73, 0.08);
             box-sizing: border-box;
           }
 
           .product-split-title {
-            font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+            font-size: 1.75rem;
             font-weight: 700;
-            color: #0A1D3D;
-            letter-spacing: -0.03em;
+            color: #0F172A;
+            margin: 0 0 14px 0;
+            letter-spacing: -0.02em;
             line-height: 1.25;
-            margin: 0 0 16px 0;
             font-family: var(--font-universal);
           }
 
           .product-split-desc {
-            color: #546478;
-            font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+            color: #475569;
+            font-size: 1rem;
             line-height: 1.7;
-            margin: 0 0 28px 0;
-            max-width: 560px;
+            margin: 0 0 24px 0;
             font-weight: 400;
           }
 
@@ -161,37 +167,39 @@ export default function OurProduct({ setActiveTab }) {
             align-items: center;
             gap: 8px;
             color: var(--color-orange, #FF6A00);
-            font-size: 1.05rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             text-decoration: none;
-            transition: gap 0.2s ease, transform 0.2s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: gap 0.2s ease, color 0.2s ease;
             width: fit-content;
           }
 
           .product-split-link:hover {
+            color: #00B5E2;
             gap: 12px;
           }
 
-          /* MOBILE RESPONSIVE STACK (CLEAN, READABLE, NO MESSY OVERFLOW) */
+          /* MOBILE RESPONSIVE STACK */
           @media (max-width: 768px) {
             .product-split-row,
             .product-split-row.reverse {
-              flex-direction: column !important;
-              min-height: auto;
-              border-bottom: 1px solid #E2E8F0;
+              flex-direction: column;
             }
 
             .product-split-img-box {
               width: 100% !important;
               flex: none;
-              height: 220px;
-              min-height: 220px;
+              height: 240px;
+              min-height: 240px;
             }
 
             .product-split-content-box {
               width: 100% !important;
               flex: none;
-              padding: 24px 20px 32px 20px !important;
+              padding: 32px 24px !important;
             }
 
             .product-split-title {
@@ -204,14 +212,10 @@ export default function OurProduct({ setActiveTab }) {
               line-height: 1.6 !important;
               margin-bottom: 20px !important;
             }
-
-            .product-split-link {
-              font-size: 0.98rem !important;
-            }
           }
         `}</style>
 
-        <div>
+        <div className="product-split-container">
           {products.map((item, idx) => {
             const isReverse = idx % 2 === 1
             return (
