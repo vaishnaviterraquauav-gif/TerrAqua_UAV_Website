@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Send, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Send,
   Sparkles
 } from 'lucide-react'
 
@@ -14,7 +14,7 @@ const services = [
     description:
       "Land records are essential for planning. We modernize land management with drone surveys and AI-driven boundary detection to create reliable, digitized land datasets.",
     image:
-      "https://images.unsplash.com/photo-1524813686514-a57563d77d66?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_a0f9fcfb87ef4c17af79e58227ef30f8~mv2.png",
     accent: "#0284C7",
     accentLight: "#E0F2FE",
     points: [
@@ -37,7 +37,7 @@ const services = [
     description:
       "A digital twin is a dynamic replica of buildings or cities. We use LiDAR and AI to build high-fidelity twins that help teams monitor and optimize assets with precision.",
     image:
-      "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_1b1b485da0014330aff23ff10c699eae~mv2.png",
     accent: "#7C3AED",
     accentLight: "#EDE9FE",
     points: [
@@ -60,7 +60,7 @@ const services = [
     description:
       "3D models transform how infrastructure is planned. We use photogrammetry and reconstruction to create detailed models for engineering and design.",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_da516b33ccaa40b98b58bcca06fc7c40~mv2.png",
     accent: "#0D9488",
     accentLight: "#CCFBF1",
     points: [
@@ -83,7 +83,7 @@ const services = [
     description:
       "Solar plants lose efficiency due to hotspots. We use thermal drones and AI to inspect solar farms rapidly, identifying defects far faster than manual checks.",
     image:
-      "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&q=80&w=900",
+      "https://www.gst-ir.net/uploads/allimg/230331/1-230331163H5640.jpg",
     accent: "#EA580C",
     accentLight: "#FFEDD5",
     points: [
@@ -231,27 +231,6 @@ function ServiceCard({ service }) {
             ))}
           </ul>
         </div>
-
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: '9999px',
-                border: `1px solid ${service.accent}40`,
-                color: service.accent,
-                backgroundColor: service.accentLight,
-                fontWeight: 400,
-                letterSpacing: '0.01em'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
     </div>
   )
@@ -284,7 +263,7 @@ export default function InfrastructureUrbanDetail({ handleBack, setActiveTab }) 
           width: '100%',
           minHeight: '260px',
           height: 'clamp(240px, 32vw, 320px)',
-          backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600')`,
+          backgroundImage: `url('https://gb.solar/wp-content/uploads/2024/12/Harnessing-the-Sun_-How-Solar-Energy-is-Revolutionizing-Sustainable-Living.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',
@@ -426,27 +405,6 @@ export default function InfrastructureUrbanDetail({ handleBack, setActiveTab }) 
               lifelike 3D digital twins, and conduct AI-driven thermal inspections with
               centimeter precision.
             </p>
-
-            {/* Capabilities pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
-              {capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  style={{
-                    fontSize: '0.82rem',
-                    padding: '7px 16px',
-                    borderRadius: '9999px',
-                    border: '1px solid #D1D5DB',
-                    color: '#374151',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: 400,
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  {cap}
-                </span>
-              ))}
-            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button

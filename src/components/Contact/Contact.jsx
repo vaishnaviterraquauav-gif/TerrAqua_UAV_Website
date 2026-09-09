@@ -136,7 +136,7 @@ export default function Contact() {
                 color: '#FFFFFF'
               }}
             >
-              GET IN <span style={{ color: 'var(--color-aqua, #00B5E2)', fontWeight: 400 }}>TOUCH</span>
+              GET IN <span style={{ color: 'var(--color-orange, #FF6A00)', fontWeight: 400 }}>TOUCH</span>
             </h1>
           </div>
 
@@ -157,23 +157,20 @@ export default function Contact() {
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
                 padding: '36px 32px',
-                boxShadow: '0 16px 36px rgba(5, 15, 36, 0.5)',
-                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
+                transition: 'transform 0.3s ease, border-color 0.3s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.6)'
-                e.currentTarget.style.boxShadow = '0 20px 45px rgba(0, 181, 226, 0.2)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.25)'
-                e.currentTarget.style.boxShadow = '0 16px 36px rgba(5, 15, 36, 0.5)'
               }}
             >
               <h2
                 style={{
-                  color: 'var(--color-aqua, #00B5E2)',
+                  color: '#FFFFFF',
                   fontSize: '1.1rem',
                   fontWeight: 500,
                   letterSpacing: '-0.02em',
@@ -209,23 +206,20 @@ export default function Contact() {
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
                 padding: '36px 32px',
-                boxShadow: '0 16px 36px rgba(5, 15, 36, 0.5)',
-                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
+                transition: 'transform 0.3s ease, border-color 0.3s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.6)'
-                e.currentTarget.style.boxShadow = '0 20px 45px rgba(0, 181, 226, 0.2)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.25)'
-                e.currentTarget.style.boxShadow = '0 16px 36px rgba(5, 15, 36, 0.5)'
               }}
             >
               <h2
                 style={{
-                  color: 'var(--color-aqua, #00B5E2)',
+                  color: '#FFFFFF',
                   fontSize: '1.1rem',
                   fontWeight: 500,
                   letterSpacing: '-0.02em',
@@ -261,23 +255,20 @@ export default function Contact() {
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
                 padding: '36px 32px',
-                boxShadow: '0 16px 36px rgba(5, 15, 36, 0.5)',
-                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
+                transition: 'transform 0.3s ease, border-color 0.3s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.6)'
-                e.currentTarget.style.boxShadow = '0 20px 45px rgba(0, 181, 226, 0.2)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.25)'
-                e.currentTarget.style.boxShadow = '0 16px 36px rgba(5, 15, 36, 0.5)'
               }}
             >
               <h2
                 style={{
-                  color: 'var(--color-aqua, #00B5E2)',
+                  color: '#FFFFFF',
                   fontSize: '1.1rem',
                   fontWeight: 500,
                   letterSpacing: '-0.02em',

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { Sparkles, ArrowRight } from 'lucide-react'
 
-function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50 }) {
+function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
   const [sliderPos, setSliderPos] = useState(initialPos)
   const [isDragging, setIsDragging] = useState(false)
   const containerRef = useRef(null)
@@ -48,7 +48,7 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
         style={{
           position: 'relative',
           width: '100%',
-          height: 'clamp(240px, 42vw, 320px)',
+          height: 'clamp(250px, 42vw, 330px)',
           overflow: 'hidden',
           cursor: 'ew-resize',
           userSelect: 'none',
@@ -65,34 +65,26 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            objectPosition: imagePosition,
             pointerEvents: 'none'
           }}
         />
 
-        {/* Left Image (Before / Raw - Clipped) */}
-        <div
+        {/* Left Image (Before / Raw - Perfectly clipped with clipPath for 100% pixel alignment) */}
+        <img
+          src={beforeImg}
+          alt={beforeLabel}
           style={{
             position: 'absolute',
             inset: 0,
-            width: `${sliderPos}%`,
-            overflow: 'hidden',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: imagePosition,
+            clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)`,
             pointerEvents: 'none'
           }}
-        >
-          <img
-            src={beforeImg}
-            alt={beforeLabel}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              height: '100%',
-              width: containerRef.current ? `${containerRef.current.clientWidth}px` : '100%',
-              maxWidth: 'none',
-              objectFit: 'cover'
-            }}
-          />
-        </div>
+        />
 
         {/* Vertical Divider Line & Drag Handle */}
         <div
@@ -135,49 +127,43 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
           </div>
         </div>
 
-        {/* Floating Sensor Badges on Top (Guaranteed Non-Overlapping & Mobile-Responsive) */}
+        {/* Floating Sensor Badges on Top (Clean & Non-Overlapping) */}
         <div style={{
           position: 'absolute',
-          top: '10px',
-          left: '10px',
-          maxWidth: '46%',
-          background: 'rgba(5, 13, 26, 0.88)',
+          top: '12px',
+          left: '12px',
+          background: 'rgba(5, 13, 26, 0.85)',
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255, 255, 255, 0.25)',
           color: '#FFFFFF',
-          fontSize: 'clamp(0.64rem, 1.8vw, 0.74rem)',
+          fontSize: '0.72rem',
           fontWeight: 600,
-          padding: '4px 10px',
-          borderRadius: '10px',
+          padding: '5px 12px',
+          borderRadius: '20px',
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
           zIndex: 4
-        }} title={beforeLabel}>
+        }}>
           {beforeLabel}
         </div>
         <div style={{
           position: 'absolute',
-          top: '10px',
-          right: '10px',
-          maxWidth: '46%',
-          background: 'rgba(5, 13, 26, 0.88)',
+          top: '12px',
+          right: '12px',
+          background: 'rgba(5, 13, 26, 0.85)',
           backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(0, 181, 226, 0.5)',
+          border: '1px solid rgba(0, 181, 226, 0.6)',
           color: '#00B5E2',
-          fontSize: 'clamp(0.64rem, 1.8vw, 0.74rem)',
+          fontSize: '0.72rem',
           fontWeight: 600,
-          padding: '4px 10px',
-          borderRadius: '10px',
+          padding: '5px 12px',
+          borderRadius: '20px',
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
           zIndex: 4
-        }} title={afterLabel}>
+        }}>
           {afterLabel}
         </div>
       </div>
@@ -257,8 +243,8 @@ export default function DualComparisonSlider({ setActiveTab }) {
           <ComparisonCard
             beforeImg="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=900&q=80"
             afterImg="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
-            beforeLabel="Aerial Drone & Optical Survey"
-            afterLabel="Sub-Centimeter 3D LiDAR Model"
+            beforeLabel="Aerial Drone Optical"
+            afterLabel="3D LiDAR Elevation"
             caption="Airborne remote sensing: High-resolution drone capture (left) vs 3D LiDAR & digital elevation model (right)"
             title="TASKING AS A SERVICE – DATA"
             description="Direct access to drone & satellite tasking, allowing users to schedule any sensor to capture data in near real-time with sub-centimeter accuracy across complex terrains."
@@ -267,14 +253,15 @@ export default function DualComparisonSlider({ setActiveTab }) {
 
           {/* Card 2: Information as a Service – Feeds */}
           <ComparisonCard
-            beforeImg="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
-            afterImg="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80"
-            beforeLabel="Raw Spatial Data Stream"
-            afterLabel="MapZest AI Insights & Feeds"
-            caption="Raw geospatial data (left) vs MapZest automated detection, NDVI indices & risk analytics feed (right)"
+            beforeImg="/beforeveg2.png"
+            afterImg="/imggafterveg2.png"
+            beforeLabel="Raw Optical (RGB)"
+            afterLabel="Multispectral NDVI"
+            caption="True-color raw spatial stream (left) vs MapZest multispectral NDVI crop health & vegetation stress analytics (right)"
             title="INFORMATION AS A SERVICE – FEEDS"
-            description="Transform raw multi-sensor geospatial data into actionable information instantly with MapZest WebGIS enterprise infrastructure to stream, process, and extract automated insights."
+            description="Transform raw multi-spectral and optical drone/satellite data into real-time crop vigor indices (NDVI), canopy stress detection, and actionable agricultural intelligence through MapZest WebGIS platform."
             initialPos={52}
+            imagePosition="center 18%"
           />
         </div>
 

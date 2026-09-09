@@ -1,5 +1,5 @@
 import React from 'react'
-import { Linkedin, Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck, CheckCircle2, Sparkles } from 'lucide-react'
+import { Linkedin, Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck, CheckCircle2 } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -72,22 +72,6 @@ export default function Footer() {
               >
                 <span style={{ color: '#FFFFFF', fontWeight: 600 }}>CIN:</span> U93000UP2018PTC109951
               </div>
-
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '5px 12px',
-                  borderRadius: '12px',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  fontSize: '0.75rem',
-                  color: '#CBD5E1'
-                }}
-              >
-                <Sparkles size={12} color="#00E5FF" /> SIIC IIT Kanpur
-              </div>
             </div>
           </div>
 
@@ -111,44 +95,63 @@ export default function Footer() {
             </div>
 
             {/* Gov Recognitions */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '16px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>
               <img
                 src="/startupindia-clean.png"
                 alt="Startup India"
-                style={{ height: '72px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
               <img
                 src="/upstartuplogo.png"
                 alt="Start In UP"
-                style={{ height: '72px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+              />
+              <img
+                src="/recognized_3.png?v=white"
+                alt="SIIC IIT Kanpur"
+                style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
             </div>
 
-            {/* ISO Certifications */}
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '7px 12px',
-                borderRadius: '8px',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                fontSize: '0.78rem',
-                color: '#CBD5E1',
-                maxWidth: 'fit-content',
-                marginBottom: '12px'
-              }}
-            >
-              <ShieldCheck size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
-              <span style={{ color: '#CBD5E1', fontWeight: 500 }}>
-                <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>ISO:</strong> 9001:2015, 27001:2022, 14001:2015
-              </span>
-            </div>
+            {/* Certifications & Recognitions */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  fontSize: '0.78rem',
+                  color: '#CBD5E1',
+                  width: 'fit-content'
+                }}
+              >
+                <ShieldCheck size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
+                <span>
+                  <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>ISO:</strong> 9001:2015, 27001:2022, 14001:2015
+                </span>
+              </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', color: '#94A3B8', marginTop: 'auto' }}>
-              <CheckCircle2 size={13} color="#00E5FF" style={{ flexShrink: 0 }} />
-              <span>DPIIT & UP State Startup Recognized</span>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  fontSize: '0.78rem',
+                  color: '#CBD5E1',
+                  width: 'fit-content'
+                }}
+              >
+                <CheckCircle2 size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
+                <span>DPIIT & UP State Startup Recognized</span>
+              </div>
             </div>
           </div>
 
@@ -230,9 +233,9 @@ export default function Footer() {
                   </a>
                   <a
                     href="mailto:business@terraquauav.com"
-                    style={{ color: '#94A3B8', fontSize: '0.8rem', textDecoration: 'none', transition: 'color 0.2s' }}
+                    style={{ color: '#CBD5E1', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
                   >
                     business@terraquauav.com
                   </a>
@@ -436,20 +439,15 @@ export default function Footer() {
             borderTop: '1px solid rgba(255, 255, 255, 0.04)',
             paddingTop: '16px',
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '12px',
+            textAlign: 'center',
             fontSize: '0.78rem',
             color: '#94A3B8'
           }}
         >
           <div>
             © 2026 <span>TerrAqua UAV Solutions Private Limited</span>. All Rights Reserved.
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span>Incubated at</span>
-            <span style={{ color: '#FFFFFF', fontWeight: 600 }}>SIIC IIT Kanpur</span>
           </div>
         </div>
       </div>

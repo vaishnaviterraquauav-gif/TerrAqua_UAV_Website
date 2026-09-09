@@ -56,9 +56,9 @@ export default function OurProduct({ setActiveTab }) {
   return (
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#0F172A' }}>
       {/* HERO / HEADER SECTION */}
-      <section style={{ 
-        padding: '90px 24px 80px', 
-        textAlign: 'center', 
+      <section style={{
+        padding: '90px 24px 80px',
+        textAlign: 'center',
         background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
         borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
       }}>
@@ -87,7 +87,7 @@ export default function OurProduct({ setActiveTab }) {
       </section>
 
       {/* SEAMLESS ALTERNATING SPLIT CARDS SECTION */}
-      <section style={{ 
+      <section style={{
         padding: '0',
         background: '#FFFFFF',
         width: '100%',

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Send, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Send,
   Sparkles
 } from 'lucide-react'
 
@@ -14,7 +14,7 @@ const services = [
     description:
       "Cities and villages face rising waste challenges, illegal dumping, and blocked drainage. TerrAqua UAV uses drone surveys and AI-driven analytics to give authorities clear visibility and turn waste handling into proactive, data-backed planning.",
     image:
-      "https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&q=80&w=900",
+      "https://www.india-briefing.com/news/wp-content/uploads/2017/04/India-Briefing-The-Waste-Management-Industry-in-India-Investment-Opportunities.jpg",
     accent: "#0D9488",
     accentLight: "#CCFBF1",
     points: [
@@ -37,7 +37,7 @@ const services = [
     description:
       "TerrAqua UAV delivers near-real-time stubble burning intelligence using satellite fire alerts, drone-based verification, and AI-driven crop residue assessment, enabling data-backed action for cleaner air.",
     image:
-      "https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_1bf544bda66a4cdd82a524b4e0f97aaf~mv2.jpg",
     accent: "#EA580C",
     accentLight: "#FFEDD5",
     points: [
@@ -184,27 +184,6 @@ function ServiceCard({ service }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: '9999px',
-                border: `1px solid ${service.accent}40`,
-                color: service.accent,
-                backgroundColor: service.accentLight,
-                fontWeight: 400,
-                letterSpacing: '0.01em'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
         </div>
       </div>
     </div>
@@ -380,27 +359,6 @@ export default function EnvironmentalConservationDetail({ handleBack, setActiveT
               stubble burning hotspots, and enforce ecological compliance with
               tamper-proof geospatial intelligence.
             </p>
-
-            {/* Capabilities pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
-              {capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  style={{
-                    fontSize: '0.82rem',
-                    padding: '7px 16px',
-                    borderRadius: '9999px',
-                    border: '1px solid #D1D5DB',
-                    color: '#374151',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: 400,
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  {cap}
-                </span>
-              ))}
-            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button

@@ -76,29 +76,45 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 2,
       category: 'Drone/UAV',
-      author: 'TerrAquaUAV Solutions',
+      author: 'TerraquaUAV Solutions',
       date: 'Feb 25, 2025',
       readTime: '3 min read',
       title: "Unlocking the Power of Web GIS with TerrAqua UAV's Mapzest Ecosystem",
-      excerpt: 'In a world where location data drives critical decisions, Web GIS platforms have become essential tools across industries. From managing natural resources to responding...',
+      excerpt: 'In a world where location data drives critical decisions, Web GIS platforms have become essential tools across industries. From managing natural resources to responding to disasters...',
       views: 12,
       comments: 0,
       initialLikes: 1,
       imgUrl: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800',
       content: {
-        intro: "Spatial intelligence is no longer restricted to specialized GIS desktop software. TerrAqua UAV's cloud-native MapZest ecosystem brings massive multi-gigabyte raster datasets, 3D point clouds, and multispectral analysis directly to your web browser with zero latency.",
+        intro: "In a world where location data drives critical decisions, Web GIS platforms have become essential tools across industries. From managing natural resources to responding to disasters, the ability to access, analyze, and act on spatial information in real time shapes outcomes and saves lives. TerrAqua UAV understands this need deeply. That’s why we developed Mapzest, a comprehensive ecosystem of seven specialized platforms designed to harness the full potential of geospatial technology. This blog explores why Web GIS matters today and how Mapzest empowers organizations to work smarter with location data.",
         sections: [
           {
-            heading: "The Shift Towards Cloud-Native Spatial Analytics",
-            text: "Traditional GIS analysis suffered from immense computational bottlenecks: heavy datasets had to be downloaded locally onto high-end workstations. MapZest solves this by utilizing cloud-optimized GeoTIFFs (COGs) and dynamic vector tile pyramids to stream multi-gigabyte drone orthomosaics instantaneously across global teams."
+            heading: "Why Web GIS Platforms Matter Today",
+            text: "Web GIS platforms transform raw spatial data into actionable insights accessible anywhere, anytime. Here are five key reasons these platforms are indispensable:",
+            points: [
+              "Real-Time Decision Making: Emergencies and fast-changing environments demand instant access to accurate maps and data. Web GIS platforms provide live updates, enabling quick responses in fields like disaster management and urban planning.",
+              "Accessibility: Cloud-based GIS removes barriers of specialized software and hardware. Teams across locations and devices can view and share maps, fostering collaboration and transparency.",
+              "Resource Management: Managing forests, water, minerals, and farmland requires detailed spatial monitoring. Web GIS integrates satellite, drone, and IoT data to track changes and optimize resource use sustainably.",
+              "Disaster Preparedness: Early warning systems and risk assessments rely on layered spatial data. Web GIS platforms help visualize hazards, simulate scenarios, and coordinate emergency responses effectively.",
+              "Data-Driven Governance: Governments and organizations use Web GIS to base policies on evidence. Spatial analysis supports zoning, infrastructure development, and environmental protection with clear, data-backed insights."
+            ]
           },
           {
-            heading: "Comprehensive GIS Capabilities in the Cloud",
+            heading: "Introducing Mapzest: TerrAqua UAV’s Geospatial Ecosystem",
+            text: "Mapzest is a suite of platforms tailored to meet diverse geospatial needs. Each platform integrates seamlessly, offering specialized tools that cover everything from flood risk to crop health. Together, they create a powerful ecosystem for managing spatial workflows with precision and ease.",
             points: [
-              "Real-Time Volumetric Measurement: Calculate cut-and-fill volume for mines, quarries, and construction sites directly in 3D browser space.",
-              "Multispectral Band Arithmetic: Generate NDVI, NDRE, and false-color infrared composites on the fly without manual pre-processing.",
-              "Multi-Temporal Change Detection: Swipe and compare drone survey flights across different dates to visually inspect civil project progress or flood inundation changes."
+              "FRAM Engine (Flood Risk Mapping): Flood risk mapping using drone imagery and elevation data. FRAM Engine combines high-resolution drone images with terrain models to identify flood-prone areas. This platform supports urban planners and emergency teams by providing detailed, up-to-date flood risk maps that improve preparedness and response.",
+              "NRMM Monitoring: NRMM Monitoring gathers data from satellites and ground sensors to monitor forests, water bodies, and mineral sites. It helps conservationists and resource managers detect changes early and make informed decisions to protect ecosystems.",
+              "ADSS Intelligence: ADSS Intelligence analyzes multispectral drone and satellite imagery to assess crop conditions. Farmers use this platform to optimize irrigation, detect pests, and increase yields while reducing environmental impact.",
+              "Mapzest Go: Mapzest Go offers core GIS functions accessible through a user-friendly web interface. It supports mapping, data visualization, and collaboration for teams needing reliable, flexible spatial tools.",
+              "Geo Catalog: Geo Catalog acts as a hub for spatial datasets, making it easy to find, preview, and integrate diverse geospatial information. This platform simplifies data management and accelerates analysis.",
+              "TerraPoint: TerraPoint enables accurate data collection in remote locations without internet access. Field teams capture points, lines, and polygons offline, then sync and verify data in the cloud when connected.",
+              "Mapzest Geo Tools: Mapzest Geo Tools provides essential utilities for coordinate conversions, UTM zone calculations, and geodetic computations. It supports surveyors, engineers, and GIS professionals with reliable, easy-to-use tools."
             ]
+          },
+          {
+            heading: "Delivering Complete Spatial Solutions",
+            text: "TerrAqua UAV’s Mapzest ecosystem offers a complete solution for organizations that rely on spatial data. Whether managing natural resources, preparing for disasters, or improving agricultural productivity, Mapzest platforms deliver clear, actionable insights. By integrating drone, satellite, IoT, and cloud technologies, Mapzest empowers users to make confident decisions based on accurate, up-to-date location information."
           }
         ]
       }
@@ -108,21 +124,26 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 3,
       category: 'Data',
-      author: 'TerrAquaUAV Solutions',
+      author: 'TerraquaUAV Solutions',
       date: 'Jul 4, 2025',
       readTime: '1 min read',
       title: 'TerrAqua UAV Joins ASEAN ScaleHub 2025 in Bali',
-      excerpt: 'Exciting times for TerrAqua UAV! Our co-founder and director is proudly representing us at the ASEAN ScaleHub 2025 in Bali. This global platform...',
+      excerpt: 'Exciting times for TerrAqua UAV! Our co-founder and director is proudly representing us at the ASEAN ScaleHub 2025 in Bali. This global platform is a fantastic opportunity to showcase our work...',
       views: 9,
       comments: 0,
       initialLikes: 7,
       imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
       content: {
-        intro: "TerrAqua UAV has been selected to represent Indian deep-tech innovation at the prestigious ASEAN ScaleHub 2025 summit held in Bali, Indonesia. This milestone marks our expansion into Southeast Asian environmental monitoring and smart agritech markets.",
+        intro: "Exciting times for TerrAqua UAV! Our co-founder and director is proudly representing us at the ASEAN ScaleHub 2025 in Bali.",
         sections: [
           {
-            heading: "Showcasing IIT Kanpur-Incubated Technology Globally",
-            text: "During the summit, our leadership team presented our proprietary UAV hardware and MapZest geospatial platform to international enterprise leaders, venture capitalists, and government disaster management delegates from over 10 Southeast Asian nations."
+            text: "This global platform is a fantastic opportunity to showcase our work in geospatial intelligence and connect with innovators working at the intersection of technology, sustainability, and regional development."
+          },
+          {
+            text: "A heartfelt thank you to the Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk), and the Department of Science & Technology, Government of India, for their constant support and encouragement."
+          },
+          {
+            text: "We're looking forward to exchanging ideas, building meaningful collaborations, and contributing to a collective vision of cross-border innovation."
           }
         ]
       }
@@ -132,11 +153,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 4,
       category: 'Drone/UAV',
-      author: 'TerrAquaUAV Solutions',
+      author: 'TerraquaUAV Solutions',
       date: 'May 8, 2025',
       readTime: '1 min read',
-      title: "TerrAqua UAV's Flood Response Innovation Featured in Leading Newspapers",
-      excerpt: 'We are honored to share that our work at TerrAqua UAV has been featured in multiple newspapers. Our contribution to the development of a...',
+      title: "TerrAqua UAV’s Flood Response Innovation Featured in Leading Newspapers",
+      excerpt: 'We are honored to share that our work at TerrAqua UAV has been featured in multiple newspapers. Our contribution to the development of a web-based Flood Disaster Response System...',
       views: 15,
       comments: 0,
       initialLikes: 4,
@@ -144,23 +165,28 @@ export default function Infozest({ setActiveTab }) {
         <div style={{ background: '#111827', padding: '16px', height: '220px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '8px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#00B5E2' }}>TERRAQUA UAV</span>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>AMAR UJALA • 04-05-2025</span>
+            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>NEWS COVERAGE</span>
           </div>
           <div style={{ background: '#FFFFFF', padding: '12px', borderRadius: '8px', color: '#000000', margin: '6px 0' }}>
             <h4 style={{ fontSize: '0.88rem', fontWeight: 800, margin: '0 0 4px 0', lineHeight: 1.2 }}>
-              आईआईटी का ऐप बताएगा बाढ़ से कितना इलाका होगा प्रभावित
+              TerrAqua UAV Flood Response Innovation
             </h4>
-            <span style={{ fontSize: '0.68rem', color: '#4B5563' }}>प्रो. राजीव सिन्हा की देखरेख में टेराक्वा यूएवी स्टार्टअप ने विकसित की एप्लिकेशन</span>
+            <span style={{ fontSize: '0.68rem', color: '#4B5563' }}>Web-based Flood Disaster Response System Featured in Leading Newspapers</span>
           </div>
           <span style={{ fontSize: '0.7rem', color: '#10B981', fontWeight: 600 }}>National Press Coverage Feature</span>
         </div>
       ),
       content: {
-        intro: "TerrAqua UAV's pioneering work in developing autonomous aerial flood prediction and real-time inundation mapping systems has been prominently spotlighted across national print and digital media, including Amar Ujala, Dainik Jagran, The Times of India, and ThePrint.",
+        intro: "We are honored to share that our work at TerrAqua UAV has been featured in multiple newspapers.",
         sections: [
           {
-            heading: "Breakthrough Flood Risk Modeling at IIT Kanpur",
-            text: "Developed under the scientific mentorship of Prof. Rajiv Sinha at SIIC IIT Kanpur, our deep-tech application merges hydrodynamic elevation models with live UAV thermal and optical imagery to calculate exactly which neighborhoods and infrastructure corridors will be inundated hours before flood waters peak."
+            text: "Our contribution to the development of a web-based Flood Disaster Response System marks a significant milestone in leveraging geospatial intelligence for real-world impact in disaster management, early warning systems, and emergency preparedness."
+          },
+          {
+            text: "This recognition reinforces our commitment to advancing innovative solutions that enhance resilience and response capabilities in the face of natural disasters."
+          },
+          {
+            text: "We extend our sincere gratitude to the Startup Incubation and Innovation Centre at IIT Kanpur (incubatoriitk) and NTT DATA for their unwavering support and belief in our vision."
           }
         ]
       }
@@ -170,11 +196,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 5,
       category: 'Data',
-      author: 'TerrAquaUAV Solutions',
+      author: 'TerraquaUAV Solutions',
       date: 'May 6, 2025',
       readTime: '1 min read',
       title: 'From Data to Action: Launching of the Flood Disaster Response Platform',
-      excerpt: 'We are proud to announce the successful launch of our web-based Flood Disaster Response System, a significant step toward building disaster resilient communities...',
+      excerpt: 'We are proud to announce the successful launch of our web-based Flood Disaster Response System, a significant step toward building climate-resilient cities through the power of geospatial intelligence...',
       views: 7,
       comments: 0,
       initialLikes: 1,
@@ -192,11 +218,19 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "In collaborative partnership with global IT leader NTT DATA, TerrAqua UAV proudly announces the formal rollout of the Flood Disaster Response System (FDRS) — a state-of-the-art decision-support portal for crisis mitigation.",
+        intro: "We are proud to announce the successful launch of our web-based Flood Disaster Response System, a significant step toward building climate-resilient cities through the power of geospatial intelligence.",
         sections: [
           {
-            heading: "Bridging the Gap Between Aerial Data and Ground Action",
-            text: "During flood emergencies, data fragmentation causes delays in dispatching rescue boats and relief supplies. The FDRS platform ingests high-resolution UAV orthomosaics, satellite radar imagery, and ground sensor feeds into a unified real-time dashboard."
+            text: "Our Web-GIS platform integrates high-resolution drone-based aerial surveys with satellite remote sensing to deliver real-time flood inundation simulations and population impact assessments. During the pilot, we covered 24 flood-prone villages near the Ganga Barrage, generating crucial data for early warning systems and emergency preparedness."
+          },
+          {
+            text: "Many thanks to our Chief Guest Shri Vijayendra Pandian (Commissioner, Kanpur), along with officials from the @Irrigation Department, Government of Uttar Pradesh, and the Kanpur Development Authority. Their insights and appreciation reaffirm the importance of scalable, tech-driven disaster management tools."
+          },
+          {
+            text: "We extend our gratitude to Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk), for their continued support and facilitation; NTT DATA for their trust and funding support; and all our distinguished guests and stakeholders who encouraged this vision."
+          },
+          {
+            text: "This achievement marks the beginning of our larger mission — using Geospatial innovation to protect lives, infrastructure, and ecosystems."
           }
         ]
       }
@@ -206,11 +240,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 6,
       category: 'Launch Event',
-      author: 'TerrAquaUAV Solutions',
+      author: 'TerraquaUAV Solutions',
       date: 'May 3, 2025',
-      readTime: '2 min read',
+      readTime: '1 min read',
       title: 'Launch Event: TerrAqua UAV Flood Disaster Response System',
-      excerpt: 'Team TerrAqua UAV is honored to present the official launch of our Flood Disaster Response System—an advanced crisis mitigation platform.',
+      excerpt: 'Team TerrAqua UAV is honored to present the official launch of our Flood Disaster Response System—an advanced solution engineered in‐house, made possible through NTT DATA’s CSR grant...',
       views: 18,
       comments: 0,
       initialLikes: 5,
@@ -226,17 +260,12 @@ export default function Infozest({ setActiveTab }) {
             </h4>
             <span style={{ fontSize: '0.68rem', color: '#8BADC1' }}>Using Drone & Satellite Remote Sensing Technology</span>
           </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>Date: May 2nd, 2025 • SIIC IIT Kanpur</span>
+          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>Date: May 3, 2025 • SIIC IIT Kanpur</span>
         </div>
       ),
       content: {
-        intro: "On May 2nd, 2025, TerrAqua UAV hosted the official launch event of its next-generation Flood Disaster Response System. The hybrid event brought together civil protection leaders, hydrologists, and remote sensing pioneers.",
-        sections: [
-          {
-            heading: "Event Highlights & Keynote Addresses",
-            text: "The event featured live drone telemetry streaming demonstrations from test sites along the Ganges river basin directly into the command portal, proving instantaneous water velocity analysis."
-          }
-        ]
+        intro: "Team TerrAqua UAV is honored to present the official launch of our Flood Disaster Response System—an advanced solution engineered in‐house, made possible through NTT DATA’s CSR grant and facilitated by SIIC, IIT Kanpur. We look forward to welcoming our distinguished guests and partners on May 3, 2025, as we unveil this milestone in humanitarian technology. Stay tuned for live coverage throughout the day as we embark on this transformative journey together.",
+        sections: []
       }
     },
 
@@ -244,11 +273,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 7,
       category: 'Awards',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Apr 18, 2025',
-      readTime: '2 min read',
-      title: 'TerrAqua UAV Shines at Operation Dronagiri: Pioneering Geospatial...',
-      excerpt: 'Proud Moment for TerrAqua UAV Solutions! We are happy to announce that TerrAqua UAV Solutions has been selected for Operation Dronagiri...',
+      author: 'TerraquaUAV Solutions',
+      date: 'Apr 16, 2025',
+      readTime: '1 min read',
+      title: 'TerrAqua UAV Shines at Operation Dronagiri: Pioneering Geospatial Solutions for National Growth.',
+      excerpt: 'Proud Moment for TerrAqua UAV solutions ! We are Happy to announce that TerrAqua UAV solutions has been selected for Operation Dronagiri Startup Challenge - Growth Stage...',
       views: 32,
       comments: 0,
       initialLikes: 14,
@@ -266,11 +295,22 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "TerrAqua UAV Solutions has achieved a landmark milestone by being officially selected for Operation Dronagiri (Growth Stage) — the flagship geospatial mission spearheaded by the Department of Science and Technology (DST), Government of India.",
+        intro: "Proud Moment for TerrAqua UAV solutions !",
         sections: [
           {
-            heading: "What is Operation Dronagiri?",
-            text: "Operation Dronagiri is a prestigious national initiative designed to fast-track deep-tech Indian enterprises revolutionizing geospatial mapping, autonomous drone operations, and spatial digital twins for national infrastructure."
+            text: "We are Happy to announce that TerrAqua UAV solutions has been selected for Operation Dronagiri Startup Challenge - Growth Stage, Pilot project under the hashtag#National_Geospatial_Policy_2022!"
+          },
+          {
+            text: "From 800+ applications, only 25 startups have been chosen after a rigorous evaluation process by an Apex Committee of industry experts and key stakeholders. TerrAqua UAV is among the 6 Growth-Stage Startups (GSS) working to scale operations and expand geospatial solutions into real-world applications."
+          },
+          {
+            text: "Many thanks to our incubator Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk) for their constant support and encouragement."
+          },
+          {
+            text: "We are extremely grateful to Srikant Sastri Sir, Abhay Karandikar Sir, Department of Science, Technology and Innovation, Government of India, and to Geospatial Innovation Accelerators for facilitating Operation Dronagiri: IIT Tirupati Navavishkar I-Hub Foundation, Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk), Society for Innovation & Entrepreneurship -SINE IIT Bombay and IIM Calcutta Innovation Park iHub - AWaDH @ IIT Ropar"
+          },
+          {
+            text: "We are looking forward to participating, anticipating, and contributing to the vision of National Geospatial Policy 2022."
           }
         ]
       }
@@ -280,11 +320,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 8,
       category: 'Recognition',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Feb 14, 2025',
-      readTime: '2 min read',
-      title: "TerrAqua UAV Joins Citi's Social Innovation Lab 3.0",
-      excerpt: "We're thrilled to announce that TerrAqua UAV has been selected for the Cohort of Social Innovation Lab 3.0 by Citi under the Early-Stage Agritech Domain! This...",
+      author: 'TerraquaUAV Solutions',
+      date: 'Feb 24, 2025',
+      readTime: '1 min read',
+      title: "TerrAqua UAV Joins Citi’s Social Innovation Lab 3.0",
+      excerpt: "We’re thrilled to announce that TerrAqua UAV has been selected for the Cohort of Social Innovation Lab 3.0 by Citi under the Early-Stage Agritech Domain!...",
       views: 28,
       comments: 0,
       initialLikes: 11,
@@ -302,11 +342,19 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "TerrAqua UAV has been officially selected for the prestigious Social Innovation Lab (SIL) 3.0 cohort supported by Citi Foundation and IIT Kanpur, competing in the Early-Stage Agritech and Rural Resilience domain.",
+        intro: "We’re thrilled to announce that TerrAqua UAV has been selected for the Cohort of Social Innovation Lab 3.0 by Citi under the Early-Stage Agritech Domain!",
         sections: [
           {
-            heading: "Empowering Agritech Innovation",
-            text: "This partnership supports our mission to bring low-cost, high-precision multispectral drone analytics directly to smallholder farming communities to optimize fertilizer usage and boost crop yield."
+            text: "This incredible opportunity will help us scale our innovation and revolutionize agriculture with cutting-edge geospatial technology."
+          },
+          {
+            text: "A huge thank you to the Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk) and the Indian Institute of Technology, Kanpur for their unwavering support and belief in our vision."
+          },
+          {
+            text: "We’re also deeply grateful to Social Innovation Lab Citi for recognizing our efforts and empowering us to drive real-world agricultural transformation."
+          },
+          {
+            text: "Exciting times ahead—stay tuned as we take the next step toward a more sustainable future in agriculture!"
           }
         ]
       }
@@ -316,11 +364,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 9,
       category: 'Fieldwork',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Feb 10, 2025',
-      readTime: '2 min read',
+      author: 'TerraquaUAV Solutions',
+      date: 'Feb 24, 2025',
+      readTime: '1 min read',
       title: 'Harnessing Geospatial Intelligence for a Sustainable Future',
-      excerpt: "At TerrAqua UAV, fieldwork goes beyond data collection—it's about understanding landscapes, communities, and the challenges they face...",
+      excerpt: "At TerrAqua UAV, fieldwork goes beyond data collection—it’s about understanding landscapes, communities, and the challenges they face...",
       views: 19,
       comments: 0,
       initialLikes: 8,
@@ -338,11 +386,10 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "True geospatial intelligence is forged in the field. Our Fieldwork Chronicles series documents how TerrAqua UAV flight engineers and geologists brave challenging terrains to generate high-fidelity spatial models for ecological conservation.",
+        intro: "At TerrAqua UAV, fieldwork goes beyond data collection—it’s about understanding landscapes, communities, and the challenges they face. From UAV-based surveys in remote areas to tracking environmental changes, every project offers new insights and opportunities for real-world impact.",
         sections: [
           {
-            heading: "Fieldwork on the Frontlines",
-            text: "From dense wetland mangrove estuaries in southern India to high-altitude Himalayan landslide corridors, our team deploys custom multi-rotor and hybrid VTOL UAVs equipped with RTK base stations to achieve sub-centimeter survey accuracy."
+            text: "With a dedicated team, cutting-edge technology, and strong community collaboration, we transform raw data into meaningful solutions. Grateful for our hardworking team and the communities that welcome us into their world."
           }
         ]
       }
@@ -352,11 +399,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 10,
       category: 'Case Study',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Jan 15, 2025',
-      readTime: '3 min read',
+      author: 'TerraquaUAV Solutions',
+      date: 'Feb 24, 2025',
+      readTime: '1 min read',
       title: 'Exploring Pichavaram Mangrove Forest: A Natural Wonder.',
-      excerpt: 'The Pichavaram Mangrove Forest, near Chidambaram in Tamil Nadu, is one of the largest mangrove ecosystems in India, spanning over 1,100 hectares...',
+      excerpt: 'The Pichavaram Mangrove Forest, near Chidambaram Town, is a breathtaking ecosystem teeming with life. Spread across 1,100 hectares, this lush green paradise...',
       views: 24,
       comments: 0,
       initialLikes: 9,
@@ -374,11 +421,13 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "The Pichavaram Mangrove Forest in Tamil Nadu represents a crucial ecological barrier against coastal storm surges and tsunamis. TerrAqua UAV conducted an exhaustive multispectral and LiDAR survey to audit mangrove health and tidal canal siltation.",
+        intro: "The Pichavaram Mangrove Forest, near Chidambaram Town, is a breathtaking ecosystem teeming with life. Spread across 1,100 hectares, this lush green paradise is home to exotic birds, fish, and even playful otter.",
         sections: [
           {
-            heading: "Ecological Challenges Addressed",
-            text: "Using drone multispectral NDVI imagery, our researchers identified localized mangrove dieback caused by hyper-salinity and blocked tidal creeks, enabling the Tamil Nadu forest department to execute targeted canal desiltation."
+            text: "These resilient mangroves act as a natural shield against coastal erosion and provide vital support to marine life. Boating through the winding waterways offers a surreal experience, with towering trees and vibrant wildlife all around."
+          },
+          {
+            text: "Visiting Pichavaram is more than just sightseeing—it’s a reminder of nature’s incredible power and beauty. Have you explored this hidden gem? Share your experience with us!"
           }
         ]
       }
@@ -388,21 +437,38 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 11,
       category: 'Exhibition',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Jan 8, 2025',
-      readTime: '1 min read',
+      author: 'TerraquaUAV Solutions',
+      date: 'Jan 24, 2025',
+      readTime: '2 min read',
       title: "TerrAqua UAV Solutions at #Abhivyakti'25, IIT Kanpur",
-      excerpt: "Being part of Abhivyakti'25 at IIT Kanpur was an incredible experience for Team TerrAqua UAV. It was an honor to showcase our advanced...",
+      excerpt: "Being part of #Abhivyakti'25 at IIT Kanpur was an incredible experience for Team TerrAqua UAV. It was an honor to showcase our advanced geospatial technologies aimed at building a sustainable future...",
       views: 16,
       comments: 0,
       initialLikes: 6,
       imgUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800',
       content: {
-        intro: "At Abhivyakti'25 — IIT Kanpur's annual flagship deep-tech innovation festival — TerrAqua UAV had the privilege of demonstrating its enterprise drone fleet and MapZest WebGIS platform to faculty, industry leaders, and student innovators.",
+        intro: "Being part of #Abhivyakti'25 at IIT Kanpur was an incredible experience for Team TerrAqua UAV. It was an honor to showcase our advanced geospatial technologies aimed at building a sustainable future.",
         sections: [
           {
-            heading: "Showcasing Indigenous R&D",
-            text: "Visitors experienced live interactive demos of our MapZest 3D reality mesh viewer and observed our high-end LiDAR sensor payloads up close."
+            text: "We are deeply thankful to the dignitaries and passionate minds who visited us. Your enthusiasm and thoughtful discussions reaffirmed our commitment to creating impactful solutions for real-world challenges."
+          },
+          {
+            text: "Our participation focused on highlighting the transformative role geospatial technology can play in tackling some of the world's most pressing challenges—whether it's precision mapping for sustainable development, disaster management, or efficient resource planning. The excitement and interest from attendees reinforced the importance of building meaningful solutions powered by advanced technology."
+          },
+          {
+            text: "We had the privilege of engaging with dignitaries, students, and industry professionals who stopped by to explore our innovations. Their thought-provoking questions, enthusiastic feedback, and words of encouragement were a testament to the potential of geospatial intelligence solutions in driving positive change. It was both humbling and motivating to witness the curiosity and ideas sparked by our work."
+          },
+          {
+            text: "Beyond the technology, #Abhivyakti'25 was a celebration of collaboration. The event brought together brilliant minds from various fields, fostering a space for exchanging ideas and creating synergies. It was inspiring to see so many individuals and organizations united by a common goal: to innovate for a better tomorrow."
+          },
+          {
+            text: "As the event concludes, we carry forward not just memories but a renewed commitment to our mission. At TerrAqua UAV Solutions, we are driven by the belief that technology, when used thoughtfully, can be a powerful force for good. Our journey doesn’t end here; it’s just the beginning of more meaningful innovations aimed at addressing real-world challenges."
+          },
+          {
+            text: "We extend our heartfelt gratitude to the organizers of #Abhivyakti'25 for hosting such a phenomenal event and to everyone who took the time to engage with us. Your support and encouragement inspire us to push the boundaries of what’s possible."
+          },
+          {
+            text: "Stay tuned as we continue to bring smarter UAV technologies and sustainable geospatial solutions to life. Together, let’s shape a future that’s innovative, inclusive, and sustainable."
           }
         ]
       }
@@ -412,11 +478,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 12,
       category: 'Global Events',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Dec 18, 2024',
-      readTime: '2 min read',
+      author: 'TerraquaUAV Solutions',
+      date: 'Dec 3, 2024',
+      readTime: '1 min read',
       title: 'Closing Day Highlights: ASEAN Startup Festival 2024',
-      excerpt: 'We wrapped up a wonderful experience at the ASEAN Startup Festival 2024, feeling grateful for the meaningful connections, insights, and...',
+      excerpt: 'We wrapped up a wonderful experience at the ASEAN Startup Festival 2024, feeling grateful for the meaningful connections, insights, and inspiration...',
       views: 14,
       comments: 0,
       initialLikes: 5,
@@ -434,11 +500,16 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "Concluding three intensive days of B2B roundtables and investor pitches at the ASEAN Startup Festival 2024, TerrAqua UAV established key relationships for deploying drone GIS technologies across Southeast Asian smart cities.",
+        intro: "We wrapped up a wonderful experience at the ASEAN Startup Festival 2024, feeling grateful for the meaningful connections, insights, and inspiration we gained over the past few days.",
         sections: [
           {
-            heading: "Festival Outcomes",
-            text: "Our team concluded the festival with multiple preliminary agreements for pilot flood management implementations across member countries."
+            text: "It was an honor to meet Prof. Abhay Karandikar, Secretary of the Department of Science & Technology, whose vision continues to inspire innovation in India’s tech ecosystem. Engaging with a Department for Promotion of Industry and Internal Trade representative reaffirmed the government’s strong commitment to supporting startups and driving transformative impact."
+          },
+          {
+            text: "We also had the opportunity to meet with fellow startups and representatives from ASEAN countries, exchanging ideas and building connections to drive innovation and sustainability together."
+          },
+          {
+            text: "A heartfelt thank you to the organizers, participants, and everyone who made this event memorable. We return with fresh energy, new ideas, and a renewed determination to work towards a sustainable and innovative future."
           }
         ]
       }
@@ -448,11 +519,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 13,
       category: 'Press & Media',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Dec 4, 2024',
+      author: 'TerraquaUAV Solutions',
+      date: 'Nov 19, 2024',
       readTime: '1 min read',
       title: 'TerrAqua UAV Featured in Dainik Jagran!',
-      excerpt: "Proud to share that TerrAqua UAV was featured in today's Dainik Jagran! Starting from IIT Kanpur under the Faculty Entrepreneurship model...",
+      excerpt: "Excited to share that Terraqua UAV was featured in today’s Dainik Jagran! Starting from IIT Kanpur under the Faculty Entrepreneurship Policy...",
       views: 22,
       comments: 0,
       initialLikes: 8,
@@ -470,11 +541,16 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "Dainik Jagran spotlighted TerrAqua UAV's unique academic-industry bridge under the Faculty Entrepreneurship Policy at IIT Kanpur, celebrating our indigenous technologies solving real-world natural resource and flood challenges.",
+        intro: "Excited to share that Terraqua UAV was featured in today’s Dainik Jagran!",
         sections: [
           {
-            heading: "From Academic Rigor to Market Commercialization",
-            text: "The feature underscores how over two decades of earth science and river research by Prof. Rajiv Sinha transitioned into an agile commercial UAV enterprise."
+            text: "Starting from IIT Kanpur under the Faculty Entrepreneurship Policy, we’ve been on a mission to use high-resolution geospatial data and remote sensing technology to solve real-world problems. From helping farmers with precision agriculture to supporting urban planners, disaster response teams, and environmental projects, we’ve strived to make a positive impact across sectors."
+          },
+          {
+            text: "We are grateful to Indian Institute of Technology, Kanpur and Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk) for providing such an excellent platform to grow and for supporting us every step of the Journey."
+          },
+          {
+            text: "Here’s to continuing this journey, making data meaningful, and driving change through innovation."
           }
         ]
       }
@@ -484,21 +560,20 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 14,
       category: 'Global Events',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Dec 1, 2024',
+      author: 'TerraquaUAV Solutions',
+      date: 'Dec 3, 2024',
       readTime: '1 min read',
       title: 'TerrAqua UAV Solutions Shines at ASEAN Startup Festival 2024',
-      excerpt: 'Thank you for the warm reception! We were honored to showcase TerrAqua UAV Solutions at the ASEAN Startup Festival 2024 in Delhi...',
+      excerpt: 'Thank You for the Warm Reception! We were honoured to showcase TerrAqua UAV Solutions at the ASEAN Startup Festival 2024 in Delhi!...',
       views: 17,
       comments: 0,
       initialLikes: 6,
       imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
       content: {
-        intro: "Day 1 of the ASEAN Startup Festival 2024 in New Delhi witnessed high-level engagement at the TerrAqua UAV pavilion from international trade delegates interested in our drone DaaS (Drone as a Service) business model.",
+        intro: "Thank You for the Warm Reception!",
         sections: [
           {
-            heading: "Showcase Highlights",
-            text: "We demonstrated real-time data ingestion pipelines from our field UAVs into cloud WebGIS architectures with live volumetric point clouds."
+            text: "We were honoured to showcase TerrAqua UAV Solutions at the ASEAN Startup Festival 2024 in Delhi! A heartfelt thank you to all who visited, especially the distinguished dignitaries who took the time to understand our work. Your interest and support inspire us to keep pushing the boundaries of UAV and geospatial technology. Let’s continue to innovate together!"
           }
         ]
       }
@@ -508,11 +583,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 15,
       category: 'Company Profile',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Nov 15, 2024',
-      readTime: '3 min read',
+      author: 'TerraquaUAV Solutions',
+      date: 'Nov 19, 2024',
+      readTime: '1 min read',
       title: 'About TerrAqua UAV Solutions',
-      excerpt: 'TerrAqua UAV was founded by Prof. Rajiv Sinha and researchers at Indian Institute of Technology, Kanpur and incubated at Startup Incubation and Innovation Centre...',
+      excerpt: 'TerrAqua UAV was Founded by Prof. Rajiv Sinha and researchers of Indian Institute of Technology, Kanpur and incubated at Startup Incubation and Innovation Centre...',
       views: 45,
       comments: 0,
       initialLikes: 18,
@@ -530,19 +605,22 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "TerrAqua UAV Solutions is an advanced airborne remote sensing and geospatial intelligence enterprise incubated at the Startup Incubation and Innovation Centre (SIIC), IIT Kanpur. Founded by world-renowned river scientist Prof. Rajiv Sinha, we combine rigorous academic research with cutting-edge drone hardware and cloud software.",
+        intro: "TerrAqua UAV was Founded by Prof. Rajiv Sinha and researchers of Indian Institute of Technology, Kanpur and incubated at Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk).",
         sections: [
           {
-            heading: "Our Vision",
-            text: "To be a global leader in geospatial intelligence by delivering innovative, high-precision, and practical solutions that solve critical real-world challenges in natural resource management, disaster mitigation, and smart infrastructure."
+            text: "At TerrAqua UAV we are redefining geospatial intelligence with high-resolution data from drones and satellites. Incubated at the Indian Institute of Technology Kanpur (IITK), we specialize in providing precise and impactful solutions to complex challenges across various sectors."
           },
           {
-            heading: "Our Core Offerings",
-            points: [
-              "Operations DaaS: Turnkey UAV data acquisition with LiDAR, multispectral, and high-res RGB sensors.",
-              "Analytics DPaaS: Specialized photogrammetry and cloud-native AI data processing pipelines.",
-              "Intelligence SaaS: MapZest cloud platform for real-time spatial visualization and fleet management."
-            ]
+            heading: "🌐 About Us",
+            text: "We are a cutting-edge UAV and Geospatial Intelligence Company, collecting and analyzing high-resolution data to tackle real-world problems in agriculture, urban planning, environmental monitoring, and disaster management."
+          },
+          {
+            heading: "🌟 Vision",
+            text: "To be a global leader in geospatial intelligence by delivering innovative, impactful, and practical solutions, transforming advanced technology into accessible insights."
+          },
+          {
+            heading: "🎯 Mission",
+            text: "We leverage ultra-high-resolution geospatial data and expertise to provide clients with actionable insights. Our focus is on making complex data simple and turning it into practical products that make a lasting, positive impact on society and the environment."
           }
         ]
       }
@@ -552,11 +630,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 16,
       category: 'Hardware & Tech',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Nov 7, 2024',
-      readTime: '2 min read',
-      title: "Enhancing Geospatial Innovation with Indigenous Excellence- TerrAqua UAV's...",
-      excerpt: "At TerrAqua UAV, innovation and excellence fuel our journey toward new possibilities. We're excited to announce the procurement and testing of our advanced...",
+      author: 'TerraquaUAV Solutions',
+      date: 'Nov 21, 2024',
+      readTime: '1 min read',
+      title: "Enhancing Geospatial Innovation with Indigenous Excellence: Terraqua UAV's New PPK-Enabled Drone.",
+      excerpt: "At Terraqua UAV, innovation and excellence fuel our journey toward new possibilities. We’re excited to announce the addition of a DGCA-certified PPK-enabled drone...",
       views: 31,
       comments: 0,
       initialLikes: 12,
@@ -568,17 +646,19 @@ export default function Infozest({ setActiveTab }) {
           </div>
           <div style={{ background: 'rgba(0,0,0,0.4)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
             <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 800, margin: 0 }}>Hands-On With Newly Procured Drone</h4>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>Heavy-Lift Hexacopter & Long-Range VTOL Testing</span>
+            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>PPK-Enabled Drone Fleet Upgrade</span>
           </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>Field Calibration & Payload Integration</span>
+          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>DGCA-Certified • TAS Partnership</span>
         </div>
       ),
       content: {
-        intro: "To meet growing demand for large-scale national infrastructure and mining surveys, TerrAqua UAV has expanded its fleet with state-of-the-art heavy-lift industrial hexacopters and long-endurance hybrid VTOL UAVs.",
+        intro: "At Terraqua UAV, innovation and excellence fuel our journey toward new possibilities.",
         sections: [
           {
-            heading: "Technical Specifications & Capabilities",
-            text: "The new UAV platforms offer up to 2.5 hours of continuous flight endurance, triple-redundant avionics, and high-payload capacity capable of carrying combined LiDAR and 100MP photogrammetric camera payloads simultaneously."
+            text: "We’re excited to announce the addition of a DGCA-certified PPK-enabled drone, proudly developed by TAS, to our fleet. This advanced technology significantly enhances our geospatial exploration capabilities."
+          },
+          {
+            text: "A big thanks to the R&D expert from TAS for an insightful hands-on training session, ensuring we’re ready to maximize the potential of this cutting-edge equipment!"
           }
         ]
       }
@@ -588,11 +668,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 17,
       category: 'Research & GIS',
-      author: 'TerrAquaUAV Solutions',
+      author: 'TerraquaUAV Solutions',
       date: 'Nov 16, 2024',
       readTime: '2 min read',
       title: 'River Basin Mapping and Management',
-      excerpt: 'Because they supply water, transit, and recreational possibilities, rivers are essential lifelines for our communities. Effective...',
+      excerpt: 'Because they supply water, transit, and recreational possibilities, rivers are essential lifelines for our communities. Effective management of our rivers is vital...',
       views: 8,
       comments: 0,
       initialLikes: 1,
@@ -629,19 +709,25 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "Because they supply water, transit, and recreational possibilities, rivers are essential lifelines for our communities. Effective management and mapping of river basins is paramount to preventing seasonal flood disasters, safeguarding drinking water reservoirs, and maintaining agricultural soil fertility.",
+        intro: "Because they supply water, transit, and recreational possibilities, rivers are essential lifelines for our communities. Effective management of our rivers is vital, especially in light of the challenges posed by pollution, flooding, and human activity. Numerous rivers are degrading as a result of activities like sand mining, urbanization, and industrial runoff that disrupt ecosystems and lower water quality. However, high-resolution remote sensing information from satellites and unmanned aerial vehicles (UAVs) revolutionizes the way these issues are addressed!",
         sections: [
           {
-            heading: "Integrated Multi-Sensor River Hydrodynamics",
-            text: "TerrAqua UAV combines high-resolution airborne LiDAR scanning, multispectral bathymetry, and satellite radar datasets to produce continuous Digital Elevation Models (DEMs) across entire catchment areas."
+            text: "Thanks to incredibly precise images captured by satellites and unmanned aerial vehicles, our rivers appear like never before. This makes it easier to identify issues by illuminating their health, flow patterns, and surrounding ecosystems."
           },
           {
-            heading: "Core Applications in River Basin Governance",
-            points: [
-              "Channel Migration & Embankment Erosion: Pinpoint fragile riverbank sections vulnerable to collapse during monsoon peak flows.",
-              "Sedimentation & Siltation Auditing: Measure volume changes in riverbeds and reservoir storage capacities.",
-              "Riparian Buffer Zone Monitoring: Track vegetation health and illegal encroachment along active floodplains."
-            ]
+            text: "We can monitor changes in riverbanks, silt buildup, and water quality over time with high-quality data. This is essential for making informed judgments and identifying areas impacted by human activities, such as sand mining."
+          },
+          {
+            text: "By using this data, we will be able to predict potential flooding events and create more robust response plans to safeguard communities, especially in areas where river degradation has increased the risk of flooding."
+          },
+          {
+            text: "By using this data to monitor ecosystems along rivers, we can make sure that we can take action to conserve species even if human activities like sand mining and deforestation frequently harm biodiversity."
+          },
+          {
+            text: "We can involve local people in river management activities thanks to amazing images. Everyone is better able to understand the challenges, particularly how practices like sand mining are harming our rivers, and share their opinions."
+          },
+          {
+            text: "We can solve the problem of river degradation and create better waterways for everybody by using high-resolution remote sensing data. Together, let's protect our rivers and make sure they thrive for future generations!"
           }
         ]
       }
@@ -651,11 +737,11 @@ export default function Infozest({ setActiveTab }) {
     {
       id: 18,
       category: 'Drone/UAV',
-      author: 'TerrAquaUAV Solutions',
-      date: 'Feb 25, 2023',
+      author: 'TerraquaUAV Solutions',
+      date: 'Feb 26, 2023',
       readTime: '1 min read',
       title: 'Applications of Drones/UAVs',
-      excerpt: 'Drones have a wide range of applications across various industries, some of which are: Aerial photography and videography. Drones...',
+      excerpt: 'Drones have a wide range of applications across various industries, some of which are: Aerial photography and videography...',
       views: 3,
       comments: 0,
       initialLikes: 1,
@@ -688,19 +774,18 @@ export default function Infozest({ setActiveTab }) {
         </div>
       ),
       content: {
-        intro: "Drones have rapidly evolved from military reconnaissance tools into indispensable industrial instruments. Across agriculture, civil infrastructure, mining, disaster relief, and media, unmanned aerial vehicles (UAVs) deliver speed, safety, and sub-centimeter spatial accuracy that was previously impossible.",
+        intro: "Drones have a wide range of applications across various industries, some of which are:",
         sections: [
           {
-            heading: "Transforming Core Industrial Verticals",
-            text: "By eliminating the hazardous need for human inspectors to climb tall communication towers, navigate unstable mining slopes, or enter flood zones, enterprise UAVs streamline operations while reducing operational costs by up to 75%."
-          },
-          {
-            heading: "Major Real-World Application Domains",
             points: [
-              "Precision Agriculture: Multispectral crop vigor scouting, variable rate nutrient spraying, and automated yield predictions.",
-              "Infrastructure Inspection: High-resolution crack detection on bridges, highway corridor mapping, and solar farm thermal auditing.",
-              "Disaster Management: Rapid flood extent mapping, emergency search & rescue coordination, and post-crisis damage audits.",
-              "Environmental Conservation: Carbon stock estimation, forestry canopy analysis, and wildlife migration tracking."
+              "Aerial photography and videography: Drones equipped with cameras are commonly used in film and television production, real estate, and tourism industries to capture aerial footage.",
+              "Surveying and mapping: Drones can be used to survey land and map out terrain, making them useful in fields such as construction, agriculture, and urban planning.",
+              "Delivery services: Drones can be used for quick and efficient delivery of packages and goods, especially in areas with difficult terrain or limited infrastructure.",
+              "Search and rescue: Drones can be used in search and rescue operations to quickly and safely locate missing persons or survey disaster zones.",
+              "Agricultural monitoring: Drones can be used to monitor crop health, estimate yields, and assess soil conditions, helping farmers optimize their production.",
+              "Infrastructure inspection: Drones can be used to inspect and maintain infrastructure such as bridges, power lines, and pipelines, reducing the need for costly and risky human inspections.",
+              "Environmental monitoring: Drones can be used to monitor and track wildlife, survey forests, and measure air and water quality, aiding in conservation efforts.",
+              "Military and security applications: Drones are used for intelligence gathering, reconnaissance, and surveillance purposes by the military and security agencies."
             ]
           }
         ]
@@ -947,16 +1032,18 @@ export default function Infozest({ setActiveTab }) {
 
             {/* BODY SECTIONS */}
             {selectedPost.content.sections && selectedPost.content.sections.map((sec, idx) => (
-              <div key={idx} style={{ marginBottom: '36px' }}>
-                <h2 style={{
-                  fontSize: '1.55rem',
-                  fontWeight: 700,
-                  color: '#0F172A',
-                  marginBottom: '16px',
-                  letterSpacing: '-0.02em'
-                }}>
-                  {sec.heading}
-                </h2>
+              <div key={idx} style={{ marginBottom: '24px' }}>
+                {sec.heading && (
+                  <h2 style={{
+                    fontSize: '1.55rem',
+                    fontWeight: 700,
+                    color: '#0F172A',
+                    marginBottom: '16px',
+                    letterSpacing: '-0.02em'
+                  }}>
+                    {sec.heading}
+                  </h2>
+                )}
 
                 {sec.text && (
                   <p style={{

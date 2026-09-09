@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Send, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Send,
   Sparkles
 } from 'lucide-react'
 
@@ -14,7 +14,7 @@ const services = [
     description:
       "Water bodies sustain ecosystems, communities, and groundwater systems, yet many are shrinking or degraded. We combine drone mapping, satellite monitoring, and AI-driven hydrological analysis to assess waterbody health and guide precise, science-backed restoration.",
     image:
-      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=900&h=500&fit=crop&auto=format",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHD5bmeDb6Wp26nG8V-hqMNLngRdHFhHLvGCsZrmasAw&s=10",
     accent: "#0284C7",
     accentLight: "#E0F2FE",
     points: [
@@ -37,7 +37,7 @@ const services = [
     description:
       "Wetlands regulate floods, support biodiversity, and stabilize climate systems. We use drone surveys, satellite time-series, and AI habitat analysis to monitor wetland health, detect early threats, and guide long-term conservation.",
     image:
-      "https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&q=80&w=900",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfSE7IQQO4Mx5cdeqglJGi9FpEErDtCqkRcYFK0j6MGw&s=10",
     accent: "#0D9488",
     accentLight: "#CCFBF1",
     points: [
@@ -83,7 +83,7 @@ const services = [
     description:
       "Forests are under constant pressure from climate change and human activity. We use drones, satellites, thermal sensors, and AI models to monitor forest health and identify areas requiring urgent intervention.",
     image:
-      "https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=900&h=500&fit=crop&auto=format",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqvQg2MfdqzmRX3tcSOePa0w11UWyB0im5PhrotsZLcA&s=10",
     accent: "#16A34A",
     accentLight: "#DCFCE7",
     points: [
@@ -230,27 +230,6 @@ function ServiceCard({ service }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: '9999px',
-                border: `1px solid ${service.accent}40`,
-                color: service.accent,
-                backgroundColor: service.accentLight,
-                fontWeight: 400,
-                letterSpacing: '0.01em'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
         </div>
       </div>
     </div>
@@ -425,27 +404,6 @@ export default function NaturalResourcesDetail({ handleBack, setActiveTab }) {
               Combining drone surveys, satellite imagery, and AI analytics to
               monitor, protect, and restore Earth's most vital ecosystems.
             </p>
-
-            {/* Capabilities pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
-              {capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  style={{
-                    fontSize: '0.82rem',
-                    padding: '7px 16px',
-                    borderRadius: '9999px',
-                    border: '1px solid #D1D5DB',
-                    color: '#374151',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: 400,
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  {cap}
-                </span>
-              ))}
-            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button

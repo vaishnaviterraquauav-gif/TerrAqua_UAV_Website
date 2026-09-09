@@ -32,11 +32,13 @@ import {
   Send
 } from 'lucide-react'
 import mapzestImg from '../../assets/mapzest-preview.png'
+import agriImg from '../../assets/dronagiri/agri.jpg'
+import varanasiImg from '../../assets/dronagiri/varanasi.jpg'
+import ongoingImg from '../../assets/dronagiri/ongoing.jpg'
 
 export default function OperationDronagiri({ setActiveTab }) {
   const [carouselIdx, setCarouselIdx] = useState(0)
   const [activePillarIdx, setActivePillarIdx] = useState(0)
-  const [mediaTab, setMediaTab] = useState('photos')
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
@@ -58,21 +60,21 @@ export default function OperationDronagiri({ setActiveTab }) {
       title: 'Agriculture Sector',
       icon: <Leaf size={34} color="#FFFFFF" />,
       bgGradient: 'linear-gradient(135deg, rgba(0, 230, 168, 0.25) 0%, rgba(6, 9, 19, 0.95) 100%)',
-      img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200'
+      img: agriImg
     },
     {
-      id: 'weather',
-      title: 'Hyper-Local Weather',
+      id: 'varanasi',
+      title: 'Varanasi (Pilot)',
       icon: <CloudRain size={34} color="#FFFFFF" />,
       bgGradient: 'linear-gradient(135deg, rgba(0, 181, 226, 0.25) 0%, rgba(6, 9, 19, 0.95) 100%)',
-      img: 'https://images.unsplash.com/photo-1592417817098-8f3d6eb17985?auto=format&fit=crop&q=80&w=1200'
+      img: varanasiImg
     },
     {
-      id: 'iot',
-      title: 'IoT Sensor Network',
+      id: 'ongoing',
+      title: 'Ongoing (Status)',
       icon: <Wifi size={34} color="#FFFFFF" />,
       bgGradient: 'linear-gradient(135deg, rgba(255, 106, 0, 0.25) 0%, rgba(6, 9, 19, 0.95) 100%)',
-      img: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1200'
+      img: ongoingImg
     }
   ]
 
@@ -327,7 +329,6 @@ export default function OperationDronagiri({ setActiveTab }) {
           opacity: 0.55;
           transform: scale(0.9);
           border: 1px solid rgba(255, 255, 255, 0.15);
-          box-shadow: 0 15px 30px rgba(0,0,0,0.5);
           filter: brightness(0.85);
         }
 
@@ -343,7 +344,6 @@ export default function OperationDronagiri({ setActiveTab }) {
           opacity: 1;
           transform: scale(1.05);
           border: 2px solid var(--color-orange);
-          box-shadow: 0 25px 60px rgba(255, 106, 0, 0.3), 0 0 50px rgba(0,0,0,0.8);
           z-index: 5;
         }
 
@@ -383,7 +383,6 @@ export default function OperationDronagiri({ setActiveTab }) {
           align-items: center;
           justify-content: center;
           margin: 0 auto 14px auto;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .showcase-card-title {
@@ -425,12 +424,14 @@ export default function OperationDronagiri({ setActiveTab }) {
           grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
           gap: 32px;
           padding: 20px 0;
+          align-items: stretch;
         }
 
         .problem-card-stack-wrapper {
           position: relative;
           perspective: 1000px;
           cursor: pointer;
+          height: 100%;
         }
 
         .problem-card-stack-bg {
@@ -455,9 +456,11 @@ export default function OperationDronagiri({ setActiveTab }) {
           border-radius: 24px;
           padding: 32px 26px;
           min-height: 290px;
+          height: 100%;
+          box-sizing: border-box;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-start;
           background: #FFFFFF;
           border: 2px dashed #CBD5E1;
           transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -468,6 +471,12 @@ export default function OperationDronagiri({ setActiveTab }) {
           transform: rotate(-3deg) translateY(-10px) scale(1.02);
           border-color: #94A3B8;
           box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+        }
+
+        .problem-card-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
         }
 
         .problem-icon-box {
@@ -483,17 +492,20 @@ export default function OperationDronagiri({ setActiveTab }) {
         }
 
         .problem-card-title {
-          font-size: 1.25rem;
+          font-size: 1.2rem;
           font-weight: 700;
           color: #0F172A;
-          line-height: 1.3;
+          line-height: 1.35;
+          min-height: 68px;
+          display: flex;
+          align-items: flex-start;
         }
 
         .problem-card-desc {
           font-size: 0.95rem;
           color: #475569;
           line-height: 1.6;
-          margin-top: 24px;
+          margin-top: 16px;
         }
 
         .solution-side-card-red:hover {
@@ -694,7 +706,6 @@ export default function OperationDronagiri({ setActiveTab }) {
                   src={carouselItems[leftIdx].img}
                   alt={carouselItems[leftIdx].title}
                   className="showcase-card-img-bg"
-                  onError={(e) => { e.target.style.display = 'none' }}
                 />
                 <div className="showcase-card-overlay">
                   <div>
@@ -713,7 +724,6 @@ export default function OperationDronagiri({ setActiveTab }) {
                   src={carouselItems[carouselIdx].img}
                   alt={carouselItems[carouselIdx].title}
                   className="showcase-card-img-bg"
-                  onError={(e) => { e.target.style.display = 'none' }}
                 />
                 <div className="showcase-card-overlay">
                   <div>
@@ -733,7 +743,6 @@ export default function OperationDronagiri({ setActiveTab }) {
                   src={carouselItems[rightIdx].img}
                   alt={carouselItems[rightIdx].title}
                   className="showcase-card-img-bg"
-                  onError={(e) => { e.target.style.display = 'none' }}
                 />
                 <div className="showcase-card-overlay">
                   <div>
@@ -783,7 +792,7 @@ export default function OperationDronagiri({ setActiveTab }) {
 
                 {/* Main Front Dashed Card */}
                 <div className="problem-card-inner">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div className="problem-card-header">
                     <div className="problem-icon-box">
                       {item.icon}
                     </div>
@@ -1056,128 +1065,54 @@ export default function OperationDronagiri({ setActiveTab }) {
                 boxShadow: 'none'
               }}
             >
-              {/* Tab Switcher (Photos / Videos) */}
-              <div
-                style={{
-                  display: 'inline-flex',
-                  background: '#F1F5F9',
-                  padding: '4px',
-                  borderRadius: '12px',
-                  marginBottom: '20px'
-                }}
-              >
-                <button
-                  onClick={() => setMediaTab('photos')}
-                  style={{
-                    padding: '8px 24px',
-                    borderRadius: '8px',
-                    background: mediaTab === 'photos' ? '#0F172A' : 'transparent',
-                    color: mediaTab === 'photos' ? '#FFFFFF' : '#64748B',
-                    border: 'none',
-                    fontSize: '0.95rem',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  Photos
-                </button>
-
-                <button
-                  onClick={() => setMediaTab('videos')}
-                  style={{
-                    padding: '8px 24px',
-                    borderRadius: '8px',
-                    background: mediaTab === 'videos' ? '#0F172A' : 'transparent',
-                    color: mediaTab === 'videos' ? '#FFFFFF' : '#64748B',
-                    border: 'none',
-                    fontSize: '0.95rem',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  Videos
-                </button>
-              </div>
+              <h3 style={{ fontSize: '1.25rem', color: '#0F172A', fontWeight: 600, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+                Field Gallery
+              </h3>
 
               {/* Photos Grid */}
-              {mediaTab === 'photos' ? (
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                    gap: '16px'
-                  }}
-                >
-                  {/* Photo 1: Field Sensor Station / Survey Team */}
-                  <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=800"
-                      alt="Field Sensor Deployment Team"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  </div>
-
-                  {/* Photo 2: Agriculture Survey Drone */}
-                  <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800"
-                      alt="Field Survey Payload Drone"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  </div>
-
-                  {/* Photo 3: Soil Ground Texture */}
-                  <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=800"
-                      alt="Soil Composition Analysis"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  </div>
-
-                  {/* Photo 4: GIS Farmland Plot Survey */}
-                  <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800"
-                      alt="GIS Farmland Plot Boundary"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  </div>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                  gap: '16px'
+                }}
+              >
+                {/* Photo 1: Field Sensor Station / Survey Team */}
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                  <img
+                    src="https://static.wixstatic.com/media/9a5348_25f148923c234707a689115248a41ab5~mv2.jpg"
+                    alt="Field Sensor Deployment Team"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
                 </div>
-              ) : (
-                /* Videos Grid */
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                    gap: '16px'
-                  }}
-                >
-                  <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#0F172A', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800"
-                      alt="Drone Flight Video"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
-                    />
-                    <div style={{ position: 'absolute', width: '48px', height: '48px', borderRadius: '50%', background: '#10B981', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '1.1rem' }}>
-                      ▶
-                    </div>
-                  </div>
 
-                  <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#0F172A', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=800"
-                      alt="Sensor Installation Video"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
-                    />
-                    <div style={{ position: 'absolute', width: '48px', height: '48px', borderRadius: '50%', background: '#10B981', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '1.1rem' }}>
-                      ▶
-                    </div>
-                  </div>
+                {/* Photo 2: Agriculture Survey Drone */}
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                  <img
+                    src="https://static.wixstatic.com/media/9a5348_97f84afd71804b92add3b9b784fb2217~mv2.png"
+                    alt="Field Survey Payload Drone"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
                 </div>
-              )}
+
+                {/* Photo 3: Soil Ground Texture */}
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKiW9qBRGi2o8RvGTgDClGbJvgQZZJnKjF3d_3ccyxbA&s=10"
+                    alt="Soil Composition Analysis"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+
+                {/* Photo 4: GIS Farmland Plot Survey */}
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                  <img
+                    src="https://static.wixstatic.com/media/9a5348_ca92d41e8f4f415aa9c6511894031594~mv2.jpg"
+                    alt="GIS Farmland Plot Boundary"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* RIGHT CONTAINER: PILOT STATUS CARD */}

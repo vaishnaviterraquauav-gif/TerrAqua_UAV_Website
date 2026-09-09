@@ -14,7 +14,7 @@ const services = [
     description:
       "Carbon is now central to sustainability and ESG commitments. TerrAqua UAV delivers accurate, audit-ready carbon estimates using biomass modelling and AI-based land-use analytics.",
     image:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_44c2f5faf3d648bcacd1c014eab04e6c~mv2.jpg",
     accent: "#15803D",
     accentLight: "#DCFCE7",
     points: [
@@ -37,7 +37,7 @@ const services = [
     description:
       "Carbon has become a core metric in sustainability and climate commitments. TerrAqua UAV provides accurate assessments using drone canopy surveys, LiDAR terrain mapping, and satellite indices.",
     image:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_3a5badd048754139824f6290573a45f9~mv2.jpg",
     accent: "#0D9488",
     accentLight: "#CCFBF1",
     points: [
@@ -185,27 +185,6 @@ function ServiceCard({ service }) {
             ))}
           </ul>
         </div>
-
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: '9999px',
-                border: `1px solid ${service.accent}40`,
-                color: service.accent,
-                backgroundColor: service.accentLight,
-                fontWeight: 400,
-                letterSpacing: '0.01em'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
     </div>
   )
@@ -238,7 +217,7 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
           width: '100%',
           minHeight: '260px',
           height: 'clamp(240px, 32vw, 320px)',
-          backgroundImage: `url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/202202/AI_for_climate_1200x768.jpeg')`,
+          backgroundImage: `url('https://static.wixstatic.com/media/9a5348_3a5badd048754139824f6290573a45f9~mv2.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',
@@ -376,27 +355,6 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
               Hyperspectral and CO2 flux scanning to quantify biomass carbon density,
               track emissions, and verify immutable carbon credits for net-zero ESG goals.
             </p>
-
-            {/* Capabilities pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
-              {capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  style={{
-                    fontSize: '0.82rem',
-                    padding: '7px 16px',
-                    borderRadius: '9999px',
-                    border: '1px solid #D1D5DB',
-                    color: '#374151',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: 400,
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  {cap}
-                </span>
-              ))}
-            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button

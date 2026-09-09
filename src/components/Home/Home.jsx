@@ -134,10 +134,40 @@ function InteractiveGlowLine({ height = 12, thickness = 1.5 }) {
   );
 }
 
+function OrbitSatelliteGraphic({ size = 52 }) {
+  return (
+    <img
+      src="/real-satellite.png"
+      alt="Satellite"
+      style={{
+        width: `${size}px`,
+        height: 'auto',
+        objectFit: 'contain',
+        display: 'block'
+      }}
+    />
+  );
+}
+
+function OrbitDroneGraphic({ size = 56 }) {
+  return (
+    <img
+      src="/real-drone.png"
+      alt="Drone"
+      style={{
+        width: `${size}px`,
+        height: 'auto',
+        objectFit: 'contain',
+        display: 'block'
+      }}
+    />
+  );
+}
+
 export default function Home({ setActiveTab }) {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [openDataIndex, setOpenDataIndex] = useState(0)
-  const [openGeoIndex, setOpenGeoIndex] = useState(2)
+  const [openDataIndex, setOpenDataIndex] = useState(null)
+  const [openGeoIndex, setOpenGeoIndex] = useState(null)
 
   const heroSlides = [
     {
@@ -151,20 +181,20 @@ export default function Home({ setActiveTab }) {
     },
     {
       id: 1,
-      title: "The World’s Leading Situational Awareness Platform",
+      title: "A Unified Platform for Drone & Satellite-Based Mapping",
       subtitle: "Advanced airborne remote sensing & sub-centimeter LiDAR analytics for defense, disaster, and enterprise operations.",
       buttonText: "Request a Demo",
-      buttonTab: "solutions",
-      isExternal: false,
+      buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Platform.",
+      isExternal: true,
       circleImg: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=85"
     },
     {
       id: 2,
-      title: "Transforming Geospatial Data into Actionable Intelligence",
+      title: "Expertise and innovation in geospatial technologies",
       subtitle: "MapZest WebGIS enterprise infrastructure to stream, process, and extract automated insights from terabytes of spatial data.",
       buttonText: "Request a Demo",
-      buttonTab: "product",
-      isExternal: false,
+      buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20MapZest%20WebGIS.",
+      isExternal: true,
       circleImg: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=85"
     },
     {
@@ -172,8 +202,8 @@ export default function Home({ setActiveTab }) {
       title: "Making Spatial Data Usable, Accessible and Affordable",
       subtitle: "Incubated at SIIC, IIT Kanpur — delivering AI-powered climate intelligence, thermal modeling & precision agritech.",
       buttonText: "Request a Demo",
-      buttonTab: "contact",
-      isExternal: false,
+      buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Spatial%20Data%20Services.",
+      isExternal: true,
       circleImg: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=85"
     }
   ]
@@ -187,10 +217,10 @@ export default function Home({ setActiveTab }) {
   }, [heroSlides.length])
 
   const metrics = [
-    { value: '50,000+', label: 'Hectares Mapped', sub: 'High Precision Aerial LiDAR' },
-    { value: '99.4%', label: 'Mapping Accuracy', sub: 'Sub-Centimeter Resolution' },
+    { value: '30,000+', label: 'Hectares Mapped', sub: 'High Precision Aerial LiDAR' },
+    { value: '6', label: 'Sensor Capabilities', sub: 'Sub-Centimeter Resolution' },
     { value: 'IITK', label: 'Incubated Tech', sub: 'SIIC Innovation Ecosystem' },
-    { value: '10+', label: 'Government Projects', sub: 'Pan-India Deployment' },
+    { value: '5+', label: 'Industry Sectors', sub: 'Pan-India Deployment' },
   ]
 
   const whatWeDo = {
@@ -371,7 +401,70 @@ export default function Home({ setActiveTab }) {
               ))}
             </div>
 
-            {/* Action CTA Button */}
+            {/* 4 HERO METRICS CARDS (FIXED POSITION WITHOUT SHADOW) */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '12px',
+                marginBottom: '24px',
+                maxWidth: '520px'
+              }}
+            >
+              {metrics.map((m, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    padding: '12px 18px',
+                    textAlign: 'left',
+                    background: 'rgba(255, 255, 255, 0.04)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    minHeight: '70px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    transition: 'border-color 0.25s ease, background 0.25s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 106, 0, 0.4)'
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)'
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 'clamp(1.25rem, 2.5vw, 1.45rem)',
+                      fontWeight: 700,
+                      color: 'var(--color-orange, #FF6A00)',
+                      letterSpacing: '-0.03em',
+                      lineHeight: 1.15
+                    }}
+                  >
+                    {m.value}
+                  </div>
+                  <div
+                    style={{
+                      color: '#E2E8F0',
+                      fontSize: 'clamp(0.78rem, 1.8vw, 0.84rem)',
+                      marginTop: '4px',
+                      fontWeight: 500,
+                      lineHeight: 1.25,
+                      letterSpacing: '-0.01em'
+                    }}
+                  >
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Action CTA Button (BELOW METRIC CARDS) */}
             <div>
               {slide.isExternal ? (
                 <a
@@ -379,27 +472,31 @@ export default function Home({ setActiveTab }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    display: 'inline-block',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     textDecoration: 'none',
-                    padding: '13px clamp(28px, 5vw, 40px)',
+                    padding: '13px clamp(28px, 5vw, 38px)',
                     fontSize: 'clamp(0.92rem, 2vw, 1rem)',
                     fontWeight: 600,
-                    letterSpacing: '0.02em',
+                    letterSpacing: '0.01em',
                     color: '#FFFFFF',
                     backgroundColor: 'var(--color-orange, #FF6A00)',
                     border: 'none',
                     borderRadius: '30px',
                     cursor: 'pointer',
-                    boxShadow: 'none',
+                    boxShadow: '0 4px 18px rgba(255, 106, 0, 0.35)',
                     transition: 'all 0.25s ease'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)'
                     e.currentTarget.style.backgroundColor = '#E65000'
+                    e.currentTarget.style.boxShadow = '0 6px 24px rgba(255, 106, 0, 0.55)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)'
                     e.currentTarget.style.backgroundColor = 'var(--color-orange, #FF6A00)'
+                    e.currentTarget.style.boxShadow = '0 4px 18px rgba(255, 106, 0, 0.35)'
                   }}
                 >
                   {slide.buttonText}
@@ -408,81 +505,35 @@ export default function Home({ setActiveTab }) {
                 <button
                   onClick={() => setActiveTab(slide.buttonTab)}
                   style={{
-                    display: 'inline-block',
-                    padding: '13px clamp(28px, 5vw, 40px)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '13px clamp(28px, 5vw, 38px)',
                     fontSize: 'clamp(0.92rem, 2vw, 1rem)',
                     fontWeight: 600,
-                    letterSpacing: '0.02em',
+                    letterSpacing: '0.01em',
                     color: '#FFFFFF',
                     backgroundColor: 'var(--color-orange, #FF6A00)',
                     border: 'none',
                     borderRadius: '30px',
                     cursor: 'pointer',
-                    boxShadow: 'none',
+                    boxShadow: '0 4px 18px rgba(255, 106, 0, 0.35)',
                     transition: 'all 0.25s ease'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)'
                     e.currentTarget.style.backgroundColor = '#E65000'
+                    e.currentTarget.style.boxShadow = '0 6px 24px rgba(255, 106, 0, 0.55)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)'
                     e.currentTarget.style.backgroundColor = 'var(--color-orange, #FF6A00)'
+                    e.currentTarget.style.boxShadow = '0 4px 18px rgba(255, 106, 0, 0.35)'
                   }}
                 >
                   {slide.buttonText}
                 </button>
               )}
-            </div>
-            {/* 4 HERO METRICS CARDS (FIXED POSITION & CLEAN RESPONSIVE FORMAT) */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '10px',
-              marginTop: '28px',
-              maxWidth: '540px'
-            }}>
-              {metrics.map((m, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    padding: '10px 14px',
-                    textAlign: 'left',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    backdropFilter: 'blur(10px)',
-                    borderRadius: '12px',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    minHeight: '68px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    transition: 'all 0.25s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)'
-                    e.currentTarget.style.borderColor = 'rgba(255, 106, 0, 0.4)'
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)'
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)'
-                  }}
-                >
-                  <div style={{
-                    fontSize: 'clamp(1.2rem, 3vw, 1.45rem)',
-                    fontWeight: 800,
-                    color: 'var(--color-orange, #FF6A00)',
-                    letterSpacing: '-0.03em',
-                    lineHeight: 1.1
-                  }}>
-                    {m.value}
-                  </div>
-                  <div style={{ color: '#FFFFFF', fontSize: 'clamp(0.74rem, 1.8vw, 0.82rem)', marginTop: '4px', fontWeight: 600, lineHeight: 1.25 }}>
-                    {m.label}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -503,50 +554,60 @@ export default function Home({ setActiveTab }) {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              {/* Outer Orbit Track 1 with Satellite Node */}
+              {/* Inner Atmospheric Orbit Track: Drone (Counter-Clockwise) */}
               <div
                 style={{
                   position: 'absolute',
-                  inset: '-16px',
+                  inset: '-20px',
                   borderRadius: '50%',
-                  border: '1px dashed rgba(43, 171, 226, 0.35)',
-                  animation: 'spinOrbitalTrack 30s linear infinite',
+                  border: '1px dashed rgba(0, 229, 255, 0.45)',
+                  animation: 'spinOrbitalCounter 32s linear infinite',
                   pointerEvents: 'none'
                 }}
               >
-                <div style={{
-                  position: 'absolute',
-                  top: '15%',
-                  left: '-4px',
-                  width: '10px',
-                  height: '10px',
-                  borderRadius: '50%',
-                  background: '#2BABE2',
-                  boxShadow: '0 0 14px #2BABE2'
-                }} />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    right: '-24px',
+                    transform: 'translate(50%, -50%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    animation: 'spinOrbitalTrack 32s linear infinite'
+                  }}
+                  title="TerrAqua UAV Mapping Drone"
+                >
+                  <OrbitDroneGraphic size={48} />
+                </div>
               </div>
 
-              {/* Outer Orbit Track 2 (Counter-rotation) */}
+              {/* Outer Space Orbit Track: Satellite (Clockwise) */}
               <div
                 style={{
                   position: 'absolute',
-                  inset: '-32px',
+                  inset: '-75px',
                   borderRadius: '50%',
-                  border: '1px solid rgba(43, 171, 226, 0.15)',
-                  animation: 'spinOrbitalCounter 45s linear infinite',
+                  border: '1px dashed rgba(0, 229, 255, 0.35)',
+                  animation: 'spinOrbitalTrack 46s linear infinite',
                   pointerEvents: 'none'
                 }}
               >
-                <div style={{
-                  position: 'absolute',
-                  bottom: '20%',
-                  right: '-4px',
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: '#2BABE2',
-                  boxShadow: '0 0 10px #2BABE2'
-                }} />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '-26px',
+                    transform: 'translate(-50%, -50%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    animation: 'spinOrbitalCounter 46s linear infinite'
+                  }}
+                  title="TerrAqua Earth Observation Satellite"
+                >
+                  <OrbitSatelliteGraphic size={50} />
+                </div>
               </div>
 
               {/* Main Glowing Circular Frame with 4 Synchronized Images */}
@@ -590,9 +651,9 @@ export default function Home({ setActiveTab }) {
       </section>
 
       {/* CLIENT TRUST BANNER (SLEEK & COMPACT) */}
-      <section style={{ 
-        padding: '20px 16px', 
-        background: 'linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%)', 
+      <section style={{
+        padding: '20px 16px',
+        background: 'linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%)',
         borderTop: '1px solid rgba(27, 54, 73, 0.08)',
         borderBottom: '1px solid rgba(27, 54, 73, 0.08)',
         overflow: 'hidden',
@@ -616,10 +677,10 @@ export default function Home({ setActiveTab }) {
 
           .clients-marquee-track {
             display: flex;
-            gap: 22px;
+            gap: 24px;
             width: max-content;
-            animation: clientMarqueeScroll 32s linear infinite;
-            padding: 6px 0 10px 0;
+            animation: clientMarqueeScroll 60s linear infinite;
+            padding: 8px 0 14px 0;
           }
 
           .clients-marquee-wrapper:hover .clients-marquee-track {
@@ -628,24 +689,33 @@ export default function Home({ setActiveTab }) {
 
           .client-logo-card {
             background: #FFFFFF;
-            border-radius: 14px;
-            border: 1px solid rgba(27, 54, 73, 0.09);
-            box-shadow: 0 6px 18px -4px rgba(27, 54, 73, 0.06);
+            border-radius: 16px;
+            border: 1px solid rgba(27, 54, 73, 0.08);
+            box-shadow: 0 4px 14px -2px rgba(27, 54, 73, 0.05);
             height: 84px;
-            min-width: 215px;
-            padding: 8px 16px;
+            width: 195px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            justifyContent: center;
+            justify-content: center;
             flex-shrink: 0;
-            transition: all 0.25s ease;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
+            overflow: hidden;
+            outline: none !important;
+            user-select: none;
+          }
+
+          .client-logo-card:focus,
+          .client-logo-card:active,
+          .client-logo-card:focus-visible {
+            outline: none !important;
           }
 
           .client-logo-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(27, 54, 73, 0.18);
-            box-shadow: 0 12px 28px -4px rgba(27, 54, 73, 0.14);
+            transform: translateY(-4px) scale(1.03);
+            border-color: rgba(255, 106, 0, 0.45);
+            box-shadow: 0 12px 26px -2px rgba(27, 54, 73, 0.14);
           }
         `}</style>
 
@@ -667,595 +737,80 @@ export default function Home({ setActiveTab }) {
         <div className="clients-marquee-wrapper">
           <div className="clients-marquee-track">
             {[
-              // 1. CITI
-              {
-                id: 'citi',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Citi.svg" 
-                      alt="Citi" 
-                      style={{ maxHeight: '40px', maxWidth: '150px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                      <div style={{
-                        position: 'absolute',
-                        top: '-7px',
-                        left: '20px',
-                        right: '4px',
-                        height: '11px',
-                        borderTop: '3px solid #D92D27',
-                        borderRadius: '12px 12px 0 0'
-                      }} />
-                      <span style={{ fontSize: '1.55rem', fontWeight: 800, color: '#003B70', letterSpacing: '-0.5px' }}>citi</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 2. VIRGINIA TECH
-              {
-                id: 'vt',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', height: '100%' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/6/60/Virginia_Tech_Hokies_logo.svg" 
-                      alt="Virginia Tech" 
-                      style={{ maxHeight: '42px', maxWidth: '155px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.45rem', fontWeight: 900, color: '#861F41', fontStyle: 'italic' }}>VT</span>
-                      <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#861F41' }}>VIRGINIA TECH</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 3. MECL
-              {
-                id: 'mecl',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '34px', height: '34px', borderRadius: '50%', border: '1.5px solid #0284C7', background: '#F0F9FF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0284C7', fontWeight: 900, fontSize: '0.9rem' }}>
-                      ⛏️
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#0369A1' }}>एम. ई. सी. एल.</span>
-                      <span style={{ fontSize: '1rem', fontWeight: 900, color: '#0284C7', letterSpacing: '0.5px' }}>MECL</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 4. HMDA
-              {
-                id: 'hmda',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/HMDA_Logo.png/220px-HMDA_Logo.png" 
-                      alt="HMDA" 
-                      style={{ maxHeight: '38px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <div style={{ width: '26px', height: '26px', background: '#0284C7', borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF', fontSize: '0.85rem' }}>⬢</div>
-                      <span style={{ fontSize: '1.12rem', fontWeight: 900, color: '#0F172A' }}>hmda</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 5. SAC ISRO
-              {
-                id: 'sac-isro',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Indian_Space_Research_Organisation_Logo.svg" 
-                      alt="ISRO SAC" 
-                      style={{ maxHeight: '42px', maxWidth: '145px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0A1D3D' }}>SAC • ISRO</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 6. NTPC
-              {
-                id: 'ntpc',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/en/3/30/NTPC_Logo.svg" 
-                      alt="NTPC" 
-                      style={{ maxHeight: '38px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', background: '#0047AB', borderRadius: '5px', padding: '4px 10px', color: '#FFF', fontWeight: 900, fontSize: '0.95rem' }}>
-                      NTPC
-                    </div>
-                  </div>
-                )
-              },
-              // 7. WWF
-              {
-                id: 'wwf',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/en/2/24/WWF_logo.svg" 
-                      alt="WWF" 
-                      style={{ maxHeight: '38px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.2rem' }}>🐼</span>
-                      <span style={{ fontSize: '1.12rem', fontWeight: 900 }}>WWF</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 8. CROPC
-              {
-                id: 'cropc',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1.5px solid #EAB308', background: '#FEF08A', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem' }}>
-                      ⚡
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.96rem', fontWeight: 900, color: '#1E293B', lineHeight: 1.1 }}>CROPC</span>
-                      <span style={{ fontSize: '0.64rem', fontWeight: 600, color: '#CA8A04' }}>INDIA RESILIENCE</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 9. PHILOGY
-              {
-                id: 'philogy',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '26px', height: '26px', borderRadius: '50%', border: '2px solid #1E293B', borderLeftColor: 'var(--color-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: '2.5px', height: '16px', background: '#1E293B' }}></div>
-                    </div>
-                    <span style={{ fontSize: '1.18rem', fontWeight: 800, color: '#0F172A', letterSpacing: '0.5px' }}>phil<span style={{ color: 'var(--color-orange)' }}>φ</span>gy</span>
-                  </div>
-                )
-              },
-              // 10. GEOINFY SOLUTIONS
-              {
-                id: 'geoinfy',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', alignItems: 'center' }}>
-                      <div style={{ width: '13px', height: '13px', border: '2px solid #2563EB', transform: 'rotate(45deg)' }}></div>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '1.02rem', fontWeight: 800, color: '#1E40AF', lineHeight: 1.1 }}>GeoInfy</span>
-                      <span style={{ fontSize: '0.64rem', fontWeight: 700, color: '#475569', letterSpacing: '0.6px' }}>SOLUTIONS</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 11. ADITYA BIRLA GROUP
-              {
-                id: 'aditya-birla',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/4/47/Aditya_Birla_Group_Logo.svg" 
-                      alt="Aditya Birla Group" 
-                      style={{ maxHeight: '38px', maxWidth: '145px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '0.96rem', fontWeight: 900, color: '#991B1B' }}>ADITYA BIRLA</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 12. LCB FERTILIZERS
-              {
-                id: 'lcb',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1.5px solid #16A34A', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#16A34A', fontSize: '1.1rem' }}>
-                      ☘
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#15803D', lineHeight: 1.1 }}>LCB FERTILIZERS</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 13. BHARAT CARBON
-              {
-                id: 'bharat-carbon',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1.5px dashed #059669', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#059669', fontSize: '0.95rem' }}>
-                      ⚛
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.95rem', fontWeight: 800, color: '#047857', lineHeight: 1.1 }}>Bharat Carbon</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 14. NTT DATA
-              {
-                id: 'ntt-data',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/4/4e/NTT_Data_Logo.svg" 
-                      alt="NTT DATA" 
-                      style={{ maxHeight: '30px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.12rem', fontWeight: 900, color: '#0072C6' }}>NTT DATA</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 15. IMPERIAL COLLEGE LONDON
-              {
-                id: 'imperial',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Imperial_College_London_new_logo.svg" 
-                      alt="Imperial College London" 
-                      style={{ maxHeight: '34px', maxWidth: '145px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147' }}>Imperial College</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 16. RCCD
-              {
-                id: 'rccd',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg, #0284C7 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF', fontSize: '0.9rem' }}>
-                      💧
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '1rem', fontWeight: 900, color: '#0369A1', lineHeight: 1.1 }}>RCCD</span>
-                    </div>
-                  </div>
-                )
-              },
-
-              // ============================================
-              // DUPLICATE ARRAY FOR SEAMLESS INFINITE LOOP
-              // ============================================
-              // 1. CITI
-              {
-                id: 'citi-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Citi.svg" 
-                      alt="Citi" 
-                      style={{ maxHeight: '40px', maxWidth: '150px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                      <div style={{
-                        position: 'absolute',
-                        top: '-7px',
-                        left: '20px',
-                        right: '4px',
-                        height: '11px',
-                        borderTop: '3px solid #D92D27',
-                        borderRadius: '12px 12px 0 0'
-                      }} />
-                      <span style={{ fontSize: '1.55rem', fontWeight: 800, color: '#003B70', letterSpacing: '-0.5px' }}>citi</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 2. VIRGINIA TECH
-              {
-                id: 'vt-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', height: '100%' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/6/60/Virginia_Tech_Hokies_logo.svg" 
-                      alt="Virginia Tech" 
-                      style={{ maxHeight: '42px', maxWidth: '155px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.45rem', fontWeight: 900, color: '#861F41', fontStyle: 'italic' }}>VT</span>
-                      <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#861F41' }}>VIRGINIA TECH</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 3. MECL
-              {
-                id: 'mecl-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '34px', height: '34px', borderRadius: '50%', border: '1.5px solid #0284C7', background: '#F0F9FF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0284C7', fontWeight: 900, fontSize: '0.9rem' }}>
-                      ⛏️
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#0369A1' }}>एम. ई. सी. एल.</span>
-                      <span style={{ fontSize: '1rem', fontWeight: 900, color: '#0284C7', letterSpacing: '0.5px' }}>MECL</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 4. HMDA
-              {
-                id: 'hmda-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/HMDA_Logo.png/220px-HMDA_Logo.png" 
-                      alt="HMDA" 
-                      style={{ maxHeight: '38px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <div style={{ width: '26px', height: '26px', background: '#0284C7', borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF', fontSize: '0.85rem' }}>⬢</div>
-                      <span style={{ fontSize: '1.12rem', fontWeight: 900, color: '#0F172A' }}>hmda</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 5. SAC ISRO
-              {
-                id: 'sac-isro-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Indian_Space_Research_Organisation_Logo.svg" 
-                      alt="ISRO SAC" 
-                      style={{ maxHeight: '42px', maxWidth: '145px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0A1D3D' }}>SAC • ISRO</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 6. NTPC
-              {
-                id: 'ntpc-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/en/3/30/NTPC_Logo.svg" 
-                      alt="NTPC" 
-                      style={{ maxHeight: '38px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', background: '#0047AB', borderRadius: '5px', padding: '4px 10px', color: '#FFF', fontWeight: 900, fontSize: '0.95rem' }}>
-                      NTPC
-                    </div>
-                  </div>
-                )
-              },
-              // 7. WWF
-              {
-                id: 'wwf-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/en/2/24/WWF_logo.svg" 
-                      alt="WWF" 
-                      style={{ maxHeight: '38px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.2rem' }}>🐼</span>
-                      <span style={{ fontSize: '1.12rem', fontWeight: 900 }}>WWF</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 8. CROPC
-              {
-                id: 'cropc-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1.5px solid #EAB308', background: '#FEF08A', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem' }}>
-                      ⚡
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.96rem', fontWeight: 900, color: '#1E293B', lineHeight: 1.1 }}>CROPC</span>
-                      <span style={{ fontSize: '0.64rem', fontWeight: 600, color: '#CA8A04' }}>INDIA RESILIENCE</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 9. PHILOGY
-              {
-                id: 'philogy-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '26px', height: '26px', borderRadius: '50%', border: '2px solid #1E293B', borderLeftColor: 'var(--color-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: '2.5px', height: '16px', background: '#1E293B' }}></div>
-                    </div>
-                    <span style={{ fontSize: '1.18rem', fontWeight: 800, color: '#0F172A', letterSpacing: '0.5px' }}>phil<span style={{ color: 'var(--color-orange)' }}>φ</span>gy</span>
-                  </div>
-                )
-              },
-              // 10. GEOINFY SOLUTIONS
-              {
-                id: 'geoinfy-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', alignItems: 'center' }}>
-                      <div style={{ width: '13px', height: '13px', border: '2px solid #2563EB', transform: 'rotate(45deg)' }}></div>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '1.02rem', fontWeight: 800, color: '#1E40AF', lineHeight: 1.1 }}>GeoInfy</span>
-                      <span style={{ fontSize: '0.64rem', fontWeight: 700, color: '#475569', letterSpacing: '0.6px' }}>SOLUTIONS</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 11. ADITYA BIRLA GROUP
-              {
-                id: 'aditya-birla-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/4/47/Aditya_Birla_Group_Logo.svg" 
-                      alt="Aditya Birla Group" 
-                      style={{ maxHeight: '38px', maxWidth: '145px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '0.96rem', fontWeight: 900, color: '#991B1B' }}>ADITYA BIRLA</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 12. LCB FERTILIZERS
-              {
-                id: 'lcb-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1.5px solid #16A34A', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#16A34A', fontSize: '1.1rem' }}>
-                      ☘
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#15803D', lineHeight: 1.1 }}>LCB FERTILIZERS</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 13. BHARAT CARBON
-              {
-                id: 'bharat-carbon-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1.5px dashed #059669', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#059669', fontSize: '0.95rem' }}>
-                      ⚛
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.95rem', fontWeight: 800, color: '#047857', lineHeight: 1.1 }}>Bharat Carbon</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 14. NTT DATA
-              {
-                id: 'ntt-data-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/4/4e/NTT_Data_Logo.svg" 
-                      alt="NTT DATA" 
-                      style={{ maxHeight: '30px', maxWidth: '135px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.12rem', fontWeight: 900, color: '#0072C6' }}>NTT DATA</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 15. IMPERIAL COLLEGE LONDON
-              {
-                id: 'imperial-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Imperial_College_London_new_logo.svg" 
-                      alt="Imperial College London" 
-                      style={{ maxHeight: '34px', maxWidth: '145px', objectFit: 'contain' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '0.88rem', fontWeight: 800, color: '#002147' }}>Imperial College</span>
-                    </div>
-                  </div>
-                )
-              },
-              // 16. RCCD
-              {
-                id: 'rccd-dup',
-                render: (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg, #0284C7 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF', fontSize: '0.9rem' }}>
-                      💧
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ fontSize: '1rem', fontWeight: 900, color: '#0369A1', lineHeight: 1.1 }}>RCCD</span>
-                    </div>
-                  </div>
-                )
-              }
-            ].map((cl, cIdx) => (
-              <div key={cIdx} className="client-logo-card">
-                {cl.render}
+              { id: 'bharat-carbon', name: 'Bharat Carbon', img: '/partners/bharat-carbon.png' },
+              { id: 'ntt-data', name: 'NTT DATA', img: '/partners/ntt-data.png' },
+              { id: 'imperial-college', name: 'Imperial College London', img: '/partners/imperial-college.png' },
+              { id: 'neer', name: 'NEER', img: '/partners/neer.png' },
+              { id: 'citi', name: 'Citi', img: '/partners/citi.png' },
+              { id: 'virginia-tech', name: 'Virginia Tech', img: '/partners/virginia-tech.png' },
+              { id: 'hmda', name: 'HMDA', img: '/partners/hmda.png' },
+              { id: 'lotus-wireless', name: 'Lotus Wireless', img: '/partners/lotus-wireless.png' },
+              { id: 'jal-sansadhan', name: 'Jal Sansadhan Vibhag', img: '/partners/jal-sansadhan.png' },
+              { id: 'dst-gov', name: 'Department of Science & Technology', img: '/partners/dst-gov.png' },
+              { id: 'wwf', name: 'WWF', img: '/partners/wwf.png' },
+              { id: 'ntpc', name: 'NTPC', img: '/partners/ntpc.png' },
+              { id: 'iit-gandhinagar', name: 'IIT Gandhinagar', img: '/partners/iit-gandhinagar.png' },
+              { id: 'bharat-petroleum', name: 'Bharat Petroleum', img: '/partners/bharat-petroleum.png' },
+              { id: 'wii', name: 'Wildlife Institute of India', img: '/partners/wii.png' },
+              { id: 'gcrs', name: 'Geo Climate Risk Solutions', img: '/partners/gcrs.png' },
+              { id: 'cwrm', name: 'CWRM', img: '/partners/cwrm.png' },
+              { id: 'bharat-oil-waste', name: 'Bharat Oil & Waste Management Ltd.', img: '/partners/bharat-oil-waste.png' },
+              { id: 'enforcement-directorate', name: 'Enforcement Directorate', img: '/partners/enforcement-directorate.png' },
+              { id: 'oiltech-engineering', name: 'Oiltech Engineering', img: '/partners/oiltech-engineering.png' },
+              { id: 'namami-gange', name: 'Namami Gange', img: '/partners/namami-gange.png' },
+              { id: 'uprvunl', name: 'UPRVUNL', img: '/partners/uprvunl.png' },
+              { id: 'cropc', name: 'CROPC', img: '/partners/cropc.png' },
+              { id: 'up-revenue-board', name: 'Board of Revenue Uttar Pradesh', img: '/partners/up-revenue-board.png' },
+              { id: 're-sustainability', name: 'RE Sustainability', img: '/partners/re-sustainability.png' },
+              { id: 'green-leaf-ngo', name: 'Conservation Foundation', img: '/partners/green-leaf-ngo.png' },
+              { id: 'siic-iitk', name: 'SIIC IIT Kanpur', img: '/partners/siic-iitk.png' },
+              { id: 'mecl', name: 'MECL', img: '/partners/mecl.png' },
+              { id: 'icimod', name: 'ICIMOD', img: '/partners/icimod.png' },
+            ].concat([
+              { id: 'bharat-carbon-dup', name: 'Bharat Carbon', img: '/partners/bharat-carbon.png' },
+              { id: 'ntt-data-dup', name: 'NTT DATA', img: '/partners/ntt-data.png' },
+              { id: 'imperial-college-dup', name: 'Imperial College London', img: '/partners/imperial-college.png' },
+              { id: 'neer-dup', name: 'NEER', img: '/partners/neer.png' },
+              { id: 'citi-dup', name: 'Citi', img: '/partners/citi.png' },
+              { id: 'virginia-tech-dup', name: 'Virginia Tech', img: '/partners/virginia-tech.png' },
+              { id: 'hmda-dup', name: 'HMDA', img: '/partners/hmda.png' },
+              { id: 'lotus-wireless-dup', name: 'Lotus Wireless', img: '/partners/lotus-wireless.png' },
+              { id: 'jal-sansadhan-dup', name: 'Jal Sansadhan Vibhag', img: '/partners/jal-sansadhan.png' },
+              { id: 'dst-gov-dup', name: 'Department of Science & Technology', img: '/partners/dst-gov.png' },
+              { id: 'wwf-dup', name: 'WWF', img: '/partners/wwf.png' },
+              { id: 'ntpc-dup', name: 'NTPC', img: '/partners/ntpc.png' },
+              { id: 'iit-gandhinagar-dup', name: 'IIT Gandhinagar', img: '/partners/iit-gandhinagar.png' },
+              { id: 'bharat-petroleum-dup', name: 'Bharat Petroleum', img: '/partners/bharat-petroleum.png' },
+              { id: 'wii-dup', name: 'Wildlife Institute of India', img: '/partners/wii.png' },
+              { id: 'gcrs-dup', name: 'Geo Climate Risk Solutions', img: '/partners/gcrs.png' },
+              { id: 'cwrm-dup', name: 'CWRM', img: '/partners/cwrm.png' },
+              { id: 'bharat-oil-waste-dup', name: 'Bharat Oil & Waste Management Ltd.', img: '/partners/bharat-oil-waste.png' },
+              { id: 'enforcement-directorate-dup', name: 'Enforcement Directorate', img: '/partners/enforcement-directorate.png' },
+              { id: 'oiltech-engineering-dup', name: 'Oiltech Engineering', img: '/partners/oiltech-engineering.png' },
+              { id: 'namami-gange-dup', name: 'Namami Gange', img: '/partners/namami-gange.png' },
+              { id: 'uprvunl-dup', name: 'UPRVUNL', img: '/partners/uprvunl.png' },
+              { id: 'cropc-dup', name: 'CROPC', img: '/partners/cropc.png' },
+              { id: 'up-revenue-board-dup', name: 'Board of Revenue Uttar Pradesh', img: '/partners/up-revenue-board.png' },
+              { id: 're-sustainability-dup', name: 'RE Sustainability', img: '/partners/re-sustainability.png' },
+              { id: 'green-leaf-ngo-dup', name: 'Conservation Foundation', img: '/partners/green-leaf-ngo.png' },
+              { id: 'siic-iitk-dup', name: 'SIIC IIT Kanpur', img: '/partners/siic-iitk.png' },
+              { id: 'mecl-dup', name: 'MECL', img: '/partners/mecl.png' },
+              { id: 'icimod-dup', name: 'ICIMOD', img: '/partners/icimod.png' },
+            ]).map((partner, pIdx) => (
+              <div key={pIdx} className="client-logo-card" title={partner.name}>
+                <img
+                  src={`${partner.img}?v=2`}
+                  alt={partner.name}
+                  style={{
+                    maxHeight: '52px',
+                    maxWidth: '155px',
+                    width: 'auto',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    display: 'block'
+                  }}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -1265,7 +820,7 @@ export default function Home({ setActiveTab }) {
       {/* WHAT WE DO SECTION (ADVANCED LIGHT THEME WITH CURLY BRACKET DIVIDER & GLOWING INTERACTION) */}
       <section className="section-light" style={{ padding: 'clamp(40px, 6vw, 80px) clamp(16px, 4vw, 24px)', background: '#F6F9FB' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', width: '100%' }}>
-          
+
           <style>{`
             .what-we-do-bracket-wrapper {
               display: block;
@@ -1557,11 +1112,11 @@ export default function Home({ setActiveTab }) {
         }}>
           {/* Left Text Column */}
           <div style={{ textAlign: 'left', padding: 'clamp(0px, 2vw, 20px)' }}>
-            <h2 style={{ 
-              fontSize: 'clamp(2rem, 5vw, 3.2rem)', 
-              fontWeight: 600, 
-              letterSpacing: '-0.03em', 
-              lineHeight: 1.15, 
+            <h2 style={{
+              fontSize: 'clamp(2rem, 5vw, 3.2rem)',
+              fontWeight: 600,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.15,
               marginBottom: '20px',
               background: 'linear-gradient(135deg, #FFFFFF 0%, #EAEFF5 100%)',
               WebkitBackgroundClip: 'text',
@@ -1653,9 +1208,9 @@ export default function Home({ setActiveTab }) {
       </section>
 
       {/* DATA TO DECISIONS SECTION */}
-      <section style={{ 
-        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px)', 
-        background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)', 
+      <section style={{
+        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px)',
+        background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)',
         borderTop: '1px solid rgba(27, 54, 73, 0.08)',
         position: 'relative',
         overflow: 'hidden'
@@ -1670,8 +1225,8 @@ export default function Home({ setActiveTab }) {
 
 
       {/* OUR COMMITMENT TO SDGs SECTION */}
-      <section style={{ 
-        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px)', 
+      <section style={{
+        padding: 'clamp(50px, 6vw, 80px) 0',
         position: 'relative',
         background: 'linear-gradient(180deg, #EFF4F8 0%, #F8FAFC 100%)',
         overflow: 'hidden',
@@ -1696,60 +1251,127 @@ export default function Home({ setActiveTab }) {
           background: 'radial-gradient(circle, rgba(0, 181, 226, 0.05) 0%, transparent 70%)',
           pointerEvents: 'none'
         }} />
-        
-        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-          <h2 style={{ 
-            fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', 
-            fontWeight: 500, 
+
+        {/* Marquee Styles for SDGs */}
+        <style>{`
+          @keyframes sdgMarqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+
+          .sdg-marquee-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+          }
+
+          .sdg-marquee-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: sdgMarqueeScroll 48s linear infinite;
+            padding: 10px 0 20px 0;
+          }
+
+          .sdg-marquee-wrapper:hover .sdg-marquee-track {
+            animation-play-state: paused;
+          }
+
+          .sdg-card-item {
+            flex: 0 0 auto;
+            width: clamp(120px, 14vw, 150px);
+            height: clamp(120px, 14vw, 150px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 20px;
+            background: #FFFFFF;
+            border: 1px solid rgba(27, 54, 73, 0.08);
+            box-shadow: 0 10px 26px -6px rgba(27, 54, 73, 0.08);
+            transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            padding: 6px;
+            outline: none !important;
+          }
+
+          .sdg-card-item:hover {
+            transform: translateY(-8px) scale(1.06);
+            border-color: rgba(255, 106, 0, 0.5);
+            box-shadow: 0 20px 38px -8px rgba(255, 106, 0, 0.25);
+          }
+        `}</style>
+
+        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1, padding: '0 16px' }}>
+          <h2 style={{
+            fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)',
+            fontWeight: 500,
             letterSpacing: '-0.02em',
-            marginBottom: 'clamp(32px, 5vw, 60px)',
+            marginBottom: 'clamp(28px, 4vw, 44px)',
             color: 'var(--text-heading-dark)'
           }}>
             OUR COMMITMENT TO <span style={{ color: 'var(--color-orange)' }}>SDGs</span>
           </h2>
-          <div style={{
-            display: 'flex',
-            overflowX: 'auto',
-            gap: 'clamp(16px, 3vw, 32px)',
-            paddingBottom: '24px',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none'
-          }}>
-            {[7, 9, 11, 12, 13, 14, 15, 4, 6, 7].map((num, i) => (
-              <div key={i} style={{
-                flex: '0 0 auto',
-                width: 'clamp(120px, 24vw, 160px)',
-                height: 'clamp(120px, 24vw, 160px)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: '800',
-                fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
-                cursor: 'pointer',
-                borderRadius: '24px',
-                background: '#FFFFFF',
-                border: '1px solid rgba(27, 54, 73, 0.1)',
-                boxShadow: '0 15px 35px -10px rgba(27, 54, 73, 0.08)',
-                transition: 'all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px) scale(1.04)';
-                e.currentTarget.style.border = '1px solid var(--color-orange)';
-                e.currentTarget.style.boxShadow = '0 25px 45px -10px rgba(255, 106, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.border = '1px solid rgba(27, 54, 73, 0.1)';
-                e.currentTarget.style.boxShadow = '0 15px 35px -10px rgba(27, 54, 73, 0.08)';
-              }}>
-                <div style={{
-                  background: 'linear-gradient(135deg, #0A1D3D 0%, #1B3649 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontWeight: 800
-                }}>
-                  SDG {num}
-                </div>
+        </div>
+
+        <div className="sdg-marquee-wrapper" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="sdg-marquee-track">
+            {[
+              { num: 1, title: 'No Poverty', img: '/sdgs/sdg-1.png' },
+              { num: 2, title: 'Zero Hunger', img: '/sdgs/sdg-2.png' },
+              { num: 3, title: 'Good Health and Well-being', img: '/sdgs/sdg-3.png' },
+              { num: 4, title: 'Quality Education', img: '/sdgs/sdg-4.png' },
+              { num: 5, title: 'Gender Equality', img: '/sdgs/sdg-5.png' },
+              { num: 6, title: 'Clean Water and Sanitation', img: '/sdgs/sdg-6.png' },
+              { num: 7, title: 'Affordable and Clean Energy', img: '/sdgs/sdg-7.png' },
+              { num: 8, title: 'Decent Work and Economic Growth', img: '/sdgs/sdg-8.png' },
+              { num: 9, title: 'Industry, Innovation and Infrastructure', img: '/sdgs/sdg-9.png' },
+              { num: 10, title: 'Reduced Inequalities', img: '/sdgs/sdg-10.png' },
+              { num: 11, title: 'Sustainable Cities and Communities', img: '/sdgs/sdg-11.png' },
+              { num: 12, title: 'Responsible Consumption and Production', img: '/sdgs/sdg-12.png' },
+              { num: 13, title: 'Climate Action', img: '/sdgs/sdg-13.png' },
+              { num: 14, title: 'Life Below Water', img: '/sdgs/sdg-14.png' },
+              { num: 15, title: 'Life on Land', img: '/sdgs/sdg-15.png' },
+              { num: 16, title: 'Peace, Justice and Strong Institutions', img: '/sdgs/sdg-16.png' },
+              { num: 17, title: 'Partnerships for the Goals', img: '/sdgs/sdg-17.png' },
+            ].concat([
+              { num: 1, title: 'No Poverty', img: '/sdgs/sdg-1.png' },
+              { num: 2, title: 'Zero Hunger', img: '/sdgs/sdg-2.png' },
+              { num: 3, title: 'Good Health and Well-being', img: '/sdgs/sdg-3.png' },
+              { num: 4, title: 'Quality Education', img: '/sdgs/sdg-4.png' },
+              { num: 5, title: 'Gender Equality', img: '/sdgs/sdg-5.png' },
+              { num: 6, title: 'Clean Water and Sanitation', img: '/sdgs/sdg-6.png' },
+              { num: 7, title: 'Affordable and Clean Energy', img: '/sdgs/sdg-7.png' },
+              { num: 8, title: 'Decent Work and Economic Growth', img: '/sdgs/sdg-8.png' },
+              { num: 9, title: 'Industry, Innovation and Infrastructure', img: '/sdgs/sdg-9.png' },
+              { num: 10, title: 'Reduced Inequalities', img: '/sdgs/sdg-10.png' },
+              { num: 11, title: 'Sustainable Cities and Communities', img: '/sdgs/sdg-11.png' },
+              { num: 12, title: 'Responsible Consumption and Production', img: '/sdgs/sdg-12.png' },
+              { num: 13, title: 'Climate Action', img: '/sdgs/sdg-13.png' },
+              { num: 14, title: 'Life Below Water', img: '/sdgs/sdg-14.png' },
+              { num: 15, title: 'Life on Land', img: '/sdgs/sdg-15.png' },
+              { num: 16, title: 'Peace, Justice and Strong Institutions', img: '/sdgs/sdg-16.png' },
+              { num: 17, title: 'Partnerships for the Goals', img: '/sdgs/sdg-17.png' },
+            ]).map((sdg, i) => (
+              <div
+                key={i}
+                className="sdg-card-item"
+                title={`SDG ${sdg.num}: ${sdg.title}`}
+              >
+                <img
+                  src={`${sdg.img}?v=3`}
+                  alt={`SDG ${sdg.num}: ${sdg.title}`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '15px',
+                    display: 'block'
+                  }}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -1757,8 +1379,8 @@ export default function Home({ setActiveTab }) {
       </section>
 
       {/* CALLOUT */}
-      <section style={{ 
-        padding: 'clamp(50px, 7vw, 100px) clamp(16px, 4vw, 24px)', 
+      <section style={{
+        padding: 'clamp(50px, 7vw, 100px) clamp(16px, 4vw, 24px)',
         background: 'linear-gradient(180deg, #EEF2F6 0%, #F8FAFC 100%)',
         position: 'relative',
         overflow: 'hidden',
@@ -1800,12 +1422,12 @@ export default function Home({ setActiveTab }) {
           position: 'relative',
           zIndex: 1
         }}>
-          <h2 style={{ 
-            fontSize: 'clamp(1.6rem, 4vw, 2.6rem)', 
-            color: 'var(--text-heading-dark)', 
-            fontWeight: 600, 
-            letterSpacing: '-0.02em', 
-            marginBottom: '16px' 
+          <h2 style={{
+            fontSize: 'clamp(1.6rem, 4vw, 2.6rem)',
+            color: 'var(--text-heading-dark)',
+            fontWeight: 600,
+            letterSpacing: '-0.02em',
+            marginBottom: '16px'
           }}>
             Ready to Transform Your Spatial Operations?
           </h2>

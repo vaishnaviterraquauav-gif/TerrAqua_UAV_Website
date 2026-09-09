@@ -14,7 +14,7 @@ const services = [
     description:
       "Floods are becoming more frequent and unpredictable. We use drone surveys, satellite radar, elevation models, and AI hydrology analytics to help authorities anticipate floods and protect vulnerable communities.",
     image:
-      "https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&q=80&w=900",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ23ZisdboTihr6uvStuzRo7nyJcpY35dzLriKpw07F0A&s=10",
     accent: "#0284C7",
     accentLight: "#E0F2FE",
     points: [
@@ -37,7 +37,7 @@ const services = [
     description:
       "Landslides often strike without warning, but early signs appear long before failure. We use drone-based terrain mapping and AI slope stability models to detect risk early and prevent disasters.",
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=900",
+      "https://geokinesia.com/wp-content/uploads/2023/08/landslides-3.jpg",
     accent: "#D97706",
     accentLight: "#FEF3C7",
     points: [
@@ -60,7 +60,7 @@ const services = [
     description:
       "Forest fires can destroy biodiversity within hours. We use thermal drones, satellite alerts, and AI-based spread modelling to detect fires early and monitor their impact with scientific accuracy.",
     image:
-      "https://images.unsplash.com/photo-1600298882283-40b4dcb8b211?auto=format&fit=crop&q=80&w=900",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvskQJyM97xorwkdcZP6lBVA2IGr3f-ej-C1T1SIvgew&s=10",
     accent: "#EA580C",
     accentLight: "#FFEDD5",
     points: [
@@ -83,7 +83,7 @@ const services = [
     description:
       "After a disaster, decisions must be fast. We provide high-precision drone surveys and AI-driven damage assessment to show exactly what happened, enabling quick informed relief operations.",
     image:
-      "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&q=80&w=900",
+      "https://p.potaufeu.asahi.com/3880-p/picture/28305636/0b907d52211784f37b9ebac5c90ef51a.jpg",
     accent: "#7C3AED",
     accentLight: "#EDE9FE",
     points: [
@@ -230,27 +230,6 @@ function ServiceCard({ service }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: '9999px',
-                border: `1px solid ${service.accent}40`,
-                color: service.accent,
-                backgroundColor: service.accentLight,
-                fontWeight: 400,
-                letterSpacing: '0.01em'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
         </div>
       </div>
     </div>
@@ -426,27 +405,6 @@ export default function DisasterRiskDetail({ handleBack, setActiveTab }) {
               emergency rapid-deployment unit provides first responders with real-time
               situational intelligence, flood inundation modeling, and post-disaster damage assessments.
             </p>
-
-            {/* Capabilities pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
-              {capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  style={{
-                    fontSize: '0.82rem',
-                    padding: '7px 16px',
-                    borderRadius: '9999px',
-                    border: '1px solid #D1D5DB',
-                    color: '#374151',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: 400,
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  {cap}
-                </span>
-              ))}
-            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  CheckCircle2, 
-  Cpu, 
-  Layers, 
-  BarChart3, 
-  ShieldCheck, 
-  Compass, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Cpu,
+  Layers,
+  BarChart3,
+  ShieldCheck,
+  Compass,
   Send,
   Sparkles,
   ChevronRight
@@ -39,24 +39,24 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
   const cards = [
     {
       id: 'daas',
-      title: "Operations DaaS",
+      title: "DaaS",
       subtitle: "TerrAqua UAV",
       desc: "Drone as a Service. We provide professional aerial data acquisition, deploying advanced UAVs for high-resolution mapping and environmental surveillance.",
-      img: "https://images.unsplash.com/photo-1527068593452-f67fce51a77d?auto=format&fit=crop&q=80&w=800"
+      img: "/daas-solution.png"
     },
     {
       id: 'dpaas',
-      title: "Analytics DPaaS",
+      title: "DPaaS",
       subtitle: "TerrAqua UAV",
       desc: "Data Processing as a Service. Transform raw aerial footage into actionable insights using our advanced multispectral and LiDAR processing pipelines.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+      img: "https://static.wixstatic.com/media/9a5348_91599db1a0df4ab7b898716c1fe2aa75~mv2.jpg"
     },
     {
       id: 'saas',
-      title: "Intelligence SaaS",
+      title: "SaaS",
       subtitle: "TerrAqua UAV",
       desc: "Software as a Service. Access our cloud platform for real-time fleet management, geospatial archiving, and AI-driven precision agriculture reports.",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
+      img: "https://static.wixstatic.com/media/9a5348_e437fc3e29564a0397e0dd54f0bd7ea3~mv2.jpg"
     }
   ]
 
@@ -818,10 +818,10 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       </section>
 
       {/* SECTION 2: ADVANCED SOLUTIONS GRID (OFF-WHITE) */}
-      <section style={{ 
-        padding: '60px 24px 80px', 
+      <section style={{
+        padding: '60px 24px 80px',
         background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)',
-        borderBottom: '1px solid rgba(27, 54, 73, 0.08)' 
+        borderBottom: '1px solid rgba(27, 54, 73, 0.08)'
       }}>
         <style>{`
           .advanced-card {
@@ -844,10 +844,11 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
           }
 
           .advanced-card .card-img-wrapper {
-            height: 260px;
+            height: 240px;
             width: 100%;
             overflow: hidden;
             position: relative;
+            background: #050D1A;
           }
 
           .advanced-card .card-img {
@@ -860,16 +861,6 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
           .advanced-card:hover .card-img {
             transform: scale(1.08);
           }
-
-          .advanced-card .img-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 140px;
-            background: linear-gradient(to bottom, transparent, #FFFFFF);
-            pointer-events: none;
-          }
         `}</style>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <div style={{
@@ -880,16 +871,15 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
             {cards.map((card, idx) => (
               <div key={idx} className="advanced-card">
                 <div className="card-img-wrapper">
-                  <img 
-                    src={card.img} 
-                    alt={card.title} 
+                  <img
+                    src={card.img}
+                    alt={card.title}
                     className="card-img"
                   />
-                  <div className="img-overlay" />
                 </div>
-                <div style={{ padding: '0 32px 36px 32px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2 }}>
-                  <h3 style={{ fontSize: '1.7rem', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: '700', marginTop: '16px' }}>{card.title}</h3>
-                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '36px', flex: 1 }}>
+                <div style={{ padding: '24px 32px 36px 32px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2 }}>
+                  <h3 style={{ fontSize: '1.7rem', color: 'var(--text-heading-dark)', marginBottom: '14px', fontWeight: '700' }}>{card.title}</h3>
+                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '32px', flex: 1 }}>
                     {card.desc}
                   </p>
 
@@ -934,9 +924,9 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       </section>
 
       {/* SECTION 3: DOMAIN APPLICATIONS (OFF-WHITE CHECKER LAYOUT) */}
-      <section style={{ 
-        padding: '80px 0 0 0', 
-        background: 'linear-gradient(180deg, #EFF4F8 0%, #F8FAFC 100%)' 
+      <section style={{
+        padding: '80px 0 0 0',
+        background: 'linear-gradient(180deg, #EFF4F8 0%, #F8FAFC 100%)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px 50px 24px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2.4rem', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: '700' }}>
@@ -1026,13 +1016,13 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
                   <img src={item.img} alt={item.title} className="checker-img" />
                 </div>
                 <div className="checker-col-text">
-                  <h3 
+                  <h3
                     onClick={() => handleOpenDomain(item)}
-                    style={{ 
-                      fontSize: '1.75rem', 
-                      fontWeight: '700', 
-                      color: '#0F172A', 
-                      marginBottom: '14px', 
+                    style={{
+                      fontSize: '1.75rem',
+                      fontWeight: '700',
+                      color: '#0F172A',
+                      marginBottom: '14px',
                       letterSpacing: '-0.02em',
                       cursor: 'pointer'
                     }}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Send, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Send,
   Sparkles
 } from 'lucide-react'
 
@@ -14,7 +14,7 @@ const services = [
     description:
       "Crops undergo stress long before it becomes visible. We use multispectral imaging and AI-driven diagnostics to detect nutrient issues, moisture stress, and disease early.",
     image:
-      "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=900",
+      "/vegetationafterimg.png",
     accent: "#15803D",
     accentLight: "#DCFCE7",
     points: [
@@ -37,7 +37,7 @@ const services = [
     description:
       "Water is essential but often mismanaged. We optimize irrigation through soil moisture modelling and evapotranspiration analytics, helping farmers know exactly where water is needed.",
     image:
-      "https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=900",
+      "https://ipm.uga.edu/files/2020/02/CAE813A1-A4C3-470D-83AD-03F23CAF3266-1.jpeg",
     accent: "#0284C7",
     accentLight: "#E0F2FE",
     points: [
@@ -60,7 +60,7 @@ const services = [
     description:
       "Accurate yield prediction is essential for food security and insurance. We use drone imagery, satellite time-series, and ML to deliver reliable, field-verified yield estimates.",
     image:
-      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=900",
+      "https://www.nanalyze.com/app/uploads/2019/08/Crop-Yield-Forecasting-Teaser.jpg",
     accent: "#D97706",
     accentLight: "#FEF3C7",
     points: [
@@ -83,7 +83,7 @@ const services = [
     description:
       "Biomass reflects crop productivity and carbon storage. We use drone-based 3D modelling and multispectral imaging to deliver accurate, field-scale biomass insights.",
     image:
-      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=900",
+      "https://static.wixstatic.com/media/9a5348_b7146d2960764088b5091b9ac3071de2~mv2.png",
     accent: "#0D9488",
     accentLight: "#CCFBF1",
     points: [
@@ -230,27 +230,6 @@ function ServiceCard({ service }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '6px' }}>
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                fontSize: '0.78rem',
-                padding: '5px 12px',
-                borderRadius: '9999px',
-                border: `1px solid ${service.accent}40`,
-                color: service.accent,
-                backgroundColor: service.accentLight,
-                fontWeight: 400,
-                letterSpacing: '0.01em'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
         </div>
       </div>
     </div>
@@ -423,27 +402,6 @@ export default function AgricultureDetail({ handleBack, setActiveTab }) {
               satellite time-series, and AI agronomy models to detect stress, optimize
               water usage, and maximize crop yields.
             </p>
-
-            {/* Capabilities pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
-              {capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  style={{
-                    fontSize: '0.82rem',
-                    padding: '7px 16px',
-                    borderRadius: '9999px',
-                    border: '1px solid #D1D5DB',
-                    color: '#374151',
-                    backgroundColor: '#FFFFFF',
-                    fontWeight: 400,
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
-                  }}
-                >
-                  {cap}
-                </span>
-              ))}
-            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
               <button
