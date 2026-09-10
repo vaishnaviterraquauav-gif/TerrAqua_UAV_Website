@@ -12,7 +12,7 @@ const SENSORS = [
     label: "OPTICAL",
     desc: "High-res RGB at centimetre resolution",
     color: "#00B5E2",
-    img: "https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?w=150&h=150&fit=crop&auto=format&q=80",
+    img: "https://www.aerialarchives.com/stock/img/AHLS2010.jpg",
     cy: SY[0],
     start: 5,
     hubPt: [520, 222],
@@ -22,7 +22,7 @@ const SENSORS = [
     label: "MULTISPECTRAL",
     desc: "Vegetation indices & chlorophyll mapping",
     color: "#10B981",
-    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=150&h=150&fit=crop&auto=format&q=80",
+    img: "https://images.ctfassets.net/go54bjdzbrgi/Gnyanm5R34C0jM7FMXJoB/ab89c851265f594f87c2d686c3206b2e/Pix4Dfields-SIPI-2-index.jpg",
     cy: SY[1],
     start: 16,
     hubPt: [508, 244],
@@ -32,7 +32,7 @@ const SENSORS = [
     label: "THERMAL",
     desc: "Surface temperature & heat anomaly detection",
     color: "#F97316",
-    img: "https://images.unsplash.com/photo-1570979872224-a1ea9f1248b0?w=150&h=150&fit=crop&auto=format&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGRVg7ymlqbAnq9-CfEimZ14c_oHSYKitR6zfFDGcJRA&s=10",
     cy: SY[2],
     start: 27,
     hubPt: [503, 265],
@@ -42,7 +42,7 @@ const SENSORS = [
     label: "HYPERSPECTRAL",
     desc: "400+ spectral bands for mineralogy",
     color: "#8B5CF6",
-    img: "https://images.unsplash.com/photo-1759681770982-313332e7f42c?w=150&h=150&fit=crop&auto=format&q=80",
+    img: "https://earthdaily.com/hubfs/Imported_Blog_Media/SpecTIR_PCA123_social.png",
     cy: SY[3],
     start: 38,
     hubPt: [503, 285],
@@ -52,7 +52,7 @@ const SENSORS = [
     label: "LIDAR",
     desc: "3D point clouds & terrain elevation models",
     color: "#3B82F6",
-    img: "https://images.unsplash.com/photo-1571223641822-b82408a0e705?w=150&h=150&fit=crop&auto=format&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs6beD67f2UhPA1-s3Ks5JXNb8aAJGQ_-zvFVcsVZrGw&s=10",
     cy: SY[4],
     start: 49,
     hubPt: [508, 306],
@@ -62,7 +62,7 @@ const SENSORS = [
     label: "RADAR",
     desc: "All-weather surface texture mapping",
     color: "#EC4899",
-    img: "https://images.unsplash.com/photo-1646380930007-846787a96e2c?w=150&h=150&fit=crop&auto=format&q=80",
+    img: "https://www.noaa.gov/sites/default/files/styles/square_width_428/public/2023-08/supercell.png?itok=F0uKdv8k",
     cy: SY[5],
     start: 60,
     hubPt: [520, 328],
@@ -92,7 +92,7 @@ const OUTS = [
     y: 44,
     start: 76,
     hubExit: [658, 222],
-    img: "https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?w=400&h=280&fit=crop&auto=format&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYP3o78czQCQZzNZkr9bF24ZKVlW6uzR53K1UBIiLIkQ&s=10",
     path: "M 658,222 C 755,200 825,155 882,155",
   },
   {
@@ -104,7 +104,7 @@ const OUTS = [
     y: 44,
     start: 86,
     hubExit: [658, 222],
-    img: "https://images.unsplash.com/photo-1520333764090-778d6dc95ec3?w=400&h=280&fit=crop&auto=format&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwnVqzxWbMbPNk9iPeYmseck2F9bBV2xAp3t4OlHkNfQ&s=10",
     path: "M 658,222 C 860,210 960,155 1082,155",
   },
   {
@@ -116,7 +116,7 @@ const OUTS = [
     y: 280,
     start: 96,
     hubExit: [658, 328],
-    img: "https://images.unsplash.com/photo-1571223641822-b82408a0e705?w=400&h=280&fit=crop&auto=format&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3wl-AtwevNrnb46r3z7z8fJnvgLzFkbFFbjpPUW9iJA&s=10",
     path: "M 658,328 C 755,350 825,391 882,391",
   },
   {
@@ -128,7 +128,7 @@ const OUTS = [
     y: 280,
     start: 106,
     hubExit: [658, 328],
-    img: "https://images.unsplash.com/photo-1702794130211-8fdb84960cce?w=400&h=280&fit=crop&auto=format&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIOYoA5q5VHMX8PqovjLLeOK-OUgD52oU8Y1jZNmej4w&s=10",
     path: "M 658,328 C 860,340 960,391 1082,391",
   },
 ];
@@ -480,36 +480,36 @@ export default function DataToDecisions() {
           <circle cx={HX} cy={HY} r={HR - 10} fill="none" stroke="#ffffff" strokeWidth={0.5} strokeOpacity={0.2} />
 
           {/* Hub label */}
-          <text 
-            x={HX} 
-            y={HY - 14} 
-            textAnchor="middle" 
-            fill="#ffffff" 
-            fontSize={15} 
-            fontWeight={800} 
+          <text
+            x={HX}
+            y={HY - 14}
+            textAnchor="middle"
+            fill="#ffffff"
+            fontSize={15}
+            fontWeight={800}
             letterSpacing="2.5"
             style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(13, 148, 136, 0.8)' }}
           >
             TERRAQUA
           </text>
-          <text 
-            x={HX} 
-            y={HY + 6} 
-            textAnchor="middle" 
-            fill="#5eead4" 
-            fontSize={10} 
-            letterSpacing="4" 
+          <text
+            x={HX}
+            y={HY + 6}
+            textAnchor="middle"
+            fill="#5eead4"
+            fontSize={10}
+            letterSpacing="4"
             fontWeight={700}
             style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.9)' }}
           >
             UAV
           </text>
-          <text 
-            x={HX} 
-            y={HY + 24} 
-            textAnchor="middle" 
-            fill="#e2e8f0" 
-            fontSize={8.5} 
+          <text
+            x={HX}
+            y={HY + 24}
+            textAnchor="middle"
+            fill="#e2e8f0"
+            fontSize={8.5}
             letterSpacing="2"
             fontWeight={600}
             style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.9)' }}

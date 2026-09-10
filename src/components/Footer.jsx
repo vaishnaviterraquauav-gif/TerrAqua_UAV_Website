@@ -99,17 +99,17 @@ export default function Footer() {
               <img
                 src="/startupindia-clean.png"
                 alt="Startup India"
-                style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: '54px', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
               <img
                 src="/upstartuplogo.png"
                 alt="Start In UP"
-                style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: '54px', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
               <img
                 src="/recognized_3.png?v=white"
                 alt="SIIC IIT Kanpur"
-                style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: '48px', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
             </div>
 
@@ -301,14 +301,14 @@ export default function Footer() {
               {
                 name: 'LinkedIn',
                 icon: <Linkedin size={18} strokeWidth={2.2} />,
-                href: 'https://linkedin.com/',
+                href: 'https://www.linkedin.com/company/terraquauav/home/',
                 hoverBg: '#0A66C2',
                 hoverBorder: '#0A66C2'
               },
               {
                 name: 'Instagram',
                 icon: <Instagram size={18} strokeWidth={2.2} />,
-                href: 'https://instagram.com/',
+                href: 'https://www.instagram.com/terraqua_uav/',
                 hoverBg: 'linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCAF45 100%)',
                 hoverBorder: '#FD1D1D'
               },
@@ -326,7 +326,7 @@ export default function Footer() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 ),
-                href: 'https://twitter.com/',
+                href: 'https://x.com/terraqua_uav',
                 hoverBg: '#000000',
                 hoverBorder: 'rgba(255, 255, 255, 0.6)'
               }
