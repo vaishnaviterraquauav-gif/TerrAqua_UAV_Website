@@ -350,14 +350,6 @@ export default function DataToDecisions() {
             const active = on(s.start);
             return (
               <g key={i}>
-                {/* Glow ring */}
-                {active && (
-                  <circle cx={60} cy={s.cy} r={38} fill={s.color} opacity={0.08}>
-                    <animate attributeName="r" values="34;42;34" dur="2.8s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.05;0.14;0.05" dur="2.8s" repeatCount="indefinite" />
-                  </circle>
-                )}
-
                 {/* Photo */}
                 <image
                   href={s.img}
@@ -367,7 +359,7 @@ export default function DataToDecisions() {
                   height={66}
                   preserveAspectRatio="xMidYMid slice"
                   clipPath={`url(#sc${i})`}
-                  opacity={active ? 1 : 0.3}
+                  opacity={active ? 1 : 0.35}
                 />
 
                 {/* Lens border */}
@@ -376,12 +368,12 @@ export default function DataToDecisions() {
                   cy={s.cy}
                   r={33}
                   fill="none"
-                  stroke={active ? s.color : "#cbd5e1"}
-                  strokeWidth={active ? 2.5 : 1.5}
+                  stroke={active ? "#0a1d3d" : "#e2e8f0"}
+                  strokeWidth={1.5}
                 />
 
                 {/* Number badge */}
-                <circle cx={82} cy={s.cy - 22} r={10} fill={active ? s.color : "#e2e8f0"} />
+                <circle cx={82} cy={s.cy - 22} r={10} fill={active ? "#0a1d3d" : "#e2e8f0"} />
                 <text
                   x={82}
                   y={s.cy - 18}
@@ -409,7 +401,7 @@ export default function DataToDecisions() {
                 </text>
 
                 {/* Connection dot on right edge */}
-                <circle cx={320} cy={s.cy} r={4} fill={active ? s.color : "#e2e8f0"} />
+                <circle cx={320} cy={s.cy} r={4} fill={active ? "#0d9488" : "#e2e8f0"} />
               </g>
             );
           })}
@@ -524,7 +516,7 @@ export default function DataToDecisions() {
               cx={s.hubPt[0]}
               cy={s.hubPt[1]}
               r={3.5}
-              fill={on(s.start) ? s.color : "#cbd5e1"}
+              fill={on(s.start) ? "#0d9488" : "#cbd5e1"}
             />
           ))}
 
@@ -550,15 +542,13 @@ export default function DataToDecisions() {
                   height={36}
                   rx={8}
                   fill={active ? "white" : "#F7F9F8"}
-                  stroke={active ? p.color : "#e2e8f0"}
-                  strokeWidth={active ? 1.5 : 1}
+                  stroke={active ? "rgba(10, 29, 61, 0.15)" : "#e2e8f0"}
+                  strokeWidth={1}
                   filter={active ? "url(#card-shadow)" : undefined}
                 />
-                {/* Left accent bar */}
-                <rect x={px} y={p.y + 8} width={4} height={20} rx={2} fill={active ? p.color : "#e2e8f0"} />
                 {/* Process label */}
                 <text
-                  x={px + 16}
+                  x={px + 18}
                   y={p.y + 16}
                   fill={active ? "#0f172a" : "#94a3b8"}
                   fontSize={10}
@@ -567,19 +557,9 @@ export default function DataToDecisions() {
                 >
                   {p.label}
                 </text>
-                <text x={px + 16} y={p.y + 28} fill={active ? "#64748b" : "#cbd5e1"} fontSize={8}>
+                <text x={px + 18} y={p.y + 28} fill={active ? "#64748b" : "#cbd5e1"} fontSize={8}>
                   {p.desc}
                 </text>
-                {/* Right dot */}
-                <circle cx={px + 242} cy={p.y + 18} r={3} fill={active ? p.color : "#e2e8f0"} />
-
-                {/* Activity pulse */}
-                {active && (
-                  <circle cx={px + 242} cy={p.y + 18} r={6} fill={p.color} opacity={0}>
-                    <animate attributeName="r" values="3;10;3" dur="1.8s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.4;0;0.4" dur="1.8s" repeatCount="indefinite" />
-                  </circle>
-                )}
 
                 {/* Connector from hub center x to process */}
                 {i === 0 && (
@@ -606,8 +586,8 @@ export default function DataToDecisions() {
                   height={CARD_H}
                   rx={12}
                   fill="white"
-                  stroke={active ? o.color : "#e2e8f0"}
-                  strokeWidth={active ? 2 : 1}
+                  stroke={active ? "rgba(10, 29, 61, 0.15)" : "#e2e8f0"}
+                  strokeWidth={1}
                   filter="url(#card-shadow)"
                 />
 
@@ -626,20 +606,6 @@ export default function DataToDecisions() {
                 {/* Photo bottom fade */}
                 <rect x={o.x} y={o.y + IMG_H - 32} width={CARD_W} height={32} fill="url(#imgfade)" clipPath={`url(#oc${i})`} />
 
-                {/* Color chip on photo */}
-                <rect
-                  x={o.x + 10}
-                  y={o.y + 10}
-                  width={60}
-                  height={18}
-                  rx={9}
-                  fill={active ? o.color : "#e2e8f0"}
-                  opacity={active ? 0.95 : 0.5}
-                />
-                <text x={o.x + 40} y={o.y + 23} textAnchor="middle" fill="white" fontSize={7.5} fontWeight={700} letterSpacing="1">
-                  {o.sub.toUpperCase()}
-                </text>
-
                 {/* Info area */}
                 <text x={o.x + 12} y={o.y + IMG_H + 22} fill={active ? "#0f172a" : "#94a3b8"} fontSize={11} fontWeight={700}>
                   {o.title}
@@ -647,15 +613,12 @@ export default function DataToDecisions() {
                 <text x={o.x + 12} y={o.y + IMG_H + 38} fill={active ? "#0f172a" : "#94a3b8"} fontSize={11} fontWeight={700}>
                   {o.title2}
                 </text>
-                <text x={o.x + 12} y={o.y + IMG_H + 55} fill={active ? o.color : "#cbd5e1"} fontSize={8.5} fontWeight={600} letterSpacing="0.5">
+                <text x={o.x + 12} y={o.y + IMG_H + 55} fill={active ? "#0d9488" : "#cbd5e1"} fontSize={8.5} fontWeight={600} letterSpacing="0.5">
                   {active ? "● Live Insights" : "○ Awaiting data"}
                 </text>
 
-                {/* Bottom color bar */}
-                <rect x={o.x} y={o.y + CARD_H - 4} width={CARD_W} height={4} rx={12} fill={active ? o.color : "#e2e8f0"} />
-
                 {/* Connection entry dot */}
-                <circle cx={o.x} cy={centerY} r={4.5} fill={active ? o.color : "#e2e8f0"} />
+                <circle cx={o.x} cy={centerY} r={4.5} fill={active ? "#0d9488" : "#e2e8f0"} />
               </g>
             );
           })}

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { ArrowRight, Sparkles, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2 } from 'lucide-react'
+import React, { useState, useEffect, useRef } from 'react'
+import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2 } from 'lucide-react'
 import mapzestImg from '../../assets/mapzest-preview.png'
 import home2Img from '../../assets/home2.png'
 import DualComparisonSlider from './DualComparisonSlider'
@@ -170,6 +170,23 @@ export default function Home({ setActiveTab }) {
   const [openDataIndex, setOpenDataIndex] = useState(null)
   const [openGeoIndex, setOpenGeoIndex] = useState(null)
 
+  const dataScrollRef = useRef(null)
+  const geoScrollRef = useRef(null)
+
+  const scrollData = (direction) => {
+    if (dataScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -380 : 380
+      dataScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+  }
+
+  const scrollGeo = (direction) => {
+    if (geoScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -380 : 380
+      geoScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+  }
+
   const heroSlides = [
     {
       id: 0,
@@ -293,7 +310,7 @@ export default function Home({ setActiveTab }) {
       {/* EARTHEYE-STYLE HERO: ULTRA-CRISP DEEP SPACE BACKGROUND + SLIDER & ORB     */}
       {/* ========================================================================= */}
       <section style={{
-        minHeight: 'calc(100vh - 75px)',
+        minHeight: 'calc(85vh - 75px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -346,6 +363,66 @@ export default function Home({ setActiveTab }) {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0;
             outline: none;
+          }
+          @keyframes spinOrbital3D {
+            0% { transform: rotateX(70deg) rotateZ(0deg); }
+            100% { transform: rotateX(70deg) rotateZ(360deg); }
+          }
+          @keyframes counterSpinOrbital3D {
+            0% { transform: rotateZ(0deg) rotateX(-70deg); }
+            100% { transform: rotateZ(-360deg) rotateX(-70deg); }
+          }
+
+          .orbit-trail-ccw {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            pointer-events: none;
+          }
+          .orbit-trail-ccw::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.45) 30%, rgba(255, 255, 255, 0.08) 60%, transparent 80%);
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85));
+          }
+
+          .orbit-trail-cw {
+            position: absolute;
+            inset: -75px;
+            border-radius: 50%;
+            pointer-events: none;
+          }
+          .orbit-trail-cw::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.45) 30%, rgba(255, 255, 255, 0.08) 60%, transparent 80%);
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85));
+          }
+
+          .orbit-trail-3d {
+            position: absolute;
+            inset: -45px;
+            border-radius: 50%;
+            pointer-events: none;
+            transform-style: preserve-3d;
+          }
+          .orbit-trail-3d::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.45) 30%, rgba(255, 255, 255, 0.08) 60%, transparent 80%);
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85));
           }
         `}</style>
 
@@ -553,15 +630,17 @@ export default function Home({ setActiveTab }) {
               height: 'min(380px, 80vw)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              transformStyle: 'preserve-3d',
+              perspective: '1200px'
             }}>
               {/* Inner Atmospheric Orbit Track: Drone (Counter-Clockwise) */}
               <div
+                className="orbit-trail-ccw"
                 style={{
                   position: 'absolute',
                   inset: '-20px',
                   borderRadius: '50%',
-                  border: '1px dashed rgba(0, 229, 255, 0.45)',
                   animation: 'spinOrbitalCounter 32s linear infinite',
                   pointerEvents: 'none'
                 }}
@@ -570,26 +649,24 @@ export default function Home({ setActiveTab }) {
                   style={{
                     position: 'absolute',
                     top: '50%',
-                    right: '-24px',
-                    transform: 'translate(50%, -50%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    animation: 'spinOrbitalTrack 32s linear infinite'
+                    right: '0px',
+                    transform: 'translate(50%, -50%)'
                   }}
                   title="TerrAqua UAV Mapping Drone"
                 >
-                  <OrbitDroneGraphic size={48} />
+                  <div style={{ animation: 'spinOrbitalTrack 32s linear infinite', display: 'flex' }}>
+                    <OrbitDroneGraphic size={48} />
+                  </div>
                 </div>
               </div>
 
               {/* Outer Space Orbit Track: Satellite (Clockwise) */}
               <div
+                className="orbit-trail-cw"
                 style={{
                   position: 'absolute',
                   inset: '-75px',
                   borderRadius: '50%',
-                  border: '1px dashed rgba(0, 229, 255, 0.35)',
                   animation: 'spinOrbitalTrack 46s linear infinite',
                   pointerEvents: 'none'
                 }}
@@ -598,16 +675,43 @@ export default function Home({ setActiveTab }) {
                   style={{
                     position: 'absolute',
                     top: '50%',
-                    left: '-26px',
-                    transform: 'translate(-50%, -50%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    animation: 'spinOrbitalCounter 46s linear infinite'
+                    left: '0px',
+                    transform: 'translate(-50%, -50%)'
                   }}
                   title="TerrAqua Earth Observation Satellite"
                 >
-                  <OrbitSatelliteGraphic size={50} />
+                  <div style={{ animation: 'spinOrbitalCounter 46s linear infinite', display: 'flex' }}>
+                    <OrbitSatelliteGraphic size={50} />
+                  </div>
+                </div>
+              </div>
+
+              {/* 3D Z-Axis Orbit Track */}
+              <div
+                className="orbit-trail-3d"
+                style={{
+                  position: 'absolute',
+                  inset: '-45px',
+                  borderRadius: '50%',
+                  animation: 'spinOrbital3D 38s linear infinite',
+                  pointerEvents: 'none',
+                  transformStyle: 'preserve-3d',
+                  zIndex: 3
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '0px',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    transformStyle: 'preserve-3d'
+                  }}
+                  title="TerrAqua Earth Observation Satellite 2"
+                >
+                  <div style={{ animation: 'counterSpinOrbital3D 38s linear infinite', transformStyle: 'preserve-3d', display: 'flex' }}>
+                    <OrbitSatelliteGraphic size={48} />
+                  </div>
                 </div>
               </div>
 
@@ -619,9 +723,10 @@ export default function Home({ setActiveTab }) {
                   borderRadius: '50%',
                   overflow: 'hidden',
                   position: 'relative',
-                  border: '3px solid rgba(43, 171, 226, 0.7)',
-                  boxShadow: '0 0 40px rgba(43, 171, 226, 0.35), inset 0 0 30px rgba(0, 0, 0, 0.6)',
-                  background: '#050D1A'
+                  border: '3px solid rgba(255, 255, 255, 0.85)',
+                  boxShadow: '0 0 40px rgba(42, 112, 241, 0.45), inset 0 0 30px rgba(0, 0, 0, 0.6)',
+                  background: '#050D1A',
+                  transform: 'translateZ(1px)'
                 }}
               >
                 <img
@@ -818,283 +923,421 @@ export default function Home({ setActiveTab }) {
         </div>
       </section>
 
-      {/* WHAT WE DO SECTION (ADVANCED LIGHT THEME WITH CURLY BRACKET DIVIDER & GLOWING INTERACTION) */}
-      <section className="section-light" style={{ padding: 'clamp(40px, 6vw, 80px) clamp(16px, 4vw, 24px)', background: '#F6F9FB' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', width: '100%' }}>
+      {/* WHAT WE DO SECTION (SPACIOUS PILL BANNER WITH INTERACTIVE BUTTON CONTROLS) */}
+      <section className="section-light" style={{ padding: 'clamp(70px, 9vw, 120px) clamp(20px, 5vw, 40px)', background: '#F8FAFC' }}>
+        <div style={{ maxWidth: '1380px', margin: '0 auto', width: '100%' }}>
 
           <style>{`
-            .what-we-do-bracket-wrapper {
-              display: block;
-            }
-
-            .what-we-do-grid {
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              gap: clamp(32px, 5vw, 64px);
-              align-items: start;
-              margin-top: 4px;
+            .sensors-pill-banner-container {
+              position: relative;
               width: 100%;
+              overflow-x: auto;
+              scroll-behavior: smooth;
+              border-radius: 999px;
+              padding: 28px 36px;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+              mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+              -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
             }
 
-            .what-we-do-col {
+            .sensors-pill-banner-container::-webkit-scrollbar {
+              display: none;
+            }
+
+            .sensors-track-flex {
+              display: flex;
+              align-items: center;
+              gap: 32px;
+              width: max-content;
+              padding: 4px 12px;
+            }
+
+            .sensor-circle-card {
               display: flex;
               flex-direction: column;
-              min-width: 0;
-              width: 100%;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              width: 120px;
+              flex-shrink: 0;
+              cursor: pointer;
+              transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             }
 
-            .what-we-do-heading {
+            .sensor-circle-card:hover {
+              transform: translateY(-6px) scale(1.07);
+            }
+
+            .sensor-circle-img-frame {
+              width: 94px;
+              height: 94px;
+              border-radius: 50%;
+              overflow: hidden;
+              background: #FFFFFF;
+              border: 4px solid #FFFFFF;
+              box-shadow: 0 8px 20px rgba(10, 29, 61, 0.12);
+              margin-bottom: 12px;
+              transition: all 0.3s ease;
+            }
+
+            .sensor-circle-card:hover .sensor-circle-img-frame {
+              border-color: var(--color-orange, #FF6A00);
+              box-shadow: 0 12px 28px rgba(255, 106, 0, 0.35);
+            }
+
+            .sensor-circle-title {
               font-family: var(--font-universal);
-              font-size: clamp(1.5rem, 2.5vw, 1.95rem);
-              font-weight: 600;
-              color: var(--text-heading-dark, #0A1D3D);
-              margin: 0 0 16px 0;
-              letter-spacing: -0.03em;
-              line-height: 1.2;
+              font-size: 0.76rem;
+              font-weight: 700;
+              letter-spacing: 0.03em;
+              text-transform: uppercase;
+              color: #334155;
+              line-height: 1.3;
             }
 
-            .what-we-do-btn-text {
-              font-family: var(--font-universal);
-              font-size: clamp(1.02rem, 1.8vw, 1.16rem);
-              font-weight: 600;
-              letter-spacing: -0.01em;
-              transition: color 0.2s ease;
+            .what-we-do-row-grid-1 {
+              display: grid;
+              grid-template-columns: 320px 1fr;
+              align-items: center;
+              gap: clamp(32px, 5vw, 64px);
+              margin-bottom: 64px;
             }
 
-            .what-we-do-bullet-text {
-              font-family: var(--font-universal);
-              margin: 0;
-              font-size: clamp(0.9rem, 1.5vw, 0.96rem);
-              color: var(--text-muted-gray, #475569);
-              line-height: 1.6;
-              font-weight: 400;
+            .what-we-do-row-grid-2 {
+              display: grid;
+              grid-template-columns: 1fr 340px;
+              align-items: center;
+              gap: clamp(32px, 5vw, 64px);
             }
 
-            @media (max-width: 768px) {
-              .what-we-do-bracket-wrapper {
-                display: none;
-              }
-
-              .what-we-do-grid {
+            @media (max-width: 980px) {
+              .what-we-do-row-grid-1,
+              .what-we-do-row-grid-2 {
                 grid-template-columns: 1fr !important;
-                gap: 40px !important;
-                margin-top: 24px !important;
+                gap: 24px !important;
               }
 
-              .what-we-do-heading {
-                font-size: 1.65rem !important;
-                margin-bottom: 12px !important;
+              .what-we-do-row-grid-2 {
+                display: flex !important;
+                flex-direction: column-reverse !important;
               }
 
-              .what-we-do-btn-text {
-                font-size: 1.08rem !important;
+              .sensors-pill-banner-container {
+                border-radius: 32px !important;
+                padding: 20px 18px !important;
               }
 
-              .what-we-do-bullet-text {
-                font-size: 0.94rem !important;
-                line-height: 1.6 !important;
+              .sensor-circle-card {
+                width: 100px !important;
+              }
+
+              .sensor-circle-img-frame {
+                width: 80px !important;
+                height: 80px !important;
+              }
+
+              .sensor-circle-title {
+                font-size: 0.7rem !important;
               }
             }
           `}</style>
 
-          {/* Section Header */}
-          <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+          {/* Main Section Heading */}
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <h2 style={{
-              fontSize: 'clamp(2.1rem, 5vw, 3rem)',
-              color: 'var(--text-heading-dark, #0A1D3D)',
+              fontSize: 'clamp(2.4rem, 5.8vw, 3.6rem)',
+              color: '#0A1D3D',
               fontWeight: 400,
               letterSpacing: '-0.03em',
-              lineHeight: 1.2,
+              lineHeight: 1.15,
               margin: '0',
               fontFamily: 'var(--font-universal)'
             }}>
               What We <span style={{ color: 'var(--color-orange, #FF6A00)' }}>Do</span>
             </h2>
+            <p style={{
+              color: '#64748B',
+              fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+              marginTop: '14px',
+              fontWeight: 400,
+              letterSpacing: '-0.01em'
+            }}>
+              Integrated multi-sensor data acquisition and AI-driven spatial intelligence
+            </p>
           </div>
 
-          {/* Branching Curly Bracket Connecting Line (Desktop) */}
-          <div className="what-we-do-bracket-wrapper">
-            <BranchingConnectingLine />
-          </div>
-
-          {/* Responsive Layout: 2 Columns on Desktop, Full-Width Stacked on Mobile */}
-          <div className="what-we-do-grid">
-
-            {/* PART 1: DATA */}
-            <div className="what-we-do-col">
-              <h3 className="what-we-do-heading">
-                {whatWeDo.data.title}
+          {/* ROW 1: DATA (TITLE ON LEFT, MANUAL SCROLL PILL ON RIGHT) */}
+          <div className="what-we-do-row-grid-1">
+            {/* Title Block on Left */}
+            <div style={{ paddingLeft: '8px' }}>
+              <h3 style={{
+                fontSize: 'clamp(1.85rem, 3.6vw, 2.7rem)',
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.15,
+                margin: '0 0 8px 0',
+                fontFamily: 'var(--font-universal)'
+              }}>
+                <span style={{ color: '#00B5E2' }}>Data</span> <br />
+                <span style={{ color: '#0A1D3D' }}>Sensors & Inputs</span>
               </h3>
+              <p style={{
+                fontSize: '0.92rem',
+                color: '#475569',
+                lineHeight: 1.55,
+                marginTop: '10px',
+                fontWeight: 400,
+                maxWidth: '280px',
+                margin: '10px 0 0 0'
+              }}>
+                Multispectral, Hyperspectral, LiDAR, SAR & IoT environmental streams.
+              </p>
 
-              {/* Part 1 Items */}
-              <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                {whatWeDo.data.items.map((item, idx) => {
-                  const isOpen = openDataIndex === idx;
-                  return (
-                    <div key={idx} style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                      <button
-                        onClick={() => setOpenDataIndex(isOpen ? null : idx)}
-                        style={{
-                          width: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                          padding: '16px 0',
-                          background: 'transparent',
-                          border: 'none',
-                          cursor: 'pointer',
-                          outline: 'none',
-                          textAlign: 'left'
-                        }}
-                      >
-                        <span
-                          className="what-we-do-btn-text"
-                          style={{
-                            color: isOpen ? '#00B5E2' : 'var(--text-heading-dark, #0A1D3D)'
-                          }}
-                        >
-                          {item.title}
-                        </span>
-
-                        <div style={{
-                          width: '28px',
-                          height: '28px',
-                          borderRadius: '50%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          background: isOpen ? 'rgba(0, 181, 226, 0.1)' : 'rgba(10, 29, 61, 0.04)',
-                          border: '1px solid rgba(10, 29, 61, 0.06)',
-                          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                          transition: 'all 0.25s ease',
-                          flexShrink: 0
-                        }}>
-                          <ChevronDown size={16} color={isOpen ? '#00B5E2' : '#64748B'} />
-                        </div>
-                      </button>
-
-                      {isOpen && (
-                        <div style={{
-                          padding: '0 0 16px 8px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '10px',
-                          animation: 'fadeIn 0.25s ease'
-                        }}>
-                          {item.bullets.map((b, bIdx) => (
-                            <div key={bIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                              <span style={{
-                                width: '5px',
-                                height: '5px',
-                                borderRadius: '50%',
-                                background: '#00B5E2',
-                                marginTop: '8px',
-                                flexShrink: 0
-                              }} />
-                              <p className="what-we-do-bullet-text">
-                                {b}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      <InteractiveGlowLine height={10} />
-                    </div>
-                  );
-                })}
+              {/* Navigation Arrows for Data Row */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '24px' }}>
+                <button
+                  onClick={() => scrollData('left')}
+                  aria-label="Scroll Left"
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '50%',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(10, 29, 61, 0.14)',
+                    boxShadow: '0 4px 14px rgba(10, 29, 61, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#0A1D3D',
+                    transition: 'all 0.25s ease',
+                    outline: 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#00B5E2'
+                    e.currentTarget.style.color = '#FFFFFF'
+                    e.currentTarget.style.borderColor = '#00B5E2'
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#FFFFFF'
+                    e.currentTarget.style.color = '#0A1D3D'
+                    e.currentTarget.style.borderColor = 'rgba(10, 29, 61, 0.14)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button
+                  onClick={() => scrollData('right')}
+                  aria-label="Scroll Right"
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '50%',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(10, 29, 61, 0.14)',
+                    boxShadow: '0 4px 14px rgba(10, 29, 61, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#0A1D3D',
+                    transition: 'all 0.25s ease',
+                    outline: 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#00B5E2'
+                    e.currentTarget.style.color = '#FFFFFF'
+                    e.currentTarget.style.borderColor = '#00B5E2'
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#FFFFFF'
+                    e.currentTarget.style.color = '#0A1D3D'
+                    e.currentTarget.style.borderColor = 'rgba(10, 29, 61, 0.14)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <ChevronRight size={22} />
+                </button>
               </div>
             </div>
 
-            {/* PART 2: GEOSPATIAL INTELLIGENCE */}
-            <div className="what-we-do-col">
-              <h3 className="what-we-do-heading">
-                {whatWeDo.intelligence.title}
-              </h3>
-
-              {/* Part 2 Items */}
-              <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                {whatWeDo.intelligence.items.map((item, idx) => {
-                  const isOpen = openGeoIndex === idx;
-                  return (
-                    <div key={idx} style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                      <button
-                        onClick={() => setOpenGeoIndex(isOpen ? null : idx)}
+            {/* Pill Banner with Manual Scroll (Right) */}
+            <div
+              ref={dataScrollRef}
+              className="sensors-pill-banner-container"
+              style={{ background: '#EAF6FC', border: '1px solid rgba(0, 181, 226, 0.22)' }}
+            >
+              <div className="sensors-track-flex">
+                {[
+                  { title: 'Weather & Climate', img: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Multispectral (MSI)', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Hyperspectral (HSI)', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'SAR Radar (InSAR)', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Sub-Centimeter LiDAR', img: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'High-Res RGB Aerial', img: 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Thermal Infrared (TIR)', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=250&q=80' }
+                ].map((sensor, sIdx) => (
+                  <div key={sIdx} className="sensor-circle-card">
+                    <div className="sensor-circle-img-frame">
+                      <img
+                        src={sensor.img}
+                        alt={sensor.title}
                         style={{
                           width: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                          padding: '16px 0',
-                          background: 'transparent',
-                          border: 'none',
-                          cursor: 'pointer',
-                          outline: 'none',
-                          textAlign: 'left'
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block'
                         }}
-                      >
-                        <span
-                          className="what-we-do-btn-text"
-                          style={{
-                            color: isOpen ? 'var(--color-orange, #FF6A00)' : 'var(--text-heading-dark, #0A1D3D)'
-                          }}
-                        >
-                          {item.title}
-                        </span>
-
-                        <div style={{
-                          width: '28px',
-                          height: '28px',
-                          borderRadius: '50%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          background: isOpen ? 'rgba(255, 106, 0, 0.1)' : 'rgba(10, 29, 61, 0.04)',
-                          border: '1px solid rgba(10, 29, 61, 0.06)',
-                          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                          transition: 'all 0.25s ease',
-                          flexShrink: 0
-                        }}>
-                          <ChevronDown size={16} color={isOpen ? 'var(--color-orange, #FF6A00)' : '#64748B'} />
-                        </div>
-                      </button>
-
-                      {isOpen && (
-                        <div style={{
-                          padding: '0 0 16px 8px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '10px',
-                          animation: 'fadeIn 0.25s ease'
-                        }}>
-                          {item.bullets.map((b, bIdx) => (
-                            <div key={bIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                              <span style={{
-                                width: '5px',
-                                height: '5px',
-                                borderRadius: '50%',
-                                background: 'var(--color-orange, #FF6A00)',
-                                marginTop: '8px',
-                                flexShrink: 0
-                              }} />
-                              <p className="what-we-do-bullet-text">
-                                {b}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      <InteractiveGlowLine height={10} />
+                      />
                     </div>
-                  );
-                })}
+                    <div className="sensor-circle-title">
+                      {sensor.title}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ROW 2: GEOSPATIAL INTELLIGENCE (PILL ON LEFT, TITLE ON RIGHT - OPPOSITE SIDE!) */}
+          <div className="what-we-do-row-grid-2">
+            {/* Pill Banner with Manual Scroll (Left) */}
+            <div
+              ref={geoScrollRef}
+              className="sensors-pill-banner-container"
+              style={{ background: '#FFF4EC', border: '1px solid rgba(255, 106, 0, 0.22)' }}
+            >
+              <div className="sensors-track-flex">
+                {[
+                  { title: 'AI Predictive Models', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=250&q=80' },
+                  { title: '3D Terrain & LiDAR', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'MapZest WebGIS', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Biomass & Carbon', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Flood Dynamics', img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=250&q=80' },
+                  { title: 'Actionable Analytics', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=250&q=80' }
+                ].map((geo, gIdx) => (
+                  <div key={gIdx} className="sensor-circle-card">
+                    <div className="sensor-circle-img-frame">
+                      <img
+                        src={geo.img}
+                        alt={geo.title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                    <div className="sensor-circle-title">
+                      {geo.title}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
+            {/* Title Block on Right */}
+            <div style={{ textAlign: 'left', paddingRight: '8px' }}>
+              <h3 style={{
+                fontSize: 'clamp(1.85rem, 3.6vw, 2.7rem)',
+                fontWeight: 400,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.15,
+                margin: '0 0 8px 0',
+                fontFamily: 'var(--font-universal)'
+              }}>
+                <span style={{ color: 'var(--color-orange, #FF6A00)' }}>Geospatial</span> <br />
+                <span style={{ color: '#0A1D3D' }}>Intelligence</span>
+              </h3>
+              <p style={{
+                fontSize: '0.92rem',
+                color: '#475569',
+                lineHeight: 1.55,
+                marginTop: '10px',
+                fontWeight: 400,
+                maxWidth: '280px',
+                margin: '10px 0 0 0'
+              }}>
+                AI analytics, 3D LiDAR modeling, WebGIS & predictive decision engines.
+              </p>
+
+              {/* Navigation Arrows for Geospatial Row */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '24px' }}>
+                <button
+                  onClick={() => scrollGeo('left')}
+                  aria-label="Scroll Left"
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '50%',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(10, 29, 61, 0.14)',
+                    boxShadow: '0 4px 14px rgba(10, 29, 61, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#0A1D3D',
+                    transition: 'all 0.25s ease',
+                    outline: 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--color-orange, #FF6A00)'
+                    e.currentTarget.style.color = '#FFFFFF'
+                    e.currentTarget.style.borderColor = 'var(--color-orange, #FF6A00)'
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#FFFFFF'
+                    e.currentTarget.style.color = '#0A1D3D'
+                    e.currentTarget.style.borderColor = 'rgba(10, 29, 61, 0.14)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button
+                  onClick={() => scrollGeo('right')}
+                  aria-label="Scroll Right"
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '50%',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(10, 29, 61, 0.14)',
+                    boxShadow: '0 4px 14px rgba(10, 29, 61, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#0A1D3D',
+                    transition: 'all 0.25s ease',
+                    outline: 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--color-orange, #FF6A00)'
+                    e.currentTarget.style.color = '#FFFFFF'
+                    e.currentTarget.style.borderColor = 'var(--color-orange, #FF6A00)'
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#FFFFFF'
+                    e.currentTarget.style.color = '#0A1D3D'
+                    e.currentTarget.style.borderColor = 'rgba(10, 29, 61, 0.14)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 

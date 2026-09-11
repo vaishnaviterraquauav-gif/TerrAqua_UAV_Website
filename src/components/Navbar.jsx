@@ -260,9 +260,9 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
                           onClick={() => handleSolutionSelect(sol.id)}
                           style={{
                             padding: '10px 14px',
-                            background: sol.isOverview ? 'rgba(255, 106, 0, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+                            background: sol.isOverview ? 'rgba(255, 106, 0, 0.15)' : 'rgba(10, 29, 61, 0.05)',
                             borderRadius: '8px',
-                            color: sol.isOverview ? '#FF7A29' : '#FFFFFF',
+                            color: sol.isOverview ? '#FF7A29' : '#0A1D3D',
                             cursor: 'pointer',
                             fontSize: '0.9rem',
                             fontWeight: sol.isOverview ? 700 : 500
