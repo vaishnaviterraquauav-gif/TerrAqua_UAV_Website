@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2 } from 'lucide-react'
 import mapzestImg from '../../assets/mapzest-preview.png'
 import home2Img from '../../assets/home2.png'
+import weatherRasterImg from '../../assets/weather_raster_cropped.png'
 import DualComparisonSlider from './DualComparisonSlider'
 import DataToDecisions from './DataToDecisions'
 
@@ -1173,13 +1174,13 @@ export default function Home({ setActiveTab }) {
             >
               <div className="sensors-track-flex">
                 {[
-                  { title: 'Weather & Climate', img: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Multispectral (MSI)', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Hyperspectral (HSI)', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'SAR Radar (InSAR)', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Sub-Centimeter LiDAR', img: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'High-Res RGB Aerial', img: 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Thermal Infrared (TIR)', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=250&q=80' }
+                  { title: 'Weather & Climate', img: weatherRasterImg },
+                  { title: 'Multispectral (MSI)', img: 'https://www.uavfordrone.com/wp-content/uploads/2019/05/sssssaa.png' },
+                  { title: 'Hyperspectral (HSI)', img: 'https://img-cdn.krishijagran.com/90914/crop-health-hyperspectral-rs.jpg' },
+                  { title: 'SAR Radar (InSAR)', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiN4avCLjg57zl6jcu1VURPtlkZT7YJE1jHsVwaSY5nBwZAzVD2tRTKGM&s=10' },
+                  { title: 'Sub-Centimeter LiDAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPg-PQTwythc6Xv1EKtu0lAoYaT-JkG-l-QapqQ0mHSPMSQ87boQoTI5o&s=10' },
+                  { title: 'High-Res RGB Aerial', img: 'https://www.researchgate.net/publication/394743193/figure/fig1/AS:11431281598584094@1755699014895/High-resolution-aerial-image-with-three-RGB-channels-acquired-in-summer-period_Q320.jpg' },
+                  { title: 'Thermal Infrared (TIR)', img: 'https://ars.els-cdn.com/content/image/3-s2.0-B9780124095489103628-f10362-12-9780128032206.jpg' }
                 ].map((sensor, sIdx) => (
                   <div key={sIdx} className="sensor-circle-card">
                     <div className="sensor-circle-img-frame">
@@ -1213,12 +1214,12 @@ export default function Home({ setActiveTab }) {
             >
               <div className="sensors-track-flex">
                 {[
-                  { title: 'AI Predictive Models', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=250&q=80' },
-                  { title: '3D Terrain & LiDAR', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'MapZest WebGIS', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Biomass & Carbon', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Flood Dynamics', img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=250&q=80' },
-                  { title: 'Actionable Analytics', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=250&q=80' }
+                  { title: 'AI Predictive Models', img: 'https://www.techadv.com/sites/default/files/styles/blog_header/public/2021-03/web-3706562_1920.jpg.jpeg?h=61ca0bd2&itok=E1f1JhEL' },
+                  { title: '3D Terrain & LiDAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LEu1JW7_erIpx7N4flGYKYvGHS9ly29yNrZGIxBhJg&s=10' },
+                  { title: 'MapZest WebGIS', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmvP3KksMUVZ53kZFDpc0lISKGw3LGzQ7L4AKFGKGjTQ&s' },
+                  { title: 'Biomass & Carbon', img: 'https://www.researchgate.net/profile/Naveen-Verabhadraswamy/publication/352738879/figure/fig3/AS:1093342620327940@1637684602275/Aboveground-biomass-map_Q320.jpg' },
+                  { title: 'Flood Dynamics', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtw9jT2mm9WL1vpc9geN8v4IlTE7G0wdVmOq7IUumZoQ&s=10' },
+                  { title: 'Actionable Analytics', img: 'https://media.istockphoto.com/id/1488294044/photo/businessman-works-on-laptop-showing-business-analytics-dashboard-with-charts-metrics-and-kpi.jpg?s=612x612&w=0&k=20&c=AcxzQAe1LY4lGp0C6EQ6reI7ZkFC2ftS09yw_3BVkpk=' }
                 ].map((geo, gIdx) => (
                   <div key={gIdx} className="sensor-circle-card">
                     <div className="sensor-circle-img-frame">
