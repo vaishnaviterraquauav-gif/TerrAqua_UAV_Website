@@ -1,6 +1,11 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { Sparkles, ArrowRight } from 'lucide-react'
 
+import pointCloudRawImg from '../../assets/pointcloudraw.png'
+import pointCloudAfterImg from '../../assets/pointcloudafter.png'
+import beforeVegImg from '../../assets/beforeveg2.png'
+import afterVegImg from '../../assets/imggafterveg2.png'
+
 function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
   const [sliderPos, setSliderPos] = useState(initialPos)
   const [isDragging, setIsDragging] = useState(false)
@@ -14,10 +19,19 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
     setSliderPos(percent)
   }, [])
 
-  const handleMouseDown = () => setIsDragging(true)
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    handleMove(e.clientX)
+  }
   const handleMouseUp = () => setIsDragging(false)
   const handleMouseMove = (e) => {
     if (isDragging) handleMove(e.clientX)
+  }
+
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches[0]) {
+      handleMove(e.touches[0].clientX)
+    }
   }
 
   const handleTouchMove = (e) => {
@@ -44,6 +58,7 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         style={{
           position: 'relative',
@@ -59,6 +74,7 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
         <img
           src={afterImg}
           alt={afterLabel}
+          loading="eager"
           style={{
             position: 'absolute',
             inset: 0,
@@ -74,6 +90,7 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
         <img
           src={beforeImg}
           alt={beforeLabel}
+          loading="eager"
           style={{
             position: 'absolute',
             inset: 0,
@@ -125,46 +142,6 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
           >
             ◂▸
           </div>
-        </div>
-
-        {/* Floating Sensor Badges on Top (Clean & Non-Overlapping) */}
-        <div style={{
-          position: 'absolute',
-          top: '12px',
-          left: '12px',
-          background: 'rgba(5, 13, 26, 0.85)',
-          backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(255, 255, 255, 0.25)',
-          color: '#FFFFFF',
-          fontSize: '0.72rem',
-          fontWeight: 600,
-          padding: '5px 12px',
-          borderRadius: '20px',
-          pointerEvents: 'none',
-          whiteSpace: 'nowrap',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
-          zIndex: 4
-        }}>
-          {beforeLabel}
-        </div>
-        <div style={{
-          position: 'absolute',
-          top: '12px',
-          right: '12px',
-          background: 'rgba(5, 13, 26, 0.85)',
-          backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(0, 181, 226, 0.6)',
-          color: '#00B5E2',
-          fontSize: '0.72rem',
-          fontWeight: 600,
-          padding: '5px 12px',
-          borderRadius: '20px',
-          pointerEvents: 'none',
-          whiteSpace: 'nowrap',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
-          zIndex: 4
-        }}>
-          {afterLabel}
         </div>
       </div>
 
@@ -241,20 +218,21 @@ export default function DualComparisonSlider({ setActiveTab }) {
         }}>
           {/* Card 1: Tasking as a Service – Data */}
           <ComparisonCard
-            beforeImg="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=900&q=80"
-            afterImg="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
-            beforeLabel="Aerial Drone Optical"
-            afterLabel="3D LiDAR Elevation"
-            caption="Airborne remote sensing: High-resolution drone capture (left) vs 3D LiDAR & digital elevation model (right)"
+            beforeImg={pointCloudRawImg}
+            afterImg={pointCloudAfterImg}
+            beforeLabel="3D RGB Point Cloud"
+            afterLabel="3D LiDAR Elevation (DSM)"
+            caption="3D Geospatial Capture: True-color dense point cloud (left) vs height-classified LiDAR elevation model / DSM (right)"
             title="TASKING AS A SERVICE – DATA"
-            description="Direct access to drone & satellite tasking, allowing users to schedule any sensor to capture data in near real-time with sub-centimeter accuracy across complex terrains."
-            initialPos={48}
+            description="Direct access to drone & LiDAR sensor tasking to capture high-density 3D point clouds, digital surface models (DSM), and elevation analytics in near real-time with sub-centimeter spatial accuracy across complex terrains."
+            initialPos={50}
+            imagePosition="center"
           />
 
           {/* Card 2: Information as a Service – Feeds */}
           <ComparisonCard
-            beforeImg="/beforeveg2.png"
-            afterImg="/imggafterveg2.png"
+            beforeImg={beforeVegImg}
+            afterImg={afterVegImg}
             beforeLabel="Raw Optical (RGB)"
             afterLabel="Multispectral NDVI"
             caption="True-color raw spatial stream (left) vs MapZest multispectral NDVI crop health & vegetation stress analytics (right)"

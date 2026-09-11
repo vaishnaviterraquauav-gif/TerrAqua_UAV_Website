@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowRight, Sparkles, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2 } from 'lucide-react'
 import mapzestImg from '../../assets/mapzest-preview.png'
+import home2Img from '../../assets/home2.png'
 import DualComparisonSlider from './DualComparisonSlider'
 import DataToDecisions from './DataToDecisions'
 
@@ -177,7 +178,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Services.",
       isExternal: true,
-      circleImg: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=85"
+      circleImg: "https://miro.medium.com/v2/resize:fit:1400/1*XUqLxVP8tUxD1Nzra8Oi-Q.png"
     },
     {
       id: 1,
@@ -186,7 +187,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Platform.",
       isExternal: true,
-      circleImg: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=85"
+      circleImg: home2Img
     },
     {
       id: 2,
@@ -195,7 +196,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20MapZest%20WebGIS.",
       isExternal: true,
-      circleImg: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=85"
+      circleImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUza4VUTa2eFWe1LEZ3kCXVxECXtMhNWM5r3OIYk6Qwvowob2NHw67l9M&s=10"
     },
     {
       id: 3,
@@ -204,7 +205,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Spatial%20Data%20Services.",
       isExternal: true,
-      circleImg: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=85"
+      circleImg: "https://gisnavigator.co.uk/wp-content/uploads/2024/12/Service-Spatial-Data-Analysis.webp"
     }
   ]
 
