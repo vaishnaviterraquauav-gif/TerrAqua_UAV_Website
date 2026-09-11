@@ -57,30 +57,32 @@ export default function OurProduct({ setActiveTab }) {
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#0F172A' }}>
       {/* HERO / HEADER SECTION */}
       <section style={{
-        padding: '40px 24px 34px',
+        position: 'relative',
+        padding: '90px 24px 80px',
+        overflow: 'hidden',
         textAlign: 'center',
         background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
         borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
       }}>
-        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <h1 style={{
-            fontSize: 'clamp(1.75rem, 3.2vw, 2.5rem)',
-            color: '#FFFFFF',
+            fontSize: 'clamp(2.4rem, 5vw, 4rem)',
             fontWeight: 400,
-            marginBottom: '10px',
-            lineHeight: 1.25,
-            letterSpacing: '-0.03em'
+            color: '#FFFFFF',
+            lineHeight: 1.15,
+            letterSpacing: '-0.04em',
+            marginBottom: '20px'
           }}>
             Innovative <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Geospatial Solutions</span>
           </h1>
 
           <p style={{
             color: '#CBD5E1',
-            fontSize: '0.98rem',
-            lineHeight: '1.6',
-            fontWeight: 400,
-            maxWidth: '820px',
-            margin: '0 auto'
+            maxWidth: '780px',
+            margin: '0 auto',
+            fontSize: '1.1rem',
+            lineHeight: 1.7,
+            fontWeight: 400
           }}>
             Discover our innovative suite of Geospatial solutions designed to meet diverse industry needs. From interactive web GIS platforms to specialized modules for mining, image classification, and 3D point cloud analysis.
           </p>
