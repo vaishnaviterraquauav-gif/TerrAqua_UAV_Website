@@ -42,21 +42,36 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "DaaS",
       subtitle: "TerrAqua UAV",
       desc: "Drone as a Service. We provide professional aerial data acquisition, deploying advanced UAVs for high-resolution mapping and environmental surveillance.",
-      img: "/daas-solution.png"
+      img: "/daas-solution.png",
+      features: [
+        "Aerial Photogrammetry & LiDAR Acquisition",
+        "Certified Remote Sensing Pilot Fleet",
+        "Sub-Centimeter Spatial Resolution"
+      ]
     },
     {
       id: 'dpaas',
       title: "DPaaS",
       subtitle: "TerrAqua UAV",
       desc: "Data Processing as a Service. Transform raw aerial footage into actionable insights using our advanced multispectral and LiDAR processing pipelines.",
-      img: "https://static.wixstatic.com/media/9a5348_91599db1a0df4ab7b898716c1fe2aa75~mv2.jpg"
+      img: "https://static.wixstatic.com/media/9a5348_91599db1a0df4ab7b898716c1fe2aa75~mv2.jpg",
+      features: [
+        "Multispectral & Thermal Index Processing",
+        "3D Point Cloud & Reality Mesh Generation",
+        "GIS-Ready Orthomosaic & DEM Outputs"
+      ]
     },
     {
       id: 'saas',
       title: "SaaS",
       subtitle: "TerrAqua UAV",
       desc: "Software as a Service. Access our cloud platform for real-time fleet management, geospatial archiving, and AI-driven precision agriculture reports.",
-      img: "https://static.wixstatic.com/media/9a5348_e437fc3e29564a0397e0dd54f0bd7ea3~mv2.jpg"
+      img: "https://static.wixstatic.com/media/9a5348_e437fc3e29564a0397e0dd54f0bd7ea3~mv2.jpg",
+      features: [
+        "Cloud-Based Geospatial Data Archiving",
+        "AI Vigor & Anomaly Analytics Platform",
+        "Collaborative WebGIS Telemetry Dashboard"
+      ]
     }
   ]
 
@@ -831,10 +846,11 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
             padding: 0;
             background: #FFFFFF;
             border-radius: 24px;
-            border: 1px solid rgba(27, 54, 73, 0.1);
+            border: 1px solid rgba(27, 54, 73, 0.12);
             box-shadow: 0 15px 35px -10px rgba(27, 54, 73, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            height: 100%;
           }
           
           .advanced-card:hover {
@@ -844,11 +860,11 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
           }
 
           .advanced-card .card-img-wrapper {
-            height: 240px;
+            height: 220px;
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: #050D1A;
+            background: #FFFFFF;
           }
 
           .advanced-card .card-img {
@@ -866,7 +882,8 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '32px'
+            gap: '32px',
+            alignItems: 'stretch'
           }}>
             {cards.map((card, idx) => (
               <div key={idx} className="advanced-card">
@@ -877,11 +894,22 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
                     className="card-img"
                   />
                 </div>
-                <div style={{ padding: '24px 32px 36px 32px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2 }}>
-                  <h3 style={{ fontSize: '1.7rem', color: 'var(--text-heading-dark)', marginBottom: '14px', fontWeight: '700' }}>{card.title}</h3>
-                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '32px', flex: 1 }}>
+                <div style={{ padding: '28px 28px 32px 28px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2, fontFamily: 'var(--font-universal)' }}>
+                  <h3 style={{ fontSize: '1.7rem', color: 'var(--text-heading-dark)', marginBottom: '12px', fontWeight: 500, fontFamily: 'var(--font-universal)' }}>{card.title}</h3>
+                  <p style={{ color: 'var(--text-muted-gray)', fontSize: '0.98rem', lineHeight: '1.65', marginBottom: '20px', fontFamily: 'var(--font-universal)' }}>
                     {card.desc}
                   </p>
+
+                  {card.features && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '9px', marginBottom: '28px', marginTop: 'auto' }}>
+                      {card.features.map((feat, fIdx) => (
+                        <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.88rem', color: '#1E293B', fontWeight: 500, fontFamily: 'var(--font-universal)' }}>
+                          <CheckCircle2 size={16} style={{ color: 'var(--color-orange)', flexShrink: 0 }} />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <button
                     onClick={() => {
@@ -901,9 +929,9 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
                       justifyContent: 'center',
                       gap: '10px',
                       cursor: 'pointer',
-                      marginTop: 'auto',
                       boxShadow: '0 8px 20px -4px rgba(255, 106, 0, 0.4)',
-                      transition: 'all 0.3s ease'
+                      transition: 'all 0.3s ease',
+                      fontFamily: 'var(--font-universal)'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-2px)'
@@ -923,76 +951,88 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
         </div>
       </section>
 
-      {/* SECTION 3: DOMAIN APPLICATIONS (OFF-WHITE CHECKER LAYOUT) */}
+      {/* SECTION 3: DOMAIN APPLICATIONS (CONTAINED CARD LAYOUT WITH LIGHTER HEADINGS & CONTAINED IMAGES) */}
       <section style={{
-        padding: '80px 0 0 0',
+        padding: '80px 0 60px 0',
         background: 'linear-gradient(180deg, #EFF4F8 0%, #F8FAFC 100%)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px 50px 24px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.4rem', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: '700' }}>
-            Key Application <span style={{ color: 'var(--color-orange)' }}>Domains</span>
+          <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: 500, fontFamily: 'var(--font-universal)' }}>
+            Key Application <span style={{ color: 'var(--color-orange)', fontWeight: 500 }}>Domains</span>
           </h2>
-          <p style={{ color: 'var(--text-muted-gray)', maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
+          <p style={{ color: 'var(--text-muted-gray)', maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6', fontFamily: 'var(--font-universal)' }}>
             Delivering tailor-made aerial remote sensing, multispectral mapping, and geospatial intelligence across diverse industries.
           </p>
         </div>
 
         <style>{`
-          .checker-container {
+          .checker-card-row {
             display: flex;
-            flex-direction: column;
-            width: 100%;
+            flex-direction: row;
+            height: 380px;
+            min-height: 380px;
+            align-items: stretch;
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid rgba(27, 54, 73, 0.12);
+            box-shadow: 0 16px 40px -12px rgba(27, 54, 73, 0.08);
+            overflow: hidden;
+            margin-bottom: 36px;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
           }
-          .checker-row {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            min-height: 340px;
+
+          .checker-card-row.reverse {
+            flex-direction: row-reverse;
           }
-          .checker-col-img {
+
+          .checker-card-row:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px -12px rgba(27, 54, 73, 0.14);
+            border-color: rgba(0, 181, 226, 0.35);
+          }
+
+          .checker-col-img-box {
             flex: 1 1 50%;
-            min-width: 320px;
-            height: 340px;
+            width: 50%;
+            min-width: 300px;
+            height: 100%;
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            background-color: #FFFFFF;
           }
-          .checker-img {
+
+          .checker-card-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           }
-          .checker-row:hover .checker-img {
+
+          .checker-card-row:hover .checker-card-img {
             transform: scale(1.05);
           }
-          .checker-col-text {
+
+          .checker-col-text-box {
             flex: 1 1 50%;
-            min-width: 320px;
-            padding: 48px 60px;
+            width: 50%;
+            min-width: 300px;
+            height: 100%;
+            padding: clamp(28px, 3.5vw, 44px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             background: #FFFFFF;
-            border: 1px solid rgba(27, 54, 73, 0.08);
+            font-family: var(--font-universal);
             box-sizing: border-box;
           }
-          .checker-row.reverse {
-            flex-direction: row-reverse;
-          }
-          @media (max-width: 768px) {
-            .checker-row, .checker-row.reverse {
-              flex-direction: column;
-            }
-            .checker-col-text {
-              padding: 32px 24px;
-            }
-          }
-          .know-more-btn {
+
+          .know-more-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--color-orange);
+            color: var(--color-orange, #FF6A00);
             font-weight: 700;
             font-size: 1rem;
             background: none;
@@ -1000,46 +1040,103 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
             cursor: pointer;
             padding: 0;
             transition: gap 0.2s ease, color 0.2s ease;
+            font-family: var(--font-universal);
           }
-          .know-more-btn:hover {
+
+          .know-more-link:hover {
             color: #00B5E2;
             gap: 12px;
           }
+
+          /* MOBILE RESPONSIVE STACK */
+          @media (max-width: 868px) {
+            .checker-card-row,
+            .checker-card-row.reverse {
+              flex-direction: column !important;
+              height: auto !important;
+              min-height: 0 !important;
+            }
+
+            .checker-col-img-box {
+              width: 100% !important;
+              flex: none;
+              min-height: 240px;
+              height: 240px;
+            }
+
+            .checker-col-text-box {
+              width: 100% !important;
+              flex: none;
+              padding: 28px 20px !important;
+            }
+          }
         `}</style>
 
-        <div className="checker-container">
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 24px)' }}>
           {domainApplications.map((item, idx) => {
             const isReverse = idx % 2 === 1;
+            const topCapabilities = item.keyCapabilities ? item.keyCapabilities.slice(0, 3) : [];
             return (
-              <div key={idx} className={`checker-row ${isReverse ? 'reverse' : ''}`}>
-                <div className="checker-col-img" onClick={() => handleOpenDomain(item)}>
-                  <img src={item.img} alt={item.title} className="checker-img" />
+              <div key={idx} className={`checker-card-row ${isReverse ? 'reverse' : ''}`}>
+                {/* IMAGE BOX - EDGE TO EDGE PHOTO FIT INSIDE CARD */}
+                <div className="checker-col-img-box" onClick={() => handleOpenDomain(item)}>
+                  <img src={item.img} alt={item.title} className="checker-card-img" />
                 </div>
-                <div className="checker-col-text">
+
+                {/* CONTENT BOX - BALANCED & RICH WITH UNIVERSAL SITE TYPOGRAPHY (FONT WEIGHT 500) */}
+                <div className="checker-col-text-box">
                   <h3
                     onClick={() => handleOpenDomain(item)}
                     style={{
-                      fontSize: '1.75rem',
-                      fontWeight: '700',
-                      color: '#0F172A',
-                      marginBottom: '14px',
+                      fontSize: 'clamp(1.5rem, 3vw, 2.1rem)',
+                      fontWeight: 500,
+                      color: '#0A1D3D',
+                      margin: '0 0 14px 0',
                       letterSpacing: '-0.02em',
-                      cursor: 'pointer'
+                      lineHeight: 1.25,
+                      cursor: 'pointer',
+                      fontFamily: 'var(--font-universal)'
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.color = '#FF7A29'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = '#0F172A'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#0A1D3D'}
                   >
                     {item.title}
                   </h3>
-                  <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '24px' }}>
+
+                  <p style={{
+                    color: '#475569',
+                    fontSize: 'clamp(0.95rem, 1.8vw, 1.02rem)',
+                    lineHeight: 1.7,
+                    margin: '0 0 20px 0',
+                    fontWeight: 400,
+                    fontFamily: 'var(--font-universal)'
+                  }}>
                     {item.desc}
                   </p>
+
+                  {/* FEATURE BULLETS FROM CAPABILITIES */}
+                  {topCapabilities.length > 0 && (
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '9px',
+                      marginBottom: '24px'
+                    }}>
+                      {topCapabilities.map((cap, cIdx) => (
+                        <div key={cIdx} style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.9rem', color: '#1E293B', fontWeight: 500, fontFamily: 'var(--font-universal)' }}>
+                          <CheckCircle2 size={16} style={{ color: '#00B5E2', flexShrink: 0 }} />
+                          <span>{cap.title}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   <div>
                     <button
                       onClick={() => handleOpenDomain(item)}
-                      className="know-more-btn"
+                      className="know-more-link"
                     >
-                      Know more <ArrowRight size={18} />
+                      <span>Know more</span> <ArrowRight size={18} />
                     </button>
                   </div>
                 </div>

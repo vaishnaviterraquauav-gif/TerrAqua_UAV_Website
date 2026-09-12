@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2, Globe } from 'lucide-react'
 import mapzestImg from '../../assets/mapzest-preview.png'
 import home2Img from '../../assets/home2.png'
 import weatherRasterImg from '../../assets/weather_raster_cropped.png'
@@ -1586,7 +1586,7 @@ export default function Home({ setActiveTab }) {
             marginBottom: 'clamp(28px, 4vw, 44px)',
             color: 'var(--text-heading-dark)'
           }}>
-            OUR COMMITMENT TO <span style={{ color: 'var(--color-orange)' }}>SDGs</span>
+            Our Commitment To <span style={{ color: 'var(--color-orange)' }}>SDGs</span>
           </h2>
         </div>
 
@@ -1739,7 +1739,7 @@ export default function Home({ setActiveTab }) {
               e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(255, 106, 0, 0.4)';
             }}
           >
-            Contact
+            Contact Us
           </a>
         </div>
       </section>

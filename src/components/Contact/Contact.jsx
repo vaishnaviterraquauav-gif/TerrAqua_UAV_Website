@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { CheckCircle2, ChevronDown, Search } from 'lucide-react'
+import { CheckCircle2, ChevronDown, Search, MapPin, Building2, Phone, Mail, Globe, Radio } from 'lucide-react'
 
 const COUNTRY_CODES = [
   { code: 'IN', name: 'India', dialCode: '+91', flag: '🇮🇳', placeholder: '98765 43210' },
@@ -140,7 +140,7 @@ export default function Contact() {
             </h1>
           </div>
 
-          {/* 3 CONTACT INFO CARDS (PALETTE BLUE GLASSSMORPHIC THEME) */}
+          {/* 3 CONTACT INFO CARDS (PALETTE BLUE GLASSSMORPHIC THEME WITH SUBTLE WATERMARK SVGs) */}
           <div
             style={{
               display: 'grid',
@@ -157,17 +157,39 @@ export default function Contact() {
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
                 padding: '36px 32px',
-                transition: 'transform 0.3s ease, border-color 0.3s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.6)'
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 181, 226, 0.15)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.25)'
+                e.currentTarget.style.boxShadow = 'none'
               }}
             >
+              {/* Subtle Watermark SVG */}
+              <svg
+                width="130"
+                height="130"
+                viewBox="0 0 100 100"
+                fill="none"
+                style={{
+                  position: 'absolute',
+                  top: '-15px',
+                  right: '-15px',
+                  opacity: 0.08,
+                  pointerEvents: 'none'
+                }}
+              >
+                <path d="M50 15 C 30 15 15 30 15 50 C 15 75 50 95 50 95 C 50 95 85 75 85 50 C 85 30 70 15 50 15 Z" stroke="#00B5E2" strokeWidth="3" fill="none" />
+                <circle cx="50" cy="45" r="14" stroke="#00B5E2" strokeWidth="2.5" />
+              </svg>
+
               <h2
                 style={{
                   color: '#FFFFFF',
@@ -175,9 +197,13 @@ export default function Contact() {
                   fontWeight: 500,
                   letterSpacing: '-0.02em',
                   textTransform: 'uppercase',
-                  marginBottom: '20px'
+                  marginBottom: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px'
                 }}
               >
+                <MapPin size={18} style={{ color: 'var(--color-orange, #FF6A00)' }} />
                 REGISTERED OFFICE
               </h2>
               <p
@@ -206,17 +232,41 @@ export default function Contact() {
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
                 padding: '36px 32px',
-                transition: 'transform 0.3s ease, border-color 0.3s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.6)'
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 181, 226, 0.15)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.25)'
+                e.currentTarget.style.boxShadow = 'none'
               }}
             >
+              {/* Subtle Watermark SVG */}
+              <svg
+                width="130"
+                height="130"
+                viewBox="0 0 100 100"
+                fill="none"
+                style={{
+                  position: 'absolute',
+                  top: '-15px',
+                  right: '-15px',
+                  opacity: 0.08,
+                  pointerEvents: 'none'
+                }}
+              >
+                <rect x="20" y="25" width="60" height="65" rx="4" stroke="#00B5E2" strokeWidth="3" />
+                <line x1="20" y1="45" x2="80" y2="45" stroke="#00B5E2" strokeWidth="2" />
+                <line x1="20" y1="65" x2="80" y2="65" stroke="#00B5E2" strokeWidth="2" />
+                <line x1="50" y1="25" x2="50" y2="90" stroke="#00B5E2" strokeWidth="2" />
+              </svg>
+
               <h2
                 style={{
                   color: '#FFFFFF',
@@ -224,9 +274,13 @@ export default function Contact() {
                   fontWeight: 500,
                   letterSpacing: '-0.02em',
                   textTransform: 'uppercase',
-                  marginBottom: '20px'
+                  marginBottom: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px'
                 }}
               >
+                <Building2 size={18} style={{ color: 'var(--color-aqua, #00B5E2)' }} />
                 CORPORATE OFFICE
               </h2>
               <p
@@ -255,17 +309,40 @@ export default function Contact() {
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
                 padding: '36px 32px',
-                transition: 'transform 0.3s ease, border-color 0.3s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.6)'
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 181, 226, 0.15)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.borderColor = 'rgba(0, 181, 226, 0.25)'
+                e.currentTarget.style.boxShadow = 'none'
               }}
             >
+              {/* Subtle Watermark SVG */}
+              <svg
+                width="130"
+                height="130"
+                viewBox="0 0 100 100"
+                fill="none"
+                style={{
+                  position: 'absolute',
+                  top: '-15px',
+                  right: '-15px',
+                  opacity: 0.08,
+                  pointerEvents: 'none'
+                }}
+              >
+                <circle cx="50" cy="50" r="38" stroke="#00B5E2" strokeWidth="3" />
+                <circle cx="50" cy="50" r="24" stroke="#00B5E2" strokeWidth="2" strokeDasharray="4 4" />
+                <circle cx="50" cy="50" r="10" stroke="#FF6A00" strokeWidth="2" />
+              </svg>
+
               <h2
                 style={{
                   color: '#FFFFFF',
@@ -273,17 +350,23 @@ export default function Contact() {
                   fontWeight: 500,
                   letterSpacing: '-0.02em',
                   textTransform: 'uppercase',
-                  marginBottom: '20px'
+                  marginBottom: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px'
                 }}
               >
+                <Phone size={18} style={{ color: 'var(--color-orange, #FF6A00)' }} />
                 CONTACT INFO
               </h2>
               <div style={{ color: '#CBD5E1', fontSize: '0.96rem', lineHeight: '1.7', letterSpacing: '-0.01em' }}>
                 <div style={{ marginBottom: '16px' }}>
-                  <div style={{ color: '#FFFFFF', fontWeight: 500 }}>Phone, whatsapp:</div>
+                  <div style={{ color: '#FFFFFF', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Phone size={14} color="var(--color-aqua, #00B5E2)" /> Phone, whatsapp:
+                  </div>
                   <a
                     href="tel:+917985791210"
-                    style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.2s' }}
+                    style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.2s', paddingLeft: '20px', display: 'inline-block' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-aqua, #00B5E2)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#CBD5E1'}
                   >
@@ -291,10 +374,12 @@ export default function Contact() {
                   </a>
                 </div>
                 <div>
-                  <div style={{ color: '#FFFFFF', fontWeight: 500 }}>Email:</div>
+                  <div style={{ color: '#FFFFFF', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Mail size={14} color="var(--color-aqua, #00B5E2)" /> Email:
+                  </div>
                   <a
                     href="mailto:contact@terraquauav.com"
-                    style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.2s' }}
+                    style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.2s', paddingLeft: '20px', display: 'inline-block' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-aqua, #00B5E2)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#CBD5E1'}
                   >

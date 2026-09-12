@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import { 
   Menu, 
   X, 
-  ChevronDown
+  ChevronDown,
+  ChevronRight
 } from 'lucide-react'
 
 export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId }) {
@@ -14,32 +15,39 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
   const solutionItems = [
     {
       id: null,
-      title: "All Solutions (Overview)",
+      title: "All Solutions Overview",
+      desc: "Explore end-to-end aerial remote sensing & WebGIS solutions",
       isOverview: true
     },
     {
       id: "natural-resources",
-      title: "Natural Resource Management"
+      title: "Natural Resource Management",
+      desc: "Forest canopy, biomass & water body auditing"
     },
     {
       id: "disaster-risk",
-      title: "Disaster Risk Reduction"
+      title: "Disaster Risk Reduction",
+      desc: "Flood inundation, landslide & emergency response"
     },
     {
       id: "agriculture",
-      title: "Agriculture"
+      title: "Agriculture",
+      desc: "NDVI multispectral vigor & crop analytics"
     },
     {
       id: "environmental-conservation",
-      title: "Environmental Conservation"
+      title: "Environmental Conservation",
+      desc: "Carbon credits & ecological baseline audit"
     },
     {
       id: "infrastructure-urban",
-      title: "Infrastructure & Urban Planning"
+      title: "Infrastructure & Urban",
+      desc: "Sub-centimeter 3D digital twins & mapping"
     },
     {
       id: "climate-intelligence",
-      title: "Climate Intelligence"
+      title: "Climate Intelligence",
+      desc: "Thermal emissions & microclimate models"
     }
   ]
 
@@ -131,28 +139,29 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
                     />
                   </button>
 
-                  {/* Clean Text-Only Dropdown Menu */}
+                  {/* Monotonous White & Gray Dropdown Menu */}
                   {solutionsDropdownOpen && (
                     <div style={{
                       position: 'absolute',
                       top: '100%',
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      paddingTop: '8px',
+                      paddingTop: '10px',
                       zIndex: 1100,
-                      minWidth: '280px'
+                      width: '560px'
                     }}>
                       <div style={{
                         background: '#FFFFFF',
-                        borderRadius: '14px',
-                        border: '1px solid rgba(27, 54, 73, 0.12)',
-                        boxShadow: '0 18px 40px -10px rgba(10, 29, 61, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.04)',
-                        padding: '8px',
+                        borderRadius: '16px',
+                        border: '1px solid #E2E8F0',
+                        boxShadow: '0 20px 50px -12px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04)',
+                        padding: '14px',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '2px'
+                        gap: '8px'
                       }}>
-                        {solutionItems.map((sol, idx) => (
+                        {/* Featured Header: Overview Item */}
+                        {solutionItems.filter(s => s.isOverview).map((sol, idx) => (
                           <div
                             key={idx}
                             onClick={(e) => {
@@ -160,35 +169,99 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
                               handleSolutionSelect(sol.id)
                             }}
                             style={{
-                              padding: '10px 16px',
-                              borderRadius: '8px',
+                              padding: '12px 16px',
+                              borderRadius: '12px',
                               cursor: 'pointer',
-                              background: sol.isOverview ? 'rgba(255, 106, 0, 0.08)' : 'transparent',
-                              borderBottom: sol.isOverview ? '1px solid rgba(27, 54, 73, 0.08)' : 'none',
-                              marginBottom: sol.isOverview ? '4px' : '0',
-                              fontSize: '0.92rem',
-                              fontWeight: sol.isOverview ? 700 : 500,
-                              color: sol.isOverview ? 'var(--color-orange)' : '#0A1D3D',
-                              textAlign: 'left',
-                              transition: 'all 0.2s ease',
+                              background: '#F8FAFC',
+                              border: '1px solid #E2E8F0',
                               display: 'flex',
                               alignItems: 'center',
-                              justifyContent: 'space-between'
+                              justifyContent: 'space-between',
+                              transition: 'all 0.2s ease'
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = sol.isOverview ? 'rgba(255, 106, 0, 0.15)' : '#F1F5F9'
-                              e.currentTarget.style.color = 'var(--color-orange)'
-                              e.currentTarget.style.paddingLeft = '20px'
+                              e.currentTarget.style.background = '#F1F5F9'
+                              e.currentTarget.style.borderColor = '#CBD5E1'
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.background = sol.isOverview ? 'rgba(255, 106, 0, 0.08)' : 'transparent'
-                              e.currentTarget.style.color = sol.isOverview ? 'var(--color-orange)' : '#0A1D3D'
-                              e.currentTarget.style.paddingLeft = '16px'
+                              e.currentTarget.style.background = '#F8FAFC'
+                              e.currentTarget.style.borderColor = '#E2E8F0'
                             }}
                           >
-                            <span>{sol.title}</span>
+                            <div>
+                              <div style={{ fontSize: '0.94rem', fontWeight: 600, color: '#0F172A', fontFamily: 'var(--font-universal)' }}>
+                                {sol.title}
+                              </div>
+                              <div style={{ fontSize: '0.8rem', color: '#64748B', fontFamily: 'var(--font-universal)' }}>
+                                {sol.desc}
+                              </div>
+                            </div>
+                            <div style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '4px',
+                              color: '#334155',
+                              fontSize: '0.82rem',
+                              fontWeight: 600,
+                              fontFamily: 'var(--font-universal)'
+                            }}>
+                              <span>View All</span> <ChevronRight size={15} />
+                            </div>
                           </div>
                         ))}
+
+                        {/* 2-Column Monotonous Grid */}
+                        <div style={{
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(2, 1fr)',
+                          gap: '4px'
+                        }}>
+                          {solutionItems.filter(s => !s.isOverview).map((sol, idx) => (
+                            <div
+                              key={idx}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleSolutionSelect(sol.id)
+                              }}
+                              style={{
+                                padding: '10px 12px',
+                                borderRadius: '10px',
+                                cursor: 'pointer',
+                                background: 'transparent',
+                                border: '1px solid transparent',
+                                textAlign: 'left',
+                                transition: 'all 0.18s ease'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = '#F8FAFC'
+                                e.currentTarget.style.borderColor = '#E2E8F0'
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'transparent'
+                                e.currentTarget.style.borderColor = 'transparent'
+                              }}
+                            >
+                              <div style={{
+                                fontSize: '0.88rem',
+                                fontWeight: 600,
+                                color: '#0F172A',
+                                marginBottom: '2px',
+                                fontFamily: 'var(--font-universal)',
+                                lineHeight: 1.25
+                              }}>
+                                {sol.title}
+                              </div>
+                              <div style={{
+                                fontSize: '0.76rem',
+                                color: '#64748B',
+                                lineHeight: 1.35,
+                                fontFamily: 'var(--font-universal)'
+                              }}>
+                                {sol.desc}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -247,11 +320,11 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
 
                   {mobileSolutionsOpen && (
                     <div style={{
-                      paddingLeft: '12px',
+                      paddingLeft: '6px',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '4px',
-                      marginTop: '4px',
+                      marginTop: '6px',
                       marginBottom: '8px'
                     }}>
                       {solutionItems.map((sol, sIdx) => (
@@ -259,16 +332,20 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
                           key={sIdx}
                           onClick={() => handleSolutionSelect(sol.id)}
                           style={{
-                            padding: '10px 14px',
-                            background: sol.isOverview ? 'rgba(255, 106, 0, 0.15)' : 'rgba(10, 29, 61, 0.05)',
+                            padding: '10px 12px',
+                            background: sol.isOverview ? '#F1F5F9' : '#F8FAFC',
                             borderRadius: '8px',
-                            color: sol.isOverview ? '#FF7A29' : '#0A1D3D',
+                            color: '#0F172A',
                             cursor: 'pointer',
-                            fontSize: '0.9rem',
-                            fontWeight: sol.isOverview ? 700 : 500
+                            textAlign: 'left'
                           }}
                         >
-                          <span>{sol.title}</span>
+                          <div style={{ fontSize: '0.88rem', fontWeight: 600, fontFamily: 'var(--font-universal)' }}>
+                            {sol.title}
+                          </div>
+                          <div style={{ fontSize: '0.75rem', color: '#64748B', fontFamily: 'var(--font-universal)' }}>
+                            {sol.desc}
+                          </div>
                         </div>
                       ))}
                     </div>
