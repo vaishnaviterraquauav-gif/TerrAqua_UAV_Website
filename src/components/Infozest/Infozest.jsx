@@ -689,20 +689,6 @@ export default function Infozest({ setActiveTab }) {
             >
               <ArrowLeft size={17} /> Back to Articles
             </button>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#64748B' }}>
-              <span>Infozest</span>
-              <ChevronRight size={14} />
-              <span style={{
-                color: '#00B5E2',
-                fontWeight: 700,
-                background: 'rgba(0, 181, 226, 0.08)',
-                padding: '3px 10px',
-                borderRadius: '12px'
-              }}>
-                {selectedPost.category}
-              </span>
-            </div>
           </div>
         </div>
 
@@ -717,21 +703,6 @@ export default function Infozest({ setActiveTab }) {
           }}>
             {/* 1. ARTICLE HEADER */}
             <div style={{ padding: '44px 44px 28px' }}>
-              <div style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                borderRadius: '20px',
-                background: 'rgba(255, 106, 0, 0.1)',
-                border: '1px solid rgba(255, 106, 0, 0.25)',
-                color: '#FF6A00',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                marginBottom: '18px',
-                letterSpacing: '0.04em'
-              }}>
-                {selectedPost.category.toUpperCase()}
-              </div>
-
               <h1 style={{
                 fontSize: 'clamp(1.9rem, 3.8vw, 2.75rem)',
                 color: '#0A1D3D',
@@ -1117,46 +1088,6 @@ export default function Infozest({ setActiveTab }) {
                 </div>
               ))}
 
-              {/* AUTHOR / ABOUT TERRAQUA FOOTER CARD */}
-              <div style={{
-                marginTop: '44px',
-                padding: '28px',
-                background: '#F8FAFC',
-                borderRadius: '18px',
-                border: '1px solid #E2E8F0',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '20px',
-                flexWrap: 'wrap'
-              }}>
-                <div style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '50%',
-                  backgroundColor: '#0A1D3D',
-                  border: '2px solid #00B5E2',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                  flexShrink: 0
-                }}>
-                  <img
-                    src="/image.png"
-                    alt="TerrAqua Logo"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-                <div style={{ flex: 1, minWidth: '240px' }}>
-                  <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0A1D3D', marginBottom: '4px' }}>
-                    Published by TerrAqua UAV Solutions
-                  </div>
-                  <p style={{ fontSize: '0.88rem', color: '#64748B', lineHeight: '1.6', margin: 0 }}>
-                    Pioneering indigenous drone robotics, precision aerial telemetry, and cloud WebGIS intelligence for national infrastructure, disaster resilience, and natural resources.
-                  </p>
-                </div>
-              </div>
-
               {/* CALL TO ACTION BOX */}
               <div style={{
                 marginTop: '32px',
@@ -1283,26 +1214,9 @@ export default function Infozest({ setActiveTab }) {
                   if (title) title.style.color = '#0F172A'
                 }}
               >
-                {/* Top Banner Image with Floating Category Badge */}
+                {/* Top Banner Image */}
                 {post.customImage ? (
-                  <div style={{ overflow: 'hidden', position: 'relative' }}>
-                    <div style={{
-                      position: 'absolute',
-                      top: '14px',
-                      left: '14px',
-                      zIndex: 2,
-                      background: 'rgba(10, 29, 61, 0.85)',
-                      backdropFilter: 'blur(8px)',
-                      color: '#00B5E2',
-                      padding: '5px 12px',
-                      borderRadius: '20px',
-                      fontWeight: 700,
-                      fontSize: '0.74rem',
-                      border: '1px solid rgba(0, 181, 226, 0.3)',
-                      letterSpacing: '0.04em'
-                    }}>
-                      {post.category.toUpperCase()}
-                    </div>
+                  <div style={{ overflow: 'hidden' }}>
                     {post.customImage}
                   </div>
                 ) : (
@@ -1312,25 +1226,6 @@ export default function Infozest({ setActiveTab }) {
                     background: '#F1F5F9',
                     position: 'relative'
                   }}>
-                    {/* Floating Category Badge */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '14px',
-                      left: '14px',
-                      zIndex: 2,
-                      background: 'rgba(10, 29, 61, 0.88)',
-                      backdropFilter: 'blur(8px)',
-                      color: '#00B5E2',
-                      padding: '5px 12px',
-                      borderRadius: '20px',
-                      fontWeight: 700,
-                      fontSize: '0.74rem',
-                      border: '1px solid rgba(0, 181, 226, 0.3)',
-                      letterSpacing: '0.04em'
-                    }}>
-                      {post.category.toUpperCase()}
-                    </div>
-
                     <img
                       className="card-img-zoom"
                       src={post.imgUrl}
