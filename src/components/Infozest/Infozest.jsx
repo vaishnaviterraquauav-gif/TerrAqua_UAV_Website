@@ -5,6 +5,7 @@ import nttDataLaunch from '../../assets/ntt_data_launch.png'
 import operationDronagiri from '../../assets/operation_dronagiri.jpg'
 import unlockingWebGis from '../../assets/unlocking_web_gis.png'
 import aseanScalehubBali from '../../assets/asean_scalehub_bali.png'
+import newspaperFloodResponse from '../../assets/newspaper_flood_response.jpg'
 import {
   Heart,
   Share2,
@@ -146,21 +147,7 @@ export default function Infozest({ setActiveTab }) {
       views: 15,
       comments: 0,
       initialLikes: 4,
-      customImage: (
-        <div style={{ background: '#111827', padding: '16px', height: '220px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '8px' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#00B5E2' }}>TERRAQUA UAV</span>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>NEWS COVERAGE</span>
-          </div>
-          <div style={{ background: '#FFFFFF', padding: '12px', borderRadius: '8px', color: '#000000', margin: '6px 0' }}>
-            <h4 style={{ fontSize: '0.88rem', fontWeight: 800, margin: '0 0 4px 0', lineHeight: 1.2 }}>
-              TerrAqua UAV Flood Response Innovation
-            </h4>
-            <span style={{ fontSize: '0.68rem', color: '#4B5563' }}>Web-based Flood Disaster Response System Featured in Leading Newspapers</span>
-          </div>
-          <span style={{ fontSize: '0.7rem', color: '#10B981', fontWeight: 600 }}>National Press Coverage Feature</span>
-        </div>
-      ),
+      imgUrl: newspaperFloodResponse,
       content: {
         intro: "We are honored to share that our work at TerrAqua UAV has been featured in multiple newspapers.",
         sections: [
