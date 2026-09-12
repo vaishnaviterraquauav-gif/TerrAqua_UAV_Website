@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import { 
-  Heart, 
-  Share2, 
-  MoreVertical, 
-  ArrowLeft, 
+import blogBanner from '../../assets/blog-banner.png'
+import mapzestAppCard from '../../assets/mapzest_app_card.png'
+import nttDataLaunch from '../../assets/ntt_data_launch.png'
+import operationDronagiri from '../../assets/operation_dronagiri.jpg'
+import {
+  Heart,
+  Share2,
+  MoreVertical,
+  ArrowLeft,
   ArrowRight,
-  Clock, 
-  Calendar, 
+  Clock,
+  Calendar,
   ChevronRight,
   CheckCircle2,
   Download,
@@ -30,28 +34,7 @@ export default function Infozest({ setActiveTab }) {
       views: 21,
       comments: 0,
       initialLikes: 1,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 100%)', padding: '16px', height: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,106,0,0.2)', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', zIndex: 2 }}>
-            <div>
-              <span style={{ fontSize: '0.85rem', color: '#FF6A00', fontWeight: 800, letterSpacing: '0.5px', display: 'block' }}>Map, Track,</span>
-              <span style={{ fontSize: '0.85rem', color: '#00B5E2', fontWeight: 800, letterSpacing: '0.5px' }}>Collect, Share</span>
-            </div>
-            <span style={{ background: '#FF6A00', color: '#FFF', fontSize: '0.68rem', padding: '4px 10px', borderRadius: '14px', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
-              DOWNLOAD <Download size={10} />
-            </span>
-          </div>
-          <div style={{ background: 'rgba(15, 23, 42, 0.95)', padding: '10px 14px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '12px', zIndex: 2, border: '1px solid rgba(0, 181, 226, 0.3)' }}>
-            <div style={{ width: '34px', height: '34px', borderRadius: '8px', background: '#00B5E2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#FFF', fontSize: '0.85rem' }}>
-              MZ
-            </div>
-            <div>
-              <span style={{ fontSize: '0.85rem', color: '#FFF', fontWeight: 700, display: 'block' }}>MapZest App</span>
-              <span style={{ fontSize: '0.7rem', color: '#94A3B8' }}>High-Precision Mobile WebGIS</span>
-            </div>
-          </div>
-        </div>
-      ),
+      imgUrl: mapzestAppCard,
       content: {
         intro: "In modern geospatial field operations, capturing accurate geographic coordinates and metadata in real-time has traditionally required heavy differential GPS receivers and complex survey gear. MapZest revolutionizes this entire workflow by placing enterprise-grade spatial data collection directly inside an intuitive mobile application.",
         sections: [
@@ -132,7 +115,7 @@ export default function Infozest({ setActiveTab }) {
       views: 9,
       comments: 0,
       initialLikes: 7,
-      imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
+      imgUrl: 'https://static.wixstatic.com/media/9a5348_6fbe26fbf343442e8fb1108714126497~mv2.jpg/v1/fill/w_454,h_454,fp_0.50_0.50,q_90,enc_avif,quality_auto/9a5348_6fbe26fbf343442e8fb1108714126497~mv2.webp',
       content: {
         intro: "Exciting times for TerrAqua UAV! Our co-founder and director is proudly representing us at the ASEAN ScaleHub 2025 in Bali.",
         sections: [
@@ -204,19 +187,7 @@ export default function Infozest({ setActiveTab }) {
       views: 7,
       comments: 0,
       initialLikes: 1,
-      customImage: (
-        <div style={{ background: '#0F172A', padding: '16px', height: '220px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FF6A00' }}>TERRAQUA UAV</span>
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#00B5E2' }}>NTT DATA</span>
-          </div>
-          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '14px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
-            <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#10B981', fontWeight: 700, display: 'block', marginBottom: '4px' }}>Launch Event</span>
-            <h4 style={{ fontSize: '0.92rem', color: '#FFFFFF', fontWeight: 700, margin: 0 }}>Flood Disaster Response System</h4>
-          </div>
-          <span style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Drone & Satellite Remote Sensing Technology</span>
-        </div>
-      ),
+      imgUrl: nttDataLaunch,
       content: {
         intro: "We are proud to announce the successful launch of our web-based Flood Disaster Response System, a significant step toward building climate-resilient cities through the power of geospatial intelligence.",
         sections: [
@@ -281,19 +252,7 @@ export default function Infozest({ setActiveTab }) {
       views: 32,
       comments: 0,
       initialLikes: 14,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #050F24 0%, #1A2E40 100%)', padding: '16px', height: '220px', borderBottom: '1px solid rgba(255,106,0,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#FF7A29' }}>DST • GOVT OF INDIA</span>
-            <span style={{ background: '#10B981', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>SELECTED</span>
-          </div>
-          <div style={{ background: 'rgba(255,106,0,0.1)', padding: '12px', borderRadius: '10px', border: '1px solid rgba(255,106,0,0.3)', textAlign: 'center' }}>
-            <span style={{ fontSize: '0.68rem', color: '#FF6A00', fontWeight: 700, textTransform: 'uppercase' }}>Growth Stage Cohort</span>
-            <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 800, margin: '4px 0 0 0' }}>Operation Dronagiri</h4>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>National Geospatial Mission Accelerator</span>
-        </div>
-      ),
+      imgUrl: operationDronagiri,
       content: {
         intro: "Proud Moment for TerrAqua UAV solutions !",
         sections: [
@@ -694,9 +653,9 @@ export default function Infozest({ setActiveTab }) {
 
           {/* River Bend Satellite Image Box */}
           <div style={{ height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1.5px solid #0A1D3D', background: '#0A1D3D', margin: '0 4px' }}>
-            <img 
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800" 
-              alt="River Meander Bend" 
+            <img
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+              alt="River Meander Bend"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
@@ -746,10 +705,10 @@ export default function Infozest({ setActiveTab }) {
       comments: 0,
       initialLikes: 1,
       customImage: (
-        <div style={{ 
-          position: 'relative', 
-          height: '220px', 
-          overflow: 'hidden', 
+        <div style={{
+          position: 'relative',
+          height: '220px',
+          overflow: 'hidden',
           background: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -1127,7 +1086,7 @@ export default function Infozest({ setActiveTab }) {
         style={{
           position: 'relative',
           padding: '80px 24px 70px',
-          background: 'linear-gradient(180deg, rgba(5, 15, 36, 0.82) 0%, rgba(5, 15, 36, 0.92) 100%), url("/blog-banner.jpg")',
+          background: `linear-gradient(180deg, rgba(5, 15, 36, 0.78) 0%, rgba(5, 15, 36, 0.88) 100%), url(${blogBanner})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

@@ -73,13 +73,13 @@ export default function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#000000' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#000000', width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
       <Navbar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
         setSelectedDomainId={setSelectedDomainId} 
       />
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
         {renderContent()}
       </main>
       <Footer setActiveTab={setActiveTab} setSelectedDomainId={setSelectedDomainId} />

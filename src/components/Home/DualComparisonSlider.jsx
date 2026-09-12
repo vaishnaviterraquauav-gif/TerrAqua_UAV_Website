@@ -194,9 +194,10 @@ export default function DualComparisonSlider({ setActiveTab }) {
       padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px) clamp(60px, 8vw, 100px)',
       background: 'linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%)',
       borderTop: '1px solid rgba(27, 54, 73, 0.08)',
-      position: 'relative'
+      position: 'relative',
+      overflow: 'hidden'
     }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
         {/* Top Header Title */}
         <div style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 48px)' }}>
           <h2 style={{
@@ -213,8 +214,9 @@ export default function DualComparisonSlider({ setActiveTab }) {
         {/* 2-Column Split Slider Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-          gap: 'clamp(20px, 4vw, 32px)'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(20px, 4vw, 32px)',
+          width: '100%'
         }}>
           {/* Card 1: Tasking as a Service – Data */}
           <ComparisonCard

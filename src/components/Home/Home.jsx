@@ -306,7 +306,7 @@ export default function Home({ setActiveTab }) {
   const slide = heroSlides[currentSlide]
 
   return (
-    <div>
+    <div style={{ width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
       {/* ========================================================================= */}
       {/* EARTHEYE-STYLE HERO: ULTRA-CRISP DEEP SPACE BACKGROUND + SLIDER & ORB     */}
       {/* ========================================================================= */}
@@ -424,6 +424,23 @@ export default function Home({ setActiveTab }) {
             -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
             mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2.5px));
             filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85));
+          }
+
+          @media (max-width: 768px) {
+            .orbit-hero-container {
+              width: min(260px, 70vw) !important;
+              height: min(260px, 70vw) !important;
+              margin: 10px auto 0 !important;
+            }
+            .orbit-trail-cw {
+              inset: -36px !important;
+            }
+            .orbit-trail-3d {
+              inset: -22px !important;
+            }
+            .orbit-trail-ccw {
+              inset: -10px !important;
+            }
           }
         `}</style>
 
@@ -625,16 +642,19 @@ export default function Home({ setActiveTab }) {
             justifyContent: 'center',
             position: 'relative'
           }}>
-            <div style={{
-              position: 'relative',
-              width: 'min(380px, 80vw)',
-              height: 'min(380px, 80vw)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transformStyle: 'preserve-3d',
-              perspective: '1200px'
-            }}>
+            <div
+              className="orbit-hero-container"
+              style={{
+                position: 'relative',
+                width: 'min(380px, 80vw)',
+                height: 'min(380px, 80vw)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transformStyle: 'preserve-3d',
+                perspective: '1200px'
+              }}
+            >
               {/* Inner Atmospheric Orbit Track: Drone (Counter-Clockwise) */}
               <div
                 className="orbit-trail-ccw"
@@ -999,24 +1019,30 @@ export default function Home({ setActiveTab }) {
 
             .what-we-do-row-grid-1 {
               display: grid;
-              grid-template-columns: 320px 1fr;
+              grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
               align-items: center;
               gap: clamp(32px, 5vw, 64px);
               margin-bottom: 64px;
+              width: 100%;
+              max-width: 100%;
             }
 
             .what-we-do-row-grid-2 {
               display: grid;
-              grid-template-columns: 1fr 340px;
+              grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
               align-items: center;
               gap: clamp(32px, 5vw, 64px);
+              width: 100%;
+              max-width: 100%;
             }
 
             @media (max-width: 980px) {
               .what-we-do-row-grid-1,
               .what-we-do-row-grid-2 {
-                grid-template-columns: 1fr !important;
-                gap: 24px !important;
+                grid-template-columns: minmax(0, 1fr) !important;
+                gap: 28px !important;
+                width: 100% !important;
+                max-width: 100% !important;
               }
 
               .what-we-do-row-grid-2 {
@@ -1025,21 +1051,24 @@ export default function Home({ setActiveTab }) {
               }
 
               .sensors-pill-banner-container {
-                border-radius: 32px !important;
-                padding: 20px 18px !important;
+                border-radius: 24px !important;
+                padding: 16px 14px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
               }
 
               .sensor-circle-card {
-                width: 100px !important;
+                width: 90px !important;
               }
 
               .sensor-circle-img-frame {
-                width: 80px !important;
-                height: 80px !important;
+                width: 72px !important;
+                height: 72px !important;
               }
 
               .sensor-circle-title {
-                font-size: 0.7rem !important;
+                font-size: 0.68rem !important;
               }
             }
           `}</style>
@@ -1710,7 +1739,7 @@ export default function Home({ setActiveTab }) {
               e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(255, 106, 0, 0.4)';
             }}
           >
-            Contact Engineering Team
+            Contact
           </a>
         </div>
       </section>

@@ -202,11 +202,12 @@ export default function DataToDecisions() {
       <div
         style={{
           width: "100%",
-          maxWidth: "1340px",
+          maxWidth: "100%",
           margin: "0 auto",
           padding: "10px 0",
           display: "flex",
           justifyContent: "center",
+          overflow: "hidden"
         }}
       >
         <svg

@@ -100,7 +100,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Disaster Risk Reduction",
       subtitle: "Emergency Response & Crisis Mitigation",
       desc: "Rapid response UAV deployment for real-time flood monitoring, landslide vulnerability analysis, emergency route mapping, and disaster recovery.",
-      img: "https://static.wixstatic.com/media/9a5348_9e04fb1b4d1442fab6b3fe0eb0150f41~mv2.png",
+      img: "https://i.abcnewsfe.com/a/7317b202-b250-4686-a784-7c69b7d4e803/nepal-floods_1787739415018_hpMain.jpg",
       heroBadge: "RAPID EMERGENCY DEPLOYMENT",
       overview: "When natural disasters strike, ground access is compromised. TerrAqua UAV's emergency rapid-deployment unit provides first responders, disaster management authorities, and civil administrations with real-time situational intelligence, flood inundation modeling, and post-disaster damage assessments.",
       keyCapabilities: [
@@ -134,7 +134,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Agriculture",
       subtitle: "Multispectral Health Analytics & Smart Crop Scouting",
       desc: "Precision crop health analytics, multispectral plant vigor metrics (NDVI/NDRE), automated variable rate spraying, and yield forecast reporting.",
-      img: "https://static.wixstatic.com/media/9a5348_4ec3d406bf184a5c95c7c95938e0d3d3~mv2.png",
+      img: "https://cdn.agriland.ie/uploads/2026/06/tractor-mowing-grass-in-countryside-farm-field-2026-03-25-22-55-54-utc-scaled.jpg",
       heroBadge: "AGRITECH & PRECISION FARMING",
       overview: "Empowering modern agriculture with aerial artificial intelligence and multispectral agronomy. Our UAV solutions detect plant stress 10 to 14 days before visible to the naked human eye, enabling surgical fertilizer application, automated crop spraying, and verified yield insurance assessments.",
       keyCapabilities: [
@@ -202,7 +202,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Infrastructure & Urban Planning",
       subtitle: "Sub-Centimeter 3D Digital Twins & Surveying",
       desc: "Sub-centimeter accurate 3D point clouds, digital twin generation, and automated elevation monitoring for smart city development and civil engineering.",
-      img: "https://static.wixstatic.com/media/9a5348_fba34b46951c4d09a53fcf0cc73e2930~mv2.jpg",
+      img: "https://etimg.etb2bimg.com/photo/106074745.cms",
       heroBadge: "SMART CITIES & CIVIL ENGINEERING",
       overview: "Revolutionizing modern civil infrastructure, highways, railways, and municipal urban design with millimetric 3D aerial modeling. We convert complex physical topography into interactive BIM/CAD compatible digital twins with survey-grade absolute accuracy.",
       keyCapabilities: [
@@ -236,7 +236,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Climate Intelligence",
       subtitle: "Microclimate Modeling & Emission Tracking",
       desc: "Advanced climate data modeling, thermal emission tracking, and microclimate analytics powered by AI and aerial GIS integration.",
-      img: "https://static.wixstatic.com/media/9a5348_dd9b73c686c149088a7b74bab43fa218~mv2.jpg",
+      img: "https://cdn.mos.cms.futurecdn.net/Bkcs2EBgW5hqaCSfGGAghh-1400-80.jpg",
       heroBadge: "CLIMATE ACTION & GEO-ANALYTICS",
       overview: "Understanding microclimate volatility requires hyper-localized spatial observations. TerrAqua UAV leverages airborne thermal radiometry, atmospheric sniffer payloads, and predictive GIS models to quantify urban heat islands, industrial emissions, and climate risks.",
       keyCapabilities: [

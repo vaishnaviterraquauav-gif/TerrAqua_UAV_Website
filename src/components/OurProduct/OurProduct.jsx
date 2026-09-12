@@ -1,5 +1,11 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
+import mapzestMobileImg from '../../assets/mapzest_mobile.png'
+import mapzestGeoCatalogImg from '../../assets/mapzest_geo_catalog.png'
+import geoCatalogGangaImg from '../../assets/geo_catalog_ganga.png'
+import mapzestKrishiImg from '../../assets/mapzest_krishizest.png'
+import mapzestFramImg from '../../assets/mapzest_fram_engine.png'
+import mapzestNrmmImg from '../../assets/mapzest_nrmm.png'
 
 export default function OurProduct({ setActiveTab }) {
   const products = [
@@ -9,7 +15,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Empowering field teams with mobile WebGIS analytics. Capture real-time spatial data, perform high-accuracy surveys, and render multi-layered vector overlays directly on Android & mobile browsers with offline capabilities.',
       link: 'https://play.google.com/store/apps/details?id=com.terraqua.gis&pcampaignid=web_share',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200'
+      img: mapzestMobileImg
     },
     {
       id: 'mapzest-basic',
@@ -17,7 +23,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Cloud-native WebGIS visualization engine designed for rendering high-resolution orthomosaics, multispectral rasters, and digital elevation models (DEM) directly in your browser with zero latency.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
+      img: mapzestGeoCatalogImg
     },
     {
       id: 'geo-catalog',
@@ -25,7 +31,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Enterprise geospatial data repository & catalog management system to store, search, organize, and stream massive GIS datasets with encrypted role-based access control.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200'
+      img: geoCatalogGangaImg
     },
     {
       id: 'krishizest',
@@ -33,7 +39,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Specialized agricultural remote sensing & precision analytics platform providing crop health monitoring, multispectral NDVI maps, stress detection, and predictive yield analytics.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200'
+      img: mapzestKrishiImg
     },
     {
       id: 'fram-engine',
@@ -41,7 +47,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Feature Recognition and Analysis Module powered by deep learning AI pipelines to count tree crowns, trace building footprints, detect solar panel defects, and quantify crop health.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=1200'
+      img: mapzestFramImg
     },
     {
       id: 'nrmm-monitoring',
@@ -49,7 +55,7 @@ export default function OurProduct({ setActiveTab }) {
       desc: 'Natural Resource Management & Monitoring platform for continuous volumetric tracking of mine sites, water body dynamics, forest cover change detection, and environmental compliance.',
       link: 'https://mapzest.com/',
       buttonText: 'Know more',
-      img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1200'
+      img: mapzestNrmmImg
     }
   ]
 
