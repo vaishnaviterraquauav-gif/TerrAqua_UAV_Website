@@ -1102,7 +1102,7 @@ export default function Infozest({ setActiveTab }) {
         style={{
           position: 'relative',
           padding: '80px 24px 70px',
-          background: `linear-gradient(180deg, rgba(5, 15, 36, 0.78) 0%, rgba(5, 15, 36, 0.88) 100%), url(${blogBanner})`,
+          background: `linear-gradient(180deg, rgba(7, 21, 48, 0.32) 0%, rgba(7, 21, 48, 0.52) 100%), url(${blogBanner})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -1115,16 +1115,17 @@ export default function Infozest({ setActiveTab }) {
             style={{
               fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)',
               color: '#FFFFFF',
-              fontWeight: 400,
-              letterSpacing: '-0.04em',
+              fontWeight: 600,
+              letterSpacing: '-0.02em',
               lineHeight: 1.25,
               margin: '0 auto',
               maxWidth: '1050px',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              textShadow: '0 2px 14px rgba(0, 0, 0, 0.8), 0 1px 4px rgba(0, 0, 0, 0.9)'
             }}
           >
             CHECKOUT OUR BLOG POSTS FOR ESSENTIAL<br />
-            INFORMATION ON <span style={{ color: 'var(--color-aqua, #00B5E2)', fontWeight: 400 }}>GEOSPATIAL INTELLIGENCE'</span>
+            INFORMATION ON <span style={{ color: 'var(--color-aqua, #00B5E2)', fontWeight: 600, textShadow: '0 2px 14px rgba(0, 0, 0, 0.8)' }}>GEOSPATIAL INTELLIGENCE'</span>
           </h1>
         </div>
       </section>
