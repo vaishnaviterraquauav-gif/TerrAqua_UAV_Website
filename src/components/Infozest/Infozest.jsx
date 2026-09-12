@@ -3,6 +3,7 @@ import blogBanner from '../../assets/blog-banner.png'
 import mapzestAppCard from '../../assets/mapzest_app_card.png'
 import nttDataLaunch from '../../assets/ntt_data_launch.png'
 import operationDronagiri from '../../assets/operation_dronagiri.jpg'
+import unlockingWebGis from '../../assets/unlocking_web_gis.png'
 import {
   Heart,
   Share2,
@@ -67,7 +68,7 @@ export default function Infozest({ setActiveTab }) {
       views: 12,
       comments: 0,
       initialLikes: 1,
-      imgUrl: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800',
+      imgUrl: unlockingWebGis,
       content: {
         intro: "In a world where location data drives critical decisions, Web GIS platforms have become essential tools across industries. From managing natural resources to responding to disasters, the ability to access, analyze, and act on spatial information in real time shapes outcomes and saves lives. TerrAqua UAV understands this need deeply. That’s why we developed Mapzest, a comprehensive ecosystem of seven specialized platforms designed to harness the full potential of geospatial technology. This blog explores why Web GIS matters today and how Mapzest empowers organizations to work smarter with location data.",
         sections: [
