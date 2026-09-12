@@ -13,6 +13,7 @@ import newsSlide4 from '../../assets/news_slide_4.jpg'
 import newsSlide5 from '../../assets/news_slide_5.jpg'
 import newsSlide6 from '../../assets/news_slide_6.jpg'
 import launchEventPoster from '../../assets/launch_event_poster.png'
+import citiSocialInnovationLab from '../../assets/citi_social_innovation_lab.png'
 import {
   Heart,
   Share2,
@@ -278,19 +279,7 @@ export default function Infozest({ setActiveTab }) {
       views: 28,
       comments: 0,
       initialLikes: 11,
-      customImage: (
-        <div style={{ background: '#0A1D3D', padding: '16px', height: '220px', borderBottom: '1px solid rgba(0,181,226,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#00B5E2' }}>CITI FOUNDATION</span>
-            <span style={{ background: '#00B5E2', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>SIL 3.0</span>
-          </div>
-          <div style={{ background: 'rgba(255,255,255,0.06)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 700, margin: 0 }}>Social Innovation Lab 3.0</h4>
-            <span style={{ fontSize: '0.68rem', color: '#FF7A29', fontWeight: 600 }}>Agritech Early-Stage Cohort Winner</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>Scaling Drone Agritech for Smallholder Farmers</span>
-        </div>
-      ),
+      imgUrl: citiSocialInnovationLab,
       content: {
         intro: "We’re thrilled to announce that TerrAqua UAV has been selected for the Cohort of Social Innovation Lab 3.0 by Citi under the Early-Stage Agritech Domain!",
         sections: [
