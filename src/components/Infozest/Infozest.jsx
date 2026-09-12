@@ -4,6 +4,7 @@ import mapzestAppCard from '../../assets/mapzest_app_card.png'
 import nttDataLaunch from '../../assets/ntt_data_launch.png'
 import operationDronagiri from '../../assets/operation_dronagiri.jpg'
 import unlockingWebGis from '../../assets/unlocking_web_gis.png'
+import aseanScalehubBali from '../../assets/asean_scalehub_bali.png'
 import {
   Heart,
   Share2,
@@ -116,7 +117,7 @@ export default function Infozest({ setActiveTab }) {
       views: 9,
       comments: 0,
       initialLikes: 7,
-      imgUrl: 'https://static.wixstatic.com/media/9a5348_6fbe26fbf343442e8fb1108714126497~mv2.jpg/v1/fill/w_454,h_454,fp_0.50_0.50,q_90,enc_avif,quality_auto/9a5348_6fbe26fbf343442e8fb1108714126497~mv2.webp',
+      imgUrl: aseanScalehubBali,
       content: {
         intro: "Exciting times for TerrAqua UAV! Our co-founder and director is proudly representing us at the ASEAN ScaleHub 2025 in Bali.",
         sections: [
@@ -956,13 +957,24 @@ export default function Infozest({ setActiveTab }) {
             overflow: 'hidden',
             marginBottom: '40px',
             boxShadow: '0 16px 40px rgba(15, 23, 42, 0.08)',
-            border: '1px solid #E2E8F0'
+            border: '1px solid #E2E8F0',
+            backgroundColor: '#F8FAFC',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}>
             {selectedPost.imgUrl ? (
               <img
                 src={selectedPost.imgUrl}
                 alt={selectedPost.title}
-                style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '650px',
+                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto'
+                }}
               />
             ) : (
               selectedPost.customImage
