@@ -12,6 +12,7 @@ import newsSlide3 from '../../assets/news_slide_3.png'
 import newsSlide4 from '../../assets/news_slide_4.jpg'
 import newsSlide5 from '../../assets/news_slide_5.jpg'
 import newsSlide6 from '../../assets/news_slide_6.jpg'
+import launchEventPoster from '../../assets/launch_event_poster.png'
 import {
   Heart,
   Share2,
@@ -223,21 +224,7 @@ export default function Infozest({ setActiveTab }) {
       views: 18,
       comments: 0,
       initialLikes: 5,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #0A1D3D 0%, #12324D 100%)', padding: '16px', height: '220px', borderBottom: '1px solid rgba(0,181,226,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#00B5E2' }}>TERRAQUA UAV</span>
-            <span style={{ background: '#FF6A00', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>OFFICIAL LAUNCH</span>
-          </div>
-          <div style={{ background: 'rgba(0,0,0,0.4)', padding: '12px', borderRadius: '10px', border: '1px solid rgba(0,181,226,0.3)', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.9rem', color: '#FFFFFF', fontWeight: 700, margin: '0 0 4px 0' }}>
-              Flood Disaster Response System
-            </h4>
-            <span style={{ fontSize: '0.68rem', color: '#8BADC1' }}>Using Drone & Satellite Remote Sensing Technology</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>Date: May 3, 2025 • SIIC IIT Kanpur</span>
-        </div>
-      ),
+      imgUrl: launchEventPoster,
       content: {
         intro: "Team TerrAqua UAV is honored to present the official launch of our Flood Disaster Response System—an advanced solution engineered in‐house, made possible through NTT DATA’s CSR grant and facilitated by SIIC, IIT Kanpur. We look forward to welcoming our distinguished guests and partners on May 3, 2025, as we unveil this milestone in humanitarian technology. Stay tuned for live coverage throughout the day as we embark on this transformative journey together.",
         sections: []
