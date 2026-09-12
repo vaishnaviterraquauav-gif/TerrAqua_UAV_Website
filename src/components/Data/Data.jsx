@@ -4,11 +4,11 @@ import { Sparkles, ArrowRight, Layers, Database, BarChart3, ShieldCheck } from '
 import data1Img from '../../assets/data1.png'
 import dataafterImg from '../../assets/dataafter.png'
 import flood1Img from '../../assets/flood1.png'
-import floodafterImg from '../../assets/floodafter.png'
+import floodafterImg from '../../assets/afterflood.png'
 import soil1Img from '../../assets/soil1.png'
 import soilafterImg from '../../assets/soilafter.png'
-import thermalBeforeImg from '../../assets/thermal_before.png'
-import thermalAfterImg from '../../assets/thermal_after.png'
+import cirBeforeImg from '../../assets/cir_before.jpg'
+import cirAfterImg from '../../assets/cir_after.jpg'
 
 function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
   const [sliderPos, setSliderPos] = useState(initialPos)
@@ -220,23 +220,23 @@ export default function Data({ setActiveTab }) {
       id: 3,
       beforeImg: flood1Img,
       afterImg: floodafterImg,
-      beforeLabel: "Pre-Event Baseline (Optical)",
-      afterLabel: "Flood Inundation Extent (SAR / Hydro)",
-      caption: "Disaster Response & Hydro Analytics: Pre-event optical satellite baseline (left) vs radar-based flood inundation and water spread analytics (right)",
+      beforeLabel: "Pre-Event Hydro Baseline (SAR)",
+      afterLabel: "Flood Inundation & Moisture Spread",
+      caption: "Disaster Response & Hydro Analytics: Pre-event radar river network baseline (left) vs multi-temporal flood inundation and surface water spread (right)",
       title: "DISASTER ASSESSMENT & FLOOD INUNDATION MAPPING",
-      description: "Near real-time satellite radar and multi-sensor change detection to delineate flood boundaries, calculate inundated acreage, and pinpoint impacted infrastructure for rapid emergency relief.",
-      initialPos: 46,
-      imagePosition: "center top"
+      description: "Near real-time satellite radar and multi-sensor change detection to delineate river floodplains, calculate inundated acreage, and pinpoint impacted infrastructure for rapid emergency response.",
+      initialPos: 48,
+      imagePosition: "center"
     },
     {
       id: 4,
-      beforeImg: thermalBeforeImg,
-      afterImg: thermalAfterImg,
+      beforeImg: cirBeforeImg,
+      afterImg: cirAfterImg,
       beforeLabel: "True-Color Optical (RGB)",
-      afterLabel: "Radiometric Thermal Thermography",
-      caption: "Urban Microclimate & Thermal Comfort: High-resolution RGB drone capture (left) vs radiometric thermal infrared thermography showing tree canopy cooling and surface heat distribution (right)",
-      title: "THERMAL RADIOMETRIC & CANOPY COOLING FEEDS",
-      description: "High-resolution long-wave infrared (LWIR) thermography and aerial thermal imaging to quantify tree canopy microclimate cooling, urban heat islands (UHI), and surface temperature gradients for sustainable environmental planning.",
+      afterLabel: "Color-Infrared (CIR / NIR)",
+      caption: "Multispectral Remote Sensing: High-resolution true-color RGB optical capture (left) vs Color-Infrared (CIR) false-color composite isolating vegetative canopy vigor and urban density (right)",
+      title: "COLOR-INFRARED (CIR) & VEGETATION CANOPY FEEDS",
+      description: "Multi-band satellite and aerial Near-Infrared (NIR) band synthesis to distinguish live vegetative biomass, crop canopy health, and urban impervious surfaces with high spectral discrimination.",
       initialPos: 50,
       imagePosition: "center"
     }
