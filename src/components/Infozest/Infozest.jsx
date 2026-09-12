@@ -6,6 +6,12 @@ import operationDronagiri from '../../assets/operation_dronagiri.jpg'
 import unlockingWebGis from '../../assets/unlocking_web_gis.png'
 import aseanScalehubBali from '../../assets/asean_scalehub_bali.png'
 import newspaperFloodResponse from '../../assets/newspaper_flood_response.jpg'
+import newsSlide1 from '../../assets/news_slide_1.jpg'
+import newsSlide2 from '../../assets/news_slide_2.jpg'
+import newsSlide3 from '../../assets/news_slide_3.png'
+import newsSlide4 from '../../assets/news_slide_4.jpg'
+import newsSlide5 from '../../assets/news_slide_5.jpg'
+import newsSlide6 from '../../assets/news_slide_6.jpg'
 import {
   Heart,
   Share2,
@@ -23,6 +29,7 @@ import {
 export default function Infozest({ setActiveTab }) {
   const [selectedPost, setSelectedPost] = useState(null)
   const [likes, setLikes] = useState({})
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
 
   const blogPosts = [
     // 1. MapZest Mobile App
@@ -148,6 +155,14 @@ export default function Infozest({ setActiveTab }) {
       comments: 0,
       initialLikes: 4,
       imgUrl: newspaperFloodResponse,
+      slides: [
+        { img: newsSlide1, title: 'Amar Ujala (Page 05 - 04-05-2025)' },
+        { img: newsSlide2, title: 'AAJ (Page 11 - 04-05-2025)' },
+        { img: newsSlide3, title: 'Rashtriya Sahara / Mahanagar Kanpur (Page 05 - 05-05-2025)' },
+        { img: newsSlide4, title: 'NBT Pradesh / Amrit Vichar (04-05-2025)' },
+        { img: newsSlide5, title: 'Dainik Jagran I-Next & Times of India (04-05-2025 / 05-05-2025)' },
+        { img: newsSlide6, title: 'Swatantra Hit & Dainik Jagran (05-05-2025 / 04-05-2025)' }
+      ],
       content: {
         intro: "We are honored to share that our work at TerrAqua UAV has been featured in multiple newspapers.",
         sections: [
@@ -751,6 +766,7 @@ export default function Infozest({ setActiveTab }) {
 
   const handleOpenPost = (post) => {
     setSelectedPost(post)
+    setCurrentSlideIndex(0)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -938,31 +954,179 @@ export default function Infozest({ setActiveTab }) {
             </div>
           </div>
 
-          {/* ARTICLE BANNER / VISUAL */}
-          <div style={{
-            marginBottom: '40px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            {selectedPost.imgUrl ? (
-              <img
-                src={selectedPost.imgUrl}
-                alt={selectedPost.title}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                  borderRadius: '16px',
-                  display: 'block',
-                  margin: '0 auto'
-                }}
-              />
-            ) : (
-              <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
-                {selectedPost.customImage}
+          {/* ARTICLE BANNER / VISUAL / SLIDER */}
+          {selectedPost.slides && selectedPost.slides.length > 0 ? (
+            <div style={{ marginBottom: '40px' }}>
+              <div style={{
+                position: 'relative',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: '0 8px 30px rgba(15, 23, 42, 0.06)',
+                border: '1px solid #E2E8F0',
+                backgroundColor: '#FFFFFF',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}>
+                {/* Main Slide Image */}
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '350px', background: '#FAFAFA', padding: '10px 0' }}>
+                  <img
+                    src={selectedPost.slides[currentSlideIndex].img}
+                    alt={selectedPost.slides[currentSlideIndex].title || selectedPost.title}
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                      maxHeight: '750px',
+                      objectFit: 'contain',
+                      display: 'block',
+                      margin: '0 auto',
+                      borderRadius: '8px',
+                      transition: 'all 0.3s ease'
+                    }}
+                  />
+                </div>
+
+                {/* Slider Controls Bar */}
+                <div style={{
+                  width: '100%',
+                  padding: '14px 20px',
+                  backgroundColor: '#FFFFFF',
+                  borderTop: '1px solid #F1F5F9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px'
+                }}>
+                  {/* Previous / Next Buttons */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <button
+                      onClick={() => setCurrentSlideIndex(prev => (prev === 0 ? selectedPost.slides.length - 1 : prev - 1))}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '8px',
+                        border: '1px solid #CBD5E1',
+                        background: '#F8FAFC',
+                        color: '#0F172A',
+                        fontWeight: 600,
+                        fontSize: '0.85rem',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = '#FF6A00'
+                        e.currentTarget.style.color = '#FFF'
+                        e.currentTarget.style.borderColor = '#FF6A00'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = '#F8FAFC'
+                        e.currentTarget.style.color = '#0F172A'
+                        e.currentTarget.style.borderColor = '#CBD5E1'
+                      }}
+                    >
+                      <ArrowLeft size={16} /> Prev
+                    </button>
+
+                    <button
+                      onClick={() => setCurrentSlideIndex(prev => (prev === selectedPost.slides.length - 1 ? 0 : prev + 1))}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '8px',
+                        border: '1px solid #CBD5E1',
+                        background: '#F8FAFC',
+                        color: '#0F172A',
+                        fontWeight: 600,
+                        fontSize: '0.85rem',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = '#FF6A00'
+                        e.currentTarget.style.color = '#FFF'
+                        e.currentTarget.style.borderColor = '#FF6A00'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = '#F8FAFC'
+                        e.currentTarget.style.color = '#0F172A'
+                        e.currentTarget.style.borderColor = '#CBD5E1'
+                      }}
+                    >
+                      Next <ArrowRight size={16} />
+                    </button>
+                  </div>
+
+                  {/* Slide Name & Counter Pill */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#475569', fontWeight: 600 }}>
+                      {selectedPost.slides[currentSlideIndex].title}
+                    </span>
+                    <span style={{
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      background: 'rgba(0, 181, 226, 0.12)',
+                      color: '#0084A8',
+                      padding: '3px 10px',
+                      borderRadius: '12px'
+                    }}>
+                      {currentSlideIndex + 1} / {selectedPost.slides.length}
+                    </span>
+                  </div>
+
+                  {/* Dot Indicators */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    {selectedPost.slides.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setCurrentSlideIndex(dotIdx)}
+                        style={{
+                          width: currentSlideIndex === dotIdx ? '22px' : '8px',
+                          height: '8px',
+                          borderRadius: '4px',
+                          backgroundColor: currentSlideIndex === dotIdx ? '#FF6A00' : '#CBD5E1',
+                          border: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.25s ease',
+                          padding: 0
+                        }}
+                        title={`Go to slide ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div style={{
+              marginBottom: '40px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              {selectedPost.imgUrl ? (
+                <img
+                  src={selectedPost.imgUrl}
+                  alt={selectedPost.title}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    borderRadius: '16px',
+                    display: 'block',
+                    margin: '0 auto'
+                  }}
+                />
+              ) : (
+                <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
+                  {selectedPost.customImage}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* ARTICLE CONTENT BODY */}
           <div style={{
