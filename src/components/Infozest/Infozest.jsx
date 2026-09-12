@@ -14,6 +14,7 @@ import newsSlide5 from '../../assets/news_slide_5.jpg'
 import newsSlide6 from '../../assets/news_slide_6.jpg'
 import launchEventPoster from '../../assets/launch_event_poster.png'
 import citiSocialInnovationLab from '../../assets/citi_social_innovation_lab.png'
+import fieldworkChronicles from '../../assets/fieldwork_chronicles.png'
 import {
   Heart,
   Share2,
@@ -311,19 +312,7 @@ export default function Infozest({ setActiveTab }) {
       views: 19,
       comments: 0,
       initialLikes: 8,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)', padding: '16px', height: '220px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#00B5E2' }}>TERRAQUA UAV</span>
-            <span style={{ background: '#FF7A29', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>FIELD EXPEDITION</span>
-          </div>
-          <div style={{ background: 'rgba(255,255,255,0.06)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 800, margin: 0 }}>FIELDWORK CHRONICLES</h4>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>High-Precision Aerial Survey Missions</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>50,000+ Hectares Mapped Pan-India</span>
-        </div>
-      ),
+      imgUrl: fieldworkChronicles,
       content: {
         intro: "At TerrAqua UAV, fieldwork goes beyond data collection—it’s about understanding landscapes, communities, and the challenges they face. From UAV-based surveys in remote areas to tracking environmental changes, every project offers new insights and opportunities for real-world impact.",
         sections: [
