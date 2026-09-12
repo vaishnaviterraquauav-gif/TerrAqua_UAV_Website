@@ -16,6 +16,8 @@ import launchEventPoster from '../../assets/launch_event_poster.png'
 import citiSocialInnovationLab from '../../assets/citi_social_innovation_lab.png'
 import fieldworkChronicles from '../../assets/fieldwork_chronicles.png'
 import pichavaramMangrove from '../../assets/pichavaram_mangrove.png'
+import abhivyakti25 from '../../assets/abhivyakti_25.png'
+import aseanStartupFestival2024 from '../../assets/asean_startup_festival_2024.png'
 import {
   Heart,
   Share2,
@@ -362,7 +364,7 @@ export default function Infozest({ setActiveTab }) {
       views: 16,
       comments: 0,
       initialLikes: 6,
-      imgUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800',
+      imgUrl: abhivyakti25,
       content: {
         intro: "Being part of #Abhivyakti'25 at IIT Kanpur was an incredible experience for Team TerrAqua UAV. It was an honor to showcase our advanced geospatial technologies aimed at building a sustainable future.",
         sections: [
@@ -403,19 +405,7 @@ export default function Infozest({ setActiveTab }) {
       views: 14,
       comments: 0,
       initialLikes: 5,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)', padding: '16px', height: '220px', borderBottom: '1px solid rgba(139,92,246,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#a78bfa' }}>ASEAN STARTUP FESTIVAL</span>
-            <span style={{ background: '#8B5CF6', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>CLOSING CEREMONY</span>
-          </div>
-          <div style={{ background: 'rgba(0,0,0,0.4)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 700, margin: 0 }}>International Collaboration & Scale</h4>
-            <span style={{ fontSize: '0.68rem', color: '#c4b5fd' }}>Deep-Tech Cross-Border Innovation</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#94a3b8' }}>Representing Indian Geospatial Leadership</span>
-        </div>
-      ),
+      imgUrl: aseanStartupFestival2024,
       content: {
         intro: "We wrapped up a wonderful experience at the ASEAN Startup Festival 2024, feeling grateful for the meaningful connections, insights, and inspiration we gained over the past few days.",
         sections: [
