@@ -1088,20 +1088,20 @@ export default function Infozest({ setActiveTab }) {
                 </div>
               ))}
 
-              {/* CALL TO ACTION BOX */}
+              {/* CALL TO ACTION BOX (LIGHT THEME) */}
               <div style={{
-                marginTop: '32px',
-                background: 'linear-gradient(135deg, #0A1D3D 0%, #050F24 100%)',
+                marginTop: '36px',
+                background: 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
                 borderRadius: '20px',
-                padding: '36px 32px',
-                color: '#FFFFFF',
+                padding: '38px 32px',
                 textAlign: 'center',
-                border: '1px solid rgba(0, 181, 226, 0.2)'
+                border: '1px solid #E2E8F0',
+                boxShadow: '0 8px 30px rgba(15, 23, 42, 0.03)'
               }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '12px' }}>
-                  Ready to transform your operations with <span style={{ color: '#FF7A29' }}>TerrAqua UAV</span>?
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0A1D3D', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+                  Ready to transform your operations with <span style={{ color: '#FF6A00' }}>TerrAqua UAV</span>?
                 </h3>
-                <p style={{ color: '#94A3B8', fontSize: '0.95rem', maxWidth: '560px', margin: '0 auto 24px', lineHeight: '1.6' }}>
+                <p style={{ color: '#475569', fontSize: '0.96rem', maxWidth: '580px', margin: '0 auto 24px', lineHeight: '1.65' }}>
                   Connect with our GIS and remote sensing specialists for custom UAV deployments, WebGIS analytics, and proof-of-concept demonstrations.
                 </p>
                 <button
@@ -1115,7 +1115,9 @@ export default function Infozest({ setActiveTab }) {
                     fontSize: '0.95rem',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px'
+                    gap: '8px',
+                    borderRadius: '24px',
+                    boxShadow: '0 6px 20px rgba(255, 106, 0, 0.25)'
                   }}
                 >
                   Contact Our Specialists <ArrowRight size={16} />
