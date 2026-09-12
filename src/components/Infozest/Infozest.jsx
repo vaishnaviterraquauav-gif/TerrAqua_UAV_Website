@@ -953,12 +953,7 @@ export default function Infozest({ setActiveTab }) {
 
           {/* ARTICLE BANNER / VISUAL */}
           <div style={{
-            borderRadius: '20px',
-            overflow: 'hidden',
             marginBottom: '40px',
-            boxShadow: '0 16px 40px rgba(15, 23, 42, 0.08)',
-            border: '1px solid #E2E8F0',
-            backgroundColor: '#F8FAFC',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -968,16 +963,17 @@ export default function Infozest({ setActiveTab }) {
                 src={selectedPost.imgUrl}
                 alt={selectedPost.title}
                 style={{
-                  width: '100%',
+                  maxWidth: '100%',
                   height: 'auto',
-                  maxHeight: '650px',
-                  objectFit: 'contain',
+                  borderRadius: '16px',
                   display: 'block',
                   margin: '0 auto'
                 }}
               />
             ) : (
-              selectedPost.customImage
+              <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
+                {selectedPost.customImage}
+              </div>
             )}
           </div>
 
