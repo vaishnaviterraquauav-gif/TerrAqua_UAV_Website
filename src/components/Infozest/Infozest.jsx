@@ -18,6 +18,10 @@ import fieldworkChronicles from '../../assets/fieldwork_chronicles.png'
 import pichavaramMangrove from '../../assets/pichavaram_mangrove.png'
 import abhivyakti25 from '../../assets/abhivyakti_25.png'
 import aseanStartupFestival2024 from '../../assets/asean_startup_festival_2024.png'
+import dainikJagranFeature from '../../assets/dainik_jagran_feature.jpg'
+import aseanHandshake2024 from '../../assets/asean_handshake_2024.jpg'
+import aboutTerraquaPoster from '../../assets/about_terraqua_poster.png'
+import handsOnProcuredDrone from '../../assets/hands_on_procured_drone.png'
 import {
   Heart,
   Share2,
@@ -434,19 +438,7 @@ export default function Infozest({ setActiveTab }) {
       views: 22,
       comments: 0,
       initialLikes: 8,
-      customImage: (
-        <div style={{ background: '#1e293b', padding: '16px', height: '220px', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FF7A29' }}>DAINIK JAGRAN</span>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>PRINT MEDIA</span>
-          </div>
-          <div style={{ background: '#FFFFFF', padding: '10px', borderRadius: '8px', color: '#000000' }}>
-            <h4 style={{ fontSize: '0.86rem', fontWeight: 800, margin: 0 }}>आईआईटी के शिक्षक-छात्रों ने बनाई कंपनी</h4>
-            <span style={{ fontSize: '0.68rem', color: '#475569' }}>बाढ़ प्रबंधन व ड्रोन से सटीक सर्वे की नई तकनीक</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>Faculty Entrepreneurship Feature</span>
-        </div>
-      ),
+      imgUrl: dainikJagranFeature,
       content: {
         intro: "Excited to share that Terraqua UAV was featured in today’s Dainik Jagran!",
         sections: [
@@ -475,7 +467,7 @@ export default function Infozest({ setActiveTab }) {
       views: 17,
       comments: 0,
       initialLikes: 6,
-      imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
+      imgUrl: aseanHandshake2024,
       content: {
         intro: "Thank You for the Warm Reception!",
         sections: [
@@ -498,19 +490,7 @@ export default function Infozest({ setActiveTab }) {
       views: 45,
       comments: 0,
       initialLikes: 18,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #0A1D3D 0%, #050F24 100%)', padding: '16px', height: '220px', borderBottom: '1px solid rgba(0,181,226,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#00B5E2' }}>TERRAQUA UAV</span>
-            <span style={{ fontSize: '0.68rem', color: '#FF7A29', fontWeight: 700 }}>IIT KANPUR</span>
-          </div>
-          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.9rem', color: '#FFFFFF', fontWeight: 700, margin: '0 0 4px 0' }}>Our Vision & Mission</h4>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>Pioneering Global Geospatial Intelligence</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>DaaS • DPaaS • SaaS • AI Geospatial</span>
-        </div>
-      ),
+      imgUrl: aboutTerraquaPoster,
       content: {
         intro: "TerrAqua UAV was Founded by Prof. Rajiv Sinha and researchers of Indian Institute of Technology, Kanpur and incubated at Startup Incubation and Innovation Centre, IIT Kanpur (incubatoriitk).",
         sections: [
@@ -545,19 +525,7 @@ export default function Infozest({ setActiveTab }) {
       views: 31,
       comments: 0,
       initialLikes: 12,
-      customImage: (
-        <div style={{ background: '#1e293b', padding: '16px', height: '220px', borderBottom: '1px solid rgba(0,181,226,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#00B5E2' }}>DRONE FLEET EXPANSION</span>
-            <span style={{ background: '#FF6A00', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>NEW PROCUREMENT</span>
-          </div>
-          <div style={{ background: 'rgba(0,0,0,0.4)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 800, margin: 0 }}>Hands-On With Newly Procured Drone</h4>
-            <span style={{ fontSize: '0.68rem', color: '#94A3B8' }}>PPK-Enabled Drone Fleet Upgrade</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600 }}>DGCA-Certified • TAS Partnership</span>
-        </div>
-      ),
+      imgUrl: handsOnProcuredDrone,
       content: {
         intro: "At Terraqua UAV, innovation and excellence fuel our journey toward new possibilities.",
         sections: [
