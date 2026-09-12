@@ -15,6 +15,7 @@ import newsSlide6 from '../../assets/news_slide_6.jpg'
 import launchEventPoster from '../../assets/launch_event_poster.png'
 import citiSocialInnovationLab from '../../assets/citi_social_innovation_lab.png'
 import fieldworkChronicles from '../../assets/fieldwork_chronicles.png'
+import pichavaramMangrove from '../../assets/pichavaram_mangrove.png'
 import {
   Heart,
   Share2,
@@ -335,19 +336,7 @@ export default function Infozest({ setActiveTab }) {
       views: 24,
       comments: 0,
       initialLikes: 9,
-      customImage: (
-        <div style={{ background: 'linear-gradient(135deg, #052e16 0%, #064e3b 100%)', padding: '16px', height: '220px', borderBottom: '1px solid rgba(16,185,129,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#34d399' }}>PICHAVARAM MANGROVE</span>
-            <span style={{ background: '#10B981', color: '#FFF', fontSize: '0.65rem', padding: '3px 8px', borderRadius: '10px', fontWeight: 700 }}>GEO-SPATIAL INSIGHTS</span>
-          </div>
-          <div style={{ background: 'rgba(0,0,0,0.4)', padding: '12px', borderRadius: '10px', textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 700, margin: 0 }}>Mangrove Canopy & Tidal Dynamics</h4>
-            <span style={{ fontSize: '0.68rem', color: '#6ee7b7' }}>Multispectral Wetland Health Audit</span>
-          </div>
-          <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>1,100+ Hectares Ecosystem Conservation</span>
-        </div>
-      ),
+      imgUrl: pichavaramMangrove,
       content: {
         intro: "The Pichavaram Mangrove Forest, near Chidambaram Town, is a breathtaking ecosystem teeming with life. Spread across 1,100 hectares, this lush green paradise is home to exotic birds, fish, and even playful otter.",
         sections: [
