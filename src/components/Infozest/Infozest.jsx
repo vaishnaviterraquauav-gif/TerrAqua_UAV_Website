@@ -22,6 +22,8 @@ import dainikJagranFeature from '../../assets/dainik_jagran_feature.jpg'
 import aseanHandshake2024 from '../../assets/asean_handshake_2024.jpg'
 import aboutTerraquaPoster from '../../assets/about_terraqua_poster.png'
 import handsOnProcuredDrone from '../../assets/hands_on_procured_drone.png'
+import riverBasinMapping from '../../assets/river_basin_mapping.jpg'
+import droneApplicationsBanner from '../../assets/drone_applications_banner.jpg'
 import {
   Heart,
   Share2,
@@ -551,38 +553,7 @@ export default function Infozest({ setActiveTab }) {
       views: 8,
       comments: 0,
       initialLikes: 1,
-      customImage: (
-        <div style={{ background: 'linear-gradient(180deg, #E2E8F0 0%, #CBD5E1 100%)', padding: '12px 14px', height: '220px', borderBottom: '1px solid rgba(0,181,226,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ textAlign: 'center' }}>
-            <h4 style={{ fontSize: '0.82rem', color: '#0A1D3D', fontWeight: 900, textTransform: 'uppercase', margin: '0 0 8px 0', letterSpacing: '0.5px' }}>
-              River basin mapping and management
-            </h4>
-            {/* 4 Circular Icons Row */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '8px' }}>
-              {['🛰️', '🚁', '🗺️', '💻'].map((icon, i) => (
-                <div key={i} style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#00B5E2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', border: '1.5px solid #0A1D3D', boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}>
-                  {icon}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* River Bend Satellite Image Box */}
-          <div style={{ height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1.5px solid #0A1D3D', background: '#0A1D3D', margin: '0 4px' }}>
-            <img
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
-              alt="River Meander Bend"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </div>
-
-          {/* Footer Bar */}
-          <div style={{ background: '#334155', color: '#FFFFFF', padding: '3px 8px', borderRadius: '4px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.58rem', fontWeight: 600 }}>
-            <span>🌐 www.terraquauav.com</span>
-            <span>📞 +91 7985791218</span>
-          </div>
-        </div>
-      ),
+      imgUrl: riverBasinMapping,
       content: {
         intro: "Because they supply water, transit, and recreational possibilities, rivers are essential lifelines for our communities. Effective management of our rivers is vital, especially in light of the challenges posed by pollution, flooding, and human activity. Numerous rivers are degrading as a result of activities like sand mining, urbanization, and industrial runoff that disrupt ecosystems and lower water quality. However, high-resolution remote sensing information from satellites and unmanned aerial vehicles (UAVs) revolutionizes the way these issues are addressed!",
         sections: [
@@ -620,34 +591,7 @@ export default function Infozest({ setActiveTab }) {
       views: 3,
       comments: 0,
       initialLikes: 1,
-      customImage: (
-        <div style={{
-          position: 'relative',
-          height: '220px',
-          overflow: 'hidden',
-          background: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          padding: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          borderBottom: '1px solid rgba(255,255,255,0.1)'
-        }}>
-          {/* Framed Graphic Box */}
-          <div style={{ border: '2px solid rgba(255,255,255,0.85)', padding: '12px 16px', borderRadius: '4px', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(4px)', maxWidth: '90%' }}>
-            <h4 style={{ fontSize: '0.85rem', color: '#FFFFFF', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.3, margin: '0 0 6px 0', letterSpacing: '0.5px' }}>
-              THE SKY'S THE LIMIT:<br />
-              EXPLORING THE MANY APPLICATIONS OF DRONES
-            </h4>
-            <span style={{ fontSize: '0.62rem', color: '#E2E8F0', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 600 }}>
-              POWERED BY INNOVATION WITH DRONE: 3D SURVEY, FLIGHT GIS
-            </span>
-          </div>
-        </div>
-      ),
+      imgUrl: droneApplicationsBanner,
       content: {
         intro: "Drones have a wide range of applications across various industries, some of which are:",
         sections: [
