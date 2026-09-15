@@ -207,7 +207,7 @@ export default function DualComparisonSlider({ setActiveTab }) {
             letterSpacing: '-0.04em',
             lineHeight: 1.2
           }}>
-            Transforming Multi-Sensor Data into <span style={{ color: 'var(--color-orange)' }}>Actionable Information</span>
+            Turning Multi-Sensor Data into <span style={{ color: 'var(--color-orange)' }}>Insights for Real-World Applications</span>
           </h2>
         </div>
 
@@ -218,28 +218,28 @@ export default function DualComparisonSlider({ setActiveTab }) {
           gap: 'clamp(20px, 4vw, 32px)',
           width: '100%'
         }}>
-          {/* Card 1: Tasking as a Service – Data */}
+          {/* Card 1: Multi-Sensor Data Acquisition */}
           <ComparisonCard
             beforeImg={pointCloudRawImg}
             afterImg={pointCloudAfterImg}
             beforeLabel="3D RGB Point Cloud"
             afterLabel="3D LiDAR Elevation (DSM)"
             caption="3D Geospatial Capture: True-color dense point cloud (left) vs height-classified LiDAR elevation model / DSM (right)"
-            title="TASKING AS A SERVICE – DATA"
-            description="Direct access to drone & LiDAR sensor tasking to capture high-density 3D point clouds, digital surface models (DSM), and elevation analytics in near real-time with sub-centimeter spatial accuracy across complex terrains."
+            title="MULTI-SENSOR DATA ACQUISITION"
+            description="Capture high-resolution data using drones, LiDAR, and other sensors to create detailed 3D point clouds, surface models, elevation data, and terrain information."
             initialPos={50}
             imagePosition="center"
           />
 
-          {/* Card 2: Information as a Service – Feeds */}
+          {/* Card 2: DATA PROCESSING & SPATIAL INSIGHTS */}
           <ComparisonCard
             beforeImg={beforeVegImg}
             afterImg={afterVegImg}
             beforeLabel="Raw Optical (RGB)"
             afterLabel="Multispectral NDVI"
             caption="True-color raw spatial stream (left) vs MapZest multispectral NDVI crop health & vegetation stress analytics (right)"
-            title="INFORMATION AS A SERVICE – FEEDS"
-            description="Transform raw multi-spectral and optical drone/satellite data into real-time crop vigor indices (NDVI), canopy stress detection, and actionable agricultural intelligence through MapZest WebGIS platform."
+            title="DATA PROCESSING & SPATIAL INSIGHTS"
+            description="Combine and analyze drone and satellite data to generate useful information such as crop health, vegetation conditions, environmental changes, and other location-based insights."
             initialPos={52}
             imagePosition="center 18%"
           />

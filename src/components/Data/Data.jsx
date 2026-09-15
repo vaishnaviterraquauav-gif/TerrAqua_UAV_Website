@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react'
-import { Sparkles, ArrowRight, Layers, Database, BarChart3, ShieldCheck } from 'lucide-react'
+import { Sparkles, ArrowRight, Layers, Database, BarChart3, ShieldCheck, CheckCircle2, Plane, Satellite, Wifi, Cpu } from 'lucide-react'
 
 import data1Img from '../../assets/data1.png'
 import dataafterImg from '../../assets/dataafter.png'
@@ -242,6 +242,66 @@ export default function Data({ setActiveTab }) {
     }
   ]
 
+  const dataStreams = [
+    {
+      id: 'drone-uav',
+      badge: "AERIAL UAV SURVEYS",
+      title: "Drone & UAV Data Acquisition",
+      subtitle: "Centimeter-Precision Airborne Remote Sensing",
+      desc: "Deploy state-of-the-art multi-rotor and fixed-wing UAVs equipped with survey-grade LiDAR, 45MP photogrammetric sensors, and multispectral payloads. We capture centimeter-accurate elevation models, dense 3D point clouds, and high-resolution orthomosaics across complex agricultural, urban, and industrial terrains.",
+      img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1200&auto=format&fit=crop",
+      features: [
+        "Sub-Centimeter Ground Sampling Distance (GSD)",
+        "Penetrative LiDAR Scanning for Dense Canopies & Elevation",
+        "Calibrated Multispectral & Thermal Health Analytics",
+        "Autonomous Flight Tasking & Fast Turnaround Times"
+      ],
+      stats: [
+        { label: "Spatial Resolution", value: "Sub-Centimeter" },
+        { label: "Sensor Modalities", value: "LiDAR / RGB / MS / Thermal" },
+        { label: "Daily Flight Capacity", value: "2,500+ Hectares" }
+      ]
+    },
+    {
+      id: 'satellite-sensing',
+      badge: "PLANETARY EARTH OBSERVATION",
+      title: "Satellite Remote Sensing Feeds",
+      subtitle: "Constellation-Scale Multi-Temporal Monitoring",
+      desc: "Harness global optical, Synthetic Aperture Radar (SAR), and hyperspectral satellite constellations to deliver macro-level environmental monitoring, multi-temporal change detection, and all-weather emergency response mapping across regional and national geographic scales.",
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+      features: [
+        "All-Weather Day/Night SAR Radar Flood & Water Inundation",
+        "High-Cadence Optical Constellations (0.3m – 10m Resolution)",
+        "Multi-Decadal Historical Archives for Climate Trend Analysis",
+        "Continental-Scale Land Cover & Agronomic Vigor Rasters"
+      ],
+      stats: [
+        { label: "Revisit Cadence", value: "Near Daily" },
+        { label: "Coverage Scale", value: "Regional to Global" },
+        { label: "All-Weather SAR", value: "Day / Night Radar" }
+      ]
+    },
+    {
+      id: 'iot-sensors',
+      badge: "CONNECTED GROUND TELEMETRY",
+      title: "IoT & Ground-Truth Sensor Networks",
+      subtitle: "Edge-to-Cloud Real-Time In-Situ Telemetry",
+      desc: "Integrate real-time IoT ground sensors, automated weather stations, soil moisture probes, and hydrological stream gauges directly into our MapZest WebGIS platform. Ground telemetry continuously calibrates aerial and satellite observations for indisputable real-world environmental intelligence.",
+      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+      features: [
+        "Live Soil Moisture, Temperature & Electrical Conductivity Probes",
+        "Automated Ultrasonic Water Level & River Discharge Telemetry",
+        "Microclimate Meteorological Stations & Air Quality Monitors",
+        "Edge-to-Cloud Live Synchronization with MapZest WebGIS"
+      ],
+      stats: [
+        { label: "Telemetry Latency", value: "< 5 Seconds" },
+        { label: "Sensor Support", value: "Multi-Probe IoT" },
+        { label: "Integration", value: "WebGIS Connected" }
+      ]
+    }
+  ]
+
   return (
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh' }}>
       {/* HERO SECTION (NAVY BLUE) */}
@@ -262,7 +322,7 @@ export default function Data({ setActiveTab }) {
             letterSpacing: '-0.04em',
             marginBottom: '20px'
           }}>
-            Spatial Data <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Ecosystem</span>
+            Data Acquisition & <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Geospatial Applications</span>
           </h1>
 
           <p style={{
@@ -272,7 +332,7 @@ export default function Data({ setActiveTab }) {
             fontSize: '1.1rem',
             lineHeight: 1.7
           }}>
-            High-density aerial surveys, multispectral indices, and point cloud archives curated with centimeter-level precision.
+            UAV, satellite, and IoT data integrated for advanced geospatial analysis, monitoring, and real-world applications.
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
@@ -308,6 +368,238 @@ export default function Data({ setActiveTab }) {
               Request Custom Dataset <ArrowRight size={18} />
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* 3 CORE DATA STREAMS: DRONE, SATELLITE, IOT */}
+      <section style={{
+        padding: 'clamp(50px, 7vw, 90px) 0 clamp(40px, 6vw, 70px) 0',
+        background: '#FFFFFF',
+        borderBottom: '1px solid rgba(27, 54, 73, 0.08)'
+      }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 24px)', textAlign: 'center', marginBottom: 'clamp(36px, 5vw, 54px)' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '6px 16px',
+            borderRadius: '20px',
+            background: 'rgba(0, 181, 226, 0.08)',
+            border: '1px solid rgba(0, 181, 226, 0.25)',
+            color: '#00B5E2',
+            fontSize: '0.82rem',
+            fontWeight: 700,
+            marginBottom: '16px',
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            fontFamily: 'var(--font-universal)'
+          }}>
+            <Sparkles size={14} /> Multi-Source Data Ecosystem
+          </div>
+
+          <h2 style={{
+            fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
+            color: 'var(--text-heading-dark)',
+            fontWeight: 400,
+            letterSpacing: '-0.04em',
+            lineHeight: 1.2,
+            marginBottom: '16px',
+            fontFamily: 'var(--font-universal)'
+          }}>
+            Drone, Satellite & <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>IoT Data Streams</span>
+          </h2>
+
+          <p style={{
+            fontSize: 'clamp(1rem, 2vw, 1.12rem)',
+            color: 'var(--text-muted-gray)',
+            maxWidth: '740px',
+            margin: '0 auto',
+            lineHeight: 1.7,
+            fontFamily: 'var(--font-universal)'
+          }}>
+            Seamlessly integrating airborne UAV precision, constellation satellite observations, and real-time ground IoT sensors for unified spatial insights.
+          </p>
+        </div>
+
+        <style>{`
+          .data-stream-card {
+            display: flex;
+            flex-direction: row;
+            min-height: 400px;
+            align-items: stretch;
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid rgba(27, 54, 73, 0.12);
+            box-shadow: 0 16px 40px -12px rgba(27, 54, 73, 0.08);
+            overflow: hidden;
+            margin-bottom: 36px;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+          }
+
+          .data-stream-card.reverse {
+            flex-direction: row-reverse;
+          }
+
+          .data-stream-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px -12px rgba(27, 54, 73, 0.14);
+            border-color: rgba(0, 181, 226, 0.35);
+          }
+
+          .data-stream-img-box {
+            flex: 1 1 46%;
+            width: 46%;
+            min-width: 280px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #0A1D3D;
+          }
+
+          .data-stream-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .data-stream-card:hover .data-stream-img {
+            transform: scale(1.05);
+          }
+
+          .data-stream-text-box {
+            flex: 1 1 54%;
+            width: 54%;
+            min-width: 280px;
+            height: 100%;
+            padding: clamp(28px, 4vw, 44px);
+            display: flex;
+            flex-direction: column;
+            justifyContent: center;
+            background: #FFFFFF;
+            font-family: var(--font-universal);
+            box-sizing: border-box;
+          }
+
+          @media (max-width: 868px) {
+            .data-stream-card,
+            .data-stream-card.reverse {
+              flex-direction: column !important;
+              min-height: 0 !important;
+            }
+
+            .data-stream-img-box {
+              width: 100% !important;
+              min-width: 0 !important;
+              flex: none !important;
+              min-height: 240px !important;
+              height: 240px !important;
+            }
+
+            .data-stream-text-box {
+              width: 100% !important;
+              min-width: 0 !important;
+              flex: none !important;
+              padding: 24px 18px !important;
+            }
+          }
+        `}</style>
+
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 24px)' }}>
+          {dataStreams.map((stream, sIdx) => {
+            const isReverse = sIdx % 2 === 1;
+
+            return (
+              <div key={stream.id} className={`data-stream-card ${isReverse ? 'reverse' : ''}`}>
+                {/* IMAGE BOX */}
+                <div className="data-stream-img-box">
+                  <img src={stream.img} alt={stream.title} className="data-stream-img" loading="lazy" />
+                </div>
+
+                {/* TEXT CONTENT */}
+                <div className="data-stream-text-box">
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '4px 12px',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 122, 41, 0.1)',
+                    border: '1px solid rgba(255, 122, 41, 0.25)',
+                    color: 'var(--color-orange, #FF6A00)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    marginBottom: '12px',
+                    width: 'fit-content',
+                    letterSpacing: '0.05em'
+                  }}>
+                    {stream.badge}
+                  </div>
+
+                  <h3 style={{
+                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                    fontWeight: 500,
+                    color: '#0A1D3D',
+                    margin: '0 0 8px 0',
+                    letterSpacing: '-0.02em',
+                    lineHeight: 1.25,
+                    fontFamily: 'var(--font-universal)'
+                  }}>
+                    {stream.title}
+                  </h3>
+
+                  <p style={{
+                    color: '#00B5E2',
+                    fontSize: '0.92rem',
+                    fontWeight: 600,
+                    margin: '0 0 14px 0',
+                    fontFamily: 'var(--font-universal)'
+                  }}>
+                    {stream.subtitle}
+                  </p>
+
+                  <p style={{
+                    color: '#475569',
+                    fontSize: 'clamp(0.92rem, 1.8vw, 0.98rem)',
+                    lineHeight: 1.65,
+                    margin: '0 0 20px 0',
+                    fontWeight: 400,
+                    fontFamily: 'var(--font-universal)'
+                  }}>
+                    {stream.desc}
+                  </p>
+
+                  {/* FEATURE BULLETS */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                    {stream.features.map((feat, fIdx) => (
+                      <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.88rem', color: '#1E293B', fontWeight: 500 }}>
+                        <CheckCircle2 size={16} style={{ color: 'var(--color-orange)', flexShrink: 0 }} />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* STATS ROW */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
+                    gap: '12px',
+                    paddingTop: '16px',
+                    borderTop: '1px solid rgba(27, 54, 73, 0.08)',
+                    marginTop: 'auto'
+                  }}>
+                    {stream.stats.map((st, stIdx) => (
+                      <div key={stIdx} style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ fontSize: '0.72rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 600 }}>{st.label}</span>
+                        <span style={{ fontSize: '0.88rem', color: '#0A1D3D', fontWeight: 700, marginTop: '2px' }}>{st.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
 

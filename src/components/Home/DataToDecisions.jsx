@@ -355,7 +355,7 @@ export default function DataToDecisions() {
             Actionable spatial insights & environmental intelligence reports for field deployment.
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 130px), 1fr))", gap: "10px", marginTop: "auto" }}>
             {OUTPUTS.map((o, i) => (
               <div key={i} className="d2d-output-card">
                 <img
@@ -363,7 +363,7 @@ export default function DataToDecisions() {
                   alt={o.title}
                   style={{ width: "100%", height: "90px", objectFit: "cover", display: "block" }}
                 />
-                <div style={{ padding: "10px 12px" }}>
+                <div style={{ padding: "8px 10px" }}>
                   <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0A1D3D", lineHeight: 1.2 }}>
                     {o.title}
                   </div>

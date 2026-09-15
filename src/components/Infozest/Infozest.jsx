@@ -638,16 +638,15 @@ export default function Infozest({ setActiveTab }) {
     const currentLikes = (selectedPost.initialLikes || 0) + (likes[selectedPost.id] || 0)
 
     return (
-      <div style={{ backgroundColor: '#F8FAFC', color: '#0F172A', minHeight: '100vh', paddingBottom: '100px' }}>
-        {/* STICKY TOP NAVIGATION BAR */}
+      <div style={{ backgroundColor: '#F8FAFC', color: '#0F172A', minHeight: '100vh', paddingBottom: '100px', fontFamily: 'var(--font-universal)' }}>
+        {/* TOP NAVIGATION BAR (RELATIVE - NO OVERLAP) */}
         <div style={{
-          position: 'sticky',
-          top: '72px',
-          zIndex: 90,
+          position: 'relative',
           backgroundColor: '#FFFFFF',
           borderBottom: '1px solid #E2E8F0',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
-          padding: '14px 24px'
+          boxShadow: '0 2px 12px rgba(0, 0, 0, 0.03)',
+          padding: '14px 24px',
+          fontFamily: 'var(--font-universal)'
         }}>
           <div style={{
             maxWidth: '1060px',
@@ -693,7 +692,7 @@ export default function Infozest({ setActiveTab }) {
         </div>
 
         {/* UNIFIED EDITORIAL ARTICLE CANVAS */}
-        <article style={{ maxWidth: '1040px', margin: '36px auto 0', padding: '0 20px' }}>
+        <article style={{ maxWidth: '1040px', margin: '24px auto 0', padding: '0 clamp(12px, 3vw, 20px)' }}>
           <div style={{
             backgroundColor: '#FFFFFF',
             borderRadius: '24px',
@@ -702,14 +701,19 @@ export default function Infozest({ setActiveTab }) {
             overflow: 'hidden'
           }}>
             {/* 1. ARTICLE HEADER */}
-            <div style={{ padding: '44px 44px 28px' }}>
+            <div style={{ padding: 'clamp(28px, 5vw, 48px) clamp(16px, 4vw, 44px) 24px' }}>
               <h1 style={{
-                fontSize: 'clamp(1.9rem, 3.8vw, 2.75rem)',
+                fontSize: 'clamp(1.35rem, 4.2vw, 2.35rem)',
                 color: '#0A1D3D',
-                fontWeight: 800,
-                lineHeight: 1.25,
+                fontWeight: 500,
+                lineHeight: 1.4,
                 letterSpacing: '-0.025em',
-                marginBottom: '24px'
+                marginBottom: '22px',
+                paddingTop: '10px',
+                marginTop: '0',
+                fontFamily: 'var(--font-universal)',
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word'
               }}>
                 {selectedPost.title}
               </h1>
@@ -826,48 +830,40 @@ export default function Infozest({ setActiveTab }) {
               </div>
             </div>
 
-            {/* 2. FEATURED IMAGE / VISUAL SHOWCASE */}
+            {/* 2. FEATURED IMAGE / VISUAL SHOWCASE (DIRECT FULL-WIDTH PRESENTATION - NO COLORED BACKDROP) */}
             {selectedPost.slides && selectedPost.slides.length > 0 ? (
               <div style={{
-                background: '#0B1528',
-                borderTop: '1px solid #1E293B',
-                borderBottom: '1px solid #1E293B',
-                position: 'relative'
+                width: '100%',
+                backgroundColor: '#FFFFFF',
+                borderTop: '1px solid #F1F5F9',
+                borderBottom: '1px solid #F1F5F9'
               }}>
-                {/* Main Slide Image */}
                 <div style={{
                   width: '100%',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  minHeight: '400px',
-                  maxHeight: '750px',
-                  padding: '24px',
-                  overflow: 'hidden'
+                  backgroundColor: '#FAFAFA'
                 }}>
                   <img
                     src={selectedPost.slides[currentSlideIndex].img}
                     alt={selectedPost.slides[currentSlideIndex].title || selectedPost.title}
                     style={{
-                      maxWidth: '100%',
-                      maxHeight: '700px',
+                      width: '100%',
+                      maxHeight: '760px',
                       height: 'auto',
                       objectFit: 'contain',
                       display: 'block',
-                      margin: '0 auto',
-                      borderRadius: '12px',
-                      boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4)',
-                      transition: 'all 0.3s ease'
+                      margin: '0 auto'
                     }}
                   />
                 </div>
 
-                {/* Slider Controls Bar */}
+                {/* Light Theme Slider Controls Bar */}
                 <div style={{
-                  width: '100%',
-                  padding: '16px 24px',
-                  backgroundColor: '#0F1E36',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                  padding: '14px clamp(16px, 4vw, 44px)',
+                  backgroundColor: '#FFFFFF',
+                  borderTop: '1px solid #F1F5F9',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -881,9 +877,9 @@ export default function Infozest({ setActiveTab }) {
                       style={{
                         padding: '8px 18px',
                         borderRadius: '20px',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                        background: 'rgba(255, 255, 255, 0.08)',
-                        color: '#FFFFFF',
+                        border: '1px solid #CBD5E1',
+                        background: '#F8FAFC',
+                        color: '#0F172A',
                         fontWeight: 600,
                         fontSize: '0.85rem',
                         cursor: 'pointer',
@@ -895,10 +891,12 @@ export default function Infozest({ setActiveTab }) {
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = '#FF6A00'
                         e.currentTarget.style.borderColor = '#FF6A00'
+                        e.currentTarget.style.color = '#FFFFFF'
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)'
+                        e.currentTarget.style.background = '#F8FAFC'
+                        e.currentTarget.style.borderColor = '#CBD5E1'
+                        e.currentTarget.style.color = '#0F172A'
                       }}
                     >
                       <ArrowLeft size={16} /> Prev
@@ -909,9 +907,9 @@ export default function Infozest({ setActiveTab }) {
                       style={{
                         padding: '8px 18px',
                         borderRadius: '20px',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                        background: 'rgba(255, 255, 255, 0.08)',
-                        color: '#FFFFFF',
+                        border: '1px solid #CBD5E1',
+                        background: '#F8FAFC',
+                        color: '#0F172A',
                         fontWeight: 600,
                         fontSize: '0.85rem',
                         cursor: 'pointer',
@@ -923,10 +921,12 @@ export default function Infozest({ setActiveTab }) {
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = '#FF6A00'
                         e.currentTarget.style.borderColor = '#FF6A00'
+                        e.currentTarget.style.color = '#FFFFFF'
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)'
+                        e.currentTarget.style.background = '#F8FAFC'
+                        e.currentTarget.style.borderColor = '#CBD5E1'
+                        e.currentTarget.style.color = '#0F172A'
                       }}
                     >
                       Next <ArrowRight size={16} />
@@ -935,17 +935,17 @@ export default function Infozest({ setActiveTab }) {
 
                   {/* Slide Name & Counter Pill */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <span style={{ fontSize: '0.88rem', color: '#E2E8F0', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>
                       {selectedPost.slides[currentSlideIndex].title}
                     </span>
                     <span style={{
                       fontSize: '0.8rem',
                       fontWeight: 700,
-                      background: 'rgba(0, 181, 226, 0.2)',
-                      color: '#38BDF8',
+                      background: '#EFF6FF',
+                      color: '#0284C7',
                       padding: '4px 12px',
                       borderRadius: '14px',
-                      border: '1px solid rgba(0, 181, 226, 0.3)'
+                      border: '1px solid #BAE6FD'
                     }}>
                       {currentSlideIndex + 1} / {selectedPost.slides.length}
                     </span>
@@ -961,7 +961,7 @@ export default function Infozest({ setActiveTab }) {
                           width: currentSlideIndex === dotIdx ? '24px' : '8px',
                           height: '8px',
                           borderRadius: '4px',
-                          backgroundColor: currentSlideIndex === dotIdx ? '#FF6A00' : 'rgba(255,255,255,0.25)',
+                          backgroundColor: currentSlideIndex === dotIdx ? '#FF6A00' : '#CBD5E1',
                           border: 'none',
                           cursor: 'pointer',
                           transition: 'all 0.25s ease',
@@ -975,50 +975,42 @@ export default function Infozest({ setActiveTab }) {
               </div>
             ) : (
               <div style={{
-                background: 'linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)',
+                width: '100%',
+                backgroundColor: '#FAFAFA',
                 borderTop: '1px solid #F1F5F9',
                 borderBottom: '1px solid #F1F5F9',
-                padding: '24px 20px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center'
               }}>
-                {selectedPost.imgUrl ? (
-                  <img
-                    src={selectedPost.imgUrl}
-                    alt={selectedPost.title}
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '580px',
-                      height: 'auto',
-                      objectFit: 'contain',
-                      borderRadius: '16px',
-                      display: 'block',
-                      margin: '0 auto',
-                      boxShadow: '0 12px 36px rgba(15, 23, 42, 0.1)'
-                    }}
-                  />
-                ) : (
-                  <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
-                    {selectedPost.customImage}
-                  </div>
-                )}
+                <img
+                  src={selectedPost.imgUrl}
+                  alt={selectedPost.title}
+                  style={{
+                    width: '100%',
+                    maxHeight: '760px',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    display: 'block',
+                    margin: '0 auto'
+                  }}
+                />
               </div>
             )}
 
             {/* 3. ARTICLE CONTENT BODY */}
-            <div style={{ padding: '44px 44px 48px' }}>
+            <div style={{ padding: 'clamp(24px, 4vw, 44px) clamp(16px, 4vw, 44px) 36px' }}>
               {/* INTRO EXECUTIVE HIGHLIGHT */}
               <div style={{
                 background: 'linear-gradient(135deg, rgba(255, 106, 0, 0.04) 0%, rgba(0, 181, 226, 0.04) 100%)',
                 borderLeft: '5px solid #FF6A00',
                 borderRadius: '0 16px 16px 0',
-                padding: '24px 30px',
-                fontSize: '1.18rem',
+                padding: 'clamp(18px, 3vw, 24px) clamp(16px, 3vw, 30px)',
+                fontSize: 'clamp(1rem, 2vw, 1.18rem)',
                 lineHeight: '1.85',
                 color: '#1E293B',
                 fontWeight: 500,
-                marginBottom: '40px'
+                marginBottom: '36px'
               }}>
                 {selectedPost.content.intro}
               </div>
@@ -1028,12 +1020,16 @@ export default function Infozest({ setActiveTab }) {
                 <div key={idx} style={{ marginBottom: '32px' }}>
                   {sec.heading && (
                     <h2 style={{
-                      fontSize: '1.5rem',
-                      fontWeight: 800,
+                      fontSize: 'clamp(1.15rem, 2.8vw, 1.45rem)',
+                      fontWeight: 650,
                       color: '#0A1D3D',
                       marginBottom: '16px',
-                      letterSpacing: '-0.02em',
-                      lineHeight: 1.3
+                      letterSpacing: '-0.015em',
+                      lineHeight: 1.35,
+                      paddingTop: '4px',
+                      fontFamily: 'var(--font-universal)',
+                      overflowWrap: 'break-word',
+                      wordBreak: 'break-word'
                     }}>
                       {sec.heading}
                     </h2>
@@ -1041,7 +1037,7 @@ export default function Infozest({ setActiveTab }) {
 
                   {sec.text && (
                     <p style={{
-                      fontSize: '1.05rem',
+                      fontSize: '1.02rem',
                       lineHeight: '1.85',
                       color: '#475569',
                       marginBottom: '20px'
@@ -1064,13 +1060,13 @@ export default function Infozest({ setActiveTab }) {
                             alignItems: 'flex-start',
                             gap: '14px',
                             background: '#F8FAFC',
-                            padding: '18px 22px',
+                            padding: '16px 20px',
                             borderRadius: '14px',
                             border: '1px solid #E2E8F0',
                             boxShadow: '0 2px 6px rgba(15, 23, 42, 0.02)'
                           }}>
                             <CheckCircle2 size={20} color="#00B5E2" style={{ flexShrink: 0, marginTop: '3px' }} />
-                            <div style={{ color: '#334155', fontSize: '1rem', lineHeight: '1.65' }}>
+                            <div style={{ color: '#334155', fontSize: '0.98rem', lineHeight: '1.65' }}>
                               {hasColon ? (
                                 <>
                                   <strong style={{ color: '#0F172A', fontWeight: 700 }}>{pointTitle}</strong>
@@ -1093,13 +1089,13 @@ export default function Infozest({ setActiveTab }) {
                 marginTop: '36px',
                 background: 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
                 borderRadius: '20px',
-                padding: '38px 32px',
+                padding: 'clamp(28px, 4vw, 38px) clamp(20px, 3vw, 32px)',
                 textAlign: 'center',
                 border: '1px solid #E2E8F0',
                 boxShadow: '0 8px 30px rgba(15, 23, 42, 0.03)'
               }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0A1D3D', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-                  Ready to transform your operations with <span style={{ color: '#FF6A00' }}>TerrAqua UAV</span>?
+                <h3 style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)', fontWeight: 500, color: '#0A1D3D', marginBottom: '12px', letterSpacing: '0' }}>
+                  Ready to transform your operations with <span style={{ color: '#FF6A00', fontWeight: 600 }}>TerrAqua UAV</span>?
                 </h3>
                 <p style={{ color: '#475569', fontSize: '0.96rem', maxWidth: '580px', margin: '0 auto 24px', lineHeight: '1.65' }}>
                   Connect with our GIS and remote sensing specialists for custom UAV deployments, WebGIS analytics, and proof-of-concept demonstrations.
@@ -1134,31 +1130,36 @@ export default function Infozest({ setActiveTab }) {
   // DEFAULT BLOG LISTING VIEW (OFF-WHITE THEME - ALL 18 CARDS)
   // ==========================================
   return (
-    <div style={{ backgroundColor: '#F8FAFC', color: '#0F172A', minHeight: '100vh', paddingBottom: '100px' }}>
+    <div style={{ backgroundColor: '#F8FAFC', color: '#0F172A', minHeight: '100vh', paddingBottom: '100px', fontFamily: 'var(--font-universal)' }}>
       {/* 1. HERO COLLAGE BANNER */}
       <section
         style={{
           position: 'relative',
-          padding: '80px 24px 70px',
+          padding: 'clamp(48px, 8vw, 80px) clamp(16px, 4vw, 24px) clamp(40px, 6vw, 70px)',
           background: `linear-gradient(180deg, rgba(7, 21, 48, 0.32) 0%, rgba(7, 21, 48, 0.52) 100%), url(${blogBanner})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           borderBottom: '1px solid #E2E8F0',
-          boxShadow: '0 10px 30px rgba(15, 23, 42, 0.06)'
+          boxShadow: '0 10px 30px rgba(15, 23, 42, 0.06)',
+          fontFamily: 'var(--font-universal)'
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto', textAlign: 'center' }}>
           <h1
             style={{
-              fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)',
+              fontSize: 'clamp(1.2rem, 3.8vw, 2.5rem)',
               color: '#FFFFFF',
-              fontWeight: 600,
-              letterSpacing: '-0.02em',
-              lineHeight: 1.25,
+              fontWeight: 500,
+              letterSpacing: '-0.025em',
+              lineHeight: 1.34,
               margin: '0 auto',
               maxWidth: '1050px',
+              paddingTop: '6px',
               textTransform: 'uppercase',
+              fontFamily: 'var(--font-universal)',
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word',
               textShadow: '0 2px 14px rgba(0, 0, 0, 0.8), 0 1px 4px rgba(0, 0, 0, 0.9)'
             }}
           >
@@ -1169,12 +1170,12 @@ export default function Infozest({ setActiveTab }) {
       </section>
 
       {/* 2. BLOG POST CARDS GRID - WITH LARGE PROMINENT IMAGES */}
-      <section style={{ maxWidth: '1360px', margin: '50px auto 0', padding: '0 24px' }}>
+      <section style={{ maxWidth: '1360px', margin: '40px auto 0', padding: '0 clamp(16px, 4vw, 24px)' }}>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: '32px'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
+            gap: '28px'
           }}
         >
           {blogPosts.map((post) => {
@@ -1217,33 +1218,28 @@ export default function Infozest({ setActiveTab }) {
                 }}
               >
                 {/* Top Banner Image */}
-                {post.customImage ? (
-                  <div style={{ overflow: 'hidden' }}>
-                    {post.customImage}
-                  </div>
-                ) : (
-                  <div style={{
-                    height: '265px',
-                    overflow: 'hidden',
-                    background: '#F1F5F9',
-                    position: 'relative'
-                  }}>
-                    <img
-                      className="card-img-zoom"
-                      src={post.imgUrl}
-                      alt={post.title}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
-                      }}
-                    />
-                  </div>
-                )}
+                <div style={{
+                  height: '245px',
+                  overflow: 'hidden',
+                  background: '#F1F5F9',
+                  position: 'relative'
+                }}>
+                  <img
+                    className="card-img-zoom"
+                    src={post.imgUrl}
+                    alt={post.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center 20%',
+                      transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                  />
+                </div>
 
                 {/* Card Body */}
-                <div style={{ padding: '24px 22px 20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ padding: '22px 22px 18px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                   {/* Author & Meta Row */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -1284,12 +1280,15 @@ export default function Infozest({ setActiveTab }) {
                   <h3
                     className="card-title-text"
                     style={{
-                      fontSize: '1.14rem',
-                      color: '#0F172A',
-                      fontWeight: 750,
+                      fontSize: '1.12rem',
+                      color: '#0A1D3D',
+                      fontWeight: 600,
                       marginBottom: '10px',
                       lineHeight: 1.35,
-                      letterSpacing: '-0.02em',
+                      letterSpacing: '-0.025em',
+                      fontFamily: 'var(--font-universal)',
+                      overflowWrap: 'break-word',
+                      wordBreak: 'break-word',
                       transition: 'color 0.2s ease'
                     }}
                   >

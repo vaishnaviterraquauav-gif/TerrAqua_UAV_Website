@@ -83,8 +83,10 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: -0.04em;
-  line-height: 1.15;
+  letter-spacing: -0.035em;
+  line-height: 1.28;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 h1 {
@@ -449,8 +451,8 @@ h3 {
   }
 
   .navbar-logo-img {
-    height: 65px;
-    padding: 4px;
+    height: clamp(54px, 12vw, 75px);
+    padding: 3px;
   }
 
   .navbar-desktop-menu {
@@ -469,7 +471,7 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 16px 20px 24px;
+    padding: 16px 18px 24px;
     background: #FFFFFF;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -478,8 +480,12 @@ h3 {
     top: 100%;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     animation: fadeInDown 0.25s ease-out forwards;
+    z-index: 1050;
   }
 
   .navbar-mobile-item-btn {
@@ -490,13 +496,14 @@ h3 {
     border: none;
     background: rgba(10, 29, 61, 0.04);
     color: #0A1D3D;
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 46px;
   }
 
   .navbar-mobile-item-btn:hover,
@@ -510,6 +517,21 @@ h3 {
   }
 }
 
+@media (max-width: 480px) {
+  .navbar-inner {
+    padding: 2px 12px;
+  }
+
+  .navbar-logo-img {
+    height: 52px;
+    padding: 2px;
+  }
+
+  .navbar-toggle-btn {
+    padding: 6px;
+  }
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -519,5 +541,72 @@ h3 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ========================================================================= */
+/* GLOBAL MOBILE RESPONSIVENESS & TOUCH OPTIMIZATION RULES                   */
+/* ========================================================================= */
+
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+}
+
+/* Touch-friendly scrolling across mobile browsers */
+.smooth-scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.smooth-scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+/* Universal text truncation / wrapping */
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+  /* Prevent accidental lateral shift on mobile touch */
+  html, body, #root {
+    overflow-x: hidden !important;
+    position: relative;
+    width: 100% !important;
+  }
+
+  /* Compact button styling on phones */
+  .btn-orange, .btn-primary, .btn-slate {
+    padding: 12px 22px !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* Reduce heavy grid gap on mobile */
+  .responsive-grid-gap {
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra-small phones (320px - 480px) */
+  h1 {
+    font-size: clamp(1.75rem, 7.5vw, 2.3rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.45rem, 6vw, 1.95rem) !important;
+    line-height: 1.22 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.15rem, 4.8vw, 1.4rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  p {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
   }
 }

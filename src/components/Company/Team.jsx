@@ -87,17 +87,17 @@ export default function Team() {
     <div style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', color: '#0F172A' }}>
       {/* HERO / HEADER SECTION */}
       <section style={{
-        padding: '90px 24px 80px',
+        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px) clamp(40px, 6vw, 80px)',
         textAlign: 'center',
         background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
         borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
       }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <h1 style={{
-            fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+            fontSize: 'clamp(2.2rem, 5vw, 3.8rem)',
             color: '#FFFFFF',
             fontWeight: 400,
-            marginBottom: '24px',
+            marginBottom: '20px',
             lineHeight: 1.2,
             letterSpacing: '-0.04em'
           }}>
@@ -106,7 +106,7 @@ export default function Team() {
 
           <p style={{
             color: '#CBD5E1',
-            fontSize: '1.15rem',
+            fontSize: 'clamp(0.98rem, 2vw, 1.15rem)',
             lineHeight: '1.7',
             maxWidth: '840px',
             margin: '0 auto'
@@ -118,14 +118,14 @@ export default function Team() {
 
       {/* TEAM CARDS GRID SECTION */}
       <section style={{
-        padding: '80px 24px 100px',
+        padding: 'clamp(50px, 7vw, 80px) clamp(16px, 4vw, 24px) clamp(60px, 8vw, 100px)',
         background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)'
       }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '5rem 2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: 'clamp(3.5rem, 6vw, 5rem) clamp(1.2rem, 3vw, 2rem)',
             alignItems: 'stretch'
           }}>
             {teamMembers.map((member, idx) => {
@@ -150,8 +150,8 @@ export default function Team() {
                     justifyContent: 'space-between',
                     transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                     transform: isHovered ? 'translateY(-6px)' : 'none',
-                    boxShadow: isHovered 
-                      ? '0 20px 35px -10px rgba(10, 29, 61, 0.12)' 
+                    boxShadow: isHovered
+                      ? '0 20px 35px -10px rgba(10, 29, 61, 0.12)'
                       : '0 10px 25px -8px rgba(10, 29, 61, 0.05)'
                   }}
                 >
@@ -186,11 +186,10 @@ export default function Team() {
                     </div>
                   </div>
 
-                  {/* Main Card Content with aligned heights */}
-                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  {/* Main Card Content */}
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
                     {/* Name */}
                     <div style={{
-                      minHeight: '34px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -207,16 +206,15 @@ export default function Team() {
                       </h3>
                     </div>
 
-                    {/* Role Container (Fixed height for 1-line & 2-line consistency) */}
+                    {/* Role Container */}
                     <div style={{
-                      minHeight: '44px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '14px'
+                      marginBottom: (member.socials?.website || member.socials?.email) ? '12px' : '0'
                     }}>
                       <p style={{
-                        fontSize: '0.85rem',
+                        fontSize: '0.9rem',
                         color: 'var(--color-orange)',
                         margin: 0,
                         fontWeight: 600,
@@ -225,99 +223,86 @@ export default function Team() {
                         {member.role}
                       </p>
                     </div>
-
-                    {/* Description (Consistent height & top alignment) */}
-                    <p style={{
-                      fontSize: '0.88rem',
-                      lineHeight: 1.6,
-                      color: '#475569',
-                      margin: 0,
-                      minHeight: '84px',
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      justifyContent: 'center'
-                    }}>
-                      {member.desc}
-                    </p>
                   </div>
 
                   {/* Social Action Links */}
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '10px',
-                    marginTop: 'auto',
-                    paddingTop: '16px',
-                    minHeight: '50px'
-                  }}>
-                    {member.socials?.website && (
-                      <a
-                        href={member.socials.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} Website`}
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          width: '34px',
-                          height: '34px',
-                          borderRadius: '50%',
-                          backgroundColor: '#F8FAFC',
-                          border: '1px solid rgba(27, 54, 73, 0.12)',
-                          color: 'var(--text-heading-dark)',
-                          transition: 'all 0.2s ease'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--color-orange)'
-                          e.currentTarget.style.borderColor = 'var(--color-orange)'
-                          e.currentTarget.style.color = '#FFFFFF'
-                          e.currentTarget.style.transform = 'scale(1.08)'
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = '#F8FAFC'
-                          e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.12)'
-                          e.currentTarget.style.color = 'var(--text-heading-dark)'
-                          e.currentTarget.style.transform = 'none'
-                        }}
-                      >
-                        <Globe size={16} />
-                      </a>
-                    )}
-                    {member.socials?.email && (
-                      <a
-                        href={member.socials.email}
-                        aria-label={`Email ${member.name}`}
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          width: '34px',
-                          height: '34px',
-                          borderRadius: '50%',
-                          backgroundColor: '#F8FAFC',
-                          border: '1px solid rgba(27, 54, 73, 0.12)',
-                          color: 'var(--text-heading-dark)',
-                          transition: 'all 0.2s ease'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = 'var(--color-orange)'
-                          e.currentTarget.style.borderColor = 'var(--color-orange)'
-                          e.currentTarget.style.color = '#FFFFFF'
-                          e.currentTarget.style.transform = 'scale(1.08)'
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = '#F8FAFC'
-                          e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.12)'
-                          e.currentTarget.style.color = 'var(--text-heading-dark)'
-                          e.currentTarget.style.transform = 'none'
-                        }}
-                      >
-                        <Mail size={16} />
-                      </a>
-                    )}
-                  </div>
+                  {(member.socials?.website || member.socials?.email) && (
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      gap: '10px',
+                      marginTop: 'auto',
+                      paddingTop: '8px'
+                    }}>
+                      {member.socials?.website && (
+                        <a
+                          href={member.socials.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Website`}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '34px',
+                            height: '34px',
+                            borderRadius: '50%',
+                            backgroundColor: '#F8FAFC',
+                            border: '1px solid rgba(27, 54, 73, 0.12)',
+                            color: 'var(--text-heading-dark)',
+                            transition: 'all 0.2s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = 'var(--color-orange)'
+                            e.currentTarget.style.borderColor = 'var(--color-orange)'
+                            e.currentTarget.style.color = '#FFFFFF'
+                            e.currentTarget.style.transform = 'scale(1.08)'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#F8FAFC'
+                            e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.12)'
+                            e.currentTarget.style.color = 'var(--text-heading-dark)'
+                            e.currentTarget.style.transform = 'none'
+                          }}
+                        >
+                          <Globe size={16} />
+                        </a>
+                      )}
+                      {member.socials?.email && (
+                        <a
+                          href={member.socials.email}
+                          aria-label={`Email ${member.name}`}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '34px',
+                            height: '34px',
+                            borderRadius: '50%',
+                            backgroundColor: '#F8FAFC',
+                            border: '1px solid rgba(27, 54, 73, 0.12)',
+                            color: 'var(--text-heading-dark)',
+                            transition: 'all 0.2s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = 'var(--color-orange)'
+                            e.currentTarget.style.borderColor = 'var(--color-orange)'
+                            e.currentTarget.style.color = '#FFFFFF'
+                            e.currentTarget.style.transform = 'scale(1.08)'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#F8FAFC'
+                            e.currentTarget.style.borderColor = 'rgba(27, 54, 73, 0.12)'
+                            e.currentTarget.style.color = 'var(--text-heading-dark)'
+                            e.currentTarget.style.transform = 'none'
+                          }}
+                        >
+                          <Mail size={16} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               )
             })}

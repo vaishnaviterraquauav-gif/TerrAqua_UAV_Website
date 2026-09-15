@@ -242,13 +242,13 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
           onClick={handleBack}
           style={{
             position: 'absolute',
-            top: '20px',
-            left: '24px',
+            top: 'clamp(14px, 3vw, 24px)',
+            left: 'clamp(14px, 3vw, 24px)',
             background: 'rgba(10, 29, 61, 0.75)',
             border: '1px solid rgba(255, 255, 255, 0.25)',
             color: '#FFFFFF',
             padding: '8px 16px',
-            borderRadius: '10px',
+            borderRadius: '8px',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
@@ -306,14 +306,14 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '56px 24px 44px'
+          padding: 'clamp(36px, 5vw, 56px) clamp(16px, 4vw, 24px) clamp(28px, 4vw, 44px)'
         }}
       >
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '48px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: 'clamp(24px, 4vw, 48px)',
             alignItems: 'center'
           }}
         >
@@ -512,14 +512,14 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '48px 24px 64px'
+          padding: 'clamp(32px, 5vw, 48px) clamp(16px, 4vw, 24px) clamp(44px, 6vw, 64px)'
         }}
       >
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 540px), 1fr))',
-            gap: '32px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+            gap: 'clamp(20px, 3vw, 32px)',
             alignItems: 'stretch'
           }}
         >
@@ -535,7 +535,7 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
             backgroundColor: '#FFFFFF',
             border: '1px solid #E2DDD6',
             borderRadius: '24px',
-            padding: '40px 32px',
+            padding: 'clamp(28px, 5vw, 40px) clamp(18px, 4vw, 32px)',
             textAlign: 'center',
             boxShadow: '0 16px 40px rgba(0,0,0,0.06)'
           }}

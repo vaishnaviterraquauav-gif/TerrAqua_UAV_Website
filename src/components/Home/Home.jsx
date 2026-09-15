@@ -4,7 +4,6 @@ import mapzestImg from '../../assets/mapzest-preview.png'
 import home2Img from '../../assets/home2.png'
 import weatherRasterImg from '../../assets/weather_raster_cropped.png'
 import DualComparisonSlider from './DualComparisonSlider'
-import DataToDecisions from './DataToDecisions'
 
 function BranchingConnectingLine() {
   const [mouse, setMouse] = useState({ x: -100, y: -100, active: false });
@@ -191,7 +190,7 @@ export default function Home({ setActiveTab }) {
   const heroSlides = [
     {
       id: 0,
-      title: "Situational-Awareness as a Service Platform",
+      title: "Delivering High-Resolution, Multi-Sensor Geospatial Data",
       subtitle: "Transforming multi-sensor aerial drone, LiDAR & satellite data into near real-time actionable intelligence.",
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Services.",
@@ -200,7 +199,7 @@ export default function Home({ setActiveTab }) {
     },
     {
       id: 1,
-      title: "A Unified Platform for Drone & Satellite-Based Mapping",
+      title: "Integrating Geospatial and Ground Data for Unified Intelligence",
       subtitle: "Advanced airborne remote sensing & sub-centimeter LiDAR analytics for defense, disaster, and enterprise operations.",
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Platform.",
@@ -209,7 +208,7 @@ export default function Home({ setActiveTab }) {
     },
     {
       id: 2,
-      title: "Expertise and innovation in geospatial technologies",
+      title: "Enabling Geoscientific Analysis Through Web-Based Platforms",
       subtitle: "MapZest WebGIS enterprise infrastructure to stream, process, and extract automated insights from terabytes of spatial data.",
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20MapZest%20WebGIS.",
@@ -218,7 +217,7 @@ export default function Home({ setActiveTab }) {
     },
     {
       id: 3,
-      title: "Making Spatial Data Usable, Accessible and Affordable",
+      title: "Leveraging Data for Sustainable Solutions",
       subtitle: "Incubated at SIIC, IIT Kanpur — delivering AI-powered climate intelligence, thermal modeling & precision agritech.",
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Spatial%20Data%20Services.",
@@ -237,8 +236,8 @@ export default function Home({ setActiveTab }) {
 
   const metrics = [
     { value: '30,000+', label: 'Hectares Mapped', sub: 'High Precision Aerial LiDAR' },
-    { value: '6', label: 'Sensor Capabilities', sub: 'Sub-Centimeter Resolution' },
-    { value: 'IITK', label: 'Incubated Tech', sub: 'SIIC Innovation Ecosystem' },
+    { value: 'Multi', label: 'Sensor Capabilities', sub: 'Sub-Centimeter Resolution' },
+    { value: '8+ Years', label: 'Industry Experience', sub: 'experience' },
     { value: '5+', label: 'Industry Sectors', sub: 'Pan-India Deployment' },
   ]
 
@@ -440,6 +439,23 @@ export default function Home({ setActiveTab }) {
             }
             .orbit-trail-ccw {
               inset: -10px !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .orbit-hero-container {
+              width: min(210px, 60vw) !important;
+              height: min(210px, 60vw) !important;
+              margin: 10px auto 0 !important;
+            }
+            .orbit-trail-cw {
+              inset: -26px !important;
+            }
+            .orbit-trail-3d {
+              inset: -16px !important;
+            }
+            .orbit-trail-ccw {
+              inset: -8px !important;
             }
           }
         `}</style>
@@ -1093,7 +1109,7 @@ export default function Home({ setActiveTab }) {
               fontWeight: 400,
               letterSpacing: '-0.01em'
             }}>
-              Integrated multi-sensor data acquisition and AI-driven spatial intelligence
+              Collecting Data from Multiple Sensors and Turning It into Smart Spatial Insights
             </p>
           </div>
 
@@ -1282,7 +1298,7 @@ export default function Home({ setActiveTab }) {
                 fontFamily: 'var(--font-universal)'
               }}>
                 <span style={{ color: 'var(--color-orange, #FF6A00)' }}>Geospatial</span> <br />
-                <span style={{ color: '#0A1D3D' }}>Intelligence</span>
+                <span style={{ color: '#0A1D3D' }}>Solutions</span>
               </h3>
               <p style={{
                 fontSize: '0.92rem',
@@ -1375,30 +1391,43 @@ export default function Home({ setActiveTab }) {
       <DualComparisonSlider setActiveTab={setActiveTab} />
 
       {/* MAPZEST SECTION */}
-      <section className="section-black" style={{ padding: 'clamp(60px, 8vw, 120px) clamp(16px, 4vw, 24px)', background: 'radial-gradient(circle at 50% 0%, var(--bg-steel-blue) 0%, #050F24 70%)' }}>
-        <div style={{
-          maxWidth: '1280px',
+      <section className="section-black" style={{ padding: 'clamp(60px, 8vw, 120px) clamp(16px, 4vw, 32px)', background: 'radial-gradient(circle at 50% 0%, var(--bg-steel-blue) 0%, #050F24 70%)', position: 'relative', overflow: 'hidden' }}>
+        <style>{`
+          .mapzest-grid-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+            gap: clamp(32px, 5vw, 64px);
+            alignItems: center;
+          }
+          @media (max-width: 960px) {
+            .mapzest-grid-layout {
+              grid-template-columns: 1fr !important;
+              gap: 40px !important;
+            }
+          }
+        `}</style>
+
+        <div className="mapzest-grid-layout" style={{
+          maxWidth: '1380px',
           margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-          gap: 'clamp(32px, 5vw, 64px)',
           alignItems: 'center'
         }}>
           {/* Left Text Column */}
-          <div style={{ textAlign: 'left', padding: 'clamp(0px, 2vw, 20px)' }}>
+          <div style={{ textAlign: 'left', padding: 'clamp(0px, 1.5vw, 16px)' }}>
             <h2 style={{
-              fontSize: 'clamp(2rem, 5vw, 3.2rem)',
+              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
               fontWeight: 600,
               letterSpacing: '-0.03em',
               lineHeight: 1.15,
               marginBottom: '20px',
               background: 'linear-gradient(135deg, #FFFFFF 0%, #EAEFF5 100%)',
               WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
+              WebkitTextFillColor: 'transparent',
+              fontFamily: 'var(--font-universal)'
             }}>
               Explore Geospatial <br /> Insights with <span style={{ background: 'linear-gradient(135deg, #FF7A29, #FFA366)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>MapZest</span>
             </h2>
-            <p style={{ color: '#EAEFF5', maxWidth: '520px', marginBottom: '32px', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.7, fontWeight: 400 }}>
+            <p style={{ color: '#EAEFF5', maxWidth: '540px', marginBottom: '32px', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.7, fontWeight: 400, fontFamily: 'var(--font-universal)' }}>
               Unlock hidden intelligence in your spatial data with our powerful, intuitive GIS tools. Whether you're mapping complex terrains, analyzing patterns, or visualizing geospatial trends, we've got you covered.
             </p>
             <div>
@@ -1410,7 +1439,7 @@ export default function Home({ setActiveTab }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  padding: '12px clamp(28px, 5vw, 48px)',
+                  padding: '13px clamp(28px, 5vw, 48px)',
                   fontSize: '1rem',
                   fontWeight: 500,
                   color: '#000000',
@@ -1418,6 +1447,7 @@ export default function Home({ setActiveTab }) {
                   border: '1px solid #EAEFF5',
                   borderRadius: '30px',
                   textDecoration: 'none',
+                  fontFamily: 'var(--font-universal)',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
                 }}
@@ -1437,22 +1467,22 @@ export default function Home({ setActiveTab }) {
             </div>
           </div>
 
-          {/* Right Image Column */}
+          {/* Right Image Column (Enlarged & Prominent Alignment) */}
           <div style={{
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 'clamp(0px, 2vw, 20px)'
+            width: '100%'
           }}>
             <div style={{
               position: 'absolute',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              width: '120%',
-              height: '120%',
-              background: 'radial-gradient(circle, rgba(0, 181, 226, 0.15) 0%, transparent 70%)',
+              width: '125%',
+              height: '125%',
+              background: 'radial-gradient(circle, rgba(0, 181, 226, 0.25) 0%, transparent 70%)',
               zIndex: 0,
               pointerEvents: 'none'
             }} />
@@ -1461,41 +1491,30 @@ export default function Home({ setActiveTab }) {
               alt="Explore Geospatial Insights with MapZest"
               style={{
                 width: '100%',
+                maxWidth: '740px',
                 height: 'auto',
                 display: 'block',
-                borderRadius: '16px',
+                borderRadius: '20px',
                 objectFit: 'cover',
                 position: 'relative',
                 zIndex: 1,
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 181, 226, 0.3)',
-                transition: 'transform 0.5s ease',
+                boxShadow: '0 30px 65px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 181, 226, 0.38), 0 0 35px rgba(0, 181, 226, 0.15)',
+                transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.02) translateY(-10px)';
+                e.currentTarget.style.transform = 'scale(1.02) translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.75), 0 0 0 1.5px rgba(0, 181, 226, 0.5), 0 0 45px rgba(0, 181, 226, 0.25)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                e.currentTarget.style.boxShadow = '0 30px 65px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 181, 226, 0.38), 0 0 35px rgba(0, 181, 226, 0.15)';
               }}
             />
           </div>
         </div>
       </section>
 
-      {/* DATA TO DECISIONS SECTION */}
-      <section style={{
-        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px)',
-        background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)',
-        borderTop: '1px solid rgba(27, 54, 73, 0.08)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          maxWidth: '1340px',
-          margin: '0 auto',
-        }}>
-          <DataToDecisions />
-        </div>
-      </section>
+
 
 
       {/* OUR COMMITMENT TO SDGs SECTION */}
@@ -1703,10 +1722,11 @@ export default function Home({ setActiveTab }) {
             letterSpacing: '-0.02em',
             marginBottom: '16px'
           }}>
-            Ready to Transform Your Spatial Operations?
+            Ready to Utilize Geospatial Technology for Real-World Impact?
           </h2>
           <p style={{ color: 'var(--text-muted-gray)', maxWidth: '650px', margin: '0 auto clamp(24px, 4vw, 40px)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.6 }}>
-            Consult with our geospatial research experts at IIT Kanpur for custom UAV surveys, WebGIS deployments, or collaborative research initiatives.
+            Connect with our geospatial experts for customized UAV solutions, WebGIS deployments, and collaborative research opportunities.
+
           </p>
           <a
             href="https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20connect%20with%20your%20engineering%20team%20for%20a%20project."

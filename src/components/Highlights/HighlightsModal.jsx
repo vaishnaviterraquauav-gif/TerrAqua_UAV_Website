@@ -251,17 +251,26 @@ export default function HighlightsModal({ setActiveTab }) {
         @media (max-width: 900px) {
           .highlights-container-grid {
             grid-template-columns: 1fr !important;
-            gap: 24px !important;
-            max-height: 85vh;
-            overflow-y: auto;
+            gap: 20px !important;
           }
           .highlights-left-panel {
             text-align: center;
             align-items: center !important;
             border-right: none !important;
             border-bottom: 1px solid rgba(10, 29, 61, 0.08);
-            padding-bottom: 20px !important;
+            padding-bottom: 18px !important;
             padding-right: 0 !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .highlights-thumb-card {
+            height: 64px !important;
+            padding: 4px 6px !important;
+          }
+          .highlights-thumb-card > div:first-child {
+            width: 38px !important;
+            height: 48px !important;
           }
         }
       `}</style>
@@ -273,12 +282,14 @@ export default function HighlightsModal({ setActiveTab }) {
           position: 'relative',
           width: '100%',
           maxWidth: '960px',
+          maxHeight: '90vh',
+          overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch',
           background: '#FFFFFF',
           borderRadius: '24px',
-          padding: 'clamp(24px, 4vw, 36px)',
+          padding: 'clamp(20px, 4vw, 36px)',
           boxShadow: '0 25px 50px -12px rgba(10, 29, 61, 0.35), 0 0 0 1px rgba(10, 29, 61, 0.08)',
-          animation: 'highlightsModalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-          overflow: 'hidden'
+          animation: 'highlightsModalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
         onClick={(e) => e.stopPropagation()}
         onMouseEnter={() => setIsPaused(true)}

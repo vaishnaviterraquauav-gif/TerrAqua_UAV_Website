@@ -101,7 +101,7 @@ export default function Contact() {
         style={{
           backgroundColor: '#050F24',
           color: '#FFFFFF',
-          padding: '90px 24px 70px',
+          padding: 'clamp(50px, 8vw, 90px) clamp(16px, 4vw, 24px) clamp(40px, 6vw, 70px)',
           position: 'relative',
           overflow: 'hidden'
         }}
@@ -124,10 +124,10 @@ export default function Contact() {
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {/* MAIN HEADING (HOME PAGE TYPOGRAPHY STYLE) */}
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <h1
               style={{
-                fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)',
+                fontSize: 'clamp(2rem, 5.5vw, 4.2rem)',
                 fontWeight: 400,
                 letterSpacing: '-0.04em',
                 textTransform: 'uppercase',
@@ -144,7 +144,7 @@ export default function Contact() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '24px'
             }}
           >
@@ -156,7 +156,7 @@ export default function Contact() {
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
-                padding: '36px 32px',
+                padding: 'clamp(24px, 4vw, 36px) clamp(20px, 3vw, 32px)',
                 position: 'relative',
                 overflow: 'hidden',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
@@ -231,7 +231,7 @@ export default function Contact() {
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
-                padding: '36px 32px',
+                padding: 'clamp(24px, 4vw, 36px) clamp(20px, 3vw, 32px)',
                 position: 'relative',
                 overflow: 'hidden',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
@@ -308,7 +308,7 @@ export default function Contact() {
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(0, 181, 226, 0.25)',
                 borderRadius: '24px',
-                padding: '36px 32px',
+                padding: 'clamp(24px, 4vw, 36px) clamp(20px, 3vw, 32px)',
                 position: 'relative',
                 overflow: 'hidden',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease'
@@ -399,7 +399,7 @@ export default function Contact() {
         style={{
           backgroundColor: '#F8FAFC',
           color: '#0F172A',
-          padding: '70px 24px 110px',
+          padding: 'clamp(40px, 6vw, 70px) clamp(16px, 4vw, 24px) clamp(60px, 8vw, 110px)',
           borderTop: '1px solid #E2E8F0',
           position: 'relative'
         }}
@@ -412,9 +412,9 @@ export default function Contact() {
               overflow: 'hidden',
               border: '1px solid #E2E8F0',
               boxShadow: '0 16px 40px rgba(15, 23, 42, 0.08)',
-              height: '460px',
+              height: 'clamp(260px, 45vw, 460px)',
               backgroundColor: '#FFFFFF',
-              marginBottom: '80px'
+              marginBottom: 'clamp(40px, 6vw, 80px)'
             }}
           >
             <iframe
@@ -433,8 +433,8 @@ export default function Contact() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '60px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(32px, 5vw, 60px)',
               alignItems: 'center'
             }}
           >
@@ -442,10 +442,10 @@ export default function Contact() {
             <div>
               <h2
                 style={{
-                  fontSize: 'clamp(2.4rem, 4.5vw, 3.4rem)',
+                  fontSize: 'clamp(2rem, 4.5vw, 3.4rem)',
                   fontWeight: 700,
                   color: 'var(--color-aqua, #00B5E2)',
-                  marginBottom: '20px',
+                  marginBottom: '16px',
                   letterSpacing: '-0.03em',
                   lineHeight: 1.15
                 }}
@@ -455,11 +455,11 @@ export default function Contact() {
 
               <p
                 style={{
-                  fontSize: '1.15rem',
+                  fontSize: 'clamp(1rem, 2vw, 1.15rem)',
                   color: '#1E293B',
                   lineHeight: 1.6,
                   maxWidth: '440px',
-                  marginBottom: '48px',
+                  marginBottom: '36px',
                   fontWeight: 400,
                   letterSpacing: '-0.01em'
                 }}
@@ -525,17 +525,17 @@ export default function Contact() {
                 backgroundColor: '#FFFFFF',
                 border: '1px solid rgba(27, 54, 73, 0.12)',
                 borderRadius: '24px',
-                padding: '44px 38px',
+                padding: 'clamp(24px, 4vw, 44px) clamp(18px, 3vw, 38px)',
                 boxShadow: '0 20px 45px -10px rgba(27, 54, 73, 0.1)'
               }}
             >
               <h3
                 style={{
-                  fontSize: '1.5rem',
+                  fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
                   fontWeight: 700,
                   color: 'var(--text-heading-dark)',
                   textAlign: 'center',
-                  marginBottom: '28px',
+                  marginBottom: '24px',
                   letterSpacing: '-0.02em'
                 }}
               >
@@ -901,7 +901,8 @@ export default function Contact() {
                         fontWeight: 700,
                         cursor: 'pointer',
                         boxShadow: '0 8px 20px -4px rgba(255, 106, 0, 0.4)',
-                        transition: 'all 0.25s ease'
+                        transition: 'all 0.25s ease',
+                        width: 'min(100%, 280px)'
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-2px)'

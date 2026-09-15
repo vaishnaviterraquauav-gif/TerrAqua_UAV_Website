@@ -234,18 +234,18 @@ export default function OperationDronagiri({ setActiveTab }) {
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='500' viewBox='0 0 1000 500'%3E%3Cpath fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1.5' d='M150,150 Q200,80 350,120 T600,100 T850,200 M100,300 Q300,380 500,320 T900,350 M250,220 Q400,180 550,250 T800,220'/%3E%3Ccircle cx='350' cy='120' r='3' fill='rgba(255,106,0,0.4)'/%3E%3Ccircle cx='500' cy='320' r='3' fill='rgba(255,106,0,0.4)'/%3E%3Ccircle cx='800' cy='220' r='3' fill='rgba(255,106,0,0.4)'/%3E%3C/svg%3E");
           background-size: cover;
           background-position: center;
-          padding: 80px 24px 70px;
+          padding: clamp(48px, 8vw, 80px) clamp(16px, 4vw, 24px) 60px;
           text-align: center;
           color: #FFFFFF;
           overflow: hidden;
         }
 
         .hero-title-main {
-          font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+          font-size: clamp(1.8rem, 5.5vw, 4.2rem);
           font-weight: 400;
           letter-spacing: -0.04em;
           text-transform: uppercase;
-          line-height: 1.12;
+          line-height: 1.15;
           color: #FFFFFF;
           margin-bottom: 16px;
         }
@@ -257,7 +257,7 @@ export default function OperationDronagiri({ setActiveTab }) {
 
         .hero-subheading-text {
           color: #CBD5E1;
-          font-size: clamp(1.05rem, 2vw, 1.25rem);
+          font-size: clamp(0.95rem, 2vw, 1.25rem);
           max-width: 860px;
           margin: 0 auto 36px;
           line-height: 1.6;
@@ -269,6 +269,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         .carousel-showcase-wrapper {
           position: relative;
           max-width: 1120px;
+          width: 100%;
           margin: 40px auto 0;
           display: flex;
           flex-direction: column;
@@ -339,7 +340,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         }
 
         .showcase-card-center {
-          width: 380px;
+          width: min(100%, 380px);
           height: 460px;
           opacity: 1;
           transform: scale(1.05);
@@ -386,7 +387,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         }
 
         .showcase-card-title {
-          font-size: 1.55rem;
+          font-size: clamp(1.2rem, 3vw, 1.55rem);
           font-weight: 500;
           color: #FFFFFF;
           letter-spacing: -0.03em;
@@ -421,8 +422,8 @@ export default function OperationDronagiri({ setActiveTab }) {
         /* INTERACTIVE STACKED DASHED CARDS MATCHING REFERENCE IMAGE */
         .problem-cards-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 32px;
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+          gap: 24px;
           padding: 20px 0;
           align-items: stretch;
         }
@@ -454,8 +455,8 @@ export default function OperationDronagiri({ setActiveTab }) {
           position: relative;
           z-index: 2;
           border-radius: 24px;
-          padding: 32px 26px;
-          min-height: 290px;
+          padding: clamp(22px, 4vw, 32px) clamp(18px, 3vw, 26px);
+          min-height: 250px;
           height: 100%;
           box-sizing: border-box;
           display: flex;
@@ -496,7 +497,7 @@ export default function OperationDronagiri({ setActiveTab }) {
           font-weight: 700;
           color: #0F172A;
           line-height: 1.35;
-          min-height: 68px;
+          min-height: 52px;
           display: flex;
           align-items: flex-start;
         }
@@ -523,7 +524,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         .pillar-hover-card {
           background: #FFFFFF;
           border-radius: 24px;
-          padding: 36px 26px;
+          padding: clamp(24px, 4vw, 36px) clamp(18px, 3vw, 26px);
           border: 1px solid #E2E8F0;
           box-shadow: none;
           transform: translateY(0);
@@ -546,7 +547,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         .adv-challenge-card {
           background: #FFFFFF;
           border-radius: 20px;
-          padding: 32px;
+          padding: clamp(20px, 4vw, 32px);
           border: 1px solid rgba(226, 232, 240, 0.9);
           box-shadow: 0 10px 25px rgba(10, 29, 61, 0.04);
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -563,7 +564,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         .adv-pillar-card {
           background: #FFFFFF;
           border-radius: 20px;
-          padding: 36px 30px;
+          padding: clamp(22px, 4vw, 36px) clamp(18px, 3vw, 30px);
           border: 1px solid rgba(226, 232, 240, 0.8);
           box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -597,7 +598,7 @@ export default function OperationDronagiri({ setActiveTab }) {
           background: linear-gradient(145deg, rgba(239, 68, 68, 0.08) 0%, rgba(10, 29, 61, 0.85) 100%);
           border: 1px solid rgba(239, 68, 68, 0.35);
           border-radius: 24px;
-          padding: 40px;
+          padding: clamp(22px, 4vw, 40px);
           backdrop-filter: blur(12px);
           box-shadow: 0 20px 40px rgba(0,0,0,0.3);
           transition: all 0.3s ease;
@@ -612,7 +613,7 @@ export default function OperationDronagiri({ setActiveTab }) {
           background: linear-gradient(145deg, rgba(0, 181, 226, 0.12) 0%, rgba(18, 50, 77, 0.9) 100%);
           border: 1px solid rgba(0, 181, 226, 0.45);
           border-radius: 24px;
-          padding: 40px;
+          padding: clamp(22px, 4vw, 40px);
           backdrop-filter: blur(12px);
           box-shadow: 0 20px 40px rgba(0, 181, 226, 0.15);
           transition: all 0.3s ease;
@@ -626,7 +627,7 @@ export default function OperationDronagiri({ setActiveTab }) {
         .deliverable-card {
           background: linear-gradient(160deg, #12324D 0%, #0A1D3D 100%);
           border-radius: 24px;
-          padding: 36px;
+          padding: clamp(20px, 4vw, 36px);
           display: flex;
           flex-direction: column;
           box-shadow: 0 16px 36px rgba(5, 15, 36, 0.4);
@@ -640,8 +641,17 @@ export default function OperationDronagiri({ setActiveTab }) {
 
         @media (max-width: 840px) {
           .showcase-card-side { display: none; }
-          .showcase-card-center { width: 100%; height: 400px; }
-          .carousel-arrow-btn { top: 40%; }
+          .showcase-card-center { width: 100%; height: 380px; transform: scale(1); }
+          .carousel-arrow-btn { top: 40%; width: 44px; height: 44px; }
+        }
+
+        @media (max-width: 480px) {
+          .showcase-card-center { height: 310px; border-radius: 20px; }
+          .showcase-icon-box { width: 44px; height: 44px; margin-bottom: 8px; }
+          .showcase-card-overlay { padding: 16px 14px 22px 14px; }
+          .carousel-arrow-btn { width: 38px; height: 38px; }
+          .carousel-arrow-left { left: -8px; }
+          .carousel-arrow-right { right: -8px; }
         }
       `}</style>
 
@@ -773,10 +783,10 @@ export default function OperationDronagiri({ setActiveTab }) {
       </section>
 
       {/* 2. PROBLEM STATEMENT SECTION (INTERACTIVE DASHED CARDS WITH TILT STACK EFFECT MATCHING REFERENCE IMAGE) */}
-      <section id="challenges" style={{ padding: '90px 24px', backgroundColor: '#F8FAFC', color: '#0F172A' }}>
+      <section id="challenges" style={{ padding: 'clamp(50px, 8vw, 90px) clamp(16px, 4vw, 24px)', backgroundColor: '#F8FAFC', color: '#0F172A' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3rem)', color: 'var(--text-heading-dark)', marginBottom: '18px', fontWeight: 400, letterSpacing: '-0.04em', lineHeight: 1.15 }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)', color: 'var(--text-heading-dark)', marginBottom: '18px', fontWeight: 400, letterSpacing: '-0.04em', lineHeight: 1.15 }}>
               Practical challenges smallholders face in day-to-day farming — <span style={{ color: 'var(--color-orange)' }}>and how we plan to help</span>
             </h2>
           </div>
@@ -815,15 +825,15 @@ export default function OperationDronagiri({ setActiveTab }) {
       <section
         id="solution"
         style={{
-          padding: '90px 24px',
+          padding: 'clamp(50px, 8vw, 90px) clamp(16px, 4vw, 24px)',
           backgroundColor: '#060B18',
           color: '#FFFFFF'
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Section Title */}
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h2 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', color: '#FFFFFF', fontWeight: 400, letterSpacing: '-0.04em' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', fontWeight: 400, letterSpacing: '-0.04em' }}>
               Our Solution
             </h2>
           </div>
@@ -832,8 +842,8 @@ export default function OperationDronagiri({ setActiveTab }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '36px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: '28px',
               alignItems: 'center'
             }}
           >
@@ -848,7 +858,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   background: 'rgba(15, 23, 42, 0.65)',
                   borderRadius: '16px',
-                  padding: '18px 22px',
+                  padding: '18px 20px',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
@@ -858,7 +868,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <WifiOff size={22} color="#EF4444" />
                 </div>
-                <span style={{ fontSize: '1.1rem', color: '#FFFFFF', fontWeight: 500 }}>Poor rural connectivity</span>
+                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Poor rural connectivity</span>
               </div>
 
               {/* Item 2 */}
@@ -866,7 +876,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   background: 'rgba(15, 23, 42, 0.65)',
                   borderRadius: '16px',
-                  padding: '18px 22px',
+                  padding: '18px 20px',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
@@ -876,7 +886,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <ZapOff size={22} color="#EF4444" />
                 </div>
-                <span style={{ fontSize: '1.1rem', color: '#FFFFFF', fontWeight: 500 }}>Power shortages</span>
+                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Power shortages</span>
               </div>
 
               {/* Item 3 */}
@@ -884,7 +894,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   background: 'rgba(15, 23, 42, 0.65)',
                   borderRadius: '16px',
-                  padding: '18px 22px',
+                  padding: '18px 20px',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
@@ -894,7 +904,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <DollarSign size={22} color="#EF4444" />
                 </div>
-                <span style={{ fontSize: '1.1rem', color: '#FFFFFF', fontWeight: 500 }}>High cost</span>
+                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>High cost</span>
               </div>
             </div>
 
@@ -903,6 +913,7 @@ export default function OperationDronagiri({ setActiveTab }) {
               <div
                 style={{
                   width: '100%',
+                  maxWidth: '480px',
                   borderRadius: '20px',
                   overflow: 'hidden',
                   border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -928,7 +939,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   background: 'rgba(15, 23, 42, 0.65)',
                   borderRadius: '16px',
-                  padding: '18px 22px',
+                  padding: '18px 20px',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
@@ -938,7 +949,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Sun size={22} color="#10B981" />
                 </div>
-                <span style={{ fontSize: '1.1rem', color: '#FFFFFF', fontWeight: 500 }}>Solar powered & low-consumption sensors</span>
+                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Solar powered & low-consumption sensors</span>
               </div>
 
               {/* Item 2 */}
@@ -946,7 +957,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   background: 'rgba(15, 23, 42, 0.65)',
                   borderRadius: '16px',
-                  padding: '18px 22px',
+                  padding: '18px 20px',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
@@ -956,7 +967,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Radio size={22} color="#10B981" />
                 </div>
-                <span style={{ fontSize: '1.1rem', color: '#FFFFFF', fontWeight: 500 }}>Affordable hardware & shared gateways</span>
+                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Affordable hardware & shared gateways</span>
               </div>
 
               {/* Item 3 */}
@@ -964,7 +975,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   background: 'rgba(15, 23, 42, 0.65)',
                   borderRadius: '16px',
-                  padding: '18px 22px',
+                  padding: '18px 20px',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
@@ -974,7 +985,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <FileText size={22} color="#10B981" />
                 </div>
-                <span style={{ fontSize: '1.1rem', color: '#FFFFFF', fontWeight: 500 }}>Short, actionable advice</span>
+                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Short, actionable advice</span>
               </div>
             </div>
           </div>
@@ -982,11 +993,11 @@ export default function OperationDronagiri({ setActiveTab }) {
       </section>
 
       {/* 4. CORE TECHNOLOGY PILLARS (RESPONSIVE FLEX GRID WITH PURE CURSOR HOVER POP-UP EFFECT) */}
-      <section style={{ padding: '90px 24px', backgroundColor: '#F8FAFC' }}>
+      <section style={{ padding: 'clamp(50px, 8vw, 90px) clamp(16px, 4vw, 24px)', backgroundColor: '#F8FAFC' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', color: '#0F172A', fontWeight: 400, letterSpacing: '-0.04em', margin: 0 }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#0F172A', fontWeight: 400, letterSpacing: '-0.04em', margin: 0 }}>
               Core Technological <span style={{ color: 'var(--color-orange)' }}>Pillars</span>
             </h2>
           </div>
@@ -997,7 +1008,7 @@ export default function OperationDronagiri({ setActiveTab }) {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '28px'
+              gap: '24px'
             }}
           >
             {pillars.map((pillar, idx) => (
@@ -1007,10 +1018,10 @@ export default function OperationDronagiri({ setActiveTab }) {
                 style={{
                   flex: '1 1 280px',
                   maxWidth: '360px',
-                  minWidth: '260px'
+                  minWidth: 'min(100%, 260px)'
                 }}
               >
-                <h3 style={{ fontSize: '1.35rem', color: '#1E293B', marginBottom: '12px', fontWeight: 600, letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.3rem', color: '#1E293B', marginBottom: '12px', fontWeight: 600, letterSpacing: '-0.02em' }}>
                   {pillar.title}
                 </h3>
                 <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: '1.6', margin: 0 }}>
@@ -1023,11 +1034,11 @@ export default function OperationDronagiri({ setActiveTab }) {
       </section>
 
       {/* IMPLEMENTATION UPDATE SECTION WITH LIGHT ULTRA-PREMIUM CARDS & ZERO SHADOWS */}
-      <section style={{ padding: '30px 24px 70px', backgroundColor: '#F8FAFC', color: '#0F172A' }}>
+      <section style={{ padding: 'clamp(30px, 5vw, 40px) clamp(16px, 4vw, 24px) clamp(40px, 6vw, 70px)', backgroundColor: '#F8FAFC', color: '#0F172A' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Section Header Row */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#0F172A', fontWeight: 400, letterSpacing: '-0.04em', margin: 0 }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#0F172A', fontWeight: 400, letterSpacing: '-0.04em', margin: 0 }}>
               Implementation <span style={{ color: '#10B981' }}>update</span>
             </h2>
 
@@ -1050,8 +1061,8 @@ export default function OperationDronagiri({ setActiveTab }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '28px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: '24px',
               alignItems: 'start'
             }}
           >
@@ -1060,7 +1071,7 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '24px',
-                padding: '24px',
+                padding: 'clamp(18px, 3vw, 24px)',
                 border: '1px solid #E2E8F0',
                 boxShadow: 'none'
               }}
@@ -1073,12 +1084,12 @@ export default function OperationDronagiri({ setActiveTab }) {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                  gap: '16px'
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+                  gap: '14px'
                 }}
               >
                 {/* Photo 1: Field Sensor Station / Survey Team */}
-                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '160px', background: '#F1F5F9' }}>
                   <img
                     src="https://static.wixstatic.com/media/9a5348_25f148923c234707a689115248a41ab5~mv2.jpg"
                     alt="Field Sensor Deployment Team"
@@ -1087,7 +1098,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 </div>
 
                 {/* Photo 2: Agriculture Survey Drone */}
-                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '160px', background: '#F1F5F9' }}>
                   <img
                     src="https://static.wixstatic.com/media/9a5348_97f84afd71804b92add3b9b784fb2217~mv2.png"
                     alt="Field Survey Payload Drone"
@@ -1096,7 +1107,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 </div>
 
                 {/* Photo 3: Soil Ground Texture */}
-                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '160px', background: '#F1F5F9' }}>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKiW9qBRGi2o8RvGTgDClGbJvgQZZJnKjF3d_3ccyxbA&s=10"
                     alt="Soil Composition Analysis"
@@ -1105,7 +1116,7 @@ export default function OperationDronagiri({ setActiveTab }) {
                 </div>
 
                 {/* Photo 4: GIS Farmland Plot Survey */}
-                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '165px', background: '#F1F5F9' }}>
+                <div style={{ borderRadius: '16px', border: '1px solid #E2E8F0', overflow: 'hidden', height: '160px', background: '#F1F5F9' }}>
                   <img
                     src="https://static.wixstatic.com/media/9a5348_ca92d41e8f4f415aa9c6511894031594~mv2.jpg"
                     alt="GIS Farmland Plot Boundary"
@@ -1120,7 +1131,7 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '24px',
-                padding: '24px',
+                padding: 'clamp(18px, 3vw, 24px)',
                 border: '1px solid #E2E8F0',
                 boxShadow: 'none'
               }}
@@ -1171,14 +1182,14 @@ export default function OperationDronagiri({ setActiveTab }) {
       </section>
 
       {/* 5. DELIVERABLES & IMPACT SECTION (MATCHING USER'S EXACT REFERENCE IMAGE WHILE PRESERVING DARK BACKGROUND) */}
-      <section style={{ padding: '90px 24px', backgroundColor: '#050F24', color: '#FFFFFF' }}>
+      <section style={{ padding: 'clamp(50px, 8vw, 90px) clamp(16px, 4vw, 24px)', backgroundColor: '#050F24', color: '#FFFFFF' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Main Title & Subtitle Matching Home Page Typography & Color System */}
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 400, letterSpacing: '-0.04em', marginBottom: '14px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 400, letterSpacing: '-0.04em', marginBottom: '14px' }}>
               Impact & <span style={{ color: 'var(--color-orange)' }}>Outcomes</span>
             </h2>
-            <p style={{ color: '#94A3B8', fontSize: '1.1rem', fontWeight: 400, margin: 0 }}>
+            <p style={{ color: '#94A3B8', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', fontWeight: 400, margin: 0 }}>
               What we aim to deliver to farmers, the environment and local economies
             </p>
           </div>
@@ -1187,9 +1198,9 @@ export default function OperationDronagiri({ setActiveTab }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '24px',
-              marginBottom: '32px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+              gap: '20px',
+              marginBottom: '28px'
             }}
           >
             {/* Card 1 */}
@@ -1197,19 +1208,19 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '16px',
-                padding: '28px 24px',
+                padding: 'clamp(20px, 3vw, 28px) clamp(16px, 2.5vw, 24px)',
                 color: '#0F172A',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '160px'
+                minHeight: '140px'
               }}
             >
               <div>
-                <div style={{ marginBottom: '16px' }}>
+                <div style={{ marginBottom: '14px' }}>
                   <Users size={26} color="#1E293B" />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
                   Farmers reached
                 </h3>
                 <p style={{ color: '#64748B', fontSize: '0.92rem', margin: 0, lineHeight: 1.5 }}>
@@ -1223,19 +1234,19 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '16px',
-                padding: '28px 24px',
+                padding: 'clamp(20px, 3vw, 28px) clamp(16px, 2.5vw, 24px)',
                 color: '#0F172A',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '160px'
+                minHeight: '140px'
               }}
             >
               <div>
-                <div style={{ marginBottom: '16px' }}>
+                <div style={{ marginBottom: '14px' }}>
                   <Sprout size={26} color="#1E293B" />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
                   Sustainable Agriculture
                 </h3>
                 <p style={{ color: '#64748B', fontSize: '0.92rem', margin: 0, lineHeight: 1.5 }}>
@@ -1249,19 +1260,19 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '16px',
-                padding: '28px 24px',
+                padding: 'clamp(20px, 3vw, 28px) clamp(16px, 2.5vw, 24px)',
                 color: '#0F172A',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '160px'
+                minHeight: '140px'
               }}
             >
               <div>
-                <div style={{ marginBottom: '16px' }}>
+                <div style={{ marginBottom: '14px' }}>
                   <Settings size={26} color="#1E293B" />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
                   Productivity
                 </h3>
                 <p style={{ color: '#64748B', fontSize: '0.92rem', margin: 0, lineHeight: 1.5 }}>
@@ -1275,19 +1286,19 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '16px',
-                padding: '28px 24px',
+                padding: 'clamp(20px, 3vw, 28px) clamp(16px, 2.5vw, 24px)',
                 color: '#0F172A',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '160px'
+                minHeight: '140px'
               }}
             >
               <div>
-                <div style={{ marginBottom: '16px' }}>
+                <div style={{ marginBottom: '14px' }}>
                   <ShieldCheck size={26} color="#1E293B" />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0B192C', marginBottom: '6px', letterSpacing: '-0.02em' }}>
                   Risk mitigation
                 </h3>
                 <p style={{ color: '#64748B', fontSize: '0.92rem', margin: 0, lineHeight: 1.5 }}>
@@ -1302,22 +1313,22 @@ export default function OperationDronagiri({ setActiveTab }) {
             style={{
               background: '#FFFFFF',
               borderRadius: '20px',
-              padding: '36px 32px',
+              padding: 'clamp(24px, 4vw, 36px) clamp(18px, 3vw, 32px)',
               color: '#0F172A'
             }}
           >
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0B192C', marginBottom: '32px', letterSpacing: '-0.02em' }}>
+            <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0B192C', marginBottom: '28px', letterSpacing: '-0.02em' }}>
               Key deliverables & progress
             </h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {/* Progress 1 */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '1rem', fontWeight: 600, color: '#1E293B' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <span style={{ fontSize: '0.98rem', fontWeight: 600, color: '#1E293B' }}>
                     Central data repository
                   </span>
-                  <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-aqua)' }}>
+                  <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-aqua)' }}>
                     75%
                   </span>
                 </div>
@@ -1336,11 +1347,11 @@ export default function OperationDronagiri({ setActiveTab }) {
 
               {/* Progress 2 */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '1rem', fontWeight: 600, color: '#1E293B' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <span style={{ fontSize: '0.98rem', fontWeight: 600, color: '#1E293B' }}>
                     ML prediction models
                   </span>
-                  <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-orange)' }}>
+                  <span style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-orange)' }}>
                     60%
                   </span>
                 </div>
@@ -1362,14 +1373,14 @@ export default function OperationDronagiri({ setActiveTab }) {
       </section>
 
       {/* 6. ADDITIONAL INFORMATION SECTION (LIGHT SLATE THEME) */}
-      <section style={{ padding: '80px 24px', backgroundColor: '#F8FAFC', color: '#0F172A' }}>
+      <section style={{ padding: 'clamp(50px, 8vw, 80px) clamp(16px, 4vw, 24px)', backgroundColor: '#F8FAFC', color: '#0F172A' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Main Title & Subtitle */}
-          <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: '#0F172A', fontWeight: 400, letterSpacing: '-0.04em', marginBottom: '14px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: '#0F172A', fontWeight: 400, letterSpacing: '-0.04em', marginBottom: '14px' }}>
               Additional <span style={{ color: 'var(--color-orange)' }}>Information</span>
             </h2>
-            <p style={{ color: '#64748B', fontSize: '1.1rem', fontWeight: 400, margin: 0 }}>
+            <p style={{ color: '#64748B', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', fontWeight: 400, margin: 0 }}>
               What we aim to deliver to farmers, the environment and local economies
             </p>
           </div>
@@ -1378,7 +1389,7 @@ export default function OperationDronagiri({ setActiveTab }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
               gap: '24px',
               marginBottom: '28px'
             }}
@@ -1388,16 +1399,16 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '20px',
-                padding: '32px 28px',
+                padding: 'clamp(24px, 4vw, 32px) clamp(20px, 3vw, 28px)',
                 border: '1px solid #E2E8F0',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '200px'
+                minHeight: '180px'
               }}
             >
               <div>
-                <h3 style={{ fontSize: '1.35rem', color: '#0F172A', fontWeight: 700, marginBottom: '12px', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.3rem', color: '#0F172A', fontWeight: 700, marginBottom: '12px', letterSpacing: '-0.02em' }}>
                   Media & press
                 </h3>
                 <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: 1.6, marginBottom: '24px' }}>
@@ -1408,7 +1419,7 @@ export default function OperationDronagiri({ setActiveTab }) {
               <div>
                 <button
                   style={{
-                    padding: '10px 26px',
+                    padding: '10px 24px',
                     borderRadius: '10px',
                     background: '#0F172A',
                     color: '#FFFFFF',
@@ -1429,40 +1440,40 @@ export default function OperationDronagiri({ setActiveTab }) {
               style={{
                 background: '#FFFFFF',
                 borderRadius: '20px',
-                padding: '32px 28px',
+                padding: 'clamp(24px, 4vw, 32px) clamp(20px, 3vw, 28px)',
                 border: '1px solid #E2E8F0',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '200px'
+                minHeight: '180px'
               }}
             >
-              <h3 style={{ fontSize: '1.35rem', color: '#0F172A', fontWeight: 700, marginBottom: '20px', letterSpacing: '-0.02em' }}>
+              <h3 style={{ fontSize: '1.3rem', color: '#0F172A', fontWeight: 700, marginBottom: '20px', letterSpacing: '-0.02em' }}>
                 Sustainable Development Goals
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                 {/* SDG 1: No Poverty */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#F8FAFC', padding: '12px 14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '8px', background: '#E5243B', color: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.75rem', flexShrink: 0 }}>
+                  <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#E5243B', color: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.75rem', flexShrink: 0 }}>
                     <span>1</span>
-                    <span style={{ fontSize: '0.52rem', textTransform: 'uppercase' }}>NO POVERTY</span>
+                    <span style={{ fontSize: '0.5rem', textTransform: 'uppercase' }}>NO POVERTY</span>
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', fontWeight: 700, margin: 0 }}>No poverty</h4>
-                    <span style={{ fontSize: '0.78rem', color: '#64748B' }}>Local income support</span>
+                    <h4 style={{ fontSize: '0.92rem', color: '#0F172A', fontWeight: 700, margin: 0 }}>No poverty</h4>
+                    <span style={{ fontSize: '0.76rem', color: '#64748B' }}>Local income support</span>
                   </div>
                 </div>
 
                 {/* SDG 2: Zero Hunger */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#F8FAFC', padding: '12px 14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '8px', background: '#DDA63A', color: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.75rem', flexShrink: 0 }}>
+                  <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#DDA63A', color: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.75rem', flexShrink: 0 }}>
                     <span>2</span>
-                    <span style={{ fontSize: '0.52rem', textTransform: 'uppercase' }}>ZERO HUNGER</span>
+                    <span style={{ fontSize: '0.5rem', textTransform: 'uppercase' }}>ZERO HUNGER</span>
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', fontWeight: 700, margin: 0 }}>Zero hunger</h4>
-                    <span style={{ fontSize: '0.78rem', color: '#64748B' }}>Improved yields & nutrition</span>
+                    <h4 style={{ fontSize: '0.92rem', color: '#0F172A', fontWeight: 700, margin: 0 }}>Zero hunger</h4>
+                    <span style={{ fontSize: '0.76rem', color: '#64748B' }}>Improved yields & nutrition</span>
                   </div>
                 </div>
               </div>
@@ -1474,14 +1485,14 @@ export default function OperationDronagiri({ setActiveTab }) {
             style={{
               background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
               borderRadius: '24px',
-              padding: '48px 32px',
+              padding: 'clamp(28px, 5vw, 48px) clamp(18px, 4vw, 32px)',
               textAlign: 'center'
             }}
           >
-            <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', color: '#FFFFFF', fontWeight: 700, marginBottom: '16px', letterSpacing: '-0.03em' }}>
+            <h3 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)', color: '#FFFFFF', fontWeight: 700, marginBottom: '14px', letterSpacing: '-0.03em' }}>
               Transforming agriculture
             </h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.95)', maxWidth: '780px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.6', fontWeight: 400 }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.95)', maxWidth: '780px', margin: '0 auto', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: '1.6', fontWeight: 400 }}>
               Operation Dronagiri brings simple, timely information to farmers so they can make better choices — more resilient harvests and sustainable livelihoods.
             </p>
           </div>

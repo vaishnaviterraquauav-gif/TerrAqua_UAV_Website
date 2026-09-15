@@ -70,7 +70,7 @@ export default function OurProduct({ setActiveTab }) {
       {/* HERO / HEADER SECTION */}
       <section style={{
         position: 'relative',
-        padding: '90px 24px 75px',
+        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px) clamp(40px, 6vw, 75px)',
         overflow: 'hidden',
         textAlign: 'center',
         background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
@@ -90,7 +90,7 @@ export default function OurProduct({ setActiveTab }) {
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <h1 style={{
-            fontSize: 'clamp(2.4rem, 5vw, 4rem)',
+            fontSize: 'clamp(2.2rem, 5vw, 4rem)',
             fontWeight: 400,
             color: '#FFFFFF',
             lineHeight: 1.15,
@@ -98,19 +98,19 @@ export default function OurProduct({ setActiveTab }) {
             marginBottom: '20px',
             fontFamily: 'var(--font-universal)'
           }}>
-            Innovative <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Geospatial Solutions</span>
+            Geospatial Products & <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Platforms</span>
           </h1>
 
           <p style={{
             color: '#CBD5E1',
             maxWidth: '780px',
             margin: '0 auto',
-            fontSize: '1.1rem',
+            fontSize: 'clamp(0.98rem, 2vw, 1.1rem)',
             lineHeight: 1.7,
             fontWeight: 400,
             fontFamily: 'var(--font-universal)'
           }}>
-            Discover our innovative suite of Geospatial solutions designed to meet diverse industry needs. From interactive web GIS platforms to specialized modules for mining, image classification, and 3D point cloud analysis.
+            Explore our geospatial products, from WebGIS platforms to specialized tools for mining, image classification, and 3D analysis.
           </p>
         </div>
       </section>
@@ -149,7 +149,7 @@ export default function OurProduct({ setActiveTab }) {
           .product-card-img-box {
             flex: 1 1 50%;
             width: 50%;
-            min-width: 300px;
+            min-width: 280px;
             min-height: 380px;
             background: linear-gradient(135deg, #0A172C 0%, #050D1A 100%);
             display: flex;
@@ -178,9 +178,9 @@ export default function OurProduct({ setActiveTab }) {
           .product-card-content-box {
             flex: 1 1 50%;
             width: 50%;
-            min-width: 300px;
+            min-width: 280px;
             min-height: 380px;
-            padding: clamp(32px, 4vw, 48px);
+            padding: clamp(28px, 4vw, 48px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -212,19 +212,23 @@ export default function OurProduct({ setActiveTab }) {
             .product-card-row,
             .product-card-row.reverse {
               flex-direction: column !important;
+              min-height: 0 !important;
             }
 
             .product-card-img-box {
               width: 100% !important;
-              flex: none;
-              min-height: 260px;
-              padding: 20px;
+              min-width: 0 !important;
+              flex: none !important;
+              min-height: 220px !important;
+              padding: 20px !important;
             }
 
             .product-card-content-box {
               width: 100% !important;
-              flex: none;
-              padding: 28px 20px !important;
+              min-width: 0 !important;
+              flex: none !important;
+              padding: 24px 18px !important;
+              min-height: 0 !important;
             }
           }
         `}</style>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Linkedin, Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck, CheckCircle2 } from 'lucide-react'
+import iitTirupatiLogo from '../assets/iit_tirupati_logo.png'
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
         backgroundColor: '#050D1A',
         backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(0, 181, 226, 0.06) 0%, transparent 70%)',
         color: '#FFFFFF',
-        padding: '44px 24px 24px',
+        padding: 'clamp(32px, 6vw, 44px) clamp(16px, 4vw, 24px) 24px',
         borderTop: '1px solid rgba(0, 181, 226, 0.15)',
         overflow: 'hidden'
       }}
@@ -26,8 +27,8 @@ export default function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '36px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 270px), 1fr))',
+            gap: 'clamp(24px, 4vw, 36px)',
             marginBottom: '32px',
             alignItems: 'start'
           }}
@@ -40,7 +41,7 @@ export default function Footer() {
               <img
                 src="/image.png"
                 alt="TerrAqua UAV"
-                style={{ height: '74px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: 'clamp(58px, 12vw, 74px)', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
             </div>
 
@@ -94,23 +95,35 @@ export default function Footer() {
               </span>
             </div>
 
-            {/* Gov Recognitions */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>
-              <img
-                src="/startupindia-clean.png"
-                alt="Startup India"
-                style={{ height: '54px', width: 'auto', objectFit: 'contain', display: 'block' }}
-              />
-              <img
-                src="/upstartuplogo.png"
-                alt="Start In UP"
-                style={{ height: '54px', width: 'auto', objectFit: 'contain', display: 'block' }}
-              />
-              <img
-                src="/recognized_3.png?v=white"
-                alt="SIIC IIT Kanpur"
-                style={{ height: '48px', width: 'auto', objectFit: 'contain', display: 'block' }}
-              />
+            {/* Gov Recognitions & Incubators (2 on top, 2 below) */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '20px' }}>
+              {/* Row 1: Startup India & Start in UP */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '22px' }}>
+                <img
+                  src="/startupindia-clean.png"
+                  alt="Startup India"
+                  style={{ height: '56px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                />
+                <img
+                  src="/upstartuplogo.png"
+                  alt="Start In UP"
+                  style={{ height: '56px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                />
+              </div>
+
+              {/* Row 2: SIIC IIT Kanpur & IIT Tirupati */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '22px' }}>
+                <img
+                  src="/recognized_3.png?v=white"
+                  alt="SIIC IIT Kanpur"
+                  style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                />
+                <img
+                  src={iitTirupatiLogo}
+                  alt="IIT Tirupati"
+                  style={{ height: '56px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                />
+              </div>
             </div>
 
             {/* Certifications & Recognitions */}
@@ -150,7 +163,7 @@ export default function Footer() {
                 }}
               >
                 <CheckCircle2 size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
-                <span>DPIIT & UP State Startup Recognized</span>
+                <span>DPIIT & Startin UP Recognized</span>
               </div>
             </div>
           </div>

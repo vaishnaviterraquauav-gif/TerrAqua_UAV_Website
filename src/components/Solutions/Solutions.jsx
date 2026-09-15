@@ -41,7 +41,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       id: 'daas',
       title: "DaaS",
       subtitle: "TerrAqua UAV",
-      desc: "Drone as a Service. We provide professional aerial data acquisition, deploying advanced UAVs for high-resolution mapping and environmental surveillance.",
+      desc: "Data as a Service. We provide professional aerial data acquisition, deploying advanced UAVs for high-resolution mapping and environmental surveillance.",
       img: "/daas-solution.png",
       features: [
         "Aerial Photogrammetry & LiDAR Acquisition",
@@ -72,78 +72,22 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
         "AI Vigor & Anomaly Analytics Platform",
         "Collaborative WebGIS Telemetry Dashboard"
       ]
+    },
+    {
+      id: 'project-based',
+      title: "Project Based Service",
+      subtitle: "TerrAqua UAV",
+      desc: "End-to-end project solutions, combining UAV-based data acquisition, custom GIS modeling, spatial analysis, and expert geospatial consultancy tailored to specific project requirements.",
+      img: "/fieldwork_chronicles.png",
+      features: [
+        "Turnkey Aerial & GIS Project Execution",
+        "Custom Workflow & Analytical Modeling",
+        "Dedicated Domain Expert Consultation"
+      ]
     }
   ]
 
   const domainApplications = [
-    {
-      id: 'natural-resources',
-      title: "Natural Resource Management",
-      subtitle: "Ecological Auditing & Resource Preservation",
-      desc: "Comprehensive aerial remote sensing and high-resolution mapping to monitor forests, water bodies, mineral reserves, and ecological habitats.",
-      img: "https://static.wixstatic.com/media/9a5348_e81facd97b7f43bea6b80a3251322a7b~mv2.jpg",
-      heroBadge: "ECOLOGICAL & MINING INTELLIGENCE",
-      overview: "TerrAqua UAV delivers military-grade aerial surveys and multispectral remote sensing to track, quantify, and preserve vital natural assets. From vast forest reserves and water catchment basins to commercial mining quarries, our UAV fleet provides millimeter-level spatial fidelity and volumetric accuracy.",
-      keyCapabilities: [
-        {
-          title: "Forest Canopy & Biomass Estimation",
-          desc: "Multi-layered LiDAR scanning through dense foliage to map ground terrain, quantify tree density, canopy height models (CHM), and estimate above-ground biomass."
-        },
-        {
-          title: "Water Body Dynamics & Depth Mapping",
-          desc: "Bathymetric and multispectral spectral index analysis for reservoir siltation monitoring, algal bloom detection, and water volume estimation."
-        },
-        {
-          title: "Mining & Quarry Volumetric Audits",
-          desc: "Autonomous 3D cut-and-fill volumetric calculation for open-cast mines, aggregate stockpiles, and excavation boundary tracking with sub-centimeter error margins."
-        },
-        {
-          title: "Ecological Habitat & Wildlife Protection",
-          desc: "Thermal night-vision patrols and AI species recognition to curb illegal poaching, monitor wildlife migration corridors, and track habitat encroachment."
-        }
-      ],
-      payloads: ["Airborne LiDAR Scanners (Velodyne / Livox)", "45MP Full-Frame Photogrammetry RGB", "6-Band Multispectral Sensors", "Radiometric Thermal Vision"],
-      deliverables: ["High-Density 3D Point Clouds (.LAS / .LAZ)", "Digital Surface & Elevation Models (DSM / DEM)", "Volumetric Stockpile Variance Reports (CSV/PDF)", "Classified Land Use / Land Cover (LULC) Rasters"],
-      stats: [
-        { label: "Survey Speed vs Ground Crew", value: "10x Faster" },
-        { label: "Volumetric Measurement Accuracy", value: "99.2%" },
-        { label: "Max Single-Day Area Coverage", value: "2,500+ Ha" }
-      ]
-    },
-    {
-      id: 'disaster-risk',
-      title: "Disaster Risk Reduction",
-      subtitle: "Emergency Response & Crisis Mitigation",
-      desc: "Rapid response UAV deployment for real-time flood monitoring, landslide vulnerability analysis, emergency route mapping, and disaster recovery.",
-      img: "https://i.abcnewsfe.com/a/7317b202-b250-4686-a784-7c69b7d4e803/nepal-floods_1787739415018_hpMain.jpg",
-      heroBadge: "RAPID EMERGENCY DEPLOYMENT",
-      overview: "When natural disasters strike, ground access is compromised. TerrAqua UAV's emergency rapid-deployment unit provides first responders, disaster management authorities, and civil administrations with real-time situational intelligence, flood inundation modeling, and post-disaster damage assessments.",
-      keyCapabilities: [
-        {
-          title: "Real-Time Flood Inundation & Velocity Modeling",
-          desc: "Continuous aerial monitoring during active flood events to trace flood boundaries, calculate water flow velocities, and predict breach risks in embankments."
-        },
-        {
-          title: "Landslide Vulnerability & Slope Stability",
-          desc: "High-precision digital elevation modeling and slope-aspect computation in hilly terrains to identify active displacement zones and early warning landslide triggers."
-        },
-        {
-          title: "Post-Disaster Structural Damage Assessment",
-          desc: "Rapid orthomosaic generation to audit collapsed infrastructure, compromised bridges, destroyed road links, and power line severances for disaster relief funding."
-        },
-        {
-          title: "Thermal Search & Rescue Guidance",
-          desc: "Deploying high-altitude radiometric thermal UAVs to pinpoint trapped survivors through smoke, debris, or night conditions, relaying GPS coordinates directly to rescue squads."
-        }
-      ],
-      payloads: ["Dual Thermal FLIR Boson 640 + RGB 4K", "Long-Range Hybrid VTOL (2.5 Hr Endurance)", "High-Lumen Night Illumination Spotlight", "Emergency Drop-Payload Delivery Module"],
-      deliverables: ["Live Encrypted Video Feed to Command Center", "Rapid Turnaround Orthophoto Maps (< 2 hrs)", "Emergency Evacuation Route Accessibility Maps", "Disaster Compensation & Structural Damage Audits"],
-      stats: [
-        { label: "Deployment Readiness Time", value: "< 15 Mins" },
-        { label: "Live Telemetry & Video Range", value: "15+ km" },
-        { label: "Survivor Detection Reliability", value: "99.8%" }
-      ]
-    },
     {
       id: 'agriculture',
       title: "Agriculture",
@@ -179,37 +123,37 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       ]
     },
     {
-      id: 'environmental-conservation',
-      title: "Environmental Conservation",
-      subtitle: "Carbon Sequestration & Ecosystem Protection",
-      desc: "Ecological auditing, carbon stock quantification, wildlife tracking, and environmental compliance monitoring using multi-sensor UAV payloads.",
-      img: "https://static.wixstatic.com/media/9a5348_0149884df72441a89574b1c908490b12~mv2.jpg",
-      heroBadge: "ESG & CLIMATE RESTORATION",
-      overview: "Actionable environmental intelligence for governments, global conservation organizations, and green ESG enterprises. TerrAqua UAV creates immutable geospatial baselines to track afforestation progress, measure carbon sequestration, and enforce ecological compliance.",
+      id: 'climate-intelligence',
+      title: "Climate Intelligence",
+      subtitle: "Microclimate Modeling & Emission Tracking",
+      desc: "Advanced climate data modeling, thermal emission tracking, and microclimate analytics powered by AI and aerial GIS integration.",
+      img: "https://cdn.mos.cms.futurecdn.net/Bkcs2EBgW5hqaCSfGGAghh-1400-80.jpg",
+      heroBadge: "CLIMATE ACTION & GEO-ANALYTICS",
+      overview: "Understanding microclimate volatility requires hyper-localized spatial observations. TerrAqua UAV leverages airborne thermal radiometry, atmospheric sniffer payloads, and predictive GIS models to quantify urban heat islands, industrial emissions, and climate risks.",
       keyCapabilities: [
         {
-          title: "Carbon Stock & Above-Ground Biomass Audits",
-          desc: "Combine LiDAR and multispectral indices to measure tree trunk girth, crown diameter, and calculate verifiable carbon credit certification metrics."
+          title: "Urban Heat Island (UHI) Thermal Mapping",
+          desc: "Calibrated aerial surface temperature mapping across urban settlements to detect overheating concrete canyons and design targeted green-roof cooling policies."
         },
         {
-          title: "Wetland, Mangrove & Coastal Restoration",
-          desc: "Track shoreline erosion dynamics, mangrove plantation survival rates, and wetland hydrologic connectivity over multi-temporal flight missions."
+          title: "Industrial Greenhouse Gas & Methane Tracking",
+          desc: "Mounting optical gas imaging (OGI) sensors on UAVs to pinpoint fugitive methane leaks, pipeline emissions, and landfill bio-gas releases."
         },
         {
-          title: "Illegal Deforestation & Encroachment Patrols",
-          desc: "Continuous autonomous perimeter surveillance across national parks, generating instant alerts when illegal logging or land grabbing occurs."
+          title: "Coastal Storm Surge & Sea-Level Modeling",
+          desc: "Simulating extreme weather inundation scenarios based on centimeter-precision coastal elevation models and tidal wave hydrodynamics."
         },
         {
-          title: "EIA (Environmental Impact Assessment) Baseline",
-          desc: "Pre-construction and post-project ecological impact assessments for green energy developments, mining reclamation, and industrial corridors."
+          title: "Renewable Energy Solar & Wind Farm Optimization",
+          desc: "Thermal anomaly inspection across gigawatt solar farms to identify defective photovoltaic cells and bypass diode failures in minutes."
         }
       ],
-      payloads: ["Dual-Frequency Airborne LiDAR", "High-Resolution 60MP Photogrammetry", "Hyperspectral Vegetation Sensors", "Autonomous Solar-Powered Charging Docks"],
-      deliverables: ["Verifiable Carbon Credit Sequestration Datasets", "Temporal Deforestation & Growth Heatmaps", "High-Precision 3D Terrain & Watershed Models", "Official EIA Environmental Compliance Reports"],
+      payloads: ["Radiometric Thermal FLIR Duo Pro R", "Optical Gas Imaging (OGI) Sensor Payload", "Air Quality PM2.5 / PM10 / VOC Sniffers", "High-Resolution Multispectral Sensors"],
+      deliverables: ["Calibrated Surface Temperature GeoTIFFs", "Fugitive Gas Plume Concentration Heatmaps", "Solar Farm Thermal Defect Audit Reports (IEC Compliant)", "Microclimate Vulnerability Index Rasters"],
       stats: [
-        { label: "Carbon Model Accuracy", value: "96.4%" },
-        { label: "Canopy Penetration Rate", value: "85%+" },
-        { label: "Conservation ROI Boost", value: "4x Efficiency" }
+        { label: "Thermal Sensitivity Precision", value: "< 0.03°C" },
+        { label: "Solar Inspection Speed", value: "100 MW / Day" },
+        { label: "Gas Leak Detection Accuracy", value: "99.1%" }
       ]
     },
     {
@@ -247,37 +191,105 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       ]
     },
     {
-      id: 'climate-intelligence',
-      title: "Climate Intelligence",
-      subtitle: "Microclimate Modeling & Emission Tracking",
-      desc: "Advanced climate data modeling, thermal emission tracking, and microclimate analytics powered by AI and aerial GIS integration.",
-      img: "https://cdn.mos.cms.futurecdn.net/Bkcs2EBgW5hqaCSfGGAghh-1400-80.jpg",
-      heroBadge: "CLIMATE ACTION & GEO-ANALYTICS",
-      overview: "Understanding microclimate volatility requires hyper-localized spatial observations. TerrAqua UAV leverages airborne thermal radiometry, atmospheric sniffer payloads, and predictive GIS models to quantify urban heat islands, industrial emissions, and climate risks.",
+      id: 'natural-resources',
+      title: "Natural Resource Management",
+      subtitle: "Ecological Auditing & Resource Preservation",
+      desc: "Comprehensive aerial remote sensing and high-resolution mapping to monitor forests, water bodies, mineral reserves, and ecological habitats.",
+      img: "https://static.wixstatic.com/media/9a5348_e81facd97b7f43bea6b80a3251322a7b~mv2.jpg",
+      heroBadge: "ECOLOGICAL & MINING INTELLIGENCE",
+      overview: "TerrAqua UAV delivers military-grade aerial surveys and multispectral remote sensing to track, quantify, and preserve vital natural assets. From vast forest reserves and water catchment basins to commercial mining quarries, our UAV fleet provides millimeter-level spatial fidelity and volumetric accuracy.",
       keyCapabilities: [
         {
-          title: "Urban Heat Island (UHI) Thermal Mapping",
-          desc: "Calibrated aerial surface temperature mapping across urban settlements to detect overheating concrete canyons and design targeted green-roof cooling policies."
+          title: "Forest Canopy & Biomass Estimation",
+          desc: "Multi-layered LiDAR scanning through dense foliage to map ground terrain, quantify tree density, canopy height models (CHM), and estimate above-ground biomass."
         },
         {
-          title: "Industrial Greenhouse Gas & Methane Tracking",
-          desc: "Mounting optical gas imaging (OGI) sensors on UAVs to pinpoint fugitive methane leaks, pipeline emissions, and landfill bio-gas releases."
+          title: "Water Body Dynamics & Depth Mapping",
+          desc: "Bathymetric and multispectral spectral index analysis for reservoir siltation monitoring, algal bloom detection, and water volume estimation."
         },
         {
-          title: "Coastal Storm Surge & Sea-Level Modeling",
-          desc: "Simulating extreme weather inundation scenarios based on centimeter-precision coastal elevation models and tidal wave hydrodynamics."
+          title: "Mining & Quarry Volumetric Audits",
+          desc: "Autonomous 3D cut-and-fill volumetric calculation for open-cast mines, aggregate stockpiles, and excavation boundary tracking with sub-centimeter error margins."
         },
         {
-          title: "Renewable Energy Solar & Wind Farm Optimization",
-          desc: "Thermal anomaly inspection across gigawatt solar farms to identify defective photovoltaic cells and bypass diode failures in minutes."
+          title: "Ecological Habitat & Wildlife Protection",
+          desc: "Thermal night-vision patrols and AI species recognition to curb illegal poaching, monitor wildlife migration corridors, and track habitat encroachment."
         }
       ],
-      payloads: ["Radiometric Thermal FLIR Duo Pro R", "Optical Gas Imaging (OGI) Sensor Payload", "Air Quality PM2.5 / PM10 / VOC Sniffers", "High-Resolution Multispectral Sensors"],
-      deliverables: ["Calibrated Surface Temperature GeoTIFFs", "Fugitive Gas Plume Concentration Heatmaps", "Solar Farm Thermal Defect Audit Reports (IEC Compliant)", "Microclimate Vulnerability Index Rasters"],
+      payloads: ["Airborne LiDAR Scanners (Velodyne / Livox)", "45MP Full-Frame Photogrammetry RGB", "6-Band Multispectral Sensors", "Radiometric Thermal Vision"],
+      deliverables: ["High-Density 3D Point Clouds (.LAS / .LAZ)", "Digital Surface & Elevation Models (DSM / DEM)", "Volumetric Stockpile Variance Reports (CSV/PDF)", "Classified Land Use / Land Cover (LULC) Rasters"],
       stats: [
-        { label: "Thermal Sensitivity Precision", value: "< 0.03°C" },
-        { label: "Solar Inspection Speed", value: "100 MW / Day" },
-        { label: "Gas Leak Detection Accuracy", value: "99.1%" }
+        { label: "Survey Speed vs Ground Crew", value: "10x Faster" },
+        { label: "Volumetric Measurement Accuracy", value: "99.2%" },
+        { label: "Max Single-Day Area Coverage", value: "2,500+ Ha" }
+      ]
+    },
+    {
+      id: 'environmental-conservation',
+      title: "Environmental Conservation",
+      subtitle: "Carbon Sequestration & Ecosystem Protection",
+      desc: "Ecological auditing, carbon stock quantification, wildlife tracking, and environmental compliance monitoring using multi-sensor UAV payloads.",
+      img: "https://static.wixstatic.com/media/9a5348_0149884df72441a89574b1c908490b12~mv2.jpg",
+      heroBadge: "ESG & CLIMATE RESTORATION",
+      overview: "Actionable environmental intelligence for governments, global conservation organizations, and green ESG enterprises. TerrAqua UAV creates immutable geospatial baselines to track afforestation progress, measure carbon sequestration, and enforce ecological compliance.",
+      keyCapabilities: [
+        {
+          title: "Carbon Stock & Above-Ground Biomass Audits",
+          desc: "Combine LiDAR and multispectral indices to measure tree trunk girth, crown diameter, and calculate verifiable carbon credit certification metrics."
+        },
+        {
+          title: "Wetland, Mangrove & Coastal Restoration",
+          desc: "Track shoreline erosion dynamics, mangrove plantation survival rates, and wetland hydrologic connectivity over multi-temporal flight missions."
+        },
+        {
+          title: "Illegal Deforestation & Encroachment Patrols",
+          desc: "Continuous autonomous perimeter surveillance across national parks, generating instant alerts when illegal logging or land grabbing occurs."
+        },
+        {
+          title: "EIA (Environmental Impact Assessment) Baseline",
+          desc: "Pre-construction and post-project ecological impact assessments for green energy developments, mining reclamation, and industrial corridors."
+        }
+      ],
+      payloads: ["Dual-Frequency Airborne LiDAR", "High-Resolution 60MP Photogrammetry", "Hyperspectral Vegetation Sensors", "Autonomous Solar-Powered Charging Docks"],
+      deliverables: ["Verifiable Carbon Credit Sequestration Datasets", "Temporal Deforestation & Growth Heatmaps", "High-Precision 3D Terrain & Watershed Models", "Official EIA Environmental Compliance Reports"],
+      stats: [
+        { label: "Carbon Model Accuracy", value: "96.4%" },
+        { label: "Canopy Penetration Rate", value: "85%+" },
+        { label: "Conservation ROI Boost", value: "4x Efficiency" }
+      ]
+    },
+    {
+      id: 'disaster-risk',
+      title: "Disaster Risk Reduction",
+      subtitle: "Emergency Response & Crisis Mitigation",
+      desc: "Rapid response UAV deployment for real-time flood monitoring, landslide vulnerability analysis, emergency route mapping, and disaster recovery.",
+      img: "https://i.abcnewsfe.com/a/7317b202-b250-4686-a784-7c69b7d4e803/nepal-floods_1787739415018_hpMain.jpg",
+      heroBadge: "RAPID EMERGENCY DEPLOYMENT",
+      overview: "When natural disasters strike, ground access is compromised. TerrAqua UAV's emergency rapid-deployment unit provides first responders, disaster management authorities, and civil administrations with real-time situational intelligence, flood inundation modeling, and post-disaster damage assessments.",
+      keyCapabilities: [
+        {
+          title: "Real-Time Flood Inundation & Velocity Modeling",
+          desc: "Continuous aerial monitoring during active flood events to trace flood boundaries, calculate water flow velocities, and predict breach risks in embankments."
+        },
+        {
+          title: "Landslide Vulnerability & Slope Stability",
+          desc: "High-precision digital elevation modeling and slope-aspect computation in hilly terrains to identify active displacement zones and early warning landslide triggers."
+        },
+        {
+          title: "Post-Disaster Structural Damage Assessment",
+          desc: "Rapid orthomosaic generation to audit collapsed infrastructure, compromised bridges, destroyed road links, and power line severances for disaster relief funding."
+        },
+        {
+          title: "Thermal Search & Rescue Guidance",
+          desc: "Deploying high-altitude radiometric thermal UAVs to pinpoint trapped survivors through smoke, debris, or night conditions, relaying GPS coordinates directly to rescue squads."
+        }
+      ],
+      payloads: ["Dual Thermal FLIR Boson 640 + RGB 4K", "Long-Range Hybrid VTOL (2.5 Hr Endurance)", "High-Lumen Night Illumination Spotlight", "Emergency Drop-Payload Delivery Module"],
+      deliverables: ["Live Encrypted Video Feed to Command Center", "Rapid Turnaround Orthophoto Maps (< 2 hrs)", "Emergency Evacuation Route Accessibility Maps", "Disaster Compensation & Structural Damage Audits"],
+      stats: [
+        { label: "Deployment Readiness Time", value: "< 15 Mins" },
+        { label: "Live Telemetry & Video Range", value: "15+ km" },
+        { label: "Survivor Detection Reliability", value: "99.8%" }
       ]
     }
   ]
@@ -810,23 +822,23 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
     <div>
       {/* SECTION 1: NAVY BLUE HEADER */}
       <section style={{
-        padding: '90px 24px 80px',
+        padding: 'clamp(50px, 7vw, 90px) clamp(16px, 4vw, 24px) clamp(40px, 6vw, 80px)',
         textAlign: 'center',
         background: 'linear-gradient(180deg, #0A1D3D 0%, #050F24 100%)',
         borderBottom: '1px solid rgba(0, 181, 226, 0.2)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <h1 style={{
-            fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+            fontSize: 'clamp(2.2rem, 5vw, 3.8rem)',
             color: '#FFFFFF',
             fontWeight: 400,
-            marginBottom: '24px',
+            marginBottom: '20px',
             lineHeight: 1.2,
             letterSpacing: '-0.04em'
           }}>
             End-to-End <span style={{ color: 'var(--color-orange)', fontWeight: 400 }}>Expertise</span>
           </h1>
-          <p style={{ color: '#CBD5E1', maxWidth: '720px', margin: '0 auto', fontSize: '1.15rem', lineHeight: '1.7' }}>
+          <p style={{ color: '#CBD5E1', maxWidth: '720px', margin: '0 auto', fontSize: 'clamp(0.98rem, 2vw, 1.15rem)', lineHeight: '1.7' }}>
             Delivering enterprise-grade aerial remote sensing solutions backed by academic rigor and cutting-edge sensor technology.
           </p>
         </div>
@@ -834,7 +846,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
 
       {/* SECTION 2: ADVANCED SOLUTIONS GRID (OFF-WHITE) */}
       <section style={{
-        padding: '60px 24px 80px',
+        padding: 'clamp(40px, 6vw, 60px) clamp(16px, 4vw, 24px) clamp(50px, 7vw, 80px)',
         background: 'linear-gradient(180deg, #F8FAFC 0%, #EFF4F8 100%)',
         borderBottom: '1px solid rgba(27, 54, 73, 0.08)'
       }}>
@@ -881,8 +893,8 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '32px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: 'clamp(20px, 3vw, 28px)',
             alignItems: 'stretch'
           }}>
             {cards.map((card, idx) => (
@@ -894,7 +906,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
                     className="card-img"
                   />
                 </div>
-                <div style={{ padding: '28px 28px 32px 28px', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2, fontFamily: 'var(--font-universal)' }}>
+                <div style={{ padding: 'clamp(20px, 4vw, 28px)', display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2, fontFamily: 'var(--font-universal)' }}>
                   <h3 style={{ fontSize: '1.7rem', color: 'var(--text-heading-dark)', marginBottom: '12px', fontWeight: 500, fontFamily: 'var(--font-universal)' }}>{card.title}</h3>
                   <p style={{ color: 'var(--text-muted-gray)', fontSize: '0.98rem', lineHeight: '1.65', marginBottom: '20px', fontFamily: 'var(--font-universal)' }}>
                     {card.desc}
@@ -953,12 +965,12 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
 
       {/* SECTION 3: DOMAIN APPLICATIONS (CONTAINED CARD LAYOUT WITH LIGHTER HEADINGS & CONTAINED IMAGES) */}
       <section style={{
-        padding: '80px 0 60px 0',
+        padding: 'clamp(50px, 7vw, 80px) 0 clamp(40px, 6vw, 60px) 0',
         background: 'linear-gradient(180deg, #EFF4F8 0%, #F8FAFC 100%)'
       }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px 50px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px clamp(30px, 4vw, 50px) 24px', textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', color: 'var(--text-heading-dark)', marginBottom: '16px', fontWeight: 500, fontFamily: 'var(--font-universal)' }}>
-            Key Application <span style={{ color: 'var(--color-orange)', fontWeight: 500 }}>Domains</span>
+            Major Industry <span style={{ color: 'var(--color-orange)', fontWeight: 500 }}>Sectors</span>
           </h2>
           <p style={{ color: 'var(--text-muted-gray)', maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6', fontFamily: 'var(--font-universal)' }}>
             Delivering tailor-made aerial remote sensing, multispectral mapping, and geospatial intelligence across diverse industries.
@@ -994,7 +1006,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
           .checker-col-img-box {
             flex: 1 1 50%;
             width: 50%;
-            min-width: 300px;
+            min-width: 280px;
             height: 100%;
             position: relative;
             overflow: hidden;
@@ -1017,9 +1029,9 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
           .checker-col-text-box {
             flex: 1 1 50%;
             width: 50%;
-            min-width: 300px;
+            min-width: 280px;
             height: 100%;
-            padding: clamp(28px, 3.5vw, 44px);
+            padding: clamp(24px, 3.5vw, 44px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1059,15 +1071,17 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
 
             .checker-col-img-box {
               width: 100% !important;
-              flex: none;
-              min-height: 240px;
-              height: 240px;
+              min-width: 0 !important;
+              flex: none !important;
+              min-height: 220px !important;
+              height: 220px !important;
             }
 
             .checker-col-text-box {
               width: 100% !important;
-              flex: none;
-              padding: 28px 20px !important;
+              min-width: 0 !important;
+              flex: none !important;
+              padding: 24px 18px !important;
             }
           }
         `}</style>
