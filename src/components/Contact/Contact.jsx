@@ -439,7 +439,7 @@ export default function Contact() {
             }}
           >
             {/* Left Side: Write to us Text & Mailbox Illustration */}
-            <div>
+            <div className="contact-write-to-us">
               <h2
                 style={{
                   fontSize: 'clamp(2rem, 4.5vw, 3.4rem)',

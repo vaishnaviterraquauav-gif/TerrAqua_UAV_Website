@@ -20,24 +20,14 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
       isOverview: true
     },
     {
-      id: "natural-resources",
-      title: "Natural Resource Management",
-      desc: "Forest canopy, biomass & water body auditing"
-    },
-    {
-      id: "disaster-risk",
-      title: "Disaster Risk Reduction",
-      desc: "Flood inundation, landslide & emergency response"
-    },
-    {
       id: "agriculture",
       title: "Agriculture",
       desc: "NDVI multispectral vigor & crop analytics"
     },
     {
-      id: "environmental-conservation",
-      title: "Environmental Conservation",
-      desc: "Carbon credits & ecological baseline audit"
+      id: "climate-intelligence",
+      title: "Climate Intelligence",
+      desc: "Thermal emissions & microclimate models"
     },
     {
       id: "infrastructure-urban",
@@ -45,9 +35,19 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
       desc: "Sub-centimeter 3D digital twins & mapping"
     },
     {
-      id: "climate-intelligence",
-      title: "Climate Intelligence",
-      desc: "Thermal emissions & microclimate models"
+      id: "natural-resources",
+      title: "Natural Resource Management",
+      desc: "Forest canopy, biomass & water body auditing"
+    },
+    {
+      id: "environmental-conservation",
+      title: "Environmental Conservation",
+      desc: "Carbon credits & ecological baseline audit"
+    },
+    {
+      id: "disaster-risk",
+      title: "Disaster Risk Reduction",
+      desc: "Flood inundation, landslide & emergency response"
     }
   ]
 
@@ -297,74 +297,121 @@ export default function Navbar({ activeTab, setActiveTab, setSelectedDomainId })
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="navbar-mobile-menu">
-          {navItems.map((item) => {
-            const isActive = activeTab === item.id
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {navItems.map((item) => {
+              const isActive = activeTab === item.id
 
-            if (item.hasDropdown) {
+              if (item.hasDropdown) {
+                return (
+                  <div key={item.id} style={{ display: 'flex', flexDirection: 'column' }}>
+                    <button
+                      onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                      className={`navbar-mobile-item-btn ${isActive ? 'active' : ''}`}
+                    >
+                      <span style={{ fontWeight: isActive ? 600 : 500 }}>{item.label}</span>
+                      <ChevronDown 
+                        size={18} 
+                        style={{ 
+                          transition: 'transform 0.25s ease',
+                          transform: mobileSolutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          color: isActive ? 'var(--color-orange)' : '#64748B'
+                        }} 
+                      />
+                    </button>
+
+                    {mobileSolutionsOpen && (
+                      <div style={{
+                        marginLeft: '14px',
+                        paddingLeft: '12px',
+                        borderLeft: '2px solid rgba(255, 106, 0, 0.3)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '4px',
+                        marginTop: '4px',
+                        marginBottom: '8px'
+                      }}>
+                        {solutionItems.map((sol, sIdx) => (
+                          <div
+                            key={sIdx}
+                            onClick={() => handleSolutionSelect(sol.id)}
+                            style={{
+                              padding: '9px 12px',
+                              background: sol.isOverview ? 'rgba(255, 106, 0, 0.08)' : 'transparent',
+                              borderRadius: '8px',
+                              color: sol.isOverview ? 'var(--color-orange)' : '#0F172A',
+                              cursor: 'pointer',
+                              textAlign: 'left',
+                              transition: 'all 0.15s ease'
+                            }}
+                          >
+                            <div style={{
+                              fontSize: '0.88rem',
+                              fontWeight: 600,
+                              color: sol.isOverview ? 'var(--color-orange)' : '#0F172A',
+                              fontFamily: 'var(--font-universal)'
+                            }}>
+                              {sol.title}
+                            </div>
+                            <div style={{
+                              fontSize: '0.74rem',
+                              color: '#64748B',
+                              marginTop: '1px',
+                              fontFamily: 'var(--font-universal)'
+                            }}>
+                              {sol.desc}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              }
+
               return (
-                <div key={item.id} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <button
-                    onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                    className={`navbar-mobile-item-btn ${isActive ? 'active' : ''}`}
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-                  >
-                    <span>{item.label}</span>
-                    <ChevronDown 
-                      size={18} 
-                      style={{ 
-                        transition: 'transform 0.25s ease',
-                        transform: mobileSolutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-                      }} 
-                    />
-                  </button>
-
-                  {mobileSolutionsOpen && (
-                    <div style={{
-                      paddingLeft: '6px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '4px',
-                      marginTop: '6px',
-                      marginBottom: '8px'
-                    }}>
-                      {solutionItems.map((sol, sIdx) => (
-                        <div
-                          key={sIdx}
-                          onClick={() => handleSolutionSelect(sol.id)}
-                          style={{
-                            padding: '10px 12px',
-                            background: sol.isOverview ? '#F1F5F9' : '#F8FAFC',
-                            borderRadius: '8px',
-                            color: '#0F172A',
-                            cursor: 'pointer',
-                            textAlign: 'left'
-                          }}
-                        >
-                          <div style={{ fontSize: '0.88rem', fontWeight: 600, fontFamily: 'var(--font-universal)' }}>
-                            {sol.title}
-                          </div>
-                          <div style={{ fontSize: '0.75rem', color: '#64748B', fontFamily: 'var(--font-universal)' }}>
-                            {sol.desc}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`navbar-mobile-item-btn ${isActive ? 'active' : ''}`}
+                >
+                  <span style={{ fontWeight: isActive ? 600 : 500 }}>{item.label}</span>
+                  {isActive && (
+                    <span style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      backgroundColor: 'var(--color-orange, #FF6A00)'
+                    }} />
                   )}
-                </div>
+                </button>
               )
-            }
+            })}
+          </div>
 
-            return (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`navbar-mobile-item-btn ${isActive ? 'active' : ''}`}
-              >
-                <span>{item.label}</span>
-                {isActive && <span style={{ fontSize: '1.2rem', lineHeight: 1 }}>•</span>}
-              </button>
-            )
-          })}
+          {/* Bottom Quick CTA for Mobile */}
+          <div style={{ marginTop: '10px', paddingTop: '12px', borderTop: '1px solid rgba(10, 29, 61, 0.08)', display: 'flex', justifyContent: 'flex-start' }}>
+            <button
+              onClick={() => handleNavClick('contact')}
+              style={{
+                padding: '9px 18px',
+                borderRadius: '8px',
+                background: 'linear-gradient(135deg, var(--color-orange) 0%, #E65000 100%)',
+                color: '#FFFFFF',
+                border: 'none',
+                fontSize: '0.88rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                boxShadow: '0 4px 14px rgba(255, 106, 0, 0.25)',
+                fontFamily: 'var(--font-universal)'
+              }}
+            >
+              <span>Get in Touch</span>
+              <ChevronRight size={15} />
+            </button>
+          </div>
         </div>
       )}
     </nav>

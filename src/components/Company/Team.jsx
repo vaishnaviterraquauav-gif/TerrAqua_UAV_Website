@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Globe, Mail } from 'lucide-react'
+import drSuneelImg from '../../assets/dr_suneel_kumar_joshi.png'
 
 export default function Team() {
   const [hoveredCard, setHoveredCard] = useState(null)
@@ -80,6 +81,12 @@ export default function Team() {
       role: "Remote Sensing & Earth System Expert",
       img: "https://static.wixstatic.com/media/9a5348_e1838fd3f05348c488c9a0aa0d548ca3~mv2.png",
       desc: "Scientific advisor guiding advancements in sensor technologies, radiative transfer physics, and Earth system observations."
+    },
+    {
+      name: "Dr. Suneel Kumar Joshi",
+      role: "Scientific Advisor & Hydrogeology Lead",
+      img: drSuneelImg,
+      desc: "IIT Kanpur alumnus specializing in hydrogeological modeling, groundwater dynamics, isotope geochemistry, and remote sensing analytics."
     }
   ]
 
