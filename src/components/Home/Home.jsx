@@ -1219,13 +1219,13 @@ export default function Home({ setActiveTab }) {
             >
               <div className="sensors-track-flex">
                 {[
-                  { title: 'Weather & Climate', img: weatherRasterImg },
-                  { title: 'Multispectral (MSI)', img: 'https://www.uavfordrone.com/wp-content/uploads/2019/05/sssssaa.png' },
-                  { title: 'Hyperspectral (HSI)', img: 'https://img-cdn.krishijagran.com/90914/crop-health-hyperspectral-rs.jpg' },
-                  { title: 'SAR Radar (InSAR)', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiN4avCLjg57zl6jcu1VURPtlkZT7YJE1jHsVwaSY5nBwZAzVD2tRTKGM&s=10' },
-                  { title: 'Sub-Centimeter LiDAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPg-PQTwythc6Xv1EKtu0lAoYaT-JkG-l-QapqQ0mHSPMSQ87boQoTI5o&s=10' },
-                  { title: 'High-Res RGB Aerial', img: 'https://www.researchgate.net/publication/394743193/figure/fig1/AS:11431281598584094@1755699014895/High-resolution-aerial-image-with-three-RGB-channels-acquired-in-summer-period_Q320.jpg' },
-                  { title: 'Thermal Infrared (TIR)', img: 'https://ars.els-cdn.com/content/image/3-s2.0-B9780124095489103628-f10362-12-9780128032206.jpg' }
+                  { title: 'Weather & Climate(IOT)', img: weatherRasterImg },
+                  { title: 'Multispectral', img: 'https://www.uavfordrone.com/wp-content/uploads/2019/05/sssssaa.png' },
+                  { title: 'Hyperspectral', img: 'https://img-cdn.krishijagran.com/90914/crop-health-hyperspectral-rs.jpg' },
+                  { title: 'SAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiN4avCLjg57zl6jcu1VURPtlkZT7YJE1jHsVwaSY5nBwZAzVD2tRTKGM&s=10' },
+                  { title: 'LiDAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPg-PQTwythc6Xv1EKtu0lAoYaT-JkG-l-QapqQ0mHSPMSQ87boQoTI5o&s=10' },
+                  { title: 'Aerial', img: 'https://www.researchgate.net/publication/394743193/figure/fig1/AS:11431281598584094@1755699014895/High-resolution-aerial-image-with-three-RGB-channels-acquired-in-summer-period_Q320.jpg' },
+                  { title: 'Thermal Infrared', img: 'https://ars.els-cdn.com/content/image/3-s2.0-B9780124095489103628-f10362-12-9780128032206.jpg' }
                 ].map((sensor, sIdx) => (
                   <div key={sIdx} className="sensor-circle-card">
                     <div className="sensor-circle-img-frame">
@@ -1249,7 +1249,7 @@ export default function Home({ setActiveTab }) {
             </div>
           </div>
 
-          {/* ROW 2: GEOSPATIAL INTELLIGENCE (PILL ON LEFT, TITLE ON RIGHT - OPPOSITE SIDE!) */}
+          {/* ROW 2: GEOSPATIAL INTELLIGENCE & SECTORS (PILL ON LEFT, TITLE ON RIGHT - OPPOSITE SIDE!) */}
           <div className="what-we-do-row-grid-2">
             {/* Pill Banner with Manual Scroll (Left) */}
             <div
@@ -1259,8 +1259,14 @@ export default function Home({ setActiveTab }) {
             >
               <div className="sensors-track-flex">
                 {[
+                  { title: 'Agriculture', img: 'https://cdn.agriland.ie/uploads/2026/06/tractor-mowing-grass-in-countryside-farm-field-2026-03-25-22-55-54-utc-scaled.jpg' },
+                  { title: 'Infrastructure & Urban', img: 'https://etimg.etb2bimg.com/photo/106074745.cms' },
+                  { title: 'Disaster Risk', img: 'https://i.abcnewsfe.com/a/7317b202-b250-4686-a784-7c69b7d4e803/nepal-floods_1787739415018_hpMain.jpg' },
+                  { title: 'Natural Resources', img: 'https://static.wixstatic.com/media/9a5348_e81facd97b7f43bea6b80a3251322a7b~mv2.jpg' },
+                  { title: 'Environmental Conservation', img: 'https://static.wixstatic.com/media/9a5348_0149884df72441a89574b1c908490b12~mv2.jpg' },
+                  { title: 'Climate Intelligence', img: 'https://cdn.mos.cms.futurecdn.net/Bkcs2EBgW5hqaCSfGGAghh-1400-80.jpg' },
                   { title: 'AI Predictive Models', img: 'https://www.techadv.com/sites/default/files/styles/blog_header/public/2021-03/web-3706562_1920.jpg.jpeg?h=61ca0bd2&itok=E1f1JhEL' },
-                  { title: '3D Terrain & LiDAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LEu1JW7_erIpx7N4flGYKYvGHS9ly29yNrZGIxBhJg&s=10' },
+                  { title: '3D Terrain', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LEu1JW7_erIpx7N4flGYKYvGHS9ly29yNrZGIxBhJg&s=10' },
                   { title: 'MapZest WebGIS', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmvP3KksMUVZ53kZFDpc0lISKGw3LGzQ7L4AKFGKGjTQ&s' },
                   { title: 'Biomass & Carbon', img: 'https://www.researchgate.net/profile/Naveen-Verabhadraswamy/publication/352738879/figure/fig3/AS:1093342620327940@1637684602275/Aboveground-biomass-map_Q320.jpg' },
                   { title: 'Flood Dynamics', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtw9jT2mm9WL1vpc9geN8v4IlTE7G0wdVmOq7IUumZoQ&s=10' },
@@ -1298,7 +1304,7 @@ export default function Home({ setActiveTab }) {
                 fontFamily: 'var(--font-universal)'
               }}>
                 <span style={{ color: 'var(--color-orange, #FF6A00)' }}>Geospatial</span> <br />
-                <span style={{ color: '#0A1D3D' }}>Solutions</span>
+                <span style={{ color: '#0A1D3D' }}>Solutions & Sectors</span>
               </h3>
               <p style={{
                 fontSize: '0.92rem',
@@ -1309,7 +1315,7 @@ export default function Home({ setActiveTab }) {
                 maxWidth: '280px',
                 margin: '10px 0 0 0'
               }}>
-                AI analytics, 3D LiDAR modeling, WebGIS & predictive decision engines.
+                Agriculture, Urban Infrastructure, Climate, Disasters, AI & Natural Resources.
               </p>
 
               {/* Navigation Arrows for Geospatial Row */}
@@ -1415,17 +1421,19 @@ export default function Home({ setActiveTab }) {
           {/* Left Text Column */}
           <div style={{ textAlign: 'left', padding: 'clamp(0px, 1.5vw, 16px)' }}>
             <h2 style={{
-              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
+              fontSize: 'clamp(1.85rem, 3.2vw, 2.7rem)',
               fontWeight: 600,
               letterSpacing: '-0.03em',
-              lineHeight: 1.15,
+              lineHeight: 1.22,
               marginBottom: '20px',
               background: 'linear-gradient(135deg, #FFFFFF 0%, #EAEFF5 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              fontFamily: 'var(--font-universal)'
+              fontFamily: 'var(--font-universal)',
+              textWrap: 'balance'
             }}>
-              Explore Geospatial <br /> Insights with <span style={{ background: 'linear-gradient(135deg, #FF7A29, #FFA366)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>MapZest</span>
+              Transform Location Data <br />
+              into Geospatial Insights with <span style={{ background: 'linear-gradient(135deg, #FF7A29, #FFA366)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>MapZest</span>
             </h2>
             <p style={{ color: '#EAEFF5', maxWidth: '540px', marginBottom: '32px', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.7, fontWeight: 400, fontFamily: 'var(--font-universal)' }}>
               Unlock hidden intelligence in your spatial data with our powerful, intuitive GIS tools. Whether you're mapping complex terrains, analyzing patterns, or visualizing geospatial trends, we've got you covered.
@@ -1722,7 +1730,7 @@ export default function Home({ setActiveTab }) {
             letterSpacing: '-0.02em',
             marginBottom: '16px'
           }}>
-            Ready to Utilize Geospatial Technology for Real-World Impact?
+            Ready to Utilize Geospatial Data?
           </h2>
           <p style={{ color: 'var(--text-muted-gray)', maxWidth: '650px', margin: '0 auto clamp(24px, 4vw, 40px)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: 1.6 }}>
             Connect with our geospatial experts for customized UAV solutions, WebGIS deployments, and collaborative research opportunities.

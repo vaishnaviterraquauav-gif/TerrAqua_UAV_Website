@@ -355,7 +355,7 @@ export default function Data({ setActiveTab }) {
       subtitle: 'Centimeter-Precision Airborne Remote Sensing',
       tabLabel: 'UAV Data Acquisition',
       tabSub: 'LiDAR, Multispectral & Photogrammetry',
-      ctaText: 'Explore UAV Data Acquisition',
+      ctaText: 'Request Free Sample Data',
       desc: 'We use survey-grade multi-rotor and fixed-wing UAVs to capture high-resolution data across land, agriculture, infrastructure, and water environments. Our systems integrate aerial imaging, LiDAR, multispectral, and thermal sensors to generate 3D point clouds, elevation models, orthomosaics, and GIS-ready datasets for detailed mapping and analysis.',
       features: [
         { label: 'High-Resolution Aerial Mapping', detail: 'Centimeter-accurate imagery for boundaries, terrain, and infrastructure.' },
@@ -405,7 +405,7 @@ export default function Data({ setActiveTab }) {
       subtitle: 'Constellation Optical & Radar Earth Monitoring',
       tabLabel: 'Satellite Remote Sensing',
       tabSub: 'Optical & SAR Constellations',
-      ctaText: 'Request Satellite Analysis',
+      ctaText: 'Request Free Sample Data',
       desc: 'We process live optical and radar feeds from global satellite constellations. This allows us to track large-scale environmental changes, river flooding, and agricultural seasons across entire districts and states—even through monsoon clouds and at night.',
       features: [
         { label: 'All-Weather Radar (SAR)', detail: 'Cloud-penetrating radar to track active floodwaters and inundation.' },
@@ -453,9 +453,9 @@ export default function Data({ setActiveTab }) {
       icon: IoTSensorProbeIcon,
       title: 'IoT Ground Sensor Networks',
       subtitle: 'Real-Time Field Telemetry & WebGIS Synchronization',
-      tabLabel: 'IoT Ground Telemetry',
+      tabLabel: 'IoT Ground Data',
       tabSub: 'In-Situ Probes & Real-Time Sync',
-      ctaText: 'Connect Field Sensor Stream',
+      ctaText: 'Request Free Sample Data',
       desc: 'We install in-situ ground sensors, automated weather stations, and water stream gauges directly in the field. These devices continuously send live readings to our MapZest WebGIS platform, validating and calibrating our aerial drone and satellite maps with real-time ground truth.',
       features: [
         { label: 'In-Situ Soil & Root Probes', detail: 'Continuous root-depth moisture, salinity, and temperature telemetry.' },
@@ -621,7 +621,6 @@ export default function Data({ setActiveTab }) {
             border: '1px solid rgba(27, 54, 73, 0.08)'
           }}>
             {streamTabs.map((tab) => {
-              const IconComp = tab.icon
               const isActive = activeTabId === tab.id
 
               return (
@@ -631,58 +630,45 @@ export default function Data({ setActiveTab }) {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '12px',
-                    padding: 'clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 18px)',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    padding: 'clamp(12px, 2vw, 15px) clamp(16px, 2.5vw, 22px)',
                     borderRadius: '12px',
                     border: isActive ? '1px solid rgba(255, 106, 0, 0.4)' : '1px solid transparent',
                     background: isActive ? '#FFFFFF' : 'transparent',
-                    boxShadow: isActive ? '0 8px 20px -6px rgba(10, 29, 61, 0.12), 0 0 0 1px rgba(255, 106, 0, 0.2)' : 'none',
+                    boxShadow: isActive ? '0 6px 18px -4px rgba(10, 29, 61, 0.1), 0 0 0 1px rgba(255, 106, 0, 0.2)' : 'none',
                     cursor: 'pointer',
                     transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                    textAlign: 'left',
+                    textAlign: 'center',
                     width: '100%',
                     minWidth: 0
                   }}
                 >
-                  <div style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '10px',
-                    background: isActive ? 'rgba(255, 106, 0, 0.12)' : 'rgba(10, 29, 61, 0.06)',
-                    color: isActive ? 'var(--color-orange, #FF6A00)' : '#475569',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    transition: 'all 0.25s ease'
+                  {/* Orange Dot */}
+                  <span
+                    style={{
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      backgroundColor: 'var(--color-orange, #FF6A00)',
+                      boxShadow: isActive ? '0 0 8px rgba(255, 106, 0, 0.7)' : 'none',
+                      opacity: isActive ? 1 : 0.45,
+                      flexShrink: 0,
+                      transition: 'all 0.25s ease'
+                    }}
+                  />
+                  <span style={{
+                    fontSize: 'clamp(0.88rem, 2vw, 0.98rem)',
+                    fontWeight: isActive ? 700 : 600,
+                    color: isActive ? '#0A1D3D' : '#475569',
+                    letterSpacing: '-0.01em',
+                    lineHeight: 1.25,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
                   }}>
-                    <IconComp size={20} />
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', minWidth: 0 }}>
-                    <span style={{
-                      fontSize: 'clamp(0.88rem, 2vw, 0.96rem)',
-                      fontWeight: isActive ? 700 : 600,
-                      color: isActive ? '#0A1D3D' : '#334155',
-                      letterSpacing: '-0.01em',
-                      lineHeight: 1.25,
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis'
-                    }}>
-                      {tab.tabLabel}
-                    </span>
-                    <span style={{
-                      fontSize: 'clamp(0.72rem, 1.8vw, 0.78rem)',
-                      color: isActive ? 'var(--color-orange, #FF6A00)' : '#64748B',
-                      fontWeight: 500,
-                      marginTop: '2px',
-                      whiteSpace: 'nowrap',
-                      textOverflow: 'ellipsis',
-                      overflow: 'hidden'
-                    }}>
-                      {tab.tabSub}
-                    </span>
-                  </div>
+                    {tab.tabLabel}
+                  </span>
                 </button>
               )
             })}
@@ -795,55 +781,8 @@ export default function Data({ setActiveTab }) {
                 </div>
               </div>
 
-              {/* STATS ROW & CTA ACTION */}
-              <div style={{ marginTop: '4px' }}>
-                <div style={{
-                  fontSize: '0.74rem',
-                  fontWeight: 700,
-                  color: '#64748B',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  marginBottom: '8px'
-                }}>
-                  Technical Specifications
-                </div>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 90px), 1fr))',
-                  gap: '8px',
-                  padding: '12px 14px',
-                  backgroundColor: '#F8FAFC',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(27, 54, 73, 0.08)',
-                  marginBottom: '16px'
-                }}>
-                  {currentStream.stats.map((st, stIdx) => (
-                    <div key={stIdx} style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                      <span style={{
-                        fontSize: 'clamp(0.62rem, 1.6vw, 0.68rem)',
-                        color: '#64748B',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.05em',
-                        fontWeight: 700,
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis'
-                      }}>
-                        {st.label}
-                      </span>
-                      <span style={{
-                        fontSize: 'clamp(0.8rem, 2vw, 0.86rem)',
-                        color: '#0A1D3D',
-                        fontWeight: 700,
-                        marginTop: '3px',
-                        lineHeight: 1.3
-                      }}>
-                        {st.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
+              {/* CTA ACTION */}
+              <div style={{ marginTop: '8px' }}>
                 <div>
                   <button
                     onClick={() => {
@@ -876,7 +815,7 @@ export default function Data({ setActiveTab }) {
                       e.currentTarget.style.transform = 'translateY(0)'
                     }}
                   >
-                    {currentStream.ctaText || 'Request Dataset'} <ArrowRight size={16} />
+                    {currentStream.ctaText || 'Request Free Sample Data'} <ArrowRight size={16} />
                   </button>
                 </div>
               </div>

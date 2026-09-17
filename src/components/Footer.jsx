@@ -1,5 +1,5 @@
 import React from 'react'
-import { Linkedin, Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck, CheckCircle2 } from 'lucide-react'
+import { Linkedin, Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react'
 import iitTirupatiLogo from '../assets/iit_tirupati_logo.png'
 
 export default function Footer() {
@@ -144,26 +144,8 @@ export default function Footer() {
               >
                 <ShieldCheck size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
                 <span>
-                  <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>ISO:</strong> 9001:2015, 27001:2022, 14001:2015
+                  <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>ISO Certified:</strong> 9001:2015, 27001:2022, 14001:2015
                 </span>
-              </div>
-
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '6px 12px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  fontSize: '0.78rem',
-                  color: '#CBD5E1',
-                  width: 'fit-content'
-                }}
-              >
-                <CheckCircle2 size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
-                <span>DPIIT & Startin UP Recognized</span>
               </div>
             </div>
           </div>

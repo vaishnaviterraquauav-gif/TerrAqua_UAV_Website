@@ -1,12 +1,22 @@
 import React, { useState, useRef, useCallback } from 'react'
-import { Sparkles, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 import pointCloudRawImg from '../../assets/pointcloudraw.png'
 import pointCloudAfterImg from '../../assets/pointcloudafter.png'
-import beforeVegImg from '../../assets/beforeveg2.png'
-import afterVegImg from '../../assets/imggafterveg2.png'
+import riverOpticalBefore from '../../assets/river_optical_before.png'
+import riverSarAfter from '../../assets/river_sar_after.png'
 
-function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
+function ComparisonCard({
+  beforeImg,
+  afterImg,
+  beforeLabel,
+  afterLabel,
+  caption,
+  initialPos = 50,
+  imagePosition = 'center',
+  imageScale = 1,
+  imageTransformOrigin = 'center'
+}) {
   const [sliderPos, setSliderPos] = useState(initialPos)
   const [isDragging, setIsDragging] = useState(false)
   const containerRef = useRef(null)
@@ -71,37 +81,73 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
         }}
       >
         {/* Right Image (After / Processed) */}
-        <img
-          src={afterImg}
-          alt={afterLabel}
-          loading="eager"
+        <div
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
-            objectPosition: imagePosition,
+            transform: imageScale !== 1 ? `scale(${imageScale})` : undefined,
+            transformOrigin: imageTransformOrigin,
             pointerEvents: 'none'
           }}
-        />
+        >
+          <img
+            src={afterImg}
+            alt={afterLabel}
+            loading="eager"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: imagePosition,
+              pointerEvents: 'none'
+            }}
+          />
+        </div>
 
-        {/* Left Image (Before / Raw - Perfectly clipped with clipPath for 100% pixel alignment) */}
-        <img
-          src={beforeImg}
-          alt={beforeLabel}
-          loading="eager"
+        {/* Left Image Container (Before / Raw - Clipped at container level for 100% exact divider alignment) */}
+        <div
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
-            objectPosition: imagePosition,
             clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)`,
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            zIndex: 2
           }}
-        />
+        >
+          {/* Inner div with identical zoom/scale transform */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              transform: imageScale !== 1 ? `scale(${imageScale})` : undefined,
+              transformOrigin: imageTransformOrigin,
+              pointerEvents: 'none'
+            }}
+          >
+            <img
+              src={beforeImg}
+              alt={beforeLabel}
+              loading="eager"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: imagePosition,
+                pointerEvents: 'none'
+              }}
+            />
+          </div>
+        </div>
 
         {/* Vertical Divider Line & Drag Handle */}
         <div
@@ -147,41 +193,18 @@ function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption,
 
       {/* Image Caption Footer */}
       <div style={{
-        padding: '10px 16px',
+        padding: '12px 16px',
         backgroundColor: '#F8FAFC',
-        borderBottom: '1px solid rgba(27, 54, 73, 0.08)',
         textAlign: 'center'
       }}>
         <p style={{
           margin: 0,
-          fontSize: '0.8rem',
+          fontSize: '0.82rem',
           color: 'var(--text-muted-gray)',
           lineHeight: 1.45,
           fontStyle: 'italic'
         }}>
           {caption}
-        </p>
-      </div>
-
-      {/* Content Info Box */}
-      <div style={{ padding: 'clamp(20px, 4vw, 28px) clamp(16px, 4vw, 30px)', flex: 1, display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
-        <h3 style={{
-          fontSize: 'clamp(1.05rem, 2.5vw, 1.2rem)',
-          fontWeight: 700,
-          color: 'var(--color-aqua, #00B5E2)',
-          letterSpacing: '0.04em',
-          textTransform: 'uppercase',
-          marginBottom: '12px'
-        }}>
-          {title}
-        </h3>
-        <p style={{
-          fontSize: 'clamp(0.88rem, 2vw, 0.95rem)',
-          lineHeight: 1.65,
-          color: 'var(--text-muted-gray)',
-          margin: 0
-        }}>
-          {description}
         </p>
       </div>
     </div>
@@ -225,23 +248,21 @@ export default function DualComparisonSlider({ setActiveTab }) {
             beforeLabel="3D RGB Point Cloud"
             afterLabel="3D LiDAR Elevation (DSM)"
             caption="3D Geospatial Capture: True-color dense point cloud (left) vs height-classified LiDAR elevation model / DSM (right)"
-            title="MULTI-SENSOR DATA ACQUISITION"
-            description="Capture high-resolution data using drones, LiDAR, and other sensors to create detailed 3D point clouds, surface models, elevation data, and terrain information."
             initialPos={50}
-            imagePosition="center"
+            imagePosition="center 72%"
+            imageScale={1.38}
+            imageTransformOrigin="32% 72%"
           />
 
-          {/* Card 2: DATA PROCESSING & SPATIAL INSIGHTS */}
+          {/* Card 2: Optical vs SAR Fusion */}
           <ComparisonCard
-            beforeImg={beforeVegImg}
-            afterImg={afterVegImg}
+            beforeImg={riverOpticalBefore}
+            afterImg={riverSarAfter}
             beforeLabel="Raw Optical (RGB)"
-            afterLabel="Multispectral NDVI"
-            caption="True-color raw spatial stream (left) vs MapZest multispectral NDVI crop health & vegetation stress analytics (right)"
-            title="DATA PROCESSING & SPATIAL INSIGHTS"
-            description="Combine and analyze drone and satellite data to generate useful information such as crop health, vegetation conditions, environmental changes, and other location-based insights."
-            initialPos={52}
-            imagePosition="center 18%"
+            afterLabel="Synthetic Aperture Radar (SAR)"
+            caption="Multi-Modal Sensor Fusion: High-resolution true-color optical satellite view (left) vs Synthetic Aperture Radar (SAR) water & terrain backscatter (right)"
+            initialPos={50}
+            imagePosition="center"
           />
         </div>
 
