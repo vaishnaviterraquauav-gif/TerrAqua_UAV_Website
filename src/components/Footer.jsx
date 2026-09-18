@@ -116,12 +116,12 @@ export default function Footer() {
                 <img
                   src="/recognized_3.png?v=white"
                   alt="SIIC IIT Kanpur"
-                  style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                  style={{ height: '46px', width: 'auto', objectFit: 'contain', display: 'block' }}
                 />
                 <img
                   src={iitTirupatiLogo}
-                  alt="IIT Tirupati"
-                  style={{ height: '56px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                  alt="IIT Tirupati Navavishkar I-Hub Foundation"
+                  style={{ height: '58px', width: 'auto', objectFit: 'contain', display: 'block' }}
                 />
               </div>
             </div>
