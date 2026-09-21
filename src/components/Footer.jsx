@@ -1,6 +1,6 @@
 import React from 'react'
 import { Linkedin, Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react'
-import iitTirupatiLogo from '../assets/iit_tirupati_logo.png'
+import iitTirupatiLogo from '../assets/iit_tirupati_logo.svg'
 
 export default function Footer() {
   return (
@@ -36,22 +36,23 @@ export default function Footer() {
           {/* ========================================= */}
           {/* COLUMN 1: BRAND, MISSION & ACCREDITATION */}
           {/* ========================================= */}
-          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <div style={{ marginBottom: '14px', display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%', alignItems: 'flex-start', textAlign: 'left' }}>
+            <div style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', alignSelf: 'flex-start' }}>
               <img
                 src="/image.png"
                 alt="TerrAqua UAV"
-                style={{ height: 'clamp(58px, 12vw, 74px)', width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: '54px', width: 'auto', objectFit: 'contain', display: 'block', margin: 0, padding: 0 }}
               />
             </div>
 
             <p
               style={{
-                fontSize: '0.85rem',
+                fontSize: '0.88rem',
                 lineHeight: '1.6',
                 color: '#CBD5E1',
-                marginBottom: '16px',
-                maxWidth: '340px'
+                marginBottom: '18px',
+                maxWidth: '340px',
+                textAlign: 'left'
               }}
             >
               Empowering Sustainability with High-Resolution Remote Sensing & Geospatial Intelligence.
@@ -121,7 +122,7 @@ export default function Footer() {
                 <img
                   src={iitTirupatiLogo}
                   alt="IIT Tirupati Navavishkar I-Hub Foundation"
-                  style={{ height: '58px', width: 'auto', objectFit: 'contain', display: 'block' }}
+                  style={{ height: '50px', width: 'auto', objectFit: 'contain', display: 'block' }}
                 />
               </div>
             </div>

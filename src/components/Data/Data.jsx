@@ -12,6 +12,9 @@ import cirAfterImg from '../../assets/cir_after.jpg'
 import pointcloudAfterImg from '../../assets/pointcloudafter.png'
 import thermalAfterImg from '../../assets/thermal_after.png'
 import geoCatalogImg from '../../assets/geo_catalog_ganga.png'
+import airborneUavPlatformImg from '../../assets/airborne_uav_platform.jpg'
+import lidar3dElevationImg from '../../assets/lidar_3d_pointcloud_elevation.jpg'
+import planetaryEoImg from '../../assets/planetary_earth_observation.jpg'
 
 function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
   const [sliderPos, setSliderPos] = useState(initialPos)
@@ -375,7 +378,7 @@ export default function Data({ setActiveTab }) {
           shortLabel: 'Airborne RGB',
           subLabel: 'High-Resolution RGB Capture',
           tag: 'AERIAL OPTICAL',
-          img: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1200&auto=format&fit=crop',
+          img: airborneUavPlatformImg,
           caption: 'Survey-grade drone capturing high-resolution aerial imagery for mapping terrain, infrastructure, and agricultural boundaries.'
         },
         {
@@ -384,7 +387,7 @@ export default function Data({ setActiveTab }) {
           shortLabel: '3D LiDAR / DEM',
           subLabel: 'Classified Terrain & Canopy Model',
           tag: '3D ELEVATION / DSM',
-          img: pointcloudAfterImg,
+          img: lidar3dElevationImg,
           caption: 'LiDAR 3D point cloud penetrating vegetation to generate bare-earth digital elevation models and structure heights.'
         },
         {
@@ -393,7 +396,7 @@ export default function Data({ setActiveTab }) {
           shortLabel: 'Thermal & MS',
           subLabel: 'Vegetation & Temperature Scan',
           tag: 'RADIOMETRIC & MS',
-          img: thermalAfterImg,
+          img: 'https://cdn.prod.website-files.com/638a5e229e017fbfe032c350/6679b8652369be12d1a65524_DJI_20240503101122_0029_T%20(1).JPG',
           caption: 'Multispectral and thermal imaging assessing crop health, vegetation stress, moisture levels, and surface temperatures.'
         }
       ]
@@ -422,11 +425,11 @@ export default function Data({ setActiveTab }) {
         {
           id: 'sat-orbit',
           label: 'Planetary Earth Observation',
-          shortLabel: 'Optical Sat',
-          subLabel: 'Constellation Multi-Spectral',
-          tag: 'EARTH OBSERVATION',
-          img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop',
-          caption: 'Constellation satellite network capturing repeat optical snapshots of regional terrain and agricultural basins.'
+          shortLabel: 'Planetary EO',
+          subLabel: 'Delta & Mangrove Multispectral',
+          tag: 'EARTH OBSERVATION NIR',
+          img: planetaryEoImg,
+          caption: 'High-resolution multispectral satellite earth observation tracking coastal mangrove ecosystems, tidal river networks, and regional wetlands.'
         },
         {
           id: 'sat-sar',

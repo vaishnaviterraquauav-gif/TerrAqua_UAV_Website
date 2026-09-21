@@ -5,6 +5,7 @@ import {
   Send,
   Sparkles
 } from 'lucide-react'
+import climate2Img from '../../assets/climate2.png'
 
 const services = [
   {
@@ -217,7 +218,7 @@ export default function ClimateIntelligenceDetail({ handleBack, setActiveTab }) 
           width: '100%',
           minHeight: '260px',
           height: 'clamp(240px, 32vw, 320px)',
-          backgroundImage: `url('https://static.wixstatic.com/media/9a5348_3a5badd048754139824f6290573a45f9~mv2.jpg')`,
+          backgroundImage: `url(${climate2Img})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',

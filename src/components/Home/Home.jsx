@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from 'react'
 import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, ChevronDown, ExternalLink, Radio, Satellite, Cpu, Database, Brain, Layers, Activity, Plane, BarChart3, CheckCircle2, Globe } from 'lucide-react'
 import mapzestImg from '../../assets/mapzest-preview.png'
 import home2Img from '../../assets/home2.png'
+import deliveringMultisensorImg from '../../assets/delivering_multisensor_geospatial.jpg'
 import weatherRasterImg from '../../assets/weather_raster_cropped.png'
+import thermalInfraredImg from '../../assets/thermal_infrared_sample.png'
+import climate2Img from '../../assets/climate2.png'
 import DualComparisonSlider from './DualComparisonSlider'
 
 function BranchingConnectingLine() {
@@ -195,7 +198,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Services.",
       isExternal: true,
-      circleImg: "https://miro.medium.com/v2/resize:fit:1400/1*XUqLxVP8tUxD1Nzra8Oi-Q.png"
+      circleImg: deliveringMultisensorImg
     },
     {
       id: 1,
@@ -1225,7 +1228,7 @@ export default function Home({ setActiveTab }) {
                   { title: 'SAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiN4avCLjg57zl6jcu1VURPtlkZT7YJE1jHsVwaSY5nBwZAzVD2tRTKGM&s=10' },
                   { title: 'LiDAR', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPg-PQTwythc6Xv1EKtu0lAoYaT-JkG-l-QapqQ0mHSPMSQ87boQoTI5o&s=10' },
                   { title: 'Aerial', img: 'https://www.researchgate.net/publication/394743193/figure/fig1/AS:11431281598584094@1755699014895/High-resolution-aerial-image-with-three-RGB-channels-acquired-in-summer-period_Q320.jpg' },
-                  { title: 'Thermal Infrared', img: 'https://ars.els-cdn.com/content/image/3-s2.0-B9780124095489103628-f10362-12-9780128032206.jpg' }
+                  { title: 'Thermal Infrared', img: thermalInfraredImg }
                 ].map((sensor, sIdx) => (
                   <div key={sIdx} className="sensor-circle-card">
                     <div className="sensor-circle-img-frame">
@@ -1259,12 +1262,12 @@ export default function Home({ setActiveTab }) {
             >
               <div className="sensors-track-flex">
                 {[
-                  { title: 'Agriculture', img: 'https://cdn.agriland.ie/uploads/2026/06/tractor-mowing-grass-in-countryside-farm-field-2026-03-25-22-55-54-utc-scaled.jpg' },
-                  { title: 'Infrastructure & Urban', img: 'https://etimg.etb2bimg.com/photo/106074745.cms' },
+                  { title: 'Agriculture', img: 'https://images.unsplash.com/photo-1711397651462-3b2a22f5cfc8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWdyaWN1bHR1cmUlMjBmaWVsZHxlbnwwfHwwfHx8MA%3D%3D' },
+                  { title: 'Infrastructure & Urban', img: 'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsb2ZmaWNlOF9mcm9udF92aWV3X2FyY2hpdGVjdHVyZV9waG90b19vZl9hX2RhbV9pc29sYXRlZF9jMGE4ZDY5OC03N2UzLTQyNjQtOGViNS1lODEzNTM1NDk3YzhfMS5qcGc.jpg' },
                   { title: 'Disaster Risk', img: 'https://i.abcnewsfe.com/a/7317b202-b250-4686-a784-7c69b7d4e803/nepal-floods_1787739415018_hpMain.jpg' },
                   { title: 'Natural Resources', img: 'https://static.wixstatic.com/media/9a5348_e81facd97b7f43bea6b80a3251322a7b~mv2.jpg' },
                   { title: 'Environmental Conservation', img: 'https://static.wixstatic.com/media/9a5348_0149884df72441a89574b1c908490b12~mv2.jpg' },
-                  { title: 'Climate Intelligence', img: 'https://cdn.mos.cms.futurecdn.net/Bkcs2EBgW5hqaCSfGGAghh-1400-80.jpg' },
+                  { title: 'Climate Intelligence', img: climate2Img },
                   { title: 'AI Predictive Models', img: 'https://www.techadv.com/sites/default/files/styles/blog_header/public/2021-03/web-3706562_1920.jpg.jpeg?h=61ca0bd2&itok=E1f1JhEL' },
                   { title: '3D Terrain', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LEu1JW7_erIpx7N4flGYKYvGHS9ly29yNrZGIxBhJg&s=10' },
                   { title: 'MapZest WebGIS', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmvP3KksMUVZ53kZFDpc0lISKGw3LGzQ7L4AKFGKGjTQ&s' },

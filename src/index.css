@@ -387,8 +387,8 @@ h3 {
 }
 
 .navbar-logo-img {
-  height: clamp(80px, 8vh, 110px);
-  padding: 6px;
+  height: clamp(52px, 6vh, 64px);
+  padding: 0;
   width: auto;
   max-width: none;
   object-fit: contain;
@@ -475,8 +475,8 @@ h3 {
   }
 
   .navbar-logo-img {
-    height: clamp(54px, 12vw, 75px);
-    padding: 3px;
+    height: clamp(44px, 10vw, 54px);
+    padding: 0;
   }
 
   .navbar-desktop-menu {
@@ -549,8 +549,8 @@ h3 {
   }
 
   .navbar-logo-img {
-    height: 52px;
-    padding: 2px;
+    height: 42px;
+    padding: 0;
   }
 
   .navbar-toggle-btn {

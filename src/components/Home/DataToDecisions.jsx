@@ -1,5 +1,6 @@
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
+import thermalInfraredImg from "../../assets/thermal_infrared_sample.png";
 
 // Sensor Input Data
 const SENSORS = [
@@ -16,7 +17,7 @@ const SENSORS = [
   {
     label: "Thermal InfraRed",
     desc: "Surface temperature anomaly",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGRVg7ymlqbAnq9-CfEimZ14c_oHSYKitR6zfFDGcJRA&s=10",
+    img: thermalInfraredImg,
   },
   {
     label: "Hyperspectral",

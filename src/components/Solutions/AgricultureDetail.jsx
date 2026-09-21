@@ -263,7 +263,7 @@ export default function AgricultureDetail({ handleBack, setActiveTab }) {
           width: '100%',
           minHeight: '260px',
           height: 'clamp(240px, 32vw, 320px)',
-          backgroundImage: `url('https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1600')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1711397651462-3b2a22f5cfc8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWdyaWN1bHR1cmUlMjBmaWVsZHxlbnwwfHwwfHx8MA%3D%3D')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',
@@ -565,7 +565,7 @@ export default function AgricultureDetail({ handleBack, setActiveTab }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 520px), 1fr))',
             gap: 'clamp(20px, 3vw, 32px)',
             alignItems: 'stretch'
           }}

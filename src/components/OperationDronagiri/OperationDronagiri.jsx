@@ -31,7 +31,7 @@ import {
   Mail,
   Send
 } from 'lucide-react'
-import mapzestImg from '../../assets/mapzest-preview.png'
+import dronagiriSolutionImg from '../../assets/dronagiri_solution_graphic.png'
 import agriImg from '../../assets/dronagiri/agri.jpg'
 import varanasiImg from '../../assets/dronagiri/varanasi.jpg'
 import ongoingImg from '../../assets/dronagiri/ongoing.jpg'
@@ -639,6 +639,89 @@ export default function OperationDronagiri({ setActiveTab }) {
           transform: translateY(-8px);
         }
 
+        .solution-3col-grid {
+          display: grid;
+          grid-template-columns: minmax(260px, 1fr) minmax(360px, 1.6fr) minmax(260px, 1fr);
+          gap: clamp(16px, 2.5vw, 32px);
+          align-items: center;
+        }
+
+        .solution-center-graphic-container {
+          width: 100%;
+          max-width: 680px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          padding: 6px 0;
+          margin: 0 auto;
+        }
+
+        .solution-center-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          position: relative;
+          z-index: 1;
+          filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.65));
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .solution-center-img:hover {
+          transform: scale(1.04);
+        }
+
+        .solution-items-col {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .solution-card-item {
+          background: rgba(15, 23, 42, 0.65);
+          border-radius: 16px;
+          padding: 18px 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        @media (max-width: 1024px) {
+          .solution-3col-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .solution-center-graphic-container {
+            max-width: 540px;
+            padding: 2px 0;
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .solution-3col-grid {
+            gap: 12px;
+          }
+          .solution-items-col {
+            gap: 10px;
+          }
+          .solution-card-item {
+            padding: 12px 16px;
+            gap: 12px;
+          }
+          .solution-center-graphic-container {
+            max-width: 100%;
+            padding: 0;
+            margin: 0 auto;
+          }
+          .solution-center-img {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+
         @media (max-width: 840px) {
           .showcase-card-side { display: none; }
           .showcase-card-center { width: 100%; height: 380px; transform: scale(1); }
@@ -825,167 +908,101 @@ export default function OperationDronagiri({ setActiveTab }) {
       <section
         id="solution"
         style={{
-          padding: 'clamp(50px, 8vw, 90px) clamp(16px, 4vw, 24px)',
+          padding: 'clamp(36px, 5vw, 75px) clamp(16px, 4vw, 24px)',
           backgroundColor: '#060B18',
           color: '#FFFFFF'
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           {/* Section Title */}
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div style={{ textAlign: 'center', marginBottom: 'clamp(20px, 3.5vw, 36px)' }}>
             <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#FFFFFF', fontWeight: 400, letterSpacing: '-0.04em' }}>
               Our Solution
             </h2>
           </div>
 
           {/* 3 Columns Grid Layout */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-              gap: '28px',
-              alignItems: 'center'
-            }}
-          >
+          <div className="solution-3col-grid">
             {/* LEFT COLUMN: PROBLEMS */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h3 style={{ fontSize: '1.4rem', color: '#EF4444', fontWeight: 600, marginBottom: '8px' }}>
+            <div className="solution-items-col">
+              <h3 style={{ fontSize: '1.4rem', color: '#EF4444', fontWeight: 600, marginBottom: '4px' }}>
                 Problems
               </h3>
 
               {/* Item 1 */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.65)',
-                  borderRadius: '16px',
-                  padding: '18px 20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <WifiOff size={22} color="#EF4444" />
+              <div className="solution-card-item">
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <WifiOff size={20} color="#EF4444" />
                 </div>
-                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Poor rural connectivity</span>
+                <span style={{ fontSize: '1.02rem', color: '#FFFFFF', fontWeight: 500 }}>Poor rural connectivity</span>
               </div>
 
               {/* Item 2 */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.65)',
-                  borderRadius: '16px',
-                  padding: '18px 20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <ZapOff size={22} color="#EF4444" />
+              <div className="solution-card-item">
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <ZapOff size={20} color="#EF4444" />
                 </div>
-                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Power shortages</span>
+                <span style={{ fontSize: '1.02rem', color: '#FFFFFF', fontWeight: 500 }}>Power shortages</span>
               </div>
 
               {/* Item 3 */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.65)',
-                  borderRadius: '16px',
-                  padding: '18px 20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <DollarSign size={22} color="#EF4444" />
+              <div className="solution-card-item">
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <DollarSign size={20} color="#EF4444" />
                 </div>
-                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>High cost</span>
+                <span style={{ fontSize: '1.02rem', color: '#FFFFFF', fontWeight: 500 }}>High cost</span>
               </div>
             </div>
 
-            {/* CENTER COLUMN: CLEAN MOCKUP IMAGE (NO SHADOW, NO EXTRA BADGES) */}
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <div
-                style={{
-                  width: '100%',
-                  maxWidth: '480px',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  background: '#0F172A'
-                }}
-              >
+            {/* CENTER COLUMN: MAPZEST ECOSYSTEM GRAPHIC */}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              <div className="solution-center-graphic-container">
+                <div
+                  style={{
+                    position: 'absolute',
+                    width: '95%',
+                    height: '85%',
+                    background: 'radial-gradient(circle, rgba(0, 181, 226, 0.22) 0%, transparent 70%)',
+                    filter: 'blur(28px)',
+                    pointerEvents: 'none'
+                  }}
+                />
                 <img
-                  src={mapzestImg}
-                  alt="TerrAqua Platform Dashboard"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  src={dronagiriSolutionImg}
+                  alt="MapZest Ecosystem & Devices Suite"
+                  className="solution-center-img"
                 />
               </div>
             </div>
 
             {/* RIGHT COLUMN: SOLUTION */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h3 style={{ fontSize: '1.4rem', color: '#10B981', fontWeight: 600, marginBottom: '8px' }}>
+            <div className="solution-items-col">
+              <h3 style={{ fontSize: '1.4rem', color: '#10B981', fontWeight: 600, marginBottom: '4px' }}>
                 Solution
               </h3>
 
               {/* Item 1 */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.65)',
-                  borderRadius: '16px',
-                  padding: '18px 20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Sun size={22} color="#10B981" />
+              <div className="solution-card-item">
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Sun size={20} color="#10B981" />
                 </div>
-                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Solar powered & low-consumption sensors</span>
+                <span style={{ fontSize: '1.02rem', color: '#FFFFFF', fontWeight: 500 }}>Solar powered & low-consumption sensors</span>
               </div>
 
               {/* Item 2 */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.65)',
-                  borderRadius: '16px',
-                  padding: '18px 20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Radio size={22} color="#10B981" />
+              <div className="solution-card-item">
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Radio size={20} color="#10B981" />
                 </div>
-                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Affordable hardware & shared gateways</span>
+                <span style={{ fontSize: '1.02rem', color: '#FFFFFF', fontWeight: 500 }}>Affordable hardware & shared gateways</span>
               </div>
 
               {/* Item 3 */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.65)',
-                  borderRadius: '16px',
-                  padding: '18px 20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <FileText size={22} color="#10B981" />
+              <div className="solution-card-item">
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <FileText size={20} color="#10B981" />
                 </div>
-                <span style={{ fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 500 }}>Short, actionable advice</span>
+                <span style={{ fontSize: '1.02rem', color: '#FFFFFF', fontWeight: 500 }}>Short, actionable advice</span>
               </div>
             </div>
           </div>
@@ -1454,26 +1471,62 @@ export default function OperationDronagiri({ setActiveTab }) {
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                 {/* SDG 1: No Poverty */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#F8FAFC', padding: '12px 14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#E5243B', color: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.75rem', flexShrink: 0 }}>
-                    <span>1</span>
-                    <span style={{ fontSize: '0.5rem', textTransform: 'uppercase' }}>NO POVERTY</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#F8FAFC', padding: '12px 14px', borderRadius: '14px', border: '1px solid #E2E8F0' }}>
+                  <div
+                    style={{
+                      width: '46px',
+                      height: '46px',
+                      borderRadius: '10px',
+                      background: '#E5243B',
+                      color: '#FFFFFF',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '3px',
+                      boxSizing: 'border-box',
+                      flexShrink: 0,
+                      boxShadow: '0 2px 8px rgba(229, 36, 59, 0.3)'
+                    }}
+                  >
+                    <span style={{ fontSize: '0.95rem', fontWeight: 800, lineHeight: 1, marginBottom: '2px' }}>1</span>
+                    <span style={{ fontSize: '0.46rem', fontWeight: 700, textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', display: 'block' }}>
+                      NO<br />POVERTY
+                    </span>
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '0.92rem', color: '#0F172A', fontWeight: 700, margin: 0 }}>No poverty</h4>
-                    <span style={{ fontSize: '0.76rem', color: '#64748B' }}>Local income support</span>
+                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', fontWeight: 700, margin: '0 0 2px 0' }}>No poverty</h4>
+                    <span style={{ fontSize: '0.78rem', color: '#64748B' }}>Local income support</span>
                   </div>
                 </div>
 
                 {/* SDG 2: Zero Hunger */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#F8FAFC', padding: '12px 14px', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#DDA63A', color: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.75rem', flexShrink: 0 }}>
-                    <span>2</span>
-                    <span style={{ fontSize: '0.5rem', textTransform: 'uppercase' }}>ZERO HUNGER</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#F8FAFC', padding: '12px 14px', borderRadius: '14px', border: '1px solid #E2E8F0' }}>
+                  <div
+                    style={{
+                      width: '46px',
+                      height: '46px',
+                      borderRadius: '10px',
+                      background: '#DDA63A',
+                      color: '#FFFFFF',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '3px',
+                      boxSizing: 'border-box',
+                      flexShrink: 0,
+                      boxShadow: '0 2px 8px rgba(221, 166, 58, 0.3)'
+                    }}
+                  >
+                    <span style={{ fontSize: '0.95rem', fontWeight: 800, lineHeight: 1, marginBottom: '2px' }}>2</span>
+                    <span style={{ fontSize: '0.46rem', fontWeight: 700, textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', display: 'block' }}>
+                      ZERO<br />HUNGER
+                    </span>
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '0.92rem', color: '#0F172A', fontWeight: 700, margin: 0 }}>Zero hunger</h4>
-                    <span style={{ fontSize: '0.76rem', color: '#64748B' }}>Improved yields & nutrition</span>
+                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', fontWeight: 700, margin: '0 0 2px 0' }}>Zero hunger</h4>
+                    <span style={{ fontSize: '0.78rem', color: '#64748B' }}>Improved yields & nutrition</span>
                   </div>
                 </div>
               </div>

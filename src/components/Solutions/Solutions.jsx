@@ -18,6 +18,7 @@ import AgricultureDetail from './AgricultureDetail'
 import EnvironmentalConservationDetail from './EnvironmentalConservationDetail'
 import InfrastructureUrbanDetail from './InfrastructureUrbanDetail'
 import ClimateIntelligenceDetail from './ClimateIntelligenceDetail'
+import climate2Img from '../../assets/climate2.png'
 
 export default function Solutions({ setActiveTab, selectedDomainId, setSelectedDomainId }) {
   const [selectedDomain, setSelectedDomain] = useState(null)
@@ -93,7 +94,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Agriculture",
       subtitle: "Multispectral Health Analytics & Smart Crop Scouting",
       desc: "Precision crop health analytics, multispectral plant vigor metrics (NDVI/NDRE), automated variable rate spraying, and yield forecast reporting.",
-      img: "https://cdn.agriland.ie/uploads/2026/06/tractor-mowing-grass-in-countryside-farm-field-2026-03-25-22-55-54-utc-scaled.jpg",
+      img: "https://images.unsplash.com/photo-1711397651462-3b2a22f5cfc8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWdyaWN1bHR1cmUlMjBmaWVsZHxlbnwwfHwwfHx8MA%3D%3D",
       heroBadge: "AGRITECH & PRECISION FARMING",
       overview: "Empowering modern agriculture with aerial artificial intelligence and multispectral agronomy. Our UAV solutions detect plant stress 10 to 14 days before visible to the naked human eye, enabling surgical fertilizer application, automated crop spraying, and verified yield insurance assessments.",
       keyCapabilities: [
@@ -127,7 +128,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Climate Intelligence",
       subtitle: "Microclimate Modeling & Emission Tracking",
       desc: "Advanced climate data modeling, thermal emission tracking, and microclimate analytics powered by AI and aerial GIS integration.",
-      img: "https://cdn.mos.cms.futurecdn.net/Bkcs2EBgW5hqaCSfGGAghh-1400-80.jpg",
+      img: climate2Img,
       heroBadge: "CLIMATE ACTION & GEO-ANALYTICS",
       overview: "Understanding microclimate volatility requires hyper-localized spatial observations. TerrAqua UAV leverages airborne thermal radiometry, atmospheric sniffer payloads, and predictive GIS models to quantify urban heat islands, industrial emissions, and climate risks.",
       keyCapabilities: [
@@ -161,7 +162,7 @@ export default function Solutions({ setActiveTab, selectedDomainId, setSelectedD
       title: "Infrastructure & Urban Planning",
       subtitle: "Sub-Centimeter 3D Digital Twins & Surveying",
       desc: "Sub-centimeter accurate 3D point clouds, digital twin generation, and automated elevation monitoring for smart city development and civil engineering.",
-      img: "https://etimg.etb2bimg.com/photo/106074745.cms",
+      img: "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsb2ZmaWNlOF9mcm9udF92aWV3X2FyY2hpdGVjdHVyZV9waG90b19vZl9hX2RhbV9pc29sYXRlZF9jMGE4ZDY5OC03N2UzLTQyNjQtOGViNS1lODEzNTM1NDk3YzhfMS5qcGc.jpg",
       heroBadge: "SMART CITIES & CIVIL ENGINEERING",
       overview: "Revolutionizing modern civil infrastructure, highways, railways, and municipal urban design with millimetric 3D aerial modeling. We convert complex physical topography into interactive BIM/CAD compatible digital twins with survey-grade absolute accuracy.",
       keyCapabilities: [

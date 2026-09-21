@@ -568,7 +568,7 @@ export default function DisasterRiskDetail({ handleBack, setActiveTab }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 520px), 1fr))',
             gap: 'clamp(20px, 3vw, 32px)',
             alignItems: 'stretch'
           }}
