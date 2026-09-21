@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react'
 
 import pointCloudRawImg from '../../assets/pointcloudraw.png'
 import pointCloudAfterImg from '../../assets/pointcloudafter.png'
-import riverOpticalBefore from '../../assets/river_optical_before.png'
-import riverSarAfter from '../../assets/river_sar_after.png'
+import demTerrainBefore from '../../assets/dem_terrain_before.jpg'
+import dsmElevationAfter from '../../assets/dsm_elevation_after.jpg'
 
 function ComparisonCard({
   beforeImg,
@@ -254,13 +254,13 @@ export default function DualComparisonSlider({ setActiveTab }) {
             imageTransformOrigin="32% 72%"
           />
 
-          {/* Card 2: Optical vs SAR Fusion */}
+          {/* Card 2: Elevation & Canopy Surface Modeling */}
           <ComparisonCard
-            beforeImg={riverOpticalBefore}
-            afterImg={riverSarAfter}
-            beforeLabel="Raw Optical (RGB)"
-            afterLabel="Synthetic Aperture Radar (SAR)"
-            caption="Multi-Modal Sensor Fusion: High-resolution true-color optical satellite view (left) vs Synthetic Aperture Radar (SAR) water & terrain backscatter (right)"
+            beforeImg={demTerrainBefore}
+            afterImg={dsmElevationAfter}
+            beforeLabel="Digital Terrain Model (DEM)"
+            afterLabel="Canopy Height & Surface (DSM)"
+            caption="Elevation & Surface Modeling: Bare-earth Digital Elevation Model (DEM) (left) vs High-density LiDAR Surface Model (DSM) with georeferenced coordinates (right)"
             initialPos={50}
             imagePosition="center"
           />

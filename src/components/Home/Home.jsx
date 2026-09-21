@@ -3,6 +3,9 @@ import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, ChevronDown, ExternalL
 import mapzestImg from '../../assets/mapzest-preview.png'
 import home2Img from '../../assets/home2.png'
 import deliveringMultisensorImg from '../../assets/delivering_multisensor_geospatial.jpg'
+import integratingGeospatialImg from '../../assets/integrating_geospatial_ground.jpg'
+import geoscientificPlatformImg from '../../assets/geoscientific_analysis_platform.jpg'
+import sustainableSolutionsImg from '../../assets/sustainable_solutions_solar_thermal.jpg'
 import weatherRasterImg from '../../assets/weather_raster_cropped.png'
 import thermalInfraredImg from '../../assets/thermal_infrared_sample.png'
 import climate2Img from '../../assets/climate2.png'
@@ -207,7 +210,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Situational-Awareness%20Platform.",
       isExternal: true,
-      circleImg: home2Img
+      circleImg: integratingGeospatialImg
     },
     {
       id: 2,
@@ -216,7 +219,8 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20MapZest%20WebGIS.",
       isExternal: true,
-      circleImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUza4VUTa2eFWe1LEZ3kCXVxECXtMhNWM5r3OIYk6Qwvowob2NHw67l9M&s=10"
+      circleImg: geoscientificPlatformImg,
+      objectPosition: 'center 45%'
     },
     {
       id: 3,
@@ -225,7 +229,7 @@ export default function Home({ setActiveTab }) {
       buttonText: "Request a Demo",
       buttonLink: "https://wa.me/917985791210?text=Hello%20TerrAqua%20UAV%20Team,%20I%20would%20like%20to%20request%20a%20demo%20for%20Spatial%20Data%20Services.",
       isExternal: true,
-      circleImg: "https://gisnavigator.co.uk/wp-content/uploads/2024/12/Service-Spatial-Data-Analysis.webp"
+      circleImg: sustainableSolutionsImg
     }
   ]
 
@@ -777,6 +781,8 @@ export default function Home({ setActiveTab }) {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
+                    objectPosition: slide.objectPosition || 'center center',
+                    transform: slide.imgScale ? `scale(${slide.imgScale})` : 'none',
                     animation: 'fadeIn 0.6s ease',
                     transition: 'all 0.4s ease'
                   }}

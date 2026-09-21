@@ -15,6 +15,7 @@ import geoCatalogImg from '../../assets/geo_catalog_ganga.png'
 import airborneUavPlatformImg from '../../assets/airborne_uav_platform.jpg'
 import lidar3dElevationImg from '../../assets/lidar_3d_pointcloud_elevation.jpg'
 import planetaryEoImg from '../../assets/planetary_earth_observation.jpg'
+import insituTelemetryImg from '../../assets/insitu_edge_telemetry_unit.jpg'
 
 function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
   const [sliderPos, setSliderPos] = useState(initialPos)
@@ -478,7 +479,8 @@ export default function Data({ setActiveTab }) {
           shortLabel: 'Edge Telemetry',
           subLabel: 'Hardware Microcontroller',
           tag: 'HARDWARE TELEMETRY',
-          img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+          img: insituTelemetryImg,
+          objectFit: 'contain',
           caption: 'Solar-powered ground station transmitting real-time field probe readings via 4G / LoRaWAN to cloud servers.'
         },
         {
@@ -852,8 +854,8 @@ export default function Data({ setActiveTab }) {
                     inset: 0,
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center',
+                    objectFit: currentView.objectFit || 'cover',
+                    objectPosition: currentView.objectPosition || 'center',
                     transition: 'opacity 0.35s ease'
                   }}
                   loading="eager"
@@ -942,7 +944,7 @@ export default function Data({ setActiveTab }) {
                             style={{
                               width: '100%',
                               height: '100%',
-                              objectFit: 'cover',
+                              objectFit: v.objectFit || 'cover',
                               opacity: isSelected ? 1 : 0.75,
                               transition: 'opacity 0.2s ease'
                             }}
