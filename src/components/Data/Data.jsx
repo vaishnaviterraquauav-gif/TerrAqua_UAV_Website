@@ -16,6 +16,7 @@ import airborneUavPlatformImg from '../../assets/airborne_uav_platform.jpg'
 import lidar3dElevationImg from '../../assets/lidar_3d_pointcloud_elevation.jpg'
 import planetaryEoImg from '../../assets/planetary_earth_observation.jpg'
 import insituTelemetryImg from '../../assets/insitu_edge_telemetry_unit.jpg'
+import krishizestSoilMoistureImg from '../../assets/krishizest_soil_moisture.jpg'
 
 function ComparisonCard({ beforeImg, afterImg, beforeLabel, afterLabel, caption, title, description, initialPos = 50, imagePosition = 'center' }) {
   const [sliderPos, setSliderPos] = useState(initialPos)
@@ -489,8 +490,9 @@ export default function Data({ setActiveTab }) {
           shortLabel: 'Soil Moisture',
           subLabel: 'Ground-Truth Calibration',
           tag: 'GROUND-TRUTH SOIL',
-          img: soilafterImg,
-          caption: 'Map layer showing exact soil moisture percentages across the parcel, calibrated against real in-ground probes.'
+          img: krishizestSoilMoistureImg,
+          objectFit: 'contain',
+          caption: 'Live KrishiZest IoT telemetry dashboard syncing in-situ field sensor readings (soil moisture 91%, temp, humidity) with real-time AI agronomic advisories.'
         },
         {
           id: 'iot-webgis',
@@ -842,7 +844,7 @@ export default function Data({ setActiveTab }) {
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'flex-end'
               }}>
                 {/* Background Image */}
                 <img
